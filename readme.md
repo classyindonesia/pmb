@@ -7,8 +7,11 @@
 [![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
 
  
- 
+
+## Sistem Informasi Pendaftaran Mahasiswa UNP Kediri
+
+Aplikasi yg menangani tentang pendaftaran dan pembayaran calon mahasiswa/mahasiswa baru
+
 ## Official Documentation
 
 Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
- 
