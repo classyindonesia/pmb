@@ -11,6 +11,12 @@
 
 
 
+      <li @if(isset($data_ref_global_home)) class="active" @endif>
+          <a href="{!! route('admin_ref.index') !!}"> <i class='fa fa-credit-card'></i> Data Referensi  </a>
+      </li>
+
+
+
  </ul>
 </nav>
 

@@ -21,5 +21,13 @@ class Action {
 	}
 
 
+	public static function rest_del($icon, $route_or_url, $id){
+		if($icon == false){
+			$icon = 'fa fa-times';
+		}
+		return view('helpers.action.rest_del', compact('icon', 'route_or_url', 'id'));
+	}
+
+
 
 }
