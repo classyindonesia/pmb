@@ -62,9 +62,10 @@ class RefGelombangController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
-	{
-		//
+	public function edit($id){
+		$ref_gelombang = Gelombang::findOrFail($id);
+		$ref_thn_ajaran = ThnAjaran::all();
+		return view('konten.backend.ref.ref_gelombang.popup.edit', compact('ref_gelombang', 'ref_thn_ajaran'));		
 	}
 
 	/**
@@ -73,9 +74,14 @@ class RefGelombangController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($id, CreateOrUpdateRefGelombang $request)
 	{
-		//
+		$o = Gelombang::findOrFail($id);
+		$o->ref_thn_ajaran_id = $request->ref_thn_ajaran_id;
+		$o->nama = $request->nama;
+		$o->biaya = $request->biaya;
+		$o->save();
+		return 'ok';
 	}
 
 	/**
@@ -84,9 +90,11 @@ class RefGelombangController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy($id, Request $request)
 	{
-		//
+		$o = Gelombang::findOrFail($id);
+		$o->delete();
+		return 'ok';
 	}
 
 }

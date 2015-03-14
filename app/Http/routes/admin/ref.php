@@ -1,5 +1,5 @@
 <?php
-get('data_ref', [
+get('backend/data_ref', [
 	'uses'	=> 'Backend\DataRefController@index',
 	'middleware'	=> 'hanya_admin',
 	'as'	=> 'admin_ref.index'
@@ -44,5 +44,19 @@ Route::group([ 'prefix' => 'backend', 'middleware' => 'hanya_admin'], function()
 			'destroy'	=> 'ref_gelombang.destroy'
 
 		]]);
+
+
+	Route::resource('ref_prodi', 'Backend\RefProdiController', 
+		['except' => 'show',
+		'names' => [
+			'index' 	=> 'admin_ref_prodi.index',
+			'create'	=> 'admin_ref_prodi.create',
+			'update'	=> 'admin_ref_prodi.update',
+			'store'		=> 'admin_ref_prodi.store',
+			'edit'		=> 'admin_ref_prodi.edit',
+			'destroy'	=> 'admin_ref_prodi.destroy'
+
+		]]);
+
 
 });
