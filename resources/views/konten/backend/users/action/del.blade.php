@@ -1,0 +1,1 @@
+{!! Action::del(false, route("admin_users.del"), $list->id); !!}
