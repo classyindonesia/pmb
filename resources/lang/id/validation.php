@@ -55,7 +55,7 @@ return [
 		"array"   => ":attribute diharuskan setidaknya :min items.",
 	],
 	"not_in"               => "The selected :attribute is invalid.",
-	"numeric"              => "The :attribute must be a number.",
+	"numeric"              => "atribut :attribute harus diisi dg angka.",
 	"regex"                => "The :attribute format is invalid.",
 	"required"             => ":attribute belum terisi.",
 	"required_if"          => "The :attribute field is required when :other is :value.",
@@ -67,7 +67,7 @@ return [
 	"size"                 => [
 		"numeric" => "The :attribute must be :size.",
 		"file"    => "The :attribute must be :size kilobytes.",
-		"string"  => "The :attribute must be :size characters.",
+		"string"  => "atribut :attribute  harus menggunakan :size karakter.",
 		"array"   => "The :attribute must contain :size items.",
 	],
 	"unique"               => ":attribute sudah pernah terdaftar.",

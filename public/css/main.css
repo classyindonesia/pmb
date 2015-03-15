@@ -12416,8 +12416,13 @@ Gradient Background colors
 }
 
 /* customize nav samping */
-/* link */
 
+
+
+/* link */
+/* title */
+/* navbar */
+/* 
 .navbar-default .navbar-nav > li > a {
     color: #fff;
 }    
@@ -12437,7 +12442,7 @@ Gradient Background colors
 }
 
 
-/* title */
+
 .navbar-default .navbar-brand {
     color: white;
 }
@@ -12446,7 +12451,7 @@ Gradient Background colors
     color: #ccc;
 }
 
-/* navbar */
+
 .navbar-default {
     background-color: #33414e;
     color : #fff;
@@ -12485,7 +12490,7 @@ Gradient Background colors
     color: #222;
  }
 
- 
+  */
 
 
 /* agar setiap elemen yg memakai class spin, langsung berputar */       

@@ -29,5 +29,10 @@ class Action {
 	}
 
 
+	public static function update_variable($init_id, $variable){
+		return view('helpers.action.tombol_update_variable', compact('init_id', 'variable'));
+	}
+
+
 
 }

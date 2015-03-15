@@ -199,6 +199,9 @@ return [
 		/* tambahan */
 		'Fungsi'	=> 'App\Helpers\Fungsi',
 		'Action'	=> 'App\Helpers\Action',
+		'SV' 		=> 'App\Helpers\SetupVariable',
+
+
 		'Form'		=> 'Illuminate\Html\FormFacade',
 		'HTML'		=> 'Illuminate\Html\HtmlFacade',	
 

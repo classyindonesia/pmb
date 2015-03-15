@@ -10,10 +10,28 @@
       </li>
 
 
+      <li @if(isset($pin_home)) class="active" @endif>
+          <a href="{!! route('admin_pin.index') !!}"> 
+              <i class='fa fa-qrcode'></i> Data PIN Pendaftaran 
+          </a>
+      </li>
+
+
 
       <li @if(isset($data_ref_global_home)) class="active" @endif>
           <a href="{!! route('admin_ref.index') !!}"> <i class='fa fa-credit-card'></i> Data Referensi  </a>
       </li>
+
+
+
+      <li @if(isset($config_home)) class="active" @endif>
+          <a href="{!! route('admin_config.index') !!}"> 
+              <i class='fa fa-wrench'></i> Config  
+          </a>
+      </li>
+
+
+
 
 
 

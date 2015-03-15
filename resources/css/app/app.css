@@ -12,8 +12,13 @@
 }
 
 /* customize nav samping */
-/* link */
 
+
+
+/* link */
+/* title */
+/* navbar */
+/* 
 .navbar-default .navbar-nav > li > a {
     color: #fff;
 }    
@@ -33,7 +38,7 @@
 }
 
 
-/* title */
+
 .navbar-default .navbar-brand {
     color: white;
 }
@@ -42,13 +47,14 @@
     color: #ccc;
 }
 
-/* navbar */
+
 .navbar-default {
     background-color: #33414e;
     color : #fff;
     border : 0px;
     margin-left: -2px;
   }
+  
  .navbar-default .navbar-nav > .open > a, 
 .navbar-default .navbar-nav > .open > a:hover, 
 .navbar-default .navbar-nav > .open > a:focus {
@@ -81,7 +87,7 @@
     color: #222;
  }
 
- 
+  */
 
 
 /* agar setiap elemen yg memakai class spin, langsung berputar */       

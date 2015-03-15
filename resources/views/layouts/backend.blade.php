@@ -9,6 +9,15 @@
 <script src="{{ elixir("js/main.js") }}"></script> 
 <link rel="stylesheet" href="{{ elixir("css/main.css") }}">
 
+<style type="text/css">
+.navbar-default {
+    background-color: #{!! SV::get('navbar_bg_color') !!};
+  }
+</style>
+
+
+@yield('script_tambahan')
+@yield('style_tambahan')
 
   </head>
   <body>
