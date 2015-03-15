@@ -16,6 +16,7 @@ require app_path('Http/routes/admin/pin.php');
 
 require app_path('Http/routes/admin/ref.php');
 require app_path('Http/routes/admin/config.php');
+require app_path('Http/routes/admin/api_akses.php');
  
 
 

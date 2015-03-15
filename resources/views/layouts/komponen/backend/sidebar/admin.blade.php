@@ -32,7 +32,11 @@
 
 
 
-
+      <li @if(isset($api_akses_home)) class="active" @endif>
+          <a href="{!! route('admin_api_akses.index') !!}"> 
+              <i class='fa fa-lock'></i> API Akses  
+          </a>
+      </li>
 
 
  </ul>

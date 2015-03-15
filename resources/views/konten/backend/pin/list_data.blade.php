@@ -1,7 +1,7 @@
 <table class="table table-bordered table-hover">
 	<thead>
 		<tr>
-			<th width='5%'>No</th>
+			<th class='text-center' width='5%'>No</th>
 			<th>PIN</th>
 			<th  width='16%'>Tgl Generate</th>
 			<th width='16%'>Status</th>
@@ -13,7 +13,7 @@
 <?php $no=$pin->firstItem(); ?>
 @foreach($pin as $list)
 		<tr>
-			<td>{!! $no !!}</td>
+			<td class='text-center'>{!! $no !!}</td>
 			<td> {!! $list->pin !!} </td>
 			<td> {!! Fungsi::date_to_tgl( date('Y-m-d', strtotime($list->created_at)) ) !!} </td>
 			<td> 

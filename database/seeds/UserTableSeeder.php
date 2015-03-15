@@ -54,6 +54,14 @@ class UserTableSeeder extends Seeder {
             UserLevel::create($data_insert);
         }
 
+        /* api akses */
+        $data = UserLevel::find(5);
+        if(count($data)<=0){
+            $data_insert = [
+                 'nama' => 'API Akses', 
+                  ];
+            UserLevel::create($data_insert);
+        }
 
 
 

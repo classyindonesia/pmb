@@ -23,11 +23,11 @@ class Pin extends Eloquent{
  	}
 
 
- 	private static function generate_key($length=6){
+ 	private static function generate_key($length=NULL){
 		$key = '';
 		list($usec, $sec) = explode(' ', microtime());
 		mt_srand((float) $sec + ((float) $usec * 100000));
-	   	$inputs = array_merge(range(1,9),range('A','H'), range('J', 'K'), range('M', 'N'), range('Q', 'Z'));
+	   	$inputs = array_merge(range(2,9),range('A','H'), range('J', 'K'), range('M', 'N'), range('Q', 'Z'));
 	   	for($i=0; $i<$length; $i++){
 	   		$get = $inputs[array_rand($inputs)];
 	   	    $key .= $get; 
@@ -36,8 +36,11 @@ class Pin extends Eloquent{
 		return $key; 		
  	}
 
-	public static function keygen(){
-		$key = self::generate_key();
+	public static function keygen($length=NULL){
+ 		if($length == NULL){
+ 			$length = 6;
+ 		}
+		$key = self::generate_key($length);
 		$check = self::check_key($key);
 		if($check == 1){ //jika sudah ada, maka generate ulang
 			$key = $this->generate_key();
