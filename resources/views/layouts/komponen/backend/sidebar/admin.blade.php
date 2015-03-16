@@ -39,6 +39,16 @@
       </li>
 
 
+
+      <li @if(isset($api_call_home)) class="active" @endif>
+          <a href="{!! route('admin_api_call.index') !!}"> 
+              <i class='fa fa-puzzle-piece'></i> API Call  
+          </a>
+      </li>
+
+
+
+
  </ul>
 </nav>
 
