@@ -1,6 +1,7 @@
 <?php namespace App\Helpers;
 
  use App\Models\Mst\ApiAkses;
+ use App\Models\Mst\ApiCall;
 class ApiAuth{
 
  
@@ -12,9 +13,21 @@ class ApiAuth{
 	}
 
 
-	public function response_wrong_api(){
+	public function response_wrong_key(){
 		$data =  ['response_code' => 401, 'pesan' => 'error, Unauthorized! API Key tidak valid!']; 
 		return response()->json($data, 401);
+	}
+
+
+	public function create_api_call($ip, $result, $nama, $mst_user_id){
+		$ac = new ApiCall;
+		$ac->ip = $ip;
+		$ac->result = $result;
+		$ac->mst_user_id = $mst_user_id;
+		$ac->nama = $nama;
+		$ac->save();
+
+		return $ac;
 	}
 
 
