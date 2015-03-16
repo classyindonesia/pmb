@@ -30,7 +30,9 @@
 					{!! Fungsi::date_to_tgl( date("Y-m-d", strtotime($list->tgl_pakai)) ) !!}
 				@endif 
 			</td>
-			<td>-</td>
+			<td class='text-center'>
+				{!! Action::rest_del(false, route("admin_pin.destroy", $list->id), $list->id); !!}
+			</td>
 		</tr>
 <?php $no++; ?>
 @endforeach

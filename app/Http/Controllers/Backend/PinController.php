@@ -23,7 +23,8 @@ class PinController extends Controller {
 		}else{
 			$pin = Pin::orderBy('id', 'DESC')->paginate(10);			
 		}
-		return view('konten.backend.pin.index', compact('pin'));
+		$list_api_home = true;
+		return view('konten.backend.pin.index', compact('pin', 'list_api_home'));
 	}
 
 
@@ -71,6 +72,21 @@ class PinController extends Controller {
 
 
 
+	public function statistik(){
+		$jml_terpakai = Pin::whereStatus(1)->count();
+		$jml_belum_dipakai = Pin::whereStatus(0)->count();
+		$jml_semua = Pin::count();
+		$api_statistik = true;
+		return view('konten.backend.pin.statistik', compact('jml_terpakai', 'jml_semua', 'jml_belum_dipakai', 'api_statistik'));
+	}
+
+
+
+	public function destroy(Request $request){
+		$o = Pin::findOrFail($request->id);
+		$o->delete();
+		return 'ok';
+	}
 
 
 

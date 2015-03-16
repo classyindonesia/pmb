@@ -20,6 +20,13 @@ get('backend/pin/create', [
 ]);
 
 
+get('backend/pin/statistik', [
+	'uses'			=> 'Backend\PinController@statistik',
+	'as'			=> 'admin_pin.statistik',
+	'middleware'	=> 'hanya_admin'
+]);
+
+
 post('backend/pin/store', [
 	'uses'			=> 'Backend\PinController@store',
 	'as'			=> 'admin_pin.store',
@@ -36,6 +43,13 @@ post('backend/pin/do_generate', [
 post('backend/pin/submit_search', [
 	'uses'			=> 'Backend\PinController@submit_search',
 	'as'			=> 'admin_pin.submit_search',
+	'middleware'	=> 'hanya_admin'
+]);
+
+
+delete('backend/pin/{id}/destroy', [
+	'uses'			=> 'Backend\PinController@destroy',
+	'as'			=> 'admin_pin.destroy',
 	'middleware'	=> 'hanya_admin'
 ]);
 

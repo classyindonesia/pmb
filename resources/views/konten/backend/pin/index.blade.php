@@ -10,6 +10,7 @@
  
 
 @section('konten_utama')
+	 @include('konten.backend.pin.komponen.nav_atas')
 
 	 @include('konten.backend.pin.form_pencarian')
 	 @include('konten.backend.pin.list_data')
