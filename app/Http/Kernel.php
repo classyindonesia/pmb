@@ -29,6 +29,7 @@ class Kernel extends HttpKernel {
 		'guest' => 'App\Http\Middleware\RedirectIfAuthenticated',
 		'csrf'		=> 'App\Http\Middleware\VerifyCsrfToken',
 		'hanya_admin'	=> 'App\Http\Middleware\AdminAkses',
+		'hanya_operator'	=> 'App\Http\Middleware\OperatorAkses',
 	];
 
 }

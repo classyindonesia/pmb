@@ -8,7 +8,9 @@ class ApiAuth{
 
 
 	public function check_api_key($api_key){
-		$check_api = ApiAkses::where('api_key', '=', $api_key)->first();
+		$check_api = ApiAkses::where('api_key', '=', $api_key)
+			->whereStatus(1)
+			->first();
 		return $check_api;
 	}
 

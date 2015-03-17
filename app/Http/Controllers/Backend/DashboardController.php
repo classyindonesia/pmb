@@ -10,7 +10,17 @@ class DashboardController extends Controller{
 
 
 	public function index(){
-		return view('konten.backend.dashboard.index');
+		$level = \Auth::user()->ref_user_level_id;
+		if($level == 1){
+			//level admin
+			return view('konten.backend.dashboard.index');
+		}elseif($level == 2){
+			//level web
+			return view('konten.backend.dashboard.index');			
+		}elseif($level == 3){
+			//level operator
+			return view('konten.backend.dashboard.operator.index');			
+		}
 	}
 
 

@@ -22,3 +22,5 @@ require app_path('Http/routes/admin/api_call.php');
  
 
 
+/* level operator */
+require app_path('Http/routes/operator/pendaftaran.php');

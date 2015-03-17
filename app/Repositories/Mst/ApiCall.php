@@ -6,15 +6,18 @@ class ApiCall{
 	public function search(){
 		$api_call = AC::with('mst_user')
 		->where('result', 'like', '%'.\Session::get('pencarian_api').'%')
+		->orderBy('id', 'DESC')
 		->paginate(10);			
 		if(count($api_call)<=0){		
 			$api_call = AC::with('mst_user')
 			->where('ip', 'like', '%'.\Session::get('pencarian_api').'%')
+			->orderBy('id', 'DESC')
 			->paginate(10);			
 		}
 		if(count($api_call)<=0){		
 			$api_call = AC::with('mst_user')
 			->where('nama', 'like', '%'.\Session::get('pencarian_api').'%')
+			->orderBy('id', 'DESC')
 			->paginate(10);			
 		}
 
