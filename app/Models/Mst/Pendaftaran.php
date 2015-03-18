@@ -34,19 +34,17 @@ class Pendaftaran extends Eloquent{
 
 
 
-	//format = [thn_ajaran_id].[kode_prodi].[no_urut]
+	//format = Tahun_Bln_Tgl_Nomor_Urut
+	//hasil = 1503250001
 	public function createNoPendaftaran($ref_prodi_id){
 	$thn_ajaran = SetupVariable::get('ref_thn_ajaran_id');
 	$prodi = Prodi::find($ref_prodi_id);
 
-	$no_urut_akhir = self::where('ref_prodi_id1', '=', $ref_prodi_id)
-				->where('ref_thn_ajaran_id', '=', $thn_ajaran)
-				->orderBy('id', 'DESC')
-				->first();
+	$no_urut_akhir = self::orderBy('id', 'DESC')->first();
 
 	if(count($no_urut_akhir)>0){
-		$pecah = explode(".", $no_urut_akhir->no_pendaftaran);		
-		$urut_akhir = $pecah[2]+1;
+		$urut_akhir = substr($no_urut_akhir->no_pendaftaran, 8, 11);
+		$urut_akhir = $urut_akhir+1;
 	}else{
 		$urut_akhir = 1;	
 	}
@@ -57,7 +55,7 @@ class Pendaftaran extends Eloquent{
     if($urut_akhir < 10000) $urut_akhir = '0'.$urut_akhir;
 
 
-    $no_pendaftaran = $thn_ajaran.'.'.$prodi->kode_prodi.'.'.$urut_akhir;
+    $no_pendaftaran = date('Ymd').$urut_akhir;
 
     return $no_pendaftaran;
 

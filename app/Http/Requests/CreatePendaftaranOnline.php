@@ -24,7 +24,7 @@ class CreatePendaftaranOnline extends Request {
 		return [
 			'nama' 				=> 'required',
 			'ref_sma_id' 		=> 'required',
-			'alamat_email'		=> 'required|email|unique:mst_pendaftaran'
+			'alamat_email'		=> 'required|email|unique:mst_pendaftaran',
 			'ref_prodi_id1' 	=> 'required',
 			'ref_prodi_id2' 	=> 'required',
 			'alamat'			=> 'required',

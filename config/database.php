@@ -57,12 +57,29 @@ return [
 			'host'      => env('DB_HOST', 'localhost'),
 			'database'  => env('DB_DATABASE', 'forge'),
 			'username'  => env('DB_USERNAME', 'forge'),
+			'port'  	=> env('DB_PORT', '3306'),
 			'password'  => env('DB_PASSWORD', ''),
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
 			'strict'    => false,
 		],
+
+		'sms' => [
+			'driver'    => 'mysql',
+			'host'      => env('DB_HOST_SMS', 'localhost'),
+			'database'  => env('DB_DATABASE_SMS', 'forge'),
+			'username'  => env('DB_USERNAME_SMS', 'forge'),
+			'password'  => env('DB_PASSWORD_SMS', ''),
+			'port'  	=> env('DB_PORT_SMS', '3306'),
+			'charset'   => 'utf8',
+			'collation' => 'utf8_unicode_ci',
+			'prefix'    => '',
+			'strict'    => false,
+		],
+
+
+
 
 		'pgsql' => [
 			'driver'   => 'pgsql',
