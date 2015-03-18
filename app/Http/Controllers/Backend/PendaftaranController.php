@@ -17,6 +17,11 @@ use App\Models\Mst\User;
 use App\Helpers\SetupVariable;
 use App\Helpers\KirimSms;
 
+/* commands */
+use App\Commands\KirimEmailPendaftaran;
+
+/* facades */
+use Queue, Auth;
 
 class PendaftaranController extends Controller {
 
@@ -34,10 +39,23 @@ class PendaftaranController extends Controller {
 	}
 
 
- 
-	public function handle_sms($mst_pendaftaran, $email){
+	public function handle_email($mst_pendaftaran, $password){
 
-		$password = date('dmY',strtotime($mst_pendaftaran->tgl_lahir)) ;
+		$subject = 'Pendaftaran Mahasiswa Baru | UNP Kediri';
+		$email = $mst_pendaftaran->alamat_email;
+		$nama = $mst_pendaftaran->nama;
+		$user_id = Auth::user()->id;
+
+	 	Queue::push(new KirimEmailPendaftaran($subject, $email, $nama, $user_id, $password) );
+	 	return 'ok';
+
+	}
+
+ 
+	public function handle_sms($mst_pendaftaran, $password){
+
+		$password = $password;
+		$email = $mst_pendaftaran->alamat_email;
 		$nama = $mst_pendaftaran->nama;
 		$no_pendaftaran = $mst_pendaftaran->no_pendaftaran;
 		$no_hp = $mst_pendaftaran->no_hp;
@@ -49,11 +67,11 @@ class PendaftaranController extends Controller {
 
 
 
-	 public function create_user_camaba($mst_pendaftaran, $email){
+	 public function create_user_camaba($mst_pendaftaran, $password){
 	 	$u = new User;
 	 	$u->nama = $mst_pendaftaran->nama;
-	 	$u->email = $email;
-	 	$u->password = date('dmY',strtotime($mst_pendaftaran->tgl_lahir));
+	 	$u->email = $mst_pendaftaran->alamat_email;
+	 	$u->password = $password;
 	 	$u->ref_user_level_id = 4;
 	 	$u->save();
 
@@ -83,14 +101,17 @@ class PendaftaranController extends Controller {
 		$o->ref_thn_ajaran_id = $sv->get('ref_thn_ajaran_id');
 		$o->save();
 
+		$password = date('dmY',strtotime($o->tgl_lahir));
 
 		//create user
-		$this->create_user_camaba($o, $request->alamat_email);
+		$this->create_user_camaba($o, $password);
 
 	 	//kirim sms
-	 	$this->handle_sms($o, $request->alamat_email);
+	 	$this->handle_sms($o, $password);
 
-
+	 	//kirim email
+	 	$this->handle_email($o, $password);
+ 
 		return 'ok';
 	}
 

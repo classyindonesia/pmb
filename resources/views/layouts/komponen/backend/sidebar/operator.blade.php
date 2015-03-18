@@ -6,7 +6,7 @@
       </li>
 
        <li @if(isset($pendaftaran_home)) class="active" @endif>
-          <a href="{!! route('operator_pendaftaran.index') !!}"> <i class='fa fa-street-view'></i> Pendaftaran  </a>
+          <a href="{!! route('operator_pendaftaran.index') !!}"> <i class='fa fa-street-view'></i> Pendaftaran Offline </a>
       </li>
 
  

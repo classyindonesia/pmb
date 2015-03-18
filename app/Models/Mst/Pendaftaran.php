@@ -43,8 +43,20 @@ class Pendaftaran extends Eloquent{
 	$no_urut_akhir = self::orderBy('id', 'DESC')->first();
 
 	if(count($no_urut_akhir)>0){
-		$urut_akhir = substr($no_urut_akhir->no_pendaftaran, 8, 11);
-		$urut_akhir = $urut_akhir+1;
+		//handle kondisi jika sudah ganti thn
+		$thn_kode = substr($no_urut_akhir->no_pendaftaran, 0, 4);
+		$thn_skrg = date('Y');
+		if($thn_kode != $thn_skrg){
+			$thn =  $thn_skrg;
+			$urut_akhir = 0;
+			$urut_akhir = $urut_akhir+1;
+		}else{
+			$thn =  substr($no_urut_akhir->no_pendaftaran, 0,4);
+			$urut_akhir = substr($no_urut_akhir->no_pendaftaran, 8, 11);
+			$urut_akhir = $urut_akhir+1;			
+		}
+
+
 	}else{
 		$urut_akhir = 1;	
 	}

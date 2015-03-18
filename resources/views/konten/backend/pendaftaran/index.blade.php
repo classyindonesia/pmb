@@ -1,7 +1,7 @@
 @extends('layouts.backend')
 
 @section('judul_header')
-   <h1 class="title_header"><i class='fa fa-street-view'></i>  Pendaftaran Calon Mahasiswa Baru </h1>
+   <h1 class="title_header"><i class='fa fa-street-view'></i>  Pendaftaran Offline </h1>
 @endsection
 
 
