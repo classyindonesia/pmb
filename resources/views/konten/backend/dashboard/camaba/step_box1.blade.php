@@ -1,4 +1,4 @@
-<div class="col-md-4 col-xs-4 animated fadeIn" >
+<div class="col-md-3 col-xs-3 animated fadeIn" >
     <!-- Primary tile -->
     <div class="box box-solid bg-teal">
         <div class="box-header ">

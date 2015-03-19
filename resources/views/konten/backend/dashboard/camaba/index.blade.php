@@ -8,6 +8,7 @@
 
   @include('konten.backend.dashboard.camaba.step_box1')
   @include('konten.backend.dashboard.camaba.step_box2')
+  @include('konten.backend.dashboard.camaba.step_box3')
 
 
 @endsection

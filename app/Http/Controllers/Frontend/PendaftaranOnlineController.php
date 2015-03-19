@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 /* models */
 use App\Models\Mst\Pin;
 use App\Models\Mst\User;
-use App\Models\Mst\PendaftaranOnline;
+use App\Models\Mst\Pendaftaran;
 
 
 /* request */
@@ -90,7 +90,7 @@ class PendaftaranOnlineController extends Controller {
 		$password = $password;
 		$email = $mst_pendaftaran->alamat_email;
 		$nama = $mst_pendaftaran->nama;
-		$no_pendaftaran = 0;
+		$no_pendaftaran = $mst_pendaftaran->no_pendaftaran;
 		$no_hp = $mst_pendaftaran->no_hp;
 
 		$sms = new KirimSms;
@@ -123,10 +123,9 @@ class PendaftaranOnlineController extends Controller {
 	public function submit_pendaftaran(SubmitPendaftaranOnline $request, Pin $pin){
 
 		//insert ke data pendaftaran utama
-		$o = new PendaftaranOnline;
-
+		$o = new Pendaftaran;
+		$o->no_pendaftaran = $o->createNoPendaftaran();
 		$o->nama = $request->nama;	
-		$o->pin = $request->pin;	
 		$o->alamat_email 	= $request->alamat_email;
 		$o->no_hp = $request->no_hp;
 		$o->save();

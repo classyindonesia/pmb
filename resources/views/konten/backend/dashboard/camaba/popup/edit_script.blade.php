@@ -24,14 +24,12 @@ thn_lulus = $('#thn_lulus').val();
 no_hp = $('#no_hp').val();
 ref_gelombang_id = $('#ref_gelombang_id').val();
 alamat_email = $('#alamat_email').val();
-jenis_daftar = '{!! $jenis_daftar !!}';
-
+ 
  
 
 form_data ={
 	nama 				: nama,
-	jenis_daftar		: jenis_daftar,
-	ref_sma_id 			: ref_sma_id,
+ 	ref_sma_id 			: ref_sma_id,
  	alamat_email		: alamat_email,
 	alamat 				: alamat,
 	tempat_lahir 		: tempat_lahir,

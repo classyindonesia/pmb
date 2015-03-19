@@ -22,13 +22,7 @@ class DashboardController extends Controller{
 	private function level_camaba(){
 			$b = new PendaftaranRepository;
 			$biodata = $b->getByEmail(Auth::user()->email);
-			$jenis_daftar = 0; //offline
-			if(count($biodata)<=0){
-				$p_online = new PendaftaranOnlineRepository;
-				$biodata = $p_online->getByEmail(Auth::user()->email);
-				$jenis_daftar = 1; //online
-			}
-			return view('konten.backend.dashboard.camaba.index', compact('biodata', 'jenis_daftar'));			
+ 			return view('konten.backend.dashboard.camaba.index', compact('biodata', 'jenis_daftar'));			
 	}
 
 

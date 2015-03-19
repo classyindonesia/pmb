@@ -1,4 +1,4 @@
-<div class="col-md-4 col-xs-4 animated fadeIn" >
+<div class="col-md-3 col-xs-3 animated fadeIn" >
     <!-- Primary tile -->
     <div class="box box-solid bg-green">
         <div class="box-header ">
@@ -9,19 +9,11 @@
         </div>
         <div class="box-body">
             <p>
+ 
 
-
-
-            	@if( $jenis_daftar == 1)
-
-                Pilih Program Studi                 <a class='btn btn-info pull-right' id='edit_prodi' class='text-danger' href="#"> <i class='fa fa-pencil-square'></i> edit data</a>
-
-
-                @else
-
-                <b>Program Studi Sudah Tervalidasi</b>
-
-            	@endif
+            Pilih Program Studi       
+            <i class='fa fa-pencil-square pull-right' style='font-size:30px;cursor:pointer;' id='edit_prodi'></i>  
+ 
 
 
                 @if($biodata->ref_prodi_id1 != 0)

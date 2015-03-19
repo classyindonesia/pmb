@@ -66,7 +66,6 @@ if(ref_prodi_id1 != ''){
  
 
 form_data ={
-	jenis_daftar : '{!! $jenis_daftar !!}',
 	ref_prodi_id2 : ref_prodi_id2,
 	ref_prodi_id1 : ref_prodi_id1, 
 	id : '{!! $b->id !!}',

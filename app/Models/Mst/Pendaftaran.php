@@ -36,10 +36,9 @@ class Pendaftaran extends Eloquent{
 
 	//format = Tahun_Bln_Tgl_Nomor_Urut
 	//hasil = 1503250001
-	public function createNoPendaftaran($ref_prodi_id){
+	public function createNoPendaftaran(){
 	$thn_ajaran = SetupVariable::get('ref_thn_ajaran_id');
-	$prodi = Prodi::find($ref_prodi_id);
-
+ 
 	$no_urut_akhir = self::orderBy('id', 'DESC')->first();
 
 	if(count($no_urut_akhir)>0){

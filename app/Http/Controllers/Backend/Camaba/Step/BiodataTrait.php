@@ -1,0 +1,52 @@
+<?php namespace App\Http\Controllers\Backend\Camaba\Step;
+
+
+/* repo */
+use App\Repositories\Mst\PendaftaranRepository;
+use App\Repositories\Ref\Prodi;
+use App\Repositories\Ref\Sma;
+
+/* requests */
+use App\Http\Requests\UpdateBiodataCamaba;
+
+/* models */
+use App\Models\Mst\Pendaftaran;
+
+/* facades */
+use Auth;
+
+
+trait BiodataTrait{
+
+
+
+
+	public function edit_biodata(PendaftaranRepository $biodata, Prodi $prodi, Sma $sma){
+		$prodi = $prodi->getAll();
+		$sma = $sma->getAll();
+		$b = $biodata->getByEmail(Auth::user()->email);
+		return view('konten.backend.dashboard.camaba.popup.edit_biodata', compact('b', 'prodi', 'sma'));
+	}
+
+
+	public function update_biodata(UpdateBiodataCamaba $request){
+ 
+		$o = Pendaftaran::find($request->id);  
+
+		$o->alamat = $request->alamat;
+		$o->nama = $request->nama;
+		$o->no_hp = $request->no_hp;
+		$o->no_ijazah = $request->no_ijazah;
+		$o->ref_sma_id = $request->ref_sma_id;
+		$o->tempat_lahir = $request->tempat_lahir;
+		$o->tgl_lahir = $request->tgl_lahir;
+		$o->thn_lulus = $request->thn_lulus;
+		$o->save();
+		return $o;
+	}
+
+
+
+
+
+}

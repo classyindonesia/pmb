@@ -147,6 +147,7 @@ return [
 		'Illuminate\Html\HtmlServiceProvider',
 
 		'Laravel\Socialite\SocialiteServiceProvider',
+		'Intervention\Image\ImageServiceProvider',
 
 	],
 
@@ -206,6 +207,7 @@ return [
 		'HTML'		=> 'Illuminate\Html\HtmlFacade',	
 
 		'Socialize' => 'Laravel\Socialite\Facades\Socialite',	
+		'Image' 	=> 'Intervention\Image\Facades\Image',
 
 	],
 

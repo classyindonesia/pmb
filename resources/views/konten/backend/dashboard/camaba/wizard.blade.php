@@ -12,9 +12,17 @@
             <p>Pilih Program Studi</p>
         </div>
 
+
         <div class="stepwizard-step">
             <button id='tahap3' class="btn btn-primary btn-circle" disabled="disabled"> 3</button>
-             <p>Upload Berkas</p>
+             <p>Upload Foto</p>
+        </div>
+
+
+
+        <div class="stepwizard-step">
+            <button id='tahap4' class="btn btn-primary btn-circle" disabled="disabled"> 4</button>
+             <p>Upload Berkas Tambahan</p>
         </div>
 
 
