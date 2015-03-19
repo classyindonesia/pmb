@@ -5,6 +5,7 @@ require app_path('Http/routes/password.php');
 
 /* public */
 require app_path('Http/routes/public/home.php');
+require app_path('Http/routes/public/pendaftaran_online.php');
 
 
 
@@ -24,3 +25,8 @@ require app_path('Http/routes/admin/api_call.php');
 
 /* level operator */
 require app_path('Http/routes/operator/pendaftaran.php');
+
+
+
+/* level camaba */
+require app_path('Http/routes/camaba/camaba.php');

@@ -18,6 +18,12 @@ class SetupVariableSeeder extends Seeder {
         if(count($data)<=0) mSV::create($data_insert);
 
 
+        $data = mSV::where('variable', 'ref_gelombang_id')->first();
+        $data_insert= ['variable' => 'ref_gelombang_id', 'value' => 1, 'keterangan' => 'gelombang utk pmb online skrg dipakai'];
+        if(count($data)<=0) mSV::create($data_insert);
+
+
+
     }
 
     

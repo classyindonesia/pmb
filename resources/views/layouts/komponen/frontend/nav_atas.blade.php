@@ -16,9 +16,19 @@
 
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/"> <i class='fa fa-home'></i> Home</a></li>
 
+            <li @if(isset($frontend_home)) class="active" @endif >
+                <a href="{!! route('home.index') !!}"> 
+                  <i class='fa fa-home'></i> Home
+                </a>
+              </li>            
+ 
 
+            <li @if(isset($pendaftaran_online_home)) class="active" @endif >
+                <a href="{!! route('pendaftaran_online.index') !!}"> 
+                  <i class='fa fa-users'></i> Pendaftaran Online
+                </a>
+              </li>
 
             
 

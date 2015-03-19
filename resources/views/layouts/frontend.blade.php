@@ -11,7 +11,11 @@
 <script src="{{ elixir("js/main.js") }}"></script> 
 <link rel="stylesheet" href="{{ elixir("css/main.css") }}">
 
- 
+ <style type="text/css">
+.navbar-default {
+    background-color: #{!! SV::get('navbar_bg_color') !!};
+  }
+</style>
 
 @yield('style_tambahan')
  
@@ -25,6 +29,7 @@
  
 
 @include('layouts.komponen.frontend.nav_atas')
+@include('layouts.komponen.backend.modal')
 
 
     <div class='container animated fadeIn'>

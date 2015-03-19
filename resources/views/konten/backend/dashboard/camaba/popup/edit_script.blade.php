@@ -1,4 +1,15 @@
 <script type="text/javascript">
+
+$('#pesan').click(function(){
+
+	$('#pesan').fadeOut('slow', function(){
+		$('#pesan').html('')
+			.fadeIn()
+			.removeClass('alert alert-danger animated shake');
+	});
+})
+
+
 $('#simpan').click(function(){
 	$('#pesan').removeClass('alert alert-danger animated shake').html('');
 nama = $('#nama').val();
@@ -13,33 +24,32 @@ thn_lulus = $('#thn_lulus').val();
 no_hp = $('#no_hp').val();
 ref_gelombang_id = $('#ref_gelombang_id').val();
 alamat_email = $('#alamat_email').val();
+jenis_daftar = '{!! $jenis_daftar !!}';
 
  
 
 form_data ={
 	nama 				: nama,
+	jenis_daftar		: jenis_daftar,
 	ref_sma_id 			: ref_sma_id,
-	ref_prodi_id1 		:  ref_prodi_id1,
-	ref_prodi_id2 		: ref_prodi_id2,
-	alamat_email		: alamat_email,
+ 	alamat_email		: alamat_email,
 	alamat 				: alamat,
 	tempat_lahir 		: tempat_lahir,
 	tgl_lahir 			: tgl_lahir,
 	no_hp 				: no_hp,
+	id 					: '{!! $b->id !!}',
 	no_ijazah 			: no_ijazah,
 	thn_lulus 			: thn_lulus,
-	ref_gelombang_id	:ref_gelombang_id,
-
+ 
  	_token : '{!! csrf_token() !!}'
 }
 $('#simpan').attr('disabled', 'disabled');
 	$.ajax({
-		url : '{{ URL::route("operator_pendaftaran.store") }}',
+		url : '{{ URL::route("camaba.update_biodata") }}',
 		data : form_data,
 		type : 'post',
 		error:function(xhr, status, error){
-			$('#myModal').modal('show');
-			$('.modal-body').html('<div id="pesan"></div>')
+ 
 
 			$('#simpan').removeAttr('disabled');
 	 	$('#pesan').addClass('alert alert-danger animated shake').html('<b>Error : </b><br>');
