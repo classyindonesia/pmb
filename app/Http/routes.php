@@ -30,3 +30,5 @@ require app_path('Http/routes/operator/pendaftaran.php');
 
 /* level camaba */
 require app_path('Http/routes/camaba/camaba.php');
+require app_path('Http/routes/camaba/validasi_pendaftaran.php');
+

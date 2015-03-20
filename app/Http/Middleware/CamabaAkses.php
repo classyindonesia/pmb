@@ -3,8 +3,8 @@
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
 
-class OperatorAkses {
- 
+class CamabaAkses {
+
 	protected $auth;
  
 	public function __construct(Guard $auth)
@@ -14,7 +14,6 @@ class OperatorAkses {
  
 	public function handle($request, Closure $next)
 	{
-
 		if ($this->auth->guest())
 		{
 			if ($request->ajax())
@@ -27,9 +26,9 @@ class OperatorAkses {
 			}
 		}
 
-		if(\Auth::user()->ref_user_level_id != 3){
+		if(\Auth::user()->ref_user_level_id != 4){
 			abort(404);
-		}	
+		}			
 		return $next($request);
 	}
 

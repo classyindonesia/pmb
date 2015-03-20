@@ -6,9 +6,10 @@
 
   @include('konten.backend.dashboard.camaba.wizard')
 
-  @include('konten.backend.dashboard.camaba.step_box1')
-  @include('konten.backend.dashboard.camaba.step_box2')
-  @include('konten.backend.dashboard.camaba.step_box3')
+  @include($base_view_index.'step_box1')
+  @include($base_view_index.'step_box2')
+  @include($base_view_index.'step_box3')
+  @include($base_view_index.'step_box4')
 
 
 @endsection

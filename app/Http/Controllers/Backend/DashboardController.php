@@ -20,9 +20,11 @@ class DashboardController extends Controller{
 
 
 	private function level_camaba(){
+	  $base_view_index = 'konten.backend.dashboard.camaba.';
 			$b = new PendaftaranRepository;
 			$biodata = $b->getByEmail(Auth::user()->email);
- 			return view('konten.backend.dashboard.camaba.index', compact('biodata', 'jenis_daftar'));			
+ 			return view('konten.backend.dashboard.camaba.index', 
+ 				compact('biodata', 'jenis_daftar', 'base_view_index'));			
 	}
 
 

@@ -2,8 +2,11 @@
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
 
+
+/* models */
 use App\Helpers\SetupVariable;
-use App\Models\Ref\Prodi;
+ 
+
 
 class Pendaftaran extends Eloquent{
 	protected $table = 'mst_pendaftaran';
@@ -30,6 +33,17 @@ class Pendaftaran extends Eloquent{
 	}
 
 
+	public function ref_sma(){
+		return $this->belongsTo('App\Models\Ref\Sma', 'ref_sma_id');
+	}
+
+	public function ref_prodi1(){
+		return $this->belongsTo('App\Models\Ref\Prodi', 'ref_prodi_id1');
+	}
+
+	public function ref_prodi2(){
+		return $this->belongsTo('App\Models\Ref\Prodi', 'ref_prodi_id2');
+	}
 
 
 

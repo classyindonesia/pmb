@@ -7,3 +7,6 @@
 @elseif(Auth::user()->ref_user_level_id == 4)
 	@include('layouts.komponen.backend.sidebar.camaba')			
 @endif
+
+
+<hr class='hidden-md hidden-lg'>

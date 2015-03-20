@@ -37,6 +37,7 @@ elixir(function(mix) {
          "plugins/pace/pace.css",
 
          "app/box.css",
+         "app/tombol_upload_file.css",
          "app/wizard.css",
          "app/sidebar.css",
          "app/app.css",

@@ -6,6 +6,11 @@
       </li>
  
  
+      <li @if(isset($validasi_pendaftaran_home)) class="active" @endif>
+          <a href="{!! route('validasi_pendaftaran.index') !!}"> <i class='fa fa-check-square-o'></i> Validasi Pendaftaran  </a>
+      </li>
+
+
 
  </ul>
 </nav>
