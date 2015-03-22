@@ -148,7 +148,8 @@ return [
 
 		'Laravel\Socialite\SocialiteServiceProvider',
 		'Intervention\Image\ImageServiceProvider',
-
+		'SimpleSoftwareIO\QrCode\QrCodeServiceProvider'
+ 
 	],
 
 	/*
@@ -208,7 +209,8 @@ return [
 
 		'Socialize' => 'Laravel\Socialite\Facades\Socialite',	
 		'Image' 	=> 'Intervention\Image\Facades\Image',
-
+		'QrCode' 	=> 'SimpleSoftwareIO\QrCode\Facades\QrCode'
+ 
 	],
 
 ];
