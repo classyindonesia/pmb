@@ -21,6 +21,13 @@
 		<td>Jumlah PIN Belum Terpakai</td>
 		<td>{!! $jml_belum_dipakai !!}</td>
 	</tr>
+
+	<tr>
+		<td>Jumlah PIN yg sdh diambil</td>
+		<td>{!! $jml_diambil !!}</td>
+	</tr>
+
+
 	<tr>
 		<td>Jumlah semua PIN</td>
 		<td>{!! $jml_semua !!}</td>

@@ -11,7 +11,9 @@
             <p>
 
 
-
+@if($biodata->is_valid == 0) 
+    <i id='edit_biodata' class='fa fa-pencil-square pull-right' style='font-size:30px;cursor:pointer;'></i>
+@endif
             	@if(
             	$biodata->alamat == '' || 
             	$biodata->tgl_lahir == '0000-00-00' || 
@@ -22,8 +24,8 @@
             	)
 
                 biodata utama masih kurang lengkap <br>
+ 
 
-            	<a id='edit_biodata' class='text-danger' href="#">lengkapi di sini</a>
                 @else
                 <script type="text/javascript">
                 $('#tahap1').html('<i class="fa fa-check"> </i>');

@@ -76,8 +76,10 @@ class PinController extends Controller {
 		$jml_terpakai = Pin::whereStatus(1)->count();
 		$jml_belum_dipakai = Pin::whereStatus(0)->count();
 		$jml_semua = Pin::count();
+		$jml_diambil = Pin::whereDiambil(1)->count();
 		$api_statistik = true;
-		return view('konten.backend.pin.statistik', compact('jml_terpakai', 'jml_semua', 'jml_belum_dipakai', 'api_statistik'));
+		return view('konten.backend.pin.statistik', 
+			compact('jml_terpakai', 'jml_semua', 'jml_belum_dipakai', 'api_statistik', 'jml_diambil'));
 	}
 
 

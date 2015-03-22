@@ -25,6 +25,7 @@ trait BiodataTrait{
 		$prodi = $prodi->getAll();
 		$sma = $sma->getAll();
 		$b = $biodata->getByEmail(Auth::user()->email);
+		if($b->is_valid == 1) abort(404);
 		return view('konten.backend.dashboard.camaba.popup.edit_biodata', compact('b', 'prodi', 'sma'));
 	}
 
@@ -32,6 +33,8 @@ trait BiodataTrait{
 	public function update_biodata(UpdateBiodataCamaba $request){
  
 		$o = Pendaftaran::find($request->id);  
+
+		if($o->is_valid == 1) abort(404);
 
 		$o->alamat = $request->alamat;
 		$o->nama = $request->nama;

@@ -26,4 +26,20 @@ class KirimSms{
 	}
 
 
+	public function createUserNotifValidasi($no_pendaftaran, $nama, $no_hp){
+		$pesan = 'Pendaftaran Online PMB UNP Kediri oleh '.$nama.', 
+		telah berhasil melakukan validasi, nomor pendaftaran anda adalah : '.$no_pendaftaran;	
+
+		$s = new Sms;
+		$s->kode_pendaftaran = $no_pendaftaran;
+		$s->no_hp = $no_hp;
+		$s->pesan = $pesan;
+		$s->statusKirim = 0;
+		$s->save();
+
+		return 'ok';
+					
+	}
+
+
 }

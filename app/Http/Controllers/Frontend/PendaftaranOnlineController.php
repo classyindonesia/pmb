@@ -1,34 +1,17 @@
 <?php namespace App\Http\Controllers\Frontend;
 
-use App\Http\Requests;
+use App\Commands\KirimEmailPendaftaran;
+use App\Helpers\KirimSms;
+use App\Helpers\SetupVariable;
 use App\Http\Controllers\Controller;
-
-use Illuminate\Http\Request;
-
-
-/* models */
+use App\Http\Requests;
+use App\Http\Requests\Frontend\SubmitPendaftaranOnline;
+use App\Models\Mst\Pendaftaran;
 use App\Models\Mst\Pin;
 use App\Models\Mst\User;
-use App\Models\Mst\Pendaftaran;
-
-
-/* request */
-use App\Http\Requests\Frontend\SubmitPendaftaranOnline;
-
-/* repositories */
 use App\Repositories\Mst\PinRepository;
-
-
-
-/* commands */
-use App\Commands\KirimEmailPendaftaran;
-
-/* facades */
+use Illuminate\Http\Request;
 use Queue, Auth;
-
-
-/* helpers */
-use App\Helpers\KirimSms;
 
 
 class PendaftaranOnlineController extends Controller {
@@ -120,7 +103,7 @@ class PendaftaranOnlineController extends Controller {
 	}
 
 
-	public function submit_pendaftaran(SubmitPendaftaranOnline $request, Pin $pin){
+	public function submit_pendaftaran(SubmitPendaftaranOnline $request, Pin $pin, SetupVariable $sv){
 
 		//insert ke data pendaftaran utama
 		$o = new Pendaftaran;
@@ -128,6 +111,8 @@ class PendaftaranOnlineController extends Controller {
 		$o->nama = $request->nama;	
 		$o->alamat_email 	= $request->alamat_email;
 		$o->no_hp = $request->no_hp;
+		$o->ref_gelombang_id = $sv->get('ref_gelombang_id');
+		$o->ref_thn_ajaran_id = $sv->get('ref_thn_ajaran_id');
 		$o->save();
 
 

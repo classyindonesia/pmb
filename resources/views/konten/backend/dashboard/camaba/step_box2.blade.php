@@ -11,8 +11,10 @@
             <p>
  
 
-            Pilih Program Studi       
-            <i class='fa fa-pencil-square pull-right' style='font-size:30px;cursor:pointer;' id='edit_prodi'></i>  
+            Pilih Program Studi   
+            @if($biodata->is_valid == 0)     
+                <i class='fa fa-pencil-square pull-right' style='font-size:30px;cursor:pointer;' id='edit_prodi'></i>  
+            @endif
  
 
 

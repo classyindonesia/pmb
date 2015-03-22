@@ -9,8 +9,9 @@
         </div>
         <div class="box-body">
             <p>
+            @if($biodata->is_valid == 0) 
               <i id='upload_berkas' style='font-size:30px;cursor:pointer;' class='fa fa-cloud-upload pull-right'></i>  
-
+              @endif
 
             Upload Berkas   
  

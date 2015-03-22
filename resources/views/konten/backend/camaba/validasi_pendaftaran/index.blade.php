@@ -2,17 +2,43 @@
 
 @section('konten_utama')
 
- <div class='col-md-6'>
-	@include($base_view.'biodata')
- </div>
- <div class='col-md-6'>
-	@include($base_view.'data_akademik')
- </div>
+@if($b->is_valid == 1)
+	 <div class='col-md-12'>
+		@include($base_view.'no_pendaftaran')
+	 </div>
+@endif
+	 <div class='col-md-6'>
+		@include($base_view.'biodata')
+	 </div>
+	 <div class='col-md-6'>
+		@include($base_view.'data_akademik')
+	 </div>
 
-<div class='col-md-12'>
-	@include($base_view.'info')
-	@include($base_view.'tombol_validasi')
- </div>
+
+	 <div class='col-md-12'>
+	<hr>
+	 	 </div>
+
+	 <div class='col-md-6'>
+		@include($base_view.'foto')
+	 </div>
+
+	 <div class='col-md-6'>
+		@include($base_view.'file_berkas')
+	 </div>
+
+	<div class='col-md-12'>
+	<hr>
+		@if($b->is_valid == 0)
+				@include($base_view.'info')
+				@include($base_view.'tombol_validasi')
+
+		@else
+			<div class='alert alert-success'>
+				<h1> <i class='fa fa-check'></i> data telah tervalidasi! </h1>
+			</div>
+		@endif
+	</div>
 
 @endsection
 

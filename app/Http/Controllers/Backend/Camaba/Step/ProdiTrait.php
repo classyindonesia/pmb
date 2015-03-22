@@ -20,12 +20,17 @@ trait ProdiTrait{
 	public function edit_prodi(PendaftaranRepository $biodata, Prodi $prodi, Sma $sma){
 		$prodi = $prodi->getAll();
 		$b = $biodata->getByEmail(Auth::user()->email);
+
+		if($b->is_valid == 1) abort(404);
+
 		return view('konten.backend.dashboard.camaba.popup.edit_prodi', compact('b', 'prodi'));
 	}
 
 
 	public function update_prodi(updateProdiCamaba $request){
 		$o = Pendaftaran::find($request->id); 
+		if($o->is_valid == 1) abort(404);
+
 		$o->ref_prodi_id1 = $request->ref_prodi_id1; 
 		$o->save();
 		return $o;

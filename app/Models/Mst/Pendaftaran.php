@@ -68,8 +68,6 @@ class Pendaftaran extends Eloquent{
 			$urut_akhir = substr($no_urut_akhir->no_pendaftaran, 8, 11);
 			$urut_akhir = $urut_akhir+1;			
 		}
-
-
 	}else{
 		$urut_akhir = 1;	
 	}
@@ -77,13 +75,9 @@ class Pendaftaran extends Eloquent{
     if($urut_akhir < 10) $urut_akhir = '0'.$urut_akhir;
     if($urut_akhir < 100) $urut_akhir = '0'.$urut_akhir;
     if($urut_akhir < 1000) $urut_akhir = '0'.$urut_akhir;
-    if($urut_akhir < 10000) $urut_akhir = '0'.$urut_akhir;
-
 
     $no_pendaftaran = date('Ymd').$urut_akhir;
-
     return $no_pendaftaran;
-
 	}
 
  
