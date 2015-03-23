@@ -1,11 +1,10 @@
 <?php namespace App\Http\Controllers\Backend;
 
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
-use Illuminate\Http\Request;
-
+use App\Http\Requests;
+use App\Models\Ref\ThnAjaran;
 use App\Models\SetupVariable;
+use Illuminate\Http\Request;
 
 
 class ConfigController extends Controller {
@@ -18,7 +17,8 @@ class ConfigController extends Controller {
 
  
 	public function index(){
-		return view('konten.backend.config.index');		
+		$thn_ajaran = \Fungsi::get_dropdown(ThnAjaran::all(), 'thn ajaran');
+		return view('konten.backend.config.index', compact('thn_ajaran'));		
 	}
 
 
