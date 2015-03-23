@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
+use App\Models\Ref\Gelombang;
 use App\Models\Ref\ThnAjaran;
 use App\Models\SetupVariable;
 use Illuminate\Http\Request;
@@ -18,7 +19,8 @@ class ConfigController extends Controller {
  
 	public function index(){
 		$thn_ajaran = \Fungsi::get_dropdown(ThnAjaran::all(), 'thn ajaran');
-		return view('konten.backend.config.index', compact('thn_ajaran'));		
+		$ref_gelombang = \Fungsi::get_dropdown(Gelombang::all(), 'Gelombang');
+		return view('konten.backend.config.index', compact('thn_ajaran', 'ref_gelombang'));		
 	}
 
 
