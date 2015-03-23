@@ -1,7 +1,7 @@
 <button id='do_validasi' style='font-size:30px;' class='btn btn-info'> 
 	<i class='fa fa-check-circle-o'></i> Validasi Pendaftaran
 </button>
-
+ 
 <script>
 $('#do_validasi').click(function(){
 

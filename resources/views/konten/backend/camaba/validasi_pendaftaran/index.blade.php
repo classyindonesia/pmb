@@ -30,8 +30,24 @@
 	<div class='col-md-12'>
 	<hr>
 		@if($b->is_valid == 0)
+
+			@if(
+				$b->alamat == '' || 
+				$b->tgl_lahir == '0000-00-00' || 
+				$b->thn_lulus == 0 || 
+				$b->ref_sma_id = 0 ||
+				$b->no_ijazah == '' ||
+				$b->tempat_lahir == '' ||
+				count($f)	== 0 ||
+				count($berkas) == 0 
+			)
+				<div class="alert alert-danger">
+					<h3> <i class='fa fa-warning'></i> Proses Validasi tidak bisa dilakukan sebelum biodata terisi semua. </h3>
+				</div>
+			@else
 				@include($base_view.'info')
 				@include($base_view.'tombol_validasi')
+			@endif
 
 		@else
 			<div class='alert alert-success'>

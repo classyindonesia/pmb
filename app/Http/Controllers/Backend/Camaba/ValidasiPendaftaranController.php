@@ -3,6 +3,8 @@
 use App\Helpers\KirimSms;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
+use App\Models\Mst\Berkas;
+use App\Models\Mst\Photo;
 use App\Repositories\Mst\PendaftaranRepository;
 use Auth;
 use Illuminate\Http\Request;
@@ -19,7 +21,9 @@ class ValidasiPendaftaranController extends Controller {
 	public function index(PendaftaranRepository $p){
 		$base_view = $this->base_view;
 		$b = $p->getByEmail(Auth::user()->email);
-		return view($this->base_view.'index', compact('base_view', 'b'));
+		$f = Photo::where('mst_pendaftaran_id', '=', $b->id)->first();
+		$berkas = Berkas::where('mst_pendaftaran_id', '=', $b->id)->first();
+		return view($this->base_view.'index', compact('base_view', 'b', 'f', 'berkas'));
 	}
 
 

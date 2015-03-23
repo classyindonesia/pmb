@@ -12,7 +12,7 @@
 	@if($b->is_valid == 1)
 		Kartu Pendaftaran harap dibawa saat pelaksanaan test.
 	@else
-		Data Pendaftaran belim tervalidasi, 
+		Data Pendaftaran belum tervalidasi, 
 		klik tombol <b>validasi</b> terlebih dahulu untuk mencetak nomor pendaftaran.
 	@endif
 </div>
