@@ -8,14 +8,20 @@
 
 @section('konten_utama')
 
-<div class='alert alert-info'>
+
 	@if($b->is_valid == 1)
-		Kartu Pendaftaran harap dibawa saat pelaksanaan test.
+		<div class='alert alert-info'>
+			Kartu Pendaftaran harap dibawa saat pelaksanaan test.
+		</div>
 	@else
-		Data Pendaftaran belum tervalidasi, 
-		klik tombol <b>validasi</b> terlebih dahulu untuk mencetak nomor pendaftaran.
+	<div class="alert alert-danger">
+		<h3> <i class='fa fa-warning'></i> Data Pendaftaran belum tervalidasi, 
+			klik tombol <b>validasi</b> terlebih dahulu untuk mencetak nomor pendaftaran.		
+		</h3>
+	</div>
+
 	@endif
-</div>
+
 
 
 

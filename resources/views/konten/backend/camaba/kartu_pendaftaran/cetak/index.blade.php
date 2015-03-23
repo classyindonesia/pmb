@@ -24,11 +24,13 @@
 			<h4>CALON MAHASISWA BARU</h4>
 			<b>Tahun Akademik {!! $thn_akademik !!}</b>				
 		</td>
-		<td width="50%">
+		<td width="40%">
 			<img src="/logo-unp.jpg" class="text-center" width='150px;height:150px;'>
 		</td>
 		<td>
-		{!! str_replace('<?xml version="1.0" encoding="UTF-8"?>', '', QrCode::size(100)->generate($b->no_pendaftaran) ) !!} 		
+		{!! str_replace('<?xml version="1.0" encoding="UTF-8"?>', '', QrCode::size(100)->generate($b->no_pendaftaran) ) !!} 
+		<br>
+		<h1 style="font-weight:bold;">{!! $b->no_pendaftaran !!}</h1> 	
 
 
 		</td>
