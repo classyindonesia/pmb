@@ -2,11 +2,11 @@
 
 <hr>
 
-<div class='pull-right' id="results">Your captured image will appear here...</div>
+<div style="display:none;" class='pull-right' id="results">Your captured image will appear here...</div>
 
 
 
-	<div id="my_camera"></div>
+<div id="my_camera"></div>
 	
 	<!-- First, include the Webcam.js JavaScript Library -->
 	<script type="text/javascript" src="/js/plugins/webcamjs/webcam.js"></script>
@@ -16,10 +16,13 @@
 
 	<script language="JavaScript">
 		Webcam.set({
-			width: 320,
-			height: 240,
+			width: 280,
+			height: 340,
+	        crop_width: 280,
+	        crop_height: 340,			
 			image_format: 'jpeg',
-			jpeg_quality: 90
+			jpeg_quality: 90,
+			flip_horiz: true
 		});
 		Webcam.attach( '#my_camera' );
 	</script>
@@ -45,16 +48,20 @@
 		function take_snapshot() {
 			// take snapshot and get image data
 			Webcam.snap( function(data_uri) {
+
+		        Webcam.upload( data_uri, '{!! route("camaba.do_upload_webcam") !!}', function(code, text) {
+		        	alert('upload complete');
+		            // Upload complete!
+		            // 'code' will be the HTTP response code from the server, e.g. 200
+		            // 'text' will be the raw response content
+		        });
+		        Webcam.freeze();
+
 				// display results in page
-				document.getElementById('results').innerHTML = 
- 					'<img src="'+data_uri+'"/>';
+				//document.getElementById('results').innerHTML = '<img src="'+data_uri+'"/>';
 			});
 
-        Webcam.upload( data_uri, '{!! route("camaba.do_upload_webcam") !!}', function(code, text) {
-            // Upload complete!
-            // 'code' will be the HTTP response code from the server, e.g. 200
-            // 'text' will be the raw response content
-        });
+
 
 
 
