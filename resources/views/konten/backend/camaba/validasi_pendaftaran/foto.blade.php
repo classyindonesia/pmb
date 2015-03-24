@@ -6,7 +6,7 @@
 	</div>
 @else
 	@if(file_exists(public_path('/upload/foto/'.md5(Auth::user()->email).'.jpg')))
-		<img style="width:200px;" src="/upload/foto/{!! md5(Auth::user()->email) !!}.jpg?{!! date('YmdHis') !!}" class='img-rounded   img-responsive'   alt="Responsive image">
+		<img style="width:200px;" src="/upload/foto/{!! md5(Auth::user()->email) !!}.jpg?{!! date('YmdHis') !!}" class='img-thumbnail   img-responsive'   alt="Responsive image">
 	@else
 		<div class='alert alert-danger'>
 		 <i class='fa fa-warning'></i> Foto masih kosong
