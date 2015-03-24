@@ -16,7 +16,7 @@ return [
 	|
 	*/
 
-	'default' => 'beanstalkd', //env('QUEUE_DRIVER', 'sync'),
+	'default' =>  env('QUEUE_DRIVER', 'redis'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -60,9 +60,9 @@ return [
 		'iron' => [
 			'driver'  => 'iron',
 			'host'    => 'mq-aws-us-east-1.iron.io',
-			'token'   => 'your-token',
-			'project' => 'your-project-id',
-			'queue'   => 'your-queue-name',
+			'token'   => env('IRONIO_TOKEN'),
+			'project' => env('IRONIO_PROJECTID'),
+			'queue'   => env('IRONIO_QUEUENAME'),
 			'encrypt' => true,
 		],
 
