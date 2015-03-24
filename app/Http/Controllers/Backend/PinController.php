@@ -1,13 +1,12 @@
 <?php namespace App\Http\Controllers\Backend;
 
-use App\Http\Requests\GeneratePin;
-use App\Http\Requests\CreatePin;
-
+use App\Commands\generatePinCommand;
 use App\Http\Controllers\Controller;
-
-use Illuminate\Http\Request;
-
+use App\Http\Requests\CreatePin;
+use App\Http\Requests\GeneratePin;
 use App\Models\Mst\Pin;
+use Illuminate\Http\Request;
+use Queue;
 
 class PinController extends Controller {
 
@@ -60,11 +59,8 @@ class PinController extends Controller {
 		$jml_pin = $request->jml_pin;
 
 		for($i=1;$i<=$jml_pin;$i++){
-
-			$p = new Pin;
-			$p->pin = Pin::keygen();
-			$p->save();
-		}
+			Queue::push(new generatePinCommand());
+		 }
 
 		return 'ok';
 

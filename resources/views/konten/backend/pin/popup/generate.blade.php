@@ -43,13 +43,7 @@ $(document).ready(function() {
 <script type="text/javascript">
 $('#generate').click(function(){
 	$('#pesan').removeClass('alert alert-danger animated shake').html('');
-jml_pin = $('#jml_pin').val();
-jml_pin = parseInt(jml_pin);
-if(jml_pin > 2000){
-	alert('jumlah pin tdk boleh lebih dr 2rb dalam sekali generate!');
-	return false;
-}
- 
+ jml_pin = $('#jml_pin').val();
 
 form_data ={
 	jml_pin : jml_pin,

@@ -33,7 +33,7 @@ class SetupVariableSeeder extends Seeder {
 
         /* insert to ref_sma*/
         $sma = Sma::find(1);
-        if(count($sma)<=0)Sma::create(['id'=>1,'nama'=>'SMA 1 KEDIRI']);
+        if(count($sma)<=0)Sma::create(['id'=>1,'nama'=>'SMA NEGERI 1 KEDIRI']);
 
         /* insert to ref_prodi*/
         $prodi = Prodi::find(1);

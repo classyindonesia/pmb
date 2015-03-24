@@ -18,8 +18,9 @@ class ConfigController extends Controller {
 
  
 	public function index(){
+		$gelombang = Gelombang::where('ref_thn_ajaran_id', '=', \SV::get('ref_thn_ajaran_id'))->get();
 		$thn_ajaran = \Fungsi::get_dropdown(ThnAjaran::all(), 'thn ajaran');
-		$ref_gelombang = \Fungsi::get_dropdown(Gelombang::all(), 'Gelombang');
+		$ref_gelombang = \Fungsi::get_dropdown($gelombang, 'Gelombang');
 		return view('konten.backend.config.index', compact('thn_ajaran', 'ref_gelombang'));		
 	}
 

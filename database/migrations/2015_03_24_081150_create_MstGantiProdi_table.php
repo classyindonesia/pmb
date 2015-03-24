@@ -15,7 +15,7 @@ class CreateMstGantiProdiTable extends Migration {
 		Schema::create('mst_ganti_prodi', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integet('mst_pendaftaran_id');
+			$table->integer('mst_pendaftaran_id');
 			$table->integer('ref_prodi_id');
 			$table->enum('prodi_pilihan', ['1', '2']);
 			$table->tinyInteger('status')->default(0); //1=disetujui, 2=ditolak, 0=menunggu
