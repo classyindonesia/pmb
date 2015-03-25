@@ -8,6 +8,8 @@ class Photo extends Model {
 	protected $fillable = ['mst_pendaftaran_id', 'nama_file_asli'];
 
 
-
+	public function mst_pendaftaran(){
+		return $this->belongsTo('\App\Models\Mst\Pendaftaran', 'mst_pendaftaran_id');
+	}
 
 }

@@ -21,8 +21,8 @@ require app_path('Http/routes/admin/api_akses.php');
 require app_path('Http/routes/admin/api_v1.php');
 require app_path('Http/routes/admin/api_call.php');
 require app_path('Http/routes/admin/request_ganti_prodi.php');
-require app_path('Http/routes/admin/pendaftaran.php');
- 
+require app_path('Http/routes/admin/data_upload.php');
+  
 
 
 /* level operator */

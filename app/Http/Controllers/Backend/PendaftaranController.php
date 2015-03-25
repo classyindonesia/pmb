@@ -25,17 +25,19 @@ use Queue, Auth;
 
 class PendaftaranController extends Controller {
 
+	private $base_view = 'konten.backend.pendaftaran.pendaftaran_camaba.';
 
 	public function __construct(){
-		view()->share('pendaftaran_home', true);
-	}
+		view()->share('base_view', $this->base_view);
+ 	}
 
 
 	public function index(Prodi $prodi, Gelombang $gelombang, Sma $sma){
 		$prodi = $prodi->getAll();
 		$sma = $sma->getAll();
 		$gelombang = $gelombang->getAll();
-		return view('konten.backend.pendaftaran.index', compact('prodi', 'gelombang', 'sma'));
+		$pendaftaran_home = true;
+		return view('konten.backend.pendaftaran.index', compact('prodi', 'gelombang', 'sma', 'pendaftaran_home'));
 	}
 
 
@@ -114,6 +116,16 @@ class PendaftaranController extends Controller {
  
 		return 'ok';
 	}
+
+
+	public function pendaftaran_camaba(){
+		$pendaftaran = Pendaftaran::with('ref_sma', 'ref_prodi1', 'ref_prodi2')
+			->orderBy('id', 'DESC')
+			->paginate(10);
+		$list_pendaftaran_home = true;
+		return view($this->base_view.'index', compact('pendaftaran', 'list_pendaftaran_home'));
+	}
+
 
 
 }

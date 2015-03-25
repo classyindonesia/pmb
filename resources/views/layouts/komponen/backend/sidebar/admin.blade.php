@@ -30,8 +30,10 @@
       </li>
 
 
-      <li @if(isset($pendaftaran_home)) class="active" @endif>
-          <a href="{!! route('admin_pendaftaran.index') !!}"> <i class='fa fa-group'></i> Pendaftaran Camaba  </a>
+      <li @if(isset($data_upload_home)) class="active" @endif>
+          <a href="{!! route('data_upload.index') !!}"> 
+              <i class='fa fa-cloud'></i> Data Upload  
+          </a>
       </li>
 
 
