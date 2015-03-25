@@ -27,14 +27,9 @@
 				{!! Fungsi::date_to_tgl(date('Y-m-d', strtotime($list->created_at))).'/ '.date('H:i', strtotime($list->created_at)) !!}
 			</td>
 
-			<td>
-				@if(file_exists(public_path('upload/foto/'.$list->nama_file_asli)))
-					{!! Fungsi::size(
-						File::size(public_path('upload/foto/'.$list->nama_file_asli))
-						) !!}
-				@else
-					<span class='text-danger'>file tdk ditemukan</span> 
-				@endif
+			<td> 
+			@include($base_view.'check_file_berkas')
+
 			</td>
 			<td width="5%">
 				@include($base_view.'berkas.action.view')				 

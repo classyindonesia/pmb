@@ -2,12 +2,11 @@
 	<thead>
 		<tr>
 			<th class="text-center" width="5%">No.</th>
-			<th width="10%"> no pendaftaran</th>
+			<th width="15%"> no pendaftaran</th>
 			<th>Nama</th>
 			<th width="15%">Prodi 1</th>
 			<th width="15%">Prodi 2</th>
-			<th width="10%" class="text-center"> <i class='fa fa-check'></i> Biodata</th>
-			<th width="10%" class="text-center"> <i class='fa fa-check'></i> Prodi </th>
+ 			<th width="10%" class="text-center"> <i class='fa fa-check'></i> Foto </th>
 			<th width="10%" class="text-center"> <i class='fa fa-check'></i> Berkas </th>
 			<th width="5%">Action</th>
 		</tr>
@@ -21,8 +20,9 @@
 			<td>{!! $list->nama !!}</td>
 			<td> @if(count($list->ref_prodi1)) {!! $list->ref_prodi1->nama !!} @else - @endif </td>
 			<td> @if(count($list->ref_prodi2)) {!! $list->ref_prodi2->nama !!} @else - @endif </td>
-			<td></td>
-			<td></td>
+ 			<td>
+
+ 			</td>
 			<td></td>
 			<td>-</td>
 		</tr>
