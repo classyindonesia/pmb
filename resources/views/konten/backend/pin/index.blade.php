@@ -4,7 +4,7 @@
 	 @include('konten.backend.pin.tombol_generate')
 	 @include('konten.backend.pin.tombol_create')
 
-  <h1 class="title_header"> <i class='fa fa-qrcode'></i>  Data PIN Pendaftaran  </h1>
+  <h1 class="title_header"> <i class='fa fa-qrcode'></i>  PIN Pendaftaran  </h1>
 @endsection
 
  

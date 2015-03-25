@@ -12,16 +12,27 @@
 
       <li @if(isset($pin_home)) class="active" @endif>
           <a href="{!! route('admin_pin.index') !!}"> 
-              <i class='fa fa-qrcode'></i> Data PIN Pendaftaran 
+              <i class='fa fa-qrcode'></i> PIN Pendaftaran 
           </a>
       </li>
 
+
+
+      <li @if(isset($request_pergantian_prodi_home)) class="active" @endif>
+          <a href="{!! route('request_pergantian_prodi.index') !!}"> 
+              <i class='fa fa-random'></i> Request Pindah Prodi 
+          </a>
+      </li>
 
 
       <li @if(isset($data_ref_global_home)) class="active" @endif>
           <a href="{!! route('admin_ref.index') !!}"> <i class='fa fa-credit-card'></i> Data Referensi  </a>
       </li>
 
+
+      <li @if(isset($pendaftaran_home)) class="active" @endif>
+          <a href="{!! route('admin_pendaftaran.index') !!}"> <i class='fa fa-group'></i> Pendaftaran Camaba  </a>
+      </li>
 
 
       <li @if(isset($config_home)) class="active" @endif>
