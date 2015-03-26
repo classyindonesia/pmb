@@ -31,8 +31,9 @@
 
 			 </td>
  			<td>
- 				@include($base_view.'action.edit_request')
- 				
+ 				@if($list->status == 0)
+	 				@include($base_view.'action.edit_request')
+ 				@endif
  			</td>
 		</tr>
 		<?php $no++; ?>

@@ -15,7 +15,7 @@
  	 			Request::get('search'), 
  	 				['class' => 'form-control', 
  	 					'autofocus', 
- 	 				'placeholder' => 'search by no pendaftaran or name...',
+ 	 				'placeholder' => 'check PIN...',
  	 				'style' => 'font-size:30px;height:80px;'
  	 				]) !!}
 	      <div class="input-group-addon ">
