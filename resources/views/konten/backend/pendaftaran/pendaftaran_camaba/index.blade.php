@@ -7,6 +7,11 @@
 
 
 @section('konten_utama')
+	@include($base_view.'komponen.form_pencarian')
+
+	@include($base_view.'komponen.nav_atas')
+
+	@include($base_view.'script')
 	@include($base_view.'list_data')
 @endsection
 

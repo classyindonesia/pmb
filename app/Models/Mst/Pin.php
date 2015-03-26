@@ -8,6 +8,11 @@ class Pin extends Eloquent{
 	protected $fillable = ['pin', 'status', 'tgl_pakai'];
 
 
+	public function mst_pengguna_pin(){
+		return $this->hasOne('\App\Models\Mst\PenggunaPin', 'mst_pin_id');
+	}
+
+
  
 
 

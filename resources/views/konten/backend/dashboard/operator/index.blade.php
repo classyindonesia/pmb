@@ -1,13 +1,15 @@
 @extends('layouts.backend')
-
-@section('konten_utama')
- level operator
  
-
+@section('judul_header')
+  <h1 class="title_header"> <i class='fa fa-home'></i> Dashboard </h1>
 @endsection
 
 
+@section('konten_utama')
 
-@section('judul_header')
-  <h1 class="title_header"> Dashboard </h1>
+	<div class="col-md-6" style="padding-left: 0px;">
+		@include($base_view.'operator.statistik_pendaftaran')		
+	</div>
+ 
+
 @endsection

@@ -1,5 +1,5 @@
  <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container-fluid">
+      <div class="container-fluid" style="padding-left:4em;padding-right:5em;">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -7,7 +7,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="{!! route('admin_dashboard.index') !!}">Official Site</a>
+          <a class="navbar-brand animated bounceInDown" href="{!! route('admin_dashboard.index') !!}">Official Site</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
 

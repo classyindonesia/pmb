@@ -1,19 +1,18 @@
 <?php namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-
-/* repos */
-use App\Repositories\Mst\PendaftaranRepository;
+use App\Models\Mst\Pendaftaran;
+use App\Models\Ref\Gelombang;
 use App\Repositories\Mst\PendaftaranOnlineRepository;
-
-
-
-/* facades */
+use App\Repositories\Mst\PendaftaranRepository;
 use Auth;
 
 class DashboardController extends Controller{
 
+	private $base_view = 'konten.backend.dashboard.';
+
 	public function __construct(){
+		view()->share('base_view', $this->base_view);
 		view()->share('dashboard_home', true);
 	}
 
@@ -28,6 +27,20 @@ class DashboardController extends Controller{
 	}
 
 
+
+
+	public function level_operator(){
+		$gelombang = Gelombang::where('ref_thn_ajaran_id', '=', \SV::get('ref_thn_ajaran_id'))
+			->with('mst_pendaftaran')->get();
+		return view('konten.backend.dashboard.operator.index', 
+			compact('gelombang'));			
+	}
+
+
+
+
+
+
 	public function index(){
 		$level = \Auth::user()->ref_user_level_id;
 		if($level == 1){
@@ -38,7 +51,7 @@ class DashboardController extends Controller{
 			return view('konten.backend.dashboard.index');			
 		}elseif($level == 3){
 			//level operator
-			return view('konten.backend.dashboard.operator.index');			
+			return $this->level_operator();		
 		}elseif($level == 4){
 			return $this->level_camaba();		
 

@@ -27,6 +27,7 @@ require app_path('Http/routes/admin/data_upload.php');
 
 /* level operator */
 require app_path('Http/routes/operator/pendaftaran.php');
+require app_path('Http/routes/operator/check_pin.php');
 
 
 

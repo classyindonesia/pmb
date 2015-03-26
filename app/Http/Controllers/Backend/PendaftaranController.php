@@ -1,26 +1,18 @@
 <?php namespace App\Http\Controllers\Backend;
 
-use App\Http\Requests\CreatePendaftaranOnline;
+use App\Commands\KirimEmailPendaftaran;
+use App\Commands\KirimSms as KS;
+use App\Helpers\KirimSms;
+use App\Helpers\SetupVariable;
 use App\Http\Controllers\Controller;
-
-use Illuminate\Http\Request;
-
-/* models */
-use App\Repositories\Ref\Prodi;
-use App\Repositories\Ref\Gelombang;
-use App\Repositories\Ref\Sma;
+use App\Http\Requests\CreatePendaftaranOnline;
 use App\Models\Mst\Pendaftaran;
 use App\Models\Mst\User;
-
-
-/* helpers */
-use App\Helpers\SetupVariable;
-use App\Helpers\KirimSms;
-
-/* commands */
-use App\Commands\KirimEmailPendaftaran;
-
-/* facades */
+use App\Repositories\Mst\PendaftaranRepository;
+use App\Repositories\Ref\Gelombang;
+use App\Repositories\Ref\Prodi;
+use App\Repositories\Ref\Sma;
+use Illuminate\Http\Request;
 use Queue, Auth;
 
 class PendaftaranController extends Controller {
@@ -118,12 +110,56 @@ class PendaftaranController extends Controller {
 	}
 
 
-	public function pendaftaran_camaba(){
-		$pendaftaran = Pendaftaran::with('ref_sma', 'ref_prodi1', 'ref_prodi2')
-			->orderBy('id', 'DESC')
-			->paginate(10);
+	public function pendaftaran_camaba(Request $request, PendaftaranRepository $p){
+		if($request->get('search')){
+			$pendaftaran = $p->getBySearch($request->search);
+		}else{
+			$pendaftaran = $p->getAll();
+		}
 		$list_pendaftaran_home = true;
-		return view($this->base_view.'index', compact('pendaftaran', 'list_pendaftaran_home'));
+		$pendaftaran_camaba_home = true;
+		$route_search = 'admin_pendaftaran.pendaftaran_camaba';
+		return view($this->base_view.'index', 
+			compact('pendaftaran', 'list_pendaftaran_home', 'pendaftaran_camaba_home', 'route_search'));
+	}
+
+	public function pendaftaran_camaba_online(Request $request, PendaftaranRepository $p){
+		if($request->get('search')){
+			$pendaftaran = $p->getBySearch($request->search, 1);
+		}else{
+			$pendaftaran = $p->getByJenisDaftar(1);
+		}
+		$list_pendaftaran_home = true;
+		$pendaftaran_camaba_online_home = true;
+		$route_search = 'admin_pendaftaran.pendaftaran_camaba_online';
+		return view($this->base_view.'index', 
+			compact('pendaftaran', 'list_pendaftaran_home', 'pendaftaran_camaba_online_home', 'route_search'));		
+	}
+
+	public function pendaftaran_camaba_offline(Request $request, PendaftaranRepository $p){
+		if($request->get('search')){
+			$pendaftaran = $p->getBySearch($request->search, 0);
+		}else{
+			$pendaftaran = $p->getByJenisDaftar(0);
+		}
+		$list_pendaftaran_home = true;
+		$pendaftaran_camaba_offline_home = true;
+		$route_search = 'admin_pendaftaran.pendaftaran_camaba_offline';
+		return view($this->base_view.'index', 
+			compact('pendaftaran', 'list_pendaftaran_home', 'pendaftaran_camaba_offline_home', 'route_search'));		
+	}
+	
+
+
+
+	public function kirim_sms($id){
+		$pendaftaran = Pendaftaran::findOrfail($id);
+		return view($this->base_view.'popup.kirim_sms', compact('pendaftaran'));
+	}
+
+	public function do_kirim_sms(Request $request){
+		Queue::push(new KS($request->pesan, $request->no_pendaftaran, $request->no_hp));
+		return 'ok';
 	}
 
 

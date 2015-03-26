@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Http\Requests\Frontend\SubmitPendaftaranOnline;
 use App\Models\Mst\Pendaftaran;
+use App\Models\Mst\PenggunaPin;
 use App\Models\Mst\Pin;
 use App\Models\Mst\User;
 use App\Repositories\Mst\PinRepository;
@@ -103,6 +104,17 @@ class PendaftaranOnlineController extends Controller {
 	}
 
 
+	private function insert_pengguna_pin($mst_pendaftaran_id, $pin){
+		$p = Pin::where('pin', '=', $pin)->first();
+		$data = [
+		'mst_pendaftaran_id' => $mst_pendaftaran_id,
+		'mst_pin_id'		=> $p->id
+		];
+		$pp = PenggunaPin::create($data);
+		return $pp;
+	}
+
+
 	public function submit_pendaftaran(SubmitPendaftaranOnline $request, Pin $pin, SetupVariable $sv){
 
 		//insert ke data pendaftaran utama
@@ -133,6 +145,9 @@ class PendaftaranOnlineController extends Controller {
 
 	 	// update pin
 	 	$this->update_pin($request->pin);
+
+	 	//insert to pengguna pin table
+	 	$this->insert_pengguna_pin($o->id, $request->pin);
 
 
 

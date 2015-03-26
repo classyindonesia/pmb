@@ -14,6 +14,11 @@
           <a href="{!! route('admin_pendaftaran.pendaftaran_camaba') !!}"> <i class='fa fa-group'></i> List Pendaftaran  </a>
       </li>
 
+       <li @if(isset($check_pin_home)) class="active" @endif>
+          <a href="{!! route('check_pin.index') !!}"> 
+            <i class='fa fa-qrcode'></i> Check Pin Pendaftaran  
+          </a>
+       </li>
 
  </ul>
 </nav>

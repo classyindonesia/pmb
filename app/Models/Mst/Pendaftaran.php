@@ -32,6 +32,15 @@ class Pendaftaran extends Eloquent{
 		return $this->belongsTo('\App\Models\Mst\User', 'mst_user_id');
 	}
 
+	public function mst_photo(){
+		return $this->hasOne('\App\Models\Mst\Photo', 'mst_pendaftaran_id');
+	}
+
+
+	public function mst_berkas(){
+		return $this->hasMany('\App\Models\Mst\Berkas', 'mst_pendaftaran_id');
+	}
+
 
 	public function ref_sma(){
 		return $this->belongsTo('App\Models\Ref\Sma', 'ref_sma_id');

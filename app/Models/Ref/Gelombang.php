@@ -12,4 +12,8 @@ class Gelombang extends Eloquent{
 		return $this->belongsTo('\App\Models\Ref\ThnAjaran', 'ref_thn_ajaran_id');
 	}
 
+	public function mst_pendaftaran(){
+		return $this->hasMany('\App\Models\Mst\Pendaftaran', 'ref_gelombang_id');
+	}
+
 }
