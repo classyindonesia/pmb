@@ -26,6 +26,14 @@
         </li>                    
 
 
+        <li @if(isset($foto_slide_utama_home)) class="active" @endif>
+            <a href="{{ URL::route('foto_slide_utama.index') }}">
+                <i class='fa fa-image'></i> Foto Slide utama
+            </a>
+        </li>
+
+
+
         <li @if(isset($foto_slide_home)) class="active" @endif>
             <a href="{{ URL::route('foto_slide.index') }}">
                 <i class='fa fa-image'></i> Foto Slide
