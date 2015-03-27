@@ -2,7 +2,7 @@
 				<div class="panel-heading"> 
 					<h3 style='border-left:4px solid #ccc;padding-left:5px;'> Login Sistem </h3> 
 					<hr style='margin:1px;'>
-					Silahkan masukkan username dan password Anda untuk masuk ke dalam sistem.
+					Silahkan masukkan username atau email dan password Anda untuk masuk ke dalam sistem.
 
 				</div>
 				<div class="panel-body">

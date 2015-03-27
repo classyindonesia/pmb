@@ -7,17 +7,8 @@
 @section('konten_utama')
 <div class="col-md-9">
 
-      <div class="jumbotron">
-
-	<div class="slideshow">
-		<img src="http://malsup.github.com/images/beach1.jpg" width="200" height="200" />
-		<img src="http://malsup.github.com/images/beach2.jpg" width="200" height="200" />
-		<img src="http://malsup.github.com/images/beach3.jpg" width="200" height="200" />
-		<img src="http://malsup.github.com/images/beach4.jpg" width="200" height="200" />
-		<img src="http://malsup.github.com/images/beach5.jpg" width="200" height="200" />
-	</div>
-
-
+      <div class="jumbotron" style="padding : 0px;">
+			@include($base_view.'slide_utama')
       </div>
 
 
@@ -45,5 +36,8 @@ $(document).ready(function() {
 		fx: 'fade' // choose your transition type, ex: fade, scrollUp, shuffle, etc...
 	});
 });
+
+
+ 
 </script>
 @endsection

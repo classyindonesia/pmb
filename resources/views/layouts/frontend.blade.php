@@ -43,6 +43,6 @@
 
 
 
-
+@yield('disqus_close_tag')
   </body>
 </html>

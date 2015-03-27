@@ -4,7 +4,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Models\Mst\SlideUtama;
 use Illuminate\Http\Request;
-
+use Fungsi, Auth;
 class FotoSlideUtamaController extends Controller {
 
 
@@ -17,8 +17,7 @@ class FotoSlideUtamaController extends Controller {
 
 
 	public function index(){
-		$foto = SlideUtama::with('mst_user')->paginate(10);
-		// SlideUtama::take(5)->orderByRaw("RAND()")->get();
+		$foto = SlideUtama::with('mst_user')->orderBy('id', 'DESC')->paginate(6);
 		return view($this->base_view.'index', compact('foto'));
 	}
 

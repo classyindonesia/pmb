@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Controller;
 use App\Models\Mst\Berita;
+use App\Models\Mst\SlideUtama;
 
 class HomeController extends Controller{
 
@@ -15,8 +16,9 @@ class HomeController extends Controller{
 
 
 	public function index(){
+		$foto_slide_utama = SlideUtama::take(5)->orderByRaw("RAND()")->get();
 		$berita = Berita::orderBy('id', 'DESC')->take(5)->get();
-		return view($this->base_view.'index', compact('berita'));
+		return view($this->base_view.'index', compact('berita', 'foto_slide_utama'));
 	}
 
 
