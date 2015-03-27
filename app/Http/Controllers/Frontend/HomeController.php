@@ -15,7 +15,7 @@ class HomeController extends Controller{
 
 
 	public function index(){
-		$berita = Berita::orderBy('id', 'DESC')->take(10)->get();
+		$berita = Berita::orderBy('id', 'DESC')->take(5)->get();
 		return view($this->base_view.'index', compact('berita'));
 	}
 

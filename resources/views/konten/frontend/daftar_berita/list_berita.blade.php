@@ -1,8 +1,11 @@
-<a class="btn btn-primary pull-right" href="{!! route('daftar_berita.index') !!}">
-	<i class='fa fa-th-list'></i> daftar berita
+
+
+<a class="btn btn-primary pull-right" href="{!! route('home.index') !!}">
+	<i class='fa fa-arrow-left'></i> beranda
 </a>
 
-<h1> <i class='fa fa-newspaper-o'></i> Latest News</h1>
+
+<h1><i class='fa fa-newspaper-o'></i> Daftar Berita</h1>
 <hr>
 @foreach($berita as $list)
 
@@ -12,3 +15,6 @@
         <a style='font-weight:bold;' class="label label-warning" href="{!! URL::route('daftar_berita.post', $list->slug) !!}">selengkapnya...</a>
 <hr size="margin-top:0px;">
 @endforeach
+
+
+{!! $berita->render() !!}
