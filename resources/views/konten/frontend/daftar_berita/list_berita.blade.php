@@ -6,6 +6,11 @@
 
 
 <h1><i class='fa fa-newspaper-o'></i> Daftar Berita</h1>
+
+
+@include($base_view.'form_pencarian')
+
+
 <hr>
 @foreach($berita as $list)
 

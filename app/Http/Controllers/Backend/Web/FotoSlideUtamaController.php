@@ -72,5 +72,15 @@ class FotoSlideUtamaController extends Controller {
 	}
 
 
+	public function del(Request $request){
+		$o = SlideUtama::findOrFail($request->id);
+		$path_to_file = public_path('upload/gambar_slide_utama/'.$o->nama_file_asli);
+		if(file_exists($path_to_file)){
+			unlink($path_to_file);
+		}
+		$o->delete();
+		return 'ok';
+	}
+
 
 }

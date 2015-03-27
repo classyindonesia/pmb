@@ -16,7 +16,10 @@ Route::group(['middleware' => 'hanya_web'], function(){
 		'as'	=> 'foto_slide_utama.do_upload_gambar',
 	]);
 
-
+ 	post('backend/foto_slide_utama/del', [
+		'uses'	=> 'Backend\Web\FotoSlideUtamaController@del',
+		'as'	=> 'foto_slide_utama.del',
+	]);
 
 });
 

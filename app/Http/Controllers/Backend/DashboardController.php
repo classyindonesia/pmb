@@ -7,11 +7,13 @@ use App\Repositories\Mst\PendaftaranOnlineRepository;
 use App\Repositories\Mst\PendaftaranRepository;
 use Auth;
 use App\Http\Controllers\Backend\Dashboard\LevelOperatorTrait;
+use App\Http\Controllers\Backend\Dashboard\LevelWebTrait;
  
 
 class DashboardController extends Controller{
 
 	use LevelOperatorTrait;
+	use LevelWebTrait;
 
 
 
@@ -32,9 +34,7 @@ class DashboardController extends Controller{
  			return view('konten.backend.dashboard.camaba.index', 
  				compact('biodata', 'jenis_daftar', 'base_view_index'));			
 	}
-
-
-
+ 
 
 
 	public function index(){
@@ -44,7 +44,7 @@ class DashboardController extends Controller{
 			return view('konten.backend.dashboard.index');
 		}elseif($level == 2){
 			//level web
-			return view('konten.backend.dashboard.index');			
+			return $this->level_web();			
 		}elseif($level == 3){
 			//level operator
 			return $this->level_operator();		

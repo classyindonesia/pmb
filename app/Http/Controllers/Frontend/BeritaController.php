@@ -14,8 +14,15 @@ class BeritaController extends Controller {
 		view()->share('base_view', $this->base_view);
 	}
 
-	public function index(){
-		$berita = Berita::orderBy('id', 'DESC')->paginate(10);
+	public function index(Request $request){
+		if($request->get('search')){
+			$berita = Berita::orderBy('id', 'DESC')
+			->where('artikel', 'like', '%'.$request->get('search').'%')
+			->orWhere('judul', 'like', '%'.$request->get('search').'%')
+			->paginate(10);
+		}else{
+			$berita = Berita::orderBy('id', 'DESC')->paginate(10);			
+		}
  		return view($this->base_view.'index', compact('berita'));
 	}
 

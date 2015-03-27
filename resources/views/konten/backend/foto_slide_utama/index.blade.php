@@ -2,6 +2,7 @@
 
 @section('konten_utama')
 
+  @include($base_view.'script')
   @include($base_view.'list_data')
 
 
