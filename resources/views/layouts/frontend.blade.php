@@ -34,6 +34,7 @@
 
     <div class='container animated fadeIn'>
       @yield('konten_utama')
+      @yield('sidebar')
     </div>
 
 
