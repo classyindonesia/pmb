@@ -6,8 +6,15 @@ use App\Models\Ref\Gelombang;
 use App\Repositories\Mst\PendaftaranOnlineRepository;
 use App\Repositories\Mst\PendaftaranRepository;
 use Auth;
+use App\Http\Controllers\Backend\Dashboard\LevelOperatorTrait;
+ 
 
 class DashboardController extends Controller{
+
+	use LevelOperatorTrait;
+
+
+
 
 	private $base_view = 'konten.backend.dashboard.';
 
@@ -25,17 +32,6 @@ class DashboardController extends Controller{
  			return view('konten.backend.dashboard.camaba.index', 
  				compact('biodata', 'jenis_daftar', 'base_view_index'));			
 	}
-
-
-
-
-	public function level_operator(){
-		$gelombang = Gelombang::where('ref_thn_ajaran_id', '=', \SV::get('ref_thn_ajaran_id'))
-			->with('mst_pendaftaran')->get();
-		return view('konten.backend.dashboard.operator.index', 
-			compact('gelombang'));			
-	}
-
 
 
 

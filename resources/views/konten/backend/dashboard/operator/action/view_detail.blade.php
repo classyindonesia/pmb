@@ -1,0 +1,1 @@
+<span style='cursor:pointer;' onClick='viewDetail({!! $list->id !!})' class='label label-success'>detail</span> 

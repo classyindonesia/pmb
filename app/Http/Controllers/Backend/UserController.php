@@ -11,6 +11,7 @@ use App\Models\Ref\UserLevel;
 use App\Http\Requests\CreateUser;
 use App\Http\Requests\UpdateUser;
 
+use Input;
 class UserController extends Controller{
 
 	public function __construct(){
@@ -62,6 +63,16 @@ class UserController extends Controller{
 		return 'ok';		
 	}
 
+
+	/* reset password agar password sama dgn email */
+	public function reset_password(){
+		$user = User::find(Input::get('id'));
+		if(count($user)>0){
+			$user->password = $user->email;
+			$user->save();
+		}
+		return 'ok';
+	}
 
 
 }

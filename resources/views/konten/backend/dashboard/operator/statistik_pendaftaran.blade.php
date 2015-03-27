@@ -5,6 +5,7 @@
   <div class="panel-body" style="padding-left: 0px;">
 
 <table class="table">
+<?php $total_pendaftar = 0; ?>
 @foreach($gelombang as $list)
 	<tr>
 		<td>
@@ -13,10 +14,28 @@
 		<td>
 			 {!! count($list->mst_pendaftaran) !!}
 		</td>
+		<td>
+			@include($base_view.'operator.action.view_detail')
+		</td>
 	</tr>
+	<?php $total_pendaftar = $total_pendaftar+count($list->mst_pendaftaran); ?>
 @endforeach
 
 	
+
+	<tr>
+		<td>
+			Jumlah Pendaftar, di tahun ajaran sekarang
+		</td>
+		<td>
+			 {!! $total_pendaftar !!}
+		</td>
+		<td>
+			 
+		</td>
+	</tr>
+
+
 </table>
 
 

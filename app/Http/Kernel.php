@@ -31,6 +31,7 @@ class Kernel extends HttpKernel {
 		'hanya_admin'	=> 'App\Http\Middleware\AdminAkses',
 		'hanya_operator'	=> 'App\Http\Middleware\OperatorAkses',
 		'hanya_camaba'	=> 'App\Http\Middleware\CamabaAkses',
+		'hanya_web'	=> 'App\Http\Middleware\WebAkses',
 
 	];
 

@@ -10,7 +10,9 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a style='display:none;' class="navbar-brand" href="{!! route('home.index') !!}"> <i class='fa fa-home'></i> Project name</a>
+          <a style='display:none;' class="navbar-brand" href="{!! route('home.index') !!}"> 
+            <i class='fa fa-home'></i> {!! env('NAMA_APP', 'Official Website') !!}
+          </a>
         </div>
 
 

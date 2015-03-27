@@ -5,7 +5,7 @@
 			<th>Nama</th>
 			<th>Email</th>
 			<th width='10%' class='text-center;'>Level</th>
-			<th width='5%' class='text-center;'>Action</th>
+			<th width='7%' class='text-center;'>Action</th>
 		</tr>
 	</thead>
 	<tbody>

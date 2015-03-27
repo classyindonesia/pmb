@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "36a2ffa3737c436ff1c71ae878e29258",
+    "hash": "50ea628e99108ac7adeed8d3e2c08211",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -107,6 +107,56 @@
                 "preload"
             ],
             "time": "2015-01-26 22:06:19"
+        },
+        {
+            "name": "cviebrock/eloquent-sluggable",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cviebrock/eloquent-sluggable.git",
+                "reference": "31a74b89b1ab5d9183d4789fc6b6de5f8b307182"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cviebrock/eloquent-sluggable/zipball/31a74b89b1ab5d9183d4789fc6b6de5f8b307182",
+                "reference": "31a74b89b1ab5d9183d4789fc6b6de5f8b307182",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "5.*",
+                "illuminate/database": "5.*",
+                "illuminate/support": "5.*",
+                "php": ">=5.4.0",
+                "predis/predis": "~1.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "3.0.*",
+                "phpunit/phpunit": "4.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Cviebrock\\EloquentSluggable\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Colin Viebrock",
+                    "email": "colin@viebrock.ca"
+                }
+            ],
+            "description": "Easy creation of slugs for your Eloquent models in Laravel",
+            "homepage": "https://github.com/cviebrock/eloquent-sluggable",
+            "keywords": [
+                "eloquent",
+                "laravel",
+                "slug"
+            ],
+            "time": "2015-03-23 02:12:08"
         },
         {
             "name": "danielstjules/stringy",
@@ -767,16 +817,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.0.20",
+            "version": "v5.0.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "419d3f485ce7946cace4325ef19a30e1d5543951"
+                "reference": "d30ff645035856d145a0ac191f07151d20fe691a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/419d3f485ce7946cace4325ef19a30e1d5543951",
-                "reference": "419d3f485ce7946cace4325ef19a30e1d5543951",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/d30ff645035856d145a0ac191f07151d20fe691a",
+                "reference": "d30ff645035856d145a0ac191f07151d20fe691a",
                 "shasum": ""
             },
             "require": {
@@ -889,7 +939,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2015-03-24 13:36:37"
+            "time": "2015-03-26 19:09:29"
         },
         {
             "name": "laravel/socialite",
@@ -1170,12 +1220,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mpdf/mpdf.git",
-                "reference": "2d49e4c88c5d33907bf8e92358530ac29cda59a2"
+                "reference": "24b85386aea7e2a81a0ceba6a09b0e0967fc759b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mpdf/mpdf/zipball/2d49e4c88c5d33907bf8e92358530ac29cda59a2",
-                "reference": "2d49e4c88c5d33907bf8e92358530ac29cda59a2",
+                "url": "https://api.github.com/repos/mpdf/mpdf/zipball/24b85386aea7e2a81a0ceba6a09b0e0967fc759b",
+                "reference": "24b85386aea7e2a81a0ceba6a09b0e0967fc759b",
                 "shasum": ""
             },
             "require": {
@@ -1206,7 +1256,7 @@
                 "php",
                 "utf-8"
             ],
-            "time": "2015-03-06 12:56:44"
+            "time": "2015-03-25 16:19:39"
         },
         {
             "name": "mtdowling/cron-expression",
@@ -1254,20 +1304,21 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "1.17.0",
+            "version": "1.18.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "a1dd1ad9abfc8b3c4d8768068e6c71d293424e86"
+                "reference": "99e2f69f7bdc2cc4334b2d00f1e0ba450623ea36"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/a1dd1ad9abfc8b3c4d8768068e6c71d293424e86",
-                "reference": "a1dd1ad9abfc8b3c4d8768068e6c71d293424e86",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/99e2f69f7bdc2cc4334b2d00f1e0ba450623ea36",
+                "reference": "99e2f69f7bdc2cc4334b2d00f1e0ba450623ea36",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
+                "php": ">=5.3.0",
+                "symfony/translation": "2.6.*"
             },
             "require-dev": {
                 "phpunit/phpunit": "~4.0"
@@ -1296,7 +1347,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2015-03-08 14:05:44"
+            "time": "2015-03-26 03:05:57"
         },
         {
             "name": "nikic/php-parser",
@@ -1394,6 +1445,56 @@
             "time": "2014-11-08 20:00:00"
         },
         {
+            "name": "predis/predis",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nrk/predis.git",
+                "reference": "7a170b3d8123c556597b4fbdb88631f99de180c2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nrk/predis/zipball/7a170b3d8123c556597b4fbdb88631f99de180c2",
+                "reference": "7a170b3d8123c556597b4fbdb88631f99de180c2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "suggest": {
+                "ext-curl": "Allows access to Webdis when paired with phpiredis",
+                "ext-phpiredis": "Allows faster serialization and deserialization of the Redis protocol"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Predis\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniele Alessandri",
+                    "email": "suppakilla@gmail.com",
+                    "homepage": "http://clorophilla.net"
+                }
+            ],
+            "description": "Flexible and feature-complete PHP client library for Redis",
+            "homepage": "http://github.com/nrk/predis",
+            "keywords": [
+                "nosql",
+                "predis",
+                "redis"
+            ],
+            "time": "2015-01-02 12:51:34"
+        },
+        {
             "name": "psr/log",
             "version": "1.0.0",
             "source": {
@@ -1433,16 +1534,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.4.3",
+            "version": "v0.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "b5dd7660c0ef38e96cd8cd8fa924b6be0e53906a"
+                "reference": "489816db71649bd95b416e3ed9062d40528ab0ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/b5dd7660c0ef38e96cd8cd8fa924b6be0e53906a",
-                "reference": "b5dd7660c0ef38e96cd8cd8fa924b6be0e53906a",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/489816db71649bd95b416e3ed9062d40528ab0ac",
+                "reference": "489816db71649bd95b416e3ed9062d40528ab0ac",
                 "shasum": ""
             },
             "require": {
@@ -1500,7 +1601,7 @@
                 "interactive",
                 "shell"
             ],
-            "time": "2015-03-17 15:17:33"
+            "time": "2015-03-26 18:43:54"
         },
         {
             "name": "simplesoftwareio/simple-qrcode",
@@ -3441,7 +3542,8 @@
         "illuminate/html": 20,
         "intervention/image": 20,
         "mpdf/mpdf": 20,
-        "simplesoftwareio/simple-qrcode": 20
+        "simplesoftwareio/simple-qrcode": 20,
+        "cviebrock/eloquent-sluggable": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

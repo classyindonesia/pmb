@@ -24,6 +24,14 @@ require app_path('Http/routes/admin/request_ganti_prodi.php');
 require app_path('Http/routes/admin/data_upload.php');
   
 
+/* level web */
+require app_path('Http/routes/web/weblink.php');
+require app_path('Http/routes/web/foto_slide.php');
+require app_path('Http/routes/web/berita.php');
+require app_path('Http/routes/web/lampiran_berita.php');
+
+
+
 
 /* level operator */
 require app_path('Http/routes/operator/pendaftaran.php');

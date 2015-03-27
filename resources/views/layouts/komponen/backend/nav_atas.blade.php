@@ -7,7 +7,9 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand animated bounceInDown" href="{!! route('admin_dashboard.index') !!}">Official Site</a>
+          <a class="navbar-brand animated bounceInDown" href="{!! route('admin_dashboard.index') !!}">
+            <i class='fa fa-home'></i> {!! env('NAMA_APP', 'Official Website') !!}
+          </a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
 

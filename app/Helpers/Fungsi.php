@@ -32,6 +32,17 @@ class Fungsi{
         }
 
 
+  public static function limit_karakter($str){
+    if(strlen($str) >=35 ){
+      $pecah_str = explode(".", $str);
+      $ekstensi =  $pecah_str[count($pecah_str) - 1];
+      $output = substr($str, 0, 35).'.'.$ekstensi;
+    }else{
+      $output = $str;
+    }
+    return $output;
+  }
+
 
         public static function get_dropdown($model, $nama_dropdown = NULL){
             $data = array('' => '-pilih '.$nama_dropdown."-");

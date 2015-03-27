@@ -148,7 +148,8 @@ return [
 
 		'Laravel\Socialite\SocialiteServiceProvider',
 		'Intervention\Image\ImageServiceProvider',
-		'SimpleSoftwareIO\QrCode\QrCodeServiceProvider'
+		'SimpleSoftwareIO\QrCode\QrCodeServiceProvider',
+		'Cviebrock\EloquentSluggable\SluggableServiceProvider',
  
 	],
 

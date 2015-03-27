@@ -7,7 +7,8 @@
 
 @section('konten_utama')
 
-	<div class="col-md-6" style="padding-left: 0px;">
+	<div class="col-md-8" style="padding-left: 0px;">
+		@include($base_view.'operator.script')		
 		@include($base_view.'operator.statistik_pendaftaran')		
 	</div>
  

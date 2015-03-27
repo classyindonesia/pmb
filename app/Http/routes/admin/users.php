@@ -43,3 +43,10 @@ post('backend/users/update', [
 		'as'	=> 'admin_users.update'
 		]
 	);
+
+post('backend/users/update', [
+		'middleware' => 'hanya_admin', 
+		'uses' => 'Backend\UserController@reset_password',
+		'as'	=> 'admin_users.reset_password'
+		]
+	);

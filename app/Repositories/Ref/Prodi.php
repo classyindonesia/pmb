@@ -6,8 +6,11 @@ class Prodi{
 
 
 	public function getAll(){
-		return Prd::all();
+		return Prd::with('mst_pendaftaran1')->get();
 	}
 
 
 }
+
+
+ 
