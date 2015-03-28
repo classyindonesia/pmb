@@ -37,7 +37,7 @@ return [
 	'facebook' => [
 	    'client_id' => '165969263108',
 	    'client_secret' => 'ade3c6e9502e42d48a02e298fdf55317',
-	    'redirect' => 'http://nekark.reka.com/do_fb_login',
+	    'redirect' => env('FB_REDIR_CALLBACK_URL').'do_fb_login',
 	],
 
 ];
