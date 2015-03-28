@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('judul_web', env('JUDUL_APP', 'Official Site'))</title>
+    <title>@yield('judul_web', env('NAMA_APP', 'Official Site'))</title>
 
 <script src="{{ elixir("js/main.js") }}"></script> 
 <link rel="stylesheet" href="{{ elixir("css/main.css") }}">
