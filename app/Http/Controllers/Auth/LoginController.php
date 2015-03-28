@@ -91,7 +91,7 @@ class LoginController extends Controller {
 
 
 	public function loginPath(){
-		return property_exists($this, 'loginPath') ? $this->loginPath : 'auth/login';
+		return property_exists($this, 'loginPath') ? $this->loginPath : '/';
 	}
 
 

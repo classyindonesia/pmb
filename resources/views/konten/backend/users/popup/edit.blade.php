@@ -33,8 +33,8 @@ $('#simpan').click(function(){
 nama = $('#nama').val();
 email = $('#email').val();
 ref_user_level_id = $('#ref_user_level_id').val();
-password = $('#password').val();
-password_confirmation = $('#password_confirmation').val();
+//password = $('#password').val();
+//password_confirmation = $('#password_confirmation').val();
  
 
 form_data ={
@@ -60,7 +60,7 @@ $('#simpan').attr('disabled', 'disabled');
 		      //    alert('error! terjadi kesalahan pada sisi server!')
 		},
 		success:function(ok){
-			window.location.reload();
+			 window.location.reload();
 		}
 	})
 })

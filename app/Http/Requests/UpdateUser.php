@@ -23,7 +23,8 @@ class UpdateUser extends Request {
 	{
 		return [
 			'nama'	=> 'required',
-			'email'	=> 'required'
+			'email'	=> 'required',
+			'ref_user_level_id'	=> 'required',
 		];
 	}
 

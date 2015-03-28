@@ -8,8 +8,8 @@ use App\Models\Ref\UserLevel;
 
 
 /* requests */
-use App\Http\Requests\CreateUser;
 use App\Http\Requests\UpdateUser;
+use App\Http\Requests\CreateUser;
 
 use Input;
 class UserController extends Controller{
@@ -54,6 +54,7 @@ class UserController extends Controller{
 	}
 
 	public function update(UpdateUser $request){
+
 		$o = User::find($request->id);
 		$o->nama = $request->nama;
 		$o->email = $request->email;
