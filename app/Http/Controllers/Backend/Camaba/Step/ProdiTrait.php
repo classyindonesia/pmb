@@ -32,6 +32,7 @@ trait ProdiTrait{
 		if($o->is_valid == 1) abort(404);
 
 		$o->ref_prodi_id1 = $request->ref_prodi_id1; 
+		$o->ref_prodi_id2 = $request->ref_prodi_id2; 
 		$o->save();
 		return $o;
 	}
