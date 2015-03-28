@@ -1,6 +1,6 @@
 <?php
 
-	Route::controllers([
-		'password' => 'Auth\ResetPasswordsController',
-	]);	
- 
+Route::controllers([
+	'password' => 'Auth\ResetPasswordsController',
+]);	
+
