@@ -24,7 +24,9 @@ class PendaftaranController extends Controller {
  	}
 
 
-	public function index(Prodi $prodi, Gelombang $gelombang, Sma $sma){
+	public function index(Prodi $prodi, Gelombang $gelombang, Sma $sma, SetupVariable $sv){
+		if($sv->get('config_pendaftaran_online') == 0) abort(404);
+
 		$prodi = $prodi->getAll();
 		$sma = $sma->getAll();
 		$gelombang = $gelombang->getAll();

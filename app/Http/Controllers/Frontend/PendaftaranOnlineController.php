@@ -20,11 +20,12 @@ class PendaftaranOnlineController extends Controller {
 
 	public function __construct(){
 		view()->share('pendaftaran_online_home', true);
+
 	}
 
 
-	public function index(){
-		return view('konten.frontend.pendaftaran_online.index');
+	public function index(SetupVariable $sv){
+		return view('konten.frontend.pendaftaran_online.index', compact('sv'));
 	}
 
 
@@ -50,10 +51,7 @@ class PendaftaranOnlineController extends Controller {
 		}
 	}
 
-
-
-
-
+ 
 
 
 	private function handle_email($mst_pendaftaran, $password){

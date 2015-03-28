@@ -4,11 +4,12 @@
       <li @if(isset($dashboard_home)) class="active" @endif>
           <a href="{!! route('admin_dashboard.index') !!}"> <i class='fa fa-home'></i> Dashboard  </a>
       </li>
-
+<?php $sv = new SV; ?>
+@if($sv->get('config_pendaftaran_online') == 1) 
        <li @if(isset($pendaftaran_home)) class="active" @endif>
           <a href="{!! route('operator_pendaftaran.index') !!}"> <i class='fa fa-street-view'></i> Pendaftaran Offline </a>
       </li>
-
+@endif
 
        <li @if(isset($list_pendaftaran_home)) class="active" @endif>
           <a href="{!! route('admin_pendaftaran.pendaftaran_camaba') !!}"> <i class='fa fa-group'></i> List Pendaftaran  </a>

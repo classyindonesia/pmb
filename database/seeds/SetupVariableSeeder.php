@@ -49,6 +49,13 @@ class SetupVariableSeeder extends Seeder {
         if(count($v)<=0) mSV::create(['variable' => 'config_password_frontend', 'value' => 1]);
         $this->command->info('config lupa password halaman depan telah ditambahkan!');
 
+        $v = mSV::whereVariable('config_pendaftaran_online')->first();
+        if(count($v)<=0) mSV::create(['variable' => 'config_pendaftaran_online', 'value' => 1]);
+        $this->command->info('config pendaftaran online halaman depan telah ditambahkan!');
+
+        $v = mSV::whereVariable('config_pendaftaran_offline_operator')->first();
+        if(count($v)<=0) mSV::create(['variable' => 'config_pendaftaran_offline_operator', 'value' => 1]);
+        $this->command->info('config pendaftaran offline operator telah ditambahkan!');
 
 
     }
