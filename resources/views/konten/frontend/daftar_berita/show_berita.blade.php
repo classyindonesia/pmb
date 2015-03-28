@@ -19,7 +19,7 @@
 
 
 @section('konten_utama')
-	<div class="col-md-9">
+	<div class="col-md-12">
 	 
 	 <a class="btn btn-primary pull-right" href="{!! route('daftar_berita.index') !!}">
 		<i class='fa fa-arrow-left'></i> back
@@ -44,15 +44,7 @@
 
 
 
-
-
-@section('sidebar')
-<div class="col-md-3">
-@include('konten.frontend.auth.login')
-
-</div>
-@endsection
-
+ 
 
 
 
