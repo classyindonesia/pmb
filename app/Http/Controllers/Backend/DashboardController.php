@@ -8,12 +8,14 @@ use App\Repositories\Mst\PendaftaranRepository;
 use Auth;
 use App\Http\Controllers\Backend\Dashboard\LevelOperatorTrait;
 use App\Http\Controllers\Backend\Dashboard\LevelWebTrait;
+use App\Http\Controllers\Backend\Dashboard\LevelAdminTrait;
  
 
 class DashboardController extends Controller{
 
 	use LevelOperatorTrait;
 	use LevelWebTrait;
+	use LevelAdminTrait;
 
 
 
@@ -41,7 +43,7 @@ class DashboardController extends Controller{
 		$level = \Auth::user()->ref_user_level_id;
 		if($level == 1){
 			//level admin
-			return view('konten.backend.dashboard.index');
+			return $this->level_admin();
 		}elseif($level == 2){
 			//level web
 			return $this->level_web();			

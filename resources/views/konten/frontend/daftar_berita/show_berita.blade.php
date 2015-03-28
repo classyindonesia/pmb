@@ -21,24 +21,23 @@
 @section('konten_utama')
 	<div class="col-md-12">
 	 
-	 <a class="btn btn-primary pull-right" href="{!! route('daftar_berita.index') !!}">
-		<i class='fa fa-arrow-left'></i> back
-	</a>
+  	 <a class="btn btn-primary pull-right" href="{!! route('daftar_berita.index') !!}">
+  		<i class='fa fa-arrow-left'></i> back
+  	</a>
 
-	<h1>{!! $berita->judul !!}</h1>
-	@include($base_view.'tgl_post')
-	<hr>
-	  {!! $berita->artikel !!}
-<hr>
-<div class="fb-like" data-href="{!! URL::current() !!}" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
-<hr>	 	
+  	<h1>{!! $berita->judul !!}</h1>
+  	@include($base_view.'tgl_post')
+  	<hr>
+       {!! $berita->artikel !!}
+   <hr>
+    <div class="fb-like" data-href="{!! URL::current() !!}" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+  <hr>	 	
 
-	@if($berita->komentar == 1)
+  	@if($berita->komentar == 1)
 
-		@include($base_view.'komentar')
-	@endif
-
-	</div>
+  		@include($base_view.'komentar')
+  	@endif
+</div>
 @endsection
 
 
