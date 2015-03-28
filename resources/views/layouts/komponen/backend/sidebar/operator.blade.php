@@ -5,7 +5,7 @@
           <a href="{!! route('admin_dashboard.index') !!}"> <i class='fa fa-home'></i> Dashboard  </a>
       </li>
 <?php $sv = new SV; ?>
-@if($sv->get('config_pendaftaran_online') == 1) 
+@if($sv->get('config_pendaftaran_offline_operator') == 1) 
        <li @if(isset($pendaftaran_home)) class="active" @endif>
           <a href="{!! route('operator_pendaftaran.index') !!}"> <i class='fa fa-street-view'></i> Pendaftaran Offline </a>
       </li>

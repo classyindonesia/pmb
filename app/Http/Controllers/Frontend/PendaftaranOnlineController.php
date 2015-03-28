@@ -121,6 +121,7 @@ class PendaftaranOnlineController extends Controller {
 		$o->nama = $request->nama;	
 		$o->alamat_email 	= $request->alamat_email;
 		$o->no_hp = $request->no_hp;
+		$o->jenis_daftar = 1;
 		$o->ref_gelombang_id = $sv->get('ref_gelombang_id');
 		$o->ref_thn_ajaran_id = $sv->get('ref_thn_ajaran_id');
 		$o->save();

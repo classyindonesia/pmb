@@ -78,6 +78,11 @@
 	<i class='fa fa-check'></i> setujui
 </button>
 
+
+<button id='tolak' class='btn btn-danger'>
+	<i class='fa fa-times'></i> tolak
+</button>
+
 <script type="text/javascript">
 	$('#setujui').click(function(){
 		setujui = confirm('are you sure?');
@@ -102,5 +107,31 @@
 			});
 
 		}
-	})
+	});
+
+
+	$('#tolak').click(function(){
+		setujui = confirm('are you sure?');
+		if(setujui == true){
+			form_data = { 
+				id : '{!! $data->id !!}', 
+				status : 2, 
+				prodi_pilihan : '{!! $data->prodi_pilihan !!}',
+				mst_pendaftaran_id : '{!! $data->mst_pendaftaran_id !!}',
+				ref_prodi_id : '{!! $data->ref_prodi_id !!}'
+			}
+			$.ajax({
+				url :'{!! route("request_pergantian_prodi.submit_request") !!}',
+				data : form_data,
+				type : 'post',
+				error: function(err){
+					alert('error! terjadi kesalahan pada sisi server!');
+				},
+				success:function(ok){
+					window.location.reload();
+				}
+			});
+
+		}
+	});
 </script>

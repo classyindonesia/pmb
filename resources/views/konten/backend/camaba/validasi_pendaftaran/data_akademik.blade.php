@@ -3,16 +3,7 @@
 <hr>
 
 <table class='table'>
-	<tr>
-		<td width='30%'>Tahun Kelulusan</td>
-		<td>{!! $b->thn_lulus !!}</td>
-	</tr>
  
-	<tr>
-		<td>Nomor Ijazah</td>
-		<td>{!! $b->no_ijazah !!}</td>
-	</tr>
-
 
 	<tr>
 		<td>Asal Sekolah</td>

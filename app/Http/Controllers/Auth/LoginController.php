@@ -72,7 +72,7 @@ class LoginController extends Controller {
 		return redirect($this->loginPath())
 					->withInput($request->only('email', 'remember'))
 					->withErrors([
-						'email' => 'These credentials do not match our records.',
+						'email' => 'data tdk ditemukan',
 					]);
 
 	}
