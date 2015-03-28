@@ -31,12 +31,40 @@
                   <i class='fa fa-users'></i> Pendaftaran Online
                 </a>
               </li>
+          </ul>
 
-            
 
 
+  <ul class="nav navbar-nav navbar-right">
  
+      @if($sv->get_val('config_password_frontend') == 1)
+      <li @if(isset($reset_password_home)) class='active' @endif><a href="/password/email">
+        <i class='fa fa-envelope'></i> lupa password</a></li>  
+        @endif      
 
+
+      @if($sv->get_val('config_login_frontend') == 0)
+      <li>
+           <a id='login_page' href="#">
+            <i class='fa fa-lock'></i> LOGIN
+          </a>
+      </li>  
+<script type="text/javascript">
+$('#login_page').click(function(){
+  $('#myModal').modal('show');
+  $('.modal-body').load('{!! route("auth.login") !!}')
+  return false;
+})
+</script>
+
+        @endif  
+
+
+</ul>
+
+          
+
+     
 
         </div><!--/.nav-collapse -->
       </div>

@@ -29,15 +29,10 @@
 	</div>
 
 
-
-	<div class='form-group'>
+ 	<div class='form-group'>
 		{!! Form::label("alamat_email", 'E-Mail :') !!} <br>
 		<input type='text' readonly=0 name='alamat_email' value='{!! $b->alamat_email !!}' id='alamat_email' class='form-control' placeholder='Alamat Email...' />
 	</div>	
 
-	<div class='form-group'>
-		{!! Form::label("no_hp", 'Nomor Handphone :') !!}
-		<input type='text' value='{!! $b->no_hp !!}' name='no_hp' id='no_hp' class='form-control' placeholder='Nomor Handphone...' />
-	</div>
 
 </div>

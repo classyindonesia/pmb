@@ -8,8 +8,6 @@ ref_prodi_id2 = $('#ref_prodi_id2').val();
 alamat = $('#alamat').val();
 tempat_lahir = $('#tempat_lahir').val();
 tgl_lahir = $('#thn_lahir').val()+'-'+$('#bln_lahir').val()+'-'+$('#tgl_lahir').val();
-no_ijazah = $('#no_ijazah').val();
-thn_lulus = $('#thn_lulus').val();
 no_hp = $('#no_hp').val();
 ref_gelombang_id = $('#ref_gelombang_id').val();
 alamat_email = $('#alamat_email').val();
@@ -26,9 +24,7 @@ form_data ={
 	tempat_lahir 		: tempat_lahir,
 	tgl_lahir 			: tgl_lahir,
 	no_hp 				: no_hp,
-	no_ijazah 			: no_ijazah,
-	thn_lulus 			: thn_lulus,
-	ref_gelombang_id	:ref_gelombang_id,
+  	ref_gelombang_id	:ref_gelombang_id,
 
  	_token : '{!! csrf_token() !!}'
 }

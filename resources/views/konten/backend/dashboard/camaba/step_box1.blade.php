@@ -17,10 +17,8 @@
             	@if(
             	$biodata->alamat == '' || 
             	$biodata->tgl_lahir == '0000-00-00' || 
-            	$biodata->thn_lulus == 0 || 
-            	$biodata->ref_sma_id = 0 ||
-            	$biodata->no_ijazah == '' ||
-            	$biodata->tempat_lahir == ''
+             	$biodata->ref_sma_id = 0 ||
+             	$biodata->tempat_lahir == ''
             	)
 
                 biodata utama masih kurang lengkap <br>

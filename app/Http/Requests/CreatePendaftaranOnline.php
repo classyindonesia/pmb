@@ -30,9 +30,9 @@ class CreatePendaftaranOnline extends Request {
 			'alamat'			=> 'required',
 			'tempat_lahir' 		=> 'required',
 			'tgl_lahir' 		=> 'required',
-			'no_ijazah' 		=> 'required',
-			'no_hp'				=> 'required|numeric',
-			'thn_lulus' 		=> 'required',
+			//'no_ijazah' 		=> 'required',
+			'no_hp'				=> 'required|numeric|unique:mst_pendaftaran',
+			//'thn_lulus' 		=> 'required',
 			'ref_gelombang_id' 	=> 'required',
 		];
 	}

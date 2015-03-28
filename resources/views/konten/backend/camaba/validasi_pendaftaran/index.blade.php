@@ -34,10 +34,8 @@
 			@if(
 				$b->alamat == '' || 
 				$b->tgl_lahir == '0000-00-00' || 
-				$b->thn_lulus == 0 || 
-				$b->ref_sma_id = 0 ||
-				$b->no_ijazah == '' ||
-				$b->tempat_lahir == '' ||
+ 				$b->ref_sma_id = 0 ||
+ 				$b->tempat_lahir == '' ||
 				count($f)	== 0 ||
 				count($berkas) == 0 
 			)

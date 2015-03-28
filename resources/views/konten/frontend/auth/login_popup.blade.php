@@ -1,5 +1,4 @@
-@if($sv->get_val('config_login_frontend') == 1)
-
+ 
 <div class="panel panel-default">
 <div class="panel-heading"> 
 	<h3 style='border-left:4px solid #ccc;padding-left:5px;'> Login Sistem </h3> 
@@ -51,4 +50,4 @@
 	</form>
 </div>
 </div>
-@endif
+ 

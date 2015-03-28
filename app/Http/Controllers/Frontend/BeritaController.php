@@ -3,6 +3,7 @@
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Models\Mst\Berita;
+use App\Models\Mst\LampiranBerita;
 use Illuminate\Http\Request;
 
 class BeritaController extends Controller {
@@ -30,5 +31,26 @@ class BeritaController extends Controller {
 		$berita = Berita::findBySlug($slug);
 		return view($this->base_view.'show_berita', compact('berita'));
 	}
+
+
+	
+	public function download_lampiran($encrypted_id){
+		$hashids = new \Hashids\Hashids('qertymyr');
+		$numbers = $hashids->decode($encrypted_id);
+		$id = $numbers[2];
+				
+		$f = LampiranBerita::find($id);
+		if(count($f)>0){
+			if(file_exists(storage_path('lampiran/'.$f->nama_file_tersimpan))){
+				return response()->download(storage_path('lampiran/'.$f->nama_file_tersimpan), $f->nama_file_asli);			
+			}else{
+				return response('sepertinya file <b>'.$f->nama_file_asli.'</b> sudah terhapus', 404);
+			}
+		}else{
+			abort(404);
+		}		
+	}
+
+
 
 }

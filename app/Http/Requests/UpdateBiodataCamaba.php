@@ -27,9 +27,9 @@ class UpdateBiodataCamaba extends Request {
   			'alamat'			=> 'required',
 			'tempat_lahir' 		=> 'required',
 			'tgl_lahir' 		=> 'required',
-			'no_ijazah' 		=> 'required',
+			//'no_ijazah' 		=> 'required',
 			'no_hp'				=> 'required|numeric',
-			'thn_lulus' 		=> 'required',
+			//'thn_lulus' 		=> 'required',
 		];
 	}
 

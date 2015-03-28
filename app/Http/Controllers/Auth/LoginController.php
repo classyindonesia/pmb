@@ -21,7 +21,7 @@ class LoginController extends Controller {
 
 	public function login(){
 		
-		return view('konten.frontend.auth.login');
+		return view('konten.frontend.auth.login_popup');
 	}
 
 

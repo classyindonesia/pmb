@@ -11,12 +11,6 @@
 <script src="{{ elixir("js/main.js") }}"></script> 
 <link rel="stylesheet" href="{{ elixir("css/main.css") }}">
 
- <style type="text/css">
-.navbar-default {
-    background-color: #{!! SV::get('navbar_bg_color') !!};
-  }
-</style>
-
 @yield('style_tambahan')
  
  
@@ -26,8 +20,8 @@
   </head>
   <body>
 @yield('fb_share_open_tag')
- 
-
+  
+@include('layouts.komponen.frontend.header')
 @include('layouts.komponen.frontend.nav_atas')
 @include('layouts.komponen.backend.modal')
 

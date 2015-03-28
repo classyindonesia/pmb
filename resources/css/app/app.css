@@ -1,4 +1,3 @@
-
  .btn-primary{
   background-color: #33414e;
  }
@@ -12,19 +11,25 @@
 }
 
 /* customize nav samping */
-
-
-
 /* link */
-/* title */
-/* navbar */
-/* 
+
+.navbar-default .navbar-text  {
+    color: #eee;
+}    
+.navbar-default .navbar-text a {
+    color: #eee;
+}    
+
+.navbar-default .navbar-text a:hover {
+    color: #aaa;
+}    
+
 .navbar-default .navbar-nav > li > a {
     color: #fff;
 }    
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-    color: #ccc;
+    color: #eee;
 }
 
 .navbar-default .nav > li > a {
@@ -33,28 +38,25 @@
 
 .navbar-default .nav > li > a:hover,
 .navbar-default .nav > li > a:focus {
-    color: #ccc;
+    color: #eee;
     background: transparent;
 }
 
 
-
+/* title */
 .navbar-default .navbar-brand {
     color: white;
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-    color: #ccc;
+    color: #eee;
 }
 
-
+/* navbar */
 .navbar-default {
     background-color: #33414e;
     color : #fff;
-    border : 0px;
-    margin-left: -2px;
   }
-  
  .navbar-default .navbar-nav > .open > a, 
 .navbar-default .navbar-nav > .open > a:hover, 
 .navbar-default .navbar-nav > .open > a:focus {
@@ -86,8 +88,6 @@
     background-color: #fff;
     color: #222;
  }
-
-  */
 
 
 /* agar setiap elemen yg memakai class spin, langsung berputar */       
@@ -180,7 +180,7 @@ body {
   width: 100%;
   /* Set the fixed height of the footer here */
 
-  background-color: #eee;
+  background-color: #ddd;
 }
 
 
@@ -198,7 +198,7 @@ body > .container {
 .footer > .container {
   padding-right: 15px;
   padding-left: 15px;
-
+  background-color: #ddd;
 }
 
 
@@ -225,15 +225,22 @@ body > .container-fluid {
 code {
   font-size: 80%;
 }
-.header_website h1 a{
-font-family: 'Fugaz One', cursive;
-  color: white;
- }
-.header_website{
-  padding-top: 1.5em;
-  height: 120px;
-}
 
-.header_website h1 a:hover{
-  color: #ccc;
+
+
+
+/* bagian header front end */
+.header_website{
+  background-color: #ddd;
+  padding-top: 0.2em;
+  height: 150px;
 }
+.header_website h1 a{
+  color: #686363;
+ }
+.header_website h1 a:hover{
+  color: #837d7d;
+}
+.header_website h3{
+  color: #686363;
+ }

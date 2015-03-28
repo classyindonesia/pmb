@@ -40,6 +40,17 @@ class SetupVariableSeeder extends Seeder {
         if(count($prodi)<=0)Prodi::create(['id'=>1,'kode_prodi' => '101', 'nama'=>'Prodi BK']);
 
 
+        
+        $v = mSV::whereVariable('config_login_frontend')->first();
+        if(count($v)<=0) mSV::create(['variable' => 'config_login_frontend', 'value' => 1]); //1=show,0=hide
+        $this->command->info('config login halaman depan telah ditambahkan!');
+
+        $v = mSV::whereVariable('config_password_frontend')->first();
+        if(count($v)<=0) mSV::create(['variable' => 'config_password_frontend', 'value' => 1]);
+        $this->command->info('config lupa password halaman depan telah ditambahkan!');
+
+
+
     }
 
     

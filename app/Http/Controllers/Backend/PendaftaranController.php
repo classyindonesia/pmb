@@ -84,12 +84,10 @@ class PendaftaranController extends Controller {
 		$o->tempat_lahir = $request->tempat_lahir;
 		$o->alamat 	= $request->alamat;
 		$o->alamat_email 	= $request->alamat_email;
-		$o->no_ijazah = $request->no_ijazah;
 		$o->ref_gelombang_id = $request->ref_gelombang_id;
 		$o->ref_prodi_id1 = $request->ref_prodi_id1;
 		$o->ref_prodi_id2 = $request->ref_prodi_id2;
 		$o->ref_sma_id = $request->ref_sma_id;
-		$o->thn_lulus = $request->thn_lulus;
 		$o->jenis_daftar = 0; //offline
 		$o->no_hp = $request->no_hp;
 		$o->ref_thn_ajaran_id = $sv->get('ref_thn_ajaran_id');
