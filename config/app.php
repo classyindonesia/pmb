@@ -150,6 +150,9 @@ return [
 		'Intervention\Image\ImageServiceProvider',
 		'SimpleSoftwareIO\QrCode\QrCodeServiceProvider',
 		'Cviebrock\EloquentSluggable\SluggableServiceProvider',
+
+		/* tambahan custom */
+		'App\Providers\ViewComposerServiceProviders',
  
 	],
 

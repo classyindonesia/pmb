@@ -54,7 +54,7 @@ class FotoSlideController extends Controller {
 				// resize gambar
 				$img = \Image::make(public_path('upload/foto_slide/'.$nama_file_to_server));
 				// prevent possible upsizing
-				$img->resize(null, 180, function ($constraint) {
+				$img->resize(null, 340, function ($constraint) {
 				    $constraint->aspectRatio();
 				    $constraint->upsize();
 				});

@@ -3,6 +3,20 @@
 
 
 
+@section('fb_share_open_tag')
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/id_ID/sdk.js#xfbml=1&appId=165969263108&version=v2.3";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+@endsection
+
+
+
+
 
 @section('konten_utama')
 	<div class="col-md-9">
@@ -15,7 +29,9 @@
 	@include($base_view.'tgl_post')
 	<hr>
 	  {!! $berita->artikel !!}
-	 	
+<hr>
+<div class="fb-like" data-href="{!! URL::current() !!}" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+<hr>	 	
 
 	@if($berita->komentar == 1)
 

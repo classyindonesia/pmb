@@ -19,13 +19,7 @@
 @endsection
 
 
-
-@section('sidebar')
-<div class="col-md-3">
-@include('konten.frontend.auth.login')
-
-</div>
-@endsection
+ 
 
 
 @section('script_tambahan')
@@ -40,4 +34,11 @@ $(document).ready(function() {
 
  
 </script>
+@endsection
+
+
+@section('sidebar')
+	<div class="col-md-3">
+		@include('layouts.komponen.frontend.sidebar')
+	</div>
 @endsection

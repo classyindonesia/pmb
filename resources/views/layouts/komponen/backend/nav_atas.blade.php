@@ -13,9 +13,12 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
 
-          <ul class="nav navbar-nav navbar-right">
-             <li><a href="{!! route('auth.getLogout') !!}"> <i class='fa fa-sign-out'></i> Log out</a></li>
-          </ul>
+<p class="navbar-text navbar-right">
+  Signed in as <b>{!! Auth::user()->nama !!}</b>   || 
+  <a href="{!! route('auth.getLogout') !!}"> <i class='fa fa-sign-out'></i> Log out</a>
+</p>
+
+ 
 
         </div>
       </div>

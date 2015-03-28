@@ -25,7 +25,7 @@
 
   </head>
   <body>
-
+@yield('fb_share_open_tag')
  
 
 @include('layouts.komponen.frontend.nav_atas')
