@@ -18,7 +18,8 @@ class KartuPendaftaranController extends Controller {
 	public function index(PendaftaranRepository $p){
 		$base_view = $this->base_view;
 		$b = $p->getByEmail(Auth::user()->email);
-		return view($this->base_view.'index', compact('base_view', 'b'));
+		$sv = new SV;
+		return view($this->base_view.'index', compact('base_view', 'b', 'sv'));
 	}
 
 

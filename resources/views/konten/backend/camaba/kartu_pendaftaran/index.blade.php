@@ -2,7 +2,7 @@
 
 
 @section('judul_header')
-		@include($base_view.'action.ganti_prodi')
+	@include($base_view.'tombol_ganti_prodi')
    <h1 class="title_header"><i class="fa fa-file-pdf-o"></i>  Kartu Pendaftaran </h1>
 @endsection
 

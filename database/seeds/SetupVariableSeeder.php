@@ -58,6 +58,12 @@ class SetupVariableSeeder extends Seeder {
         $this->command->info('config pendaftaran offline operator telah ditambahkan!');
 
 
+
+        $v = mSV::whereVariable('config_pindah_prodi')->first();
+        if(count($v)<=0) mSV::create(['variable' => 'config_pindah_prodi', 'value' => 1]);
+        $this->command->info('config pindah prodi level camaba telah ditambahkan!');
+
+
     }
 
     
