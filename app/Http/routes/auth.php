@@ -8,7 +8,6 @@ Route::post('auth/login', [
 Route::get('auth/login', [
 	'uses'			=> 'Auth\LoginController@login',
 	'as'			=> 'auth.login',
-	'middleware'	=> 'guest',
 	]);
 
 
