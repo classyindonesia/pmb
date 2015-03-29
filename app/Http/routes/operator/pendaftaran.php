@@ -50,6 +50,17 @@ Route::group(['middleware' => 'hanya_operator'], function(){
  	]);
 
 
+	get('backend/pendaftaran/request_pindah_prodi/{id}', [
+		'as'	=> 'operator_pendaftaran.request_pindah_prodi',
+		'uses'	=> 'Backend\PendaftaranController@request_pindah_prodi',
+ 	]);
+
+ 	post('backend/pendaftaran/submit_request_pindah_prodi', [
+		'uses'	=> 'Backend\Camaba\GantiProdiController@submit_request',
+		'as'	=> 'operator_pendaftaran.submit_request_pindah_prodi',
+	]);
+ 
+
 });
 
 

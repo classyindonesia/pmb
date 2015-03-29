@@ -66,15 +66,15 @@
 		setuju = confirm('are you sure?');
 		if(setuju == true){
 			ref_prodi_id1 = $('#ref_prodi_id1').val();
-			/*
+			 
 			if(ref_prodi_id1 == '{!! $b->ref_prodi_id1 !!}' || ref_prodi_id1 == ''){
 				alert('prodi pilihan tidak boleh sama atau kosong!');
 				return false;
 			}
-			*/
+			 
 
 			$.ajax({
-				url : '{!! route("ganti_prodi.submit_request") !!}',
+				url : '{!! route("operator_pendaftaran.submit_request_pindah_prodi") !!}',
 				data : {ref_prodi_id : ref_prodi_id1, prodi_pilihan : 1, email : '{!! $b->alamat_email !!}'},
 				type : 'post',
 				error:function(err){
@@ -85,7 +85,7 @@
 						alert('anda sudah pernah melakukan request pergantian, silahkan menunggu persetujuan');
 					}
 					else{
-						$('.modal-body').load('{!! route("ganti_prodi.index") !!}');
+						$('.modal-body').load('{!! route("operator_pendaftaran.request_pindah_prodi", Request::segment(4)) !!}');
 					}
 				}
 			})			
@@ -96,10 +96,12 @@
 
 	$('#do_request_prodi2').click(function(){
 		ref_prodi_id2 = $('#ref_prodi_id2').val();
-			if(ref_prodi_id2 == ''){
+ 
+
+			if(ref_prodi_id2 == '{!! $b->ref_prodi_id2 !!}' || ref_prodi_id2 == ''){
+				alert('prodi pilihan tidak boleh sama atau kosong!');
 				return false;
 			}
-
 
 		setuju = confirm('are you sure?');
 		if(setuju == true){
@@ -108,7 +110,7 @@
  
 
 			$.ajax({
-				url : '{!! route("ganti_prodi.submit_request") !!}',
+				url : '{!! route("operator_pendaftaran.submit_request_pindah_prodi") !!}',
 				data : {ref_prodi_id : ref_prodi_id2, prodi_pilihan : 2, email : '{!! $b->alamat_email !!}'},
 				type : 'post',
 				error:function(err){
@@ -119,7 +121,7 @@
 						alert('anda sudah pernah melakukan request pergantian, silahkan menunggu persetujuan');
 					}
 					else{
-						$('.modal-body').load('{!! route("ganti_prodi.index") !!}');
+						$('.modal-body').load('{!! route("operator_pendaftaran.request_pindah_prodi", Request::segment(4)) !!}');
 					}
 				}
 			})			

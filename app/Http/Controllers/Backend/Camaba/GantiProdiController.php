@@ -26,7 +26,7 @@ class GantiProdiController extends Controller {
 	}
 
 	public function submit_request(Request $request, PendaftaranRepository $p){
-		$b = $p->getByEmail(Auth::user()->email);
+		$b = $p->getByEmail($request->email);
 		$check = GantiProdi::whereMstPendaftaranId($b->id)->whereProdiPilihan($request->prodi_pilihan)->whereStatus(0)->first();
 		if(count($check)>0){ //jika sudah pernah request			
 			return 1;

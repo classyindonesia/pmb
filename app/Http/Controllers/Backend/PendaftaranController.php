@@ -6,6 +6,7 @@ use App\Helpers\KirimSms;
 use App\Helpers\SetupVariable;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreatePendaftaranOnline;
+use App\Models\Mst\GantiProdi;
 use App\Models\Mst\Pendaftaran;
 use App\Models\Mst\User;
 use App\Repositories\Mst\PendaftaranRepository;
@@ -171,8 +172,20 @@ class PendaftaranController extends Controller {
 
 
 	public function view_berkas($id){
-		$biodata = Pendaftaran::findOrfail($id); //mst_photo, mst_berkas
+		$biodata = Pendaftaran::findOrfail($id); 
 		return view($this->base_view.'popup.view_berkas', compact('biodata'));		
+	}
+
+
+	public function request_pindah_prodi($id){
+		$b = Pendaftaran::findOrfail($id);  
+		$prodi = new Prodi;
+		$prodi = \Fungsi::get_dropdown($prodi->getAll());
+		$request_ganti = GantiProdi::where('mst_pendaftaran_id', '=', $b->id)
+			->with('ref_prodi')
+			->get();		
+		return view($this->base_view.'popup.request_pindah_prodi', 
+			compact('b', 'prodi', 'request_ganti'));			
 	}
 
 

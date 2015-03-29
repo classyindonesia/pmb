@@ -1,0 +1,1 @@
+<i style='cursor:pointer;' data-toggle='tooltip' title='request pindah prodi' onClick='pindahProdi({!! $list->id !!})' class='fa fa-random'></i>

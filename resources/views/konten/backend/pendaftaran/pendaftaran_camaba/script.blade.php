@@ -16,4 +16,10 @@ function viewBerkas(id_pendaftaran){
 	$('.modal-body').load('{!! route("operator_pendaftaran.view_berkas", [null]) !!}/'+id_pendaftaran);	
 }
 
+function pindahProdi(id_pendaftaran){
+	$('#myModal').modal('show');
+	$('.modal-body').load('{!! route("operator_pendaftaran.request_pindah_prodi", [null]) !!}/'+id_pendaftaran);	
+	
+}
+
 </script>
