@@ -153,6 +153,7 @@ return [
 
 		/* tambahan custom */
 		'App\Providers\ViewComposerServiceProviders',
+		'Maatwebsite\Excel\ExcelServiceProvider',
  
 	],
 
@@ -213,7 +214,8 @@ return [
 
 		'Socialize' => 'Laravel\Socialite\Facades\Socialite',	
 		'Image' 	=> 'Intervention\Image\Facades\Image',
-		'QrCode' 	=> 'SimpleSoftwareIO\QrCode\Facades\QrCode'
+		'QrCode' 	=> 'SimpleSoftwareIO\QrCode\Facades\QrCode',
+		'Excel' 	=> 'Maatwebsite\Excel\Facades\Excel',
  
 	],
 

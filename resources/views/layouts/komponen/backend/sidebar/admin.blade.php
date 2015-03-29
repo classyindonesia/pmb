@@ -4,6 +4,11 @@
           <a href="{!! route('admin_dashboard.index') !!}"> <i class='fa fa-home'></i> Dashboard  </a>
       </li>
 
+      <li @if(isset($data_pendaftaran_home)) class="active" @endif>
+          <a href="{!! route('admin_data_pendaftaran.pendaftaran_camaba') !!}"> <i class='fa fa-th-list'></i> Daftar Pengguna  </a>
+      </li>
+
+
 
       <li @if(isset($users_home)) class="active" @endif>
           <a href="{!! route('admin_users.index') !!}"> <i class='fa fa-users'></i> Daftar Pengguna  </a>
