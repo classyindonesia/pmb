@@ -1,8 +1,5 @@
-@extends('layouts.public')
-
-@section('main_konten')
-
-
+@extends('layouts.frontend')
+@section('konten_utama')
  
 
 
