@@ -18,9 +18,9 @@
 				{!! Fungsi::date_to_tgl(date('Y-m-d', strtotime($list->created_at))).'/ '.date('H:i', strtotime($list->created_at)) !!}
 			</td>			
 			<td>
-				@if(file_exists(public_path('upload/foto/'.$list->nama_file_asli)))
+				@if(file_exists(public_path('upload/foto/'.$list->nama_file_tersimpan)))
 					{!! Fungsi::size(
-						File::size(public_path('upload/foto/'.$list->nama_file_asli))
+						File::size(public_path('upload/foto/'.$list->nama_file_tersimpan))
 						) !!}
 				@else
 					<span class='text-danger'>file tdk ditemukan</span> 

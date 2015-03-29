@@ -14,6 +14,7 @@ class ResetPasswordsController extends Controller {
 	protected $auth;
 
 	protected $passwords;
+	protected $redirectTo = '/backend/';
 
 
 	public function __construct(PasswordBroker $passwords, Guard $auth){
