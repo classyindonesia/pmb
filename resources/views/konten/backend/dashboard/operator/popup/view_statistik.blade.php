@@ -46,6 +46,7 @@ $jml_total = count($gelombang->mst_pendaftaran);
  <hr>
 		@foreach($prodi as $list)
 		<?php  
+		$jml_mhs_prodi = count($list->mst_pendaftaran2);
 		if($jml_total == 0){
 			$hasil = 0;
 		}else{
