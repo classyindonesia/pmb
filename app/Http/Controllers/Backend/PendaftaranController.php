@@ -170,5 +170,11 @@ class PendaftaranController extends Controller {
 	}
 
 
+	public function view_berkas($id){
+		$biodata = Pendaftaran::findOrfail($id); //mst_photo, mst_berkas
+		return view($this->base_view.'popup.view_berkas', compact('biodata'));		
+	}
+
+
 
 }

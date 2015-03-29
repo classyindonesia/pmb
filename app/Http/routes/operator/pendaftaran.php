@@ -44,6 +44,10 @@ Route::group(['middleware' => 'hanya_operator'], function(){
 		'uses'	=> 'Backend\PendaftaranController@view_biodata',
  	]);
 
+	get('backend/pendaftaran/view_berkas/{id}', [
+		'as'	=> 'operator_pendaftaran.view_berkas',
+		'uses'	=> 'Backend\PendaftaranController@view_berkas',
+ 	]);
 
 
 });

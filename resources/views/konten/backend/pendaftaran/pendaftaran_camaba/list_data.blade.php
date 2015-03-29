@@ -37,7 +37,9 @@
 			</td>
 			<td class="text-center">	
 				@include($base_view.'action.kirim_sms') || 
-				@include($base_view.'action.view_biodata')
+				@include($base_view.'action.view_biodata') || 
+				@include($base_view.'action.view_berkas')
+
 			</td>
 		</tr>
 <?php $no++; ?>

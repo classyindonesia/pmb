@@ -34,7 +34,7 @@
 	<body>
 		<div class="container">
 			<div class="content">
-				<div class="title">ERROR 404! <br> Page not found!</div>
+				<div class="title">{!! env('ERROR_404_MSG') !!}</div>
 			</div>
 		</div>
 	</body>
