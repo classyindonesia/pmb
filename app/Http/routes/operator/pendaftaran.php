@@ -39,6 +39,13 @@ Route::group(['middleware' => 'hanya_operator'], function(){
 		'uses'	=> 'Backend\PendaftaranController@store',
  	]);
  
+	get('backend/pendaftaran/view_biodata/{id}', [
+		'as'	=> 'operator_pendaftaran.view_biodata',
+		'uses'	=> 'Backend\PendaftaranController@view_biodata',
+ 	]);
+
+
+
 });
 
 

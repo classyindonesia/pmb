@@ -9,7 +9,7 @@
 			<th width="15%">Prodi 2</th>
  			<th width="10%" class="text-center"> <i class='fa fa-check'></i> Foto </th>
 			<th width="10%" class="text-center"> <i class='fa fa-check'></i> Berkas </th>
-			<th width="5%">Action</th>
+			<th width="10%">Action</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -36,7 +36,8 @@
 	 			@include($base_view.'komponen.check_berkas')
 			</td>
 			<td class="text-center">	
-				@include($base_view.'action.kirim_sms')
+				@include($base_view.'action.kirim_sms') || 
+				@include($base_view.'action.view_biodata')
 			</td>
 		</tr>
 <?php $no++; ?>

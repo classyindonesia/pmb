@@ -164,4 +164,11 @@ class PendaftaranController extends Controller {
 
 
 
+	public function view_biodata($id){
+		$biodata = Pendaftaran::findOrfail($id);
+		return view($this->base_view.'popup.view_biodata', compact('biodata'));
+	}
+
+
+
 }
