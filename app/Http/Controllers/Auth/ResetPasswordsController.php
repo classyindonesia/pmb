@@ -1,10 +1,12 @@
 <?php namespace App\Http\Controllers\Auth;
 
+use App\Commands\KirimSms;
 use App\Http\Controllers\Controller;
-
-use Illuminate\Http\Request;
+use App\Models\Mst\User;
+use App\Repositories\Mst\PendaftaranRepository;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\PasswordBroker;
+use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class ResetPasswordsController extends Controller {
@@ -19,6 +21,21 @@ class ResetPasswordsController extends Controller {
 		$this->passwords = $passwords;
 		view()->share('reset_password_home', true);
 		$this->middleware('guest');
+	}
+
+
+	private function kirim_sms_reset_link($email, $token){
+		$p = new PendaftaranRepository;
+		$u = User::where('email', '=', $email)->first();
+		if(count($u)>0){
+		$pendaftaran = $p->getByEmail($email);
+			if(count($pendaftaran)>0){
+				$pesan = 'Click here to reset your password: '.url('password/reset/'.$token);
+				$no_pendaftaran = $pendaftaran->no_pendaftaran;
+				$no_hp = $pendaftaran->no_hp;
+				\Queue::push(new KirimSms($pesan, $no_pendaftaran, $no_hp));
+			}			
+		}
 	}
  
 
@@ -40,6 +57,7 @@ class ResetPasswordsController extends Controller {
 	 */
 	public function postEmail(Request $request)
 	{
+		
 		$this->validate($request, ['email' => 'required']);
 
 		$response = $this->passwords->sendResetLink($request->only('email'), function($m)
@@ -50,6 +68,7 @@ class ResetPasswordsController extends Controller {
 		switch ($response)
 		{
 			case PasswordBroker::RESET_LINK_SENT:
+				$this->kirim_sms_reset_link($request->email, $request->_token);
 				return redirect()->back()->with('status', trans($response));
 
 			case PasswordBroker::INVALID_USER:
