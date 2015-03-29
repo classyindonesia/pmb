@@ -1,0 +1,1 @@
+<i data-toggle='tooltip' title='view biodata' style='cursor:pointer;' class='fa fa-eye' onClick='viewBiodata({!! $list->id !!})'></i>
