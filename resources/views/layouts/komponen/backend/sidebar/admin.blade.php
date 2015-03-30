@@ -66,6 +66,7 @@
       </li>
 
 
+  @include('layouts.komponen.backend.sidebar.global')
 
 
  </ul>

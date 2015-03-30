@@ -20,7 +20,7 @@
             <i class='fa fa-qrcode'></i> Check Pin Pendaftaran  
           </a>
        </li>
-
+  @include('layouts.komponen.backend.sidebar.global')
  </ul>
 </nav>
 

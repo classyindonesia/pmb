@@ -9,6 +9,11 @@ require app_path('Http/routes/public/pendaftaran_online.php');
 
 
 
+/* auth global */
+require app_path('Http/routes/profile.php');
+
+
+
 /* admin */
 require app_path('Http/routes/admin/dashboard.php');
 require app_path('Http/routes/admin/users.php');
