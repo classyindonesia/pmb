@@ -92,6 +92,18 @@ class Pendaftaran extends Eloquent{
  
 
 
+
+
+ /* custom attribute */
+ 	public function setNamaAttribute($nama){
+		return $this->attributes['nama'] = strtoupper($nama);
+	}
 	
+ 	public function setTempatLahirAttribute($tempat_lahir){
+		return $this->attributes['tempat_lahir'] = strtoupper($tempat_lahir);
+	}
+ 	public function setAlamatAttribute($alamat){
+		return $this->attributes['alamat'] = strtoupper($alamat);
+	}
 
 }

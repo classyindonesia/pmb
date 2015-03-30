@@ -5,7 +5,8 @@
       </li>
 
       <li @if(isset($data_pendaftaran_home)) class="active" @endif>
-          <a href="{!! route('admin_data_pendaftaran.pendaftaran_camaba') !!}"> <i class='fa fa-th-list'></i> Daftar Pengguna  </a>
+          <a href="{!! route('admin_data_pendaftaran.pendaftaran_camaba') !!}"> 
+          <i class='fa fa-th-list'></i> List Pendaftar  </a>
       </li>
 
 

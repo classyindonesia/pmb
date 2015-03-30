@@ -52,7 +52,7 @@
 				@endif
 			@endforeach
 		@else
-			<div class="col-md-1 alert alert-danger"> <i class='fa fa-times'></i> foto masih kosong</div>
+			<div class="col-md-1 alert alert-danger"> <i class='fa fa-times'></i> berkas masih kosong</div>
 		@endif			
 	</td>
 </tr>
