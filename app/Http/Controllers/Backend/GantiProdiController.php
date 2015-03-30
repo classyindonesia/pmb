@@ -1,9 +1,11 @@
 <?php namespace App\Http\Controllers\Backend;
 
+use App\Helpers\KirimSms;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Models\Mst\GantiProdi;
 use App\Models\Mst\Pendaftaran;
+use App\Models\Ref\Prodi;
 use Illuminate\Http\Request;
 
 class GantiProdiController extends Controller {
@@ -42,7 +44,36 @@ class GantiProdiController extends Controller {
 				$p->ref_prodi_id2 = $request->ref_prodi_id;
 			}
 			$p->save();
+
+		//kirim notif berupa sms
+		$no_pendaftaran = $p->no_pendaftaran;
+		$nama = $p->nama;
+		$no_hp = $p->no_hp;
+
+		$prodi_awal = Prodi::find($o->ref_prodi_id_awal);
+		if(count($prodi_awal)>0){
+			$nama_prodi_awal = $prodi_awal->nama;
+		}else{
+			$nama_prodi_awal = '-';
 		}
+
+		$prodi_pindah = Prodi::find($o->ref_prodi_id);
+		if(count($prodi_pindah)>0){
+			$nama_prodi_pindah = $prodi_pindah->nama;
+		}else{
+			$nama_prodi_pindah = '-';
+		}
+
+
+
+		$prodi_awal = $nama_prodi_awal;
+		$prodi_pindah = $nama_prodi_pindah;
+		$sms = new KirimSms;
+		$sms->createUserNotifPindahProdi($no_pendaftaran, $nama, $no_hp, $prodi_awal, $prodi_pindah);
+
+		}
+
+
 
 
 

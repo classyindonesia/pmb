@@ -24,7 +24,8 @@ class Pendaftaran extends Eloquent{
 		'ref_prodi_id1',
 		'ref_prodi_id2',
 		'ref_gelombang_id',
-		'jenis_daftar'
+		'jenis_daftar',
+		'keterangan_sma'
 		];
 
 

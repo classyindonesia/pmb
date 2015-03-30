@@ -5,8 +5,7 @@
 use App\Repositories\Mst\PendaftaranRepository;
 use App\Repositories\Ref\Prodi;
 use App\Repositories\Ref\Sma;
-
-/* requests */
+ /* requests */
 use App\Http\Requests\UpdateBiodataCamaba;
 
 /* models */
@@ -18,12 +17,12 @@ use Auth;
 
 trait BiodataTrait{
 
-
-
+ 
 
 	public function edit_biodata(PendaftaranRepository $biodata, Prodi $prodi, Sma $sma){
 		$prodi = $prodi->getAll();
-		$sma = $sma->getAll();
+		$sma = \Fungsi::get_dropdown($sma->getAll(), 'sma');
+		
 		$b = $biodata->getByEmail(Auth::user()->email);
 		if($b->is_valid == 1) abort(404);
 		return view('konten.backend.dashboard.camaba.popup.edit_biodata', compact('b', 'prodi', 'sma'));
@@ -38,6 +37,7 @@ trait BiodataTrait{
 
 		$o->alamat = $request->alamat;
 		$o->nama = $request->nama;
+		$o->keterangan_sma = $request->keterangan_sma;
 		$o->no_hp = $request->no_hp;
 		$o->no_ijazah = $request->no_ijazah;
 		$o->ref_sma_id = $request->ref_sma_id;

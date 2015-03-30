@@ -99,10 +99,15 @@
 			Sekolah Asal
 		</td>
 		<td>
-		@if(count($biodata->ref_sma)>0)
-			{!! $biodata->ref_sma->nama !!}
+		@if($biodata->ref_sma_id == 9999)
+			{!! $biodata->keterangan_sma !!}
 		@else
-			-
+			@if(count($biodata->ref_sma)>0)
+				{!! $biodata->ref_sma->nama !!}
+			@else
+				-
+			@endif
+
 		@endif
 		</td>
 	</tr>

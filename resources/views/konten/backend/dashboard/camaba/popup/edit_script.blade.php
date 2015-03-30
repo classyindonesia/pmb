@@ -1,5 +1,26 @@
 <script type="text/javascript">
 
+$(document).ready(function(){
+	ref_sma_id = $('#ref_sma_id').val();
+		if(ref_sma_id == 9999){
+			$('#input_keterangan_sma').fadeIn();
+		}else{
+			$('#input_keterangan_sma').hide();
+		}
+ 
+});
+
+
+$('#ref_sma_id').change(function(){
+	ref_sma_id = $('#ref_sma_id').val();
+		if(ref_sma_id == 9999){
+			$('#input_keterangan_sma').fadeIn();
+		}else{
+			$('#input_keterangan_sma').hide();
+		}
+
+});
+
 $('#pesan').click(function(){
 
 	$('#pesan').fadeOut('slow', function(){
@@ -24,9 +45,9 @@ thn_lulus = $('#thn_lulus').val();
 no_hp = $('#no_hp').val();
 ref_gelombang_id = $('#ref_gelombang_id').val();
 alamat_email = $('#alamat_email').val();
- 
- 
+keterangan_sma = $('#keterangan_sma').val();
 
+ 
 form_data ={
 	nama 				: nama,
  	ref_sma_id 			: ref_sma_id,
@@ -37,6 +58,7 @@ form_data ={
 	no_hp 				: no_hp,
 	id 					: '{!! $b->id !!}',
 	no_ijazah 			: no_ijazah,
+	keterangan_sma		: keterangan_sma,
 	thn_lulus 			: thn_lulus,
  
  	_token : '{!! csrf_token() !!}'
