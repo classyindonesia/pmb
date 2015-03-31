@@ -44,7 +44,7 @@ class AdminAkses {
 			}
 			else
 			{
-				return redirect()->guest('auth/login');
+				return redirect()->guest('/');
 			}
 		}
 

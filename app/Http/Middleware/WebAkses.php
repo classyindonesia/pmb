@@ -22,7 +22,7 @@ class WebAkses {
 			}
 			else
 			{
-				return redirect()->guest('auth/login');
+				return redirect()->guest('/');
 			}
 		}
 

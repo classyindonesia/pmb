@@ -23,7 +23,7 @@ class OperatorAkses {
 			}
 			else
 			{
-				return redirect()->guest('auth/login');
+				return redirect()->guest('/');
 			}
 		}
 

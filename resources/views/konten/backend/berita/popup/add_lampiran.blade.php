@@ -1,3 +1,5 @@
+<script src="/js/plugins/bootstrap-select/js/bootstrap-select.min.js"></script>
+<link rel="stylesheet" href="/js/plugins/bootstrap-select/css/bootstrap-select.min.css">
 <h3>Lampiran File Berita</h3>
 <hr style='margin:2px'>
 <script type="text/javascript">
