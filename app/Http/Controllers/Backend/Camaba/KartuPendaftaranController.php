@@ -41,7 +41,7 @@ class KartuPendaftaranController extends Controller {
 		$html = iconv("UTF-8","UTF-8//IGNORE",$html);
 	    $this->mpdf->WriteHTML($html);
 	    $this->mpdf->debug = true;
-	    $this->mpdf->Output('kartu_pendaftaran'.'.pdf', 'I');   
+	    $this->mpdf->Output('kartu_pendaftaran_'.$b->no_pendaftaran.'_'.str_slug(\Fungsi::date_to_tgl(date('Y-m-d'))).'_'.date('H:i:s').'.pdf', 'I');   
  		return  PDF::load($html, 'A4', 'portrait')->show();
 
 
