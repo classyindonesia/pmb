@@ -16,11 +16,12 @@ class BeritaController extends Controller {
 	}
 
 	public function index(Request $request){
+
 		if($request->get('search')){
 			$berita = Berita::orderBy('id', 'DESC')
 			->where('artikel', 'like', '%'.$request->get('search').'%')
 			->orWhere('judul', 'like', '%'.$request->get('search').'%')
-			->paginate(10);
+ 			->paginate(10);
 		}else{
 			$berita = Berita::orderBy('id', 'DESC')->paginate(10);			
 		}
@@ -28,8 +29,9 @@ class BeritaController extends Controller {
 	}
 
 	public function post($slug){
+		$hashids = new \Hashids\Hashids('qertymyr');
 		$berita = Berita::findBySlug($slug);
-		return view($this->base_view.'show_berita', compact('berita'));
+		return view($this->base_view.'show_berita', compact('berita', 'hashids'));
 	}
 
 
