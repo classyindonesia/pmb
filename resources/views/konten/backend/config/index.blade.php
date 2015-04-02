@@ -13,7 +13,7 @@
 
 @section('konten_utama')
 
-@include('konten.backend.config.list_data')
+@include($base_view.'list_data')
 
 
 

@@ -11,7 +11,10 @@ use Illuminate\Http\Request;
 class ConfigController extends Controller {
 
 
+	private $base_view = 'konten.backend.config.';
+
 	public function __construct(){
+		view()->share('base_view', $this->base_view);
 		view()->share('config_home', true);
 	}
 

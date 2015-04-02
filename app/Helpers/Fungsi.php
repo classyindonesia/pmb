@@ -3,6 +3,22 @@
 class Fungsi{
 
 
+public static   function selisih_hari($tgl_1, $tgl_2){ //format input yyyy-mm-dd
+        $pecah_1 = explode("-", $tgl_1);
+        $date_1 = (int) $pecah_1[2];
+        $month_1 = (int) $pecah_1[1];
+        $year_1 = (int) $pecah_1[0];
+        $pecah_2 = explode("-", $tgl_2);
+        $date_2 = (int) $pecah_2[2];
+        $month_2 = (int) $pecah_2[1];
+        $year_2 = (int) $pecah_2[0];
+        $jd_1 = GregorianToJD($month_1, $date_1, $year_1);
+        $jd_2 = GregorianToJD($month_2, $date_2, $year_2);
+        $selisih = $jd_2 - $jd_1;
+        return $selisih;
+    }
+
+
   
 public static function restyle_text($input){
     $suffixes = array('', 'k', 'm', 'g', 't');

@@ -29,22 +29,37 @@ class PendaftaranOnlineController extends Controller {
 	}
 
 
-	public function check_pin(PinRepository $pinrepo, Request $request){
+	public function check_pin(PinRepository $pinrepo, Request $request, SetupVariable $sv){
 
 		$check_pin = $pinrepo->getWhereOne($request->pin);
 		if(count($check_pin)<=0){
 			return 0;
 		}else{
-			$data = ['status' => $check_pin->status, 'pin' => $check_pin->pin];
-			return json_encode($data);
+			$tgl_expired = $sv->get('masa_aktif_pin');
+			$cek_expired = \Fungsi::selisih_hari(date('Y-m-d', strtotime($check_pin->updated_at)), date('Y-m-d'));
+			if($cek_expired <= $tgl_expired){
+				$data = ['status' => $check_pin->status, 'pin' => $check_pin->pin];
+				return json_encode($data);
+			}else{
+				$data = ['status' => 2];
+				return json_encode($data);
+			}
+
+
 		}
 	}
 
 
 
-	public function get_form_biodata(PinRepository $pinrepo, $pin){
+	public function get_form_biodata(PinRepository $pinrepo, $pin, SetupVariable $sv){
 		$check_pin = $pinrepo->getWhereOne($pin);
-		if(count($check_pin)<=0){
+
+		//cek tgl expired pin
+		$tgl_expired = $sv->get('masa_aktif_pin');
+		$cek_expired = \Fungsi::selisih_hari(date('Y-m-d', strtotime($check_pin->updated_at)), date('Y-m-d'));
+
+
+		if(count($check_pin)<=0 || $cek_expired > $tgl_expired){
 			abort(404);
 		}else{
 			return view('konten.frontend.pendaftaran_online.form_biodata');			

@@ -64,6 +64,12 @@ class SetupVariableSeeder extends Seeder {
         $this->command->info('config pindah prodi level camaba telah ditambahkan!');
 
 
+        //int
+        $v = mSV::whereVariable('masa_aktif_pin')->first(); 
+        if(count($v)<=0) mSV::create(['variable' => 'masa_aktif_pin', 'value' => 1]);
+        $this->command->info('config masa aktif pin telah ditambahkan!');
+
+
     }
 
     
