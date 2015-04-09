@@ -44,6 +44,7 @@ trait BiodataTrait{
 		$o->tempat_lahir = $request->tempat_lahir;
 		$o->tgl_lahir = $request->tgl_lahir;
 		$o->thn_lulus = $request->thn_lulus;
+		$o->jenis_kelamin = $request->jenis_kelamin;
 		$o->save();
 		return $o;
 	}

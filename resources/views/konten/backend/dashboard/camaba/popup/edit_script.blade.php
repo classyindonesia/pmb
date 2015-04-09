@@ -46,9 +46,11 @@ no_hp = $('#no_hp').val();
 ref_gelombang_id = $('#ref_gelombang_id').val();
 alamat_email = $('#alamat_email').val();
 keterangan_sma = $('#keterangan_sma').val();
+jenis_kelamin = $('#jenis_kelamin').val();
 
  
 form_data ={
+	jenis_kelamin		: jenis_kelamin,
 	nama 				: nama,
  	ref_sma_id 			: ref_sma_id,
  	alamat_email		: alamat_email,
