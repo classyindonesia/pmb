@@ -66,6 +66,12 @@
       </li>
 
 
+      <li @if(isset($log_home)) class="active" @endif>
+          <a href="{!! route('admin_log.index') !!}"> 
+              <i class="fa fa-user-secret"></i> Logs  
+          </a>
+      </li>
+
   @include('layouts.komponen.backend.sidebar.global')
 
 
