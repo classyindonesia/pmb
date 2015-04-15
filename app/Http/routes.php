@@ -18,6 +18,7 @@ require app_path('Http/routes/profile.php');
 require app_path('Http/routes/admin/dashboard.php');
 require app_path('Http/routes/admin/users.php');
 require app_path('Http/routes/admin/pin.php');
+require app_path('Http/routes/admin/log.php');
 
 
 require app_path('Http/routes/admin/ref.php');

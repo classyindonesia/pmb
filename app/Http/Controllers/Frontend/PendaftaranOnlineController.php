@@ -6,6 +6,7 @@ use App\Helpers\SetupVariable;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Http\Requests\Frontend\SubmitPendaftaranOnline;
+use App\Models\Mst\Log;
 use App\Models\Mst\Pendaftaran;
 use App\Models\Mst\PenggunaPin;
 use App\Models\Mst\Pin;
@@ -33,15 +34,33 @@ class PendaftaranOnlineController extends Controller {
 
 		$check_pin = $pinrepo->getWhereOne($request->pin);
 		if(count($check_pin)<=0){
+			//PIN tidak ditemukan
+
+	        	//create log
+ 	        	$pesan = '<span class="text-danger">pin tidak ditemukan, IP : '.\Request::ip().', pin : '.$request->pin.' </span>';
+	        	Log::create_log(0, $pesan);
+
 			return 0;
 		}else{
 			$tgl_expired = $sv->get('masa_aktif_pin');
 			$cek_expired = \Fungsi::selisih_hari(date('Y-m-d', strtotime($check_pin->updated_at)), date('Y-m-d'));
 			if($cek_expired <= $tgl_expired){
-				$data = ['status' => $check_pin->status, 'pin' => $check_pin->pin];
+				//success show pin
+
+	        	//create log
+ 	        	$pesan = '<span class="text-success">check pin, IP : '.\Request::ip().', pin : '.$request->pin.' </span>';
+	        	Log::create_log(0, $pesan);
+
+				$data = ['status' => $check_pin->status, 'pin' => $check_pin->pin]; 
 				return json_encode($data);
 			}else{
-				$data = ['status' => 2];
+				//pin sudah expired
+				
+				//create log
+ 	        	$pesan = '<span class="text-danger">pin sudah expired, IP : '.\Request::ip().', pin : '.$request->pin.' </span>';
+	        	Log::create_log(0, $pesan);
+
+				$data = ['status' => 2]; 
 				return json_encode($data);
 			}
 
