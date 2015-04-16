@@ -46,6 +46,11 @@ Route::group(['middleware' => 'hanya_admin'], function(){
 		'as'	=> 'admin_data_pendaftaran.export_data',
  	]);
  
+	post('backend/data_pendaftaran/delete', [
+		'uses'	=> 'Backend\Admin\PendaftaranController@delete',
+		'as'	=> 'admin_data_pendaftaran.delete',
+ 	]);
+ 
 
 });
 

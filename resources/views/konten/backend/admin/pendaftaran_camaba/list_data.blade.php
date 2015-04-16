@@ -9,7 +9,7 @@
 			<th width="15%">Prodi 2</th>
  			<th width="10%" class="text-center"> <i class='fa fa-check'></i> Foto </th>
 			<th width="10%" class="text-center"> <i class='fa fa-check'></i> Berkas </th>
-			<th width="15%" class="text-center">Action</th>
+			<th width="10%" class="text-center">Action</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -38,7 +38,8 @@
 			<td class="text-center">	
 				@include($base_view.'action.kirim_sms') || 
 				@include($base_view.'action.view_biodata') || 
-				@include($base_view.'action.view_berkas')   
+				@include($base_view.'action.view_berkas')   ||
+				@include($base_view.'action.delete')  
 
 
 			</td>
