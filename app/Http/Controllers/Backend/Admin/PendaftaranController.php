@@ -155,7 +155,7 @@ class PendaftaranController extends Controller{
 					$sheet->row($i, [
 							$i-2, $list->no_pendaftaran,
 							$list->nama, $list->alamat,
-							$list->no_hp, $prodi1,
+							'"'.$list->no_hp, $prodi1,
 							$prodi2, $photo,
 							$berkas,
 						]);		
