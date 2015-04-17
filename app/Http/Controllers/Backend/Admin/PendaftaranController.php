@@ -129,13 +129,13 @@ class PendaftaranController extends Controller{
 				$sheet->cells('A2:I2', function($cells) {
 					$cells->setBackground('#DDEEFF');
 				});
-				$sheet->setColumnFormat(['I' => '@']);
+				$sheet->setColumnFormat(['I' => '@', 'E' => '@']);
 
 
 				/* start create data row */
 				$i = 3;
 				$pendaftaran = new PendaftaranRepository;
-				$pendaftaran = $pendaftaran->getAll();
+				$pendaftaran = $pendaftaran->getAllPlain();
 					foreach($pendaftaran as $list){
 
 						

@@ -31,6 +31,17 @@ class PendaftaranRepository{
  	}
 
 
+ 	//get all record tanpa pagination
+ 	public function getAllPlain(){
+ 		$pendaftaran = Pendaftaran::with('ref_sma', 'ref_prodi1', 'ref_prodi2', 'mst_photo', 'mst_berkas')
+			->orderBy('id', 'DESC')
+			->whereRefThnAjaranId(SV::get('ref_thn_ajaran_id'))
+			->get();	
+		return $pendaftaran; 		
+ 	}
+
+
+
  	public function getAllSearch($value){
   		$pendaftaran = Pendaftaran::with('ref_sma', 'ref_prodi1', 'ref_prodi2', 'mst_photo', 'mst_berkas')
 			->whereRefThnAjaranId(SV::get('ref_thn_ajaran_id'))

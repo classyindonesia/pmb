@@ -15,7 +15,7 @@ trait LevelAdminTrait{
  		$jml_user = User::count();
  		$jml_pin = Pin::count();
  		$p = new PendaftaranRepository;
- 		$jml_pendaftar = $p->getAll();
+ 		$jml_pendaftar = $p->getAllPlain();
  		return view('konten.backend.dashboard.admin.index', 
  			compact('jml_user', 'jml_pin', 'jml_pendaftar'));
  	}
