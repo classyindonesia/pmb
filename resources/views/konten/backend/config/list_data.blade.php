@@ -8,6 +8,9 @@
 @include($base_view.'list_config.c6')
 @include($base_view.'list_config.c7')
 @include($base_view.'list_config.c8')
+@include($base_view.'list_config.c9')
+@include($base_view.'list_config.c10')
+@include($base_view.'list_config.c11')
    
 
 

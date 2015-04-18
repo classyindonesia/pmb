@@ -26,6 +26,9 @@ class PendaftaranOnlineController extends Controller {
 
 
 	public function index(SetupVariable $sv){
+		if($sv->get('show_pendaftaran_online_public') != 1){
+			abort(404);
+		}
 		return view('konten.frontend.pendaftaran_online.index', compact('sv'));
 	}
 

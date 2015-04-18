@@ -5,6 +5,7 @@ require app_path('Http/routes/password.php');
 
 /* public */
 require app_path('Http/routes/public/home.php');
+require app_path('Http/routes/public/daftar_file.php');
 require app_path('Http/routes/public/pendaftaran_online.php');
 
 

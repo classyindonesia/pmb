@@ -34,7 +34,7 @@
 	<body>
 		<div class="container">
 			<div class="content">
-				<div class="title">{!! env('ERROR_404_MSG') !!}</div>
+				<div class="title">{!! env('ERROR_404_MSG', "ERROR 404! <br> Halaman tidak ditemukan") !!}</div>
 			</div>
 		</div>
 	</body>
