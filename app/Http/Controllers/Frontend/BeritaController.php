@@ -12,6 +12,7 @@ class BeritaController extends Controller {
 
 
 	public function __construct(){
+		view()->share('daftar_berita_home', true);
 		view()->share('base_view', $this->base_view);
 	}
 

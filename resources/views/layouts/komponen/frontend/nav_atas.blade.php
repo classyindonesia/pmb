@@ -43,6 +43,13 @@
         @endif
 
 
+            <li @if(isset($daftar_berita_home)) class="active" @endif >
+                <a href="{!! route('daftar_berita.index') !!}"> 
+                  <i class='fa fa-newspaper-o'></i> Daftar Berita
+                </a>
+            </li>
+
+
           </ul>
 
 
