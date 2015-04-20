@@ -46,11 +46,6 @@ Route::group(['middleware' => 'hanya_baa'], function(){
 		'as'	=> 'baa_data_pendaftaran.export_data',
  	]);
  
-	post('backend/data_pendaftaran/delete', [
-		'uses'	=> 'Backend\Baa\PendaftaranController@delete',
-		'as'	=> 'baa_data_pendaftaran.delete',
- 	]);
- 
 
 });
 

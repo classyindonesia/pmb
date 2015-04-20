@@ -38,8 +38,11 @@
 			<td class="text-center">	
 				@include($base_view.'action.kirim_sms') || 
 				@include($base_view.'action.view_biodata') || 
-				@include($base_view.'action.view_berkas')   ||
-				@include($base_view.'action.delete')  
+				@include($base_view.'action.view_berkas')  
+
+				@if(Auth::user()->ref_user_level_id == 1) ||
+					@include($base_view.'action.delete')  
+				@endif
 
 
 			</td>
