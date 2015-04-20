@@ -7,6 +7,7 @@ use App\Models\Mst\GantiProdi;
 use App\Models\Mst\Pendaftaran;
 use App\Models\Mst\Photo;
 use App\Models\Mst\User;
+use App\Models\Ref\ThnAjaran;
 use App\Repositories\Mst\PendaftaranRepository;
 use App\Repositories\Ref\Prodi;
 use Illuminate\Http\Request;
@@ -15,12 +16,11 @@ use Illuminate\Http\Request;
 class PendaftaranController extends Controller{
  
 
-
-	private $base_view = 'konten.backend.admin.pendaftaran_camaba.';
+ 	private $base_view = 'konten.backend.baa.pendaftaran.';
 
 	public function __construct(){
 		view()->share('base_view', $this->base_view);
-		view()->share('data_pendaftaran_home', true);
+ 		view()->share('data_pendaftaran_home', true);
  	}	
 
 
@@ -32,7 +32,7 @@ class PendaftaranController extends Controller{
 		}
 		$list_pendaftaran_home = true;
 		$pendaftaran_camaba_home = true;
-		$route_search = 'admin_data_pendaftaran.pendaftaran_camaba';
+		$route_search = 'baa_data_pendaftaran.pendaftaran_camaba';
 		return view($this->base_view.'index', 
 			compact('pendaftaran', 'list_pendaftaran_home', 'pendaftaran_camaba_home', 'route_search'));
 	}
@@ -45,7 +45,7 @@ class PendaftaranController extends Controller{
 		}
 		$list_pendaftaran_home = true;
 		$pendaftaran_camaba_online_home = true;
-		$route_search = 'admin_data_pendaftaran.pendaftaran_camaba_online';
+		$route_search = 'baa_data_pendaftaran.pendaftaran_camaba_online';
 		return view($this->base_view.'index', 
 			compact('pendaftaran', 'list_pendaftaran_home', 'pendaftaran_camaba_online_home', 'route_search'));		
 	}
@@ -58,7 +58,7 @@ class PendaftaranController extends Controller{
 		}
 		$list_pendaftaran_home = true;
 		$pendaftaran_camaba_offline_home = true;
-		$route_search = 'admin_data_pendaftaran.pendaftaran_camaba_offline';
+		$route_search = 'baa_data_pendaftaran.pendaftaran_camaba_offline';
 		return view($this->base_view.'index', 
 			compact('pendaftaran', 'list_pendaftaran_home', 'pendaftaran_camaba_offline_home', 'route_search'));		
 	}
@@ -180,6 +180,16 @@ class PendaftaranController extends Controller{
 	}
 
 
+
+	public function pilih_tahun_ajaran(){
+		$thn_ajaran = ThnAjaran::all();
+		return view($this->base_view.'popup.pilih_tahun_ajaran', compact('thn_ajaran'));
+	}
+
+	public function set_tahun_ajaran(){
+		\Session::put("ref_thn_ajaran_id", \Input::get('id'));
+		return 'ok';
+	}
  
 
 
