@@ -20,9 +20,10 @@ class BeritaController extends Controller {
 			$berita = Berita::orderBy('id', 'DESC')
 			->where('artikel', 'like', '%'.$request->get('search').'%')
 			->orWhere('judul', 'like', '%'.$request->get('search').'%')
+			->with('berita_to_lampiran')
 			->paginate(10);
 		}else{
-			$berita = Berita::orderBy('id', 'DESC')->paginate(10);			
+			$berita = Berita::orderBy('id', 'DESC')->with('berita_to_lampiran')->paginate(10);			
 		}
  		return view($this->base_view.'index', compact('berita'));
 	}
