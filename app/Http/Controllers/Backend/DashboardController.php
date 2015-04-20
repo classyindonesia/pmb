@@ -9,6 +9,7 @@ use Auth;
 use App\Http\Controllers\Backend\Dashboard\LevelOperatorTrait;
 use App\Http\Controllers\Backend\Dashboard\LevelWebTrait;
 use App\Http\Controllers\Backend\Dashboard\LevelAdminTrait;
+use App\Http\Controllers\Backend\Dashboard\LevelBaaTrait;
  
 
 class DashboardController extends Controller{
@@ -16,6 +17,7 @@ class DashboardController extends Controller{
 	use LevelOperatorTrait;
 	use LevelWebTrait;
 	use LevelAdminTrait;
+	use LevelBaaTrait;
 
 
 
@@ -36,6 +38,8 @@ class DashboardController extends Controller{
  			return view('konten.backend.dashboard.camaba.index', 
  				compact('biodata', 'jenis_daftar', 'base_view_index'));			
 	}
+
+
  
 
 
@@ -51,8 +55,9 @@ class DashboardController extends Controller{
 			//level operator
 			return $this->level_operator();		
 		}elseif($level == 4){
-			return $this->level_camaba();		
-
+			return $this->level_camaba();
+		}elseif($level == 6){
+			return $this->level_baa();
 		}
 	}
 

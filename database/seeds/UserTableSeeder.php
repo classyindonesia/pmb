@@ -26,6 +26,7 @@ class UserTableSeeder extends Seeder {
         if(count($data)<=0){
             $data_insert = [
                  'nama' => 'Administrator', 
+                 'id'    => 1,
                   ];
             UserLevel::create($data_insert);
         }
@@ -34,6 +35,7 @@ class UserTableSeeder extends Seeder {
         if(count($data)<=0){
             $data_insert = [
                  'nama' => 'Web', 
+                 'id'    => 2,
                   ];
             UserLevel::create($data_insert);
         }
@@ -42,6 +44,7 @@ class UserTableSeeder extends Seeder {
         if(count($data)<=0){
             $data_insert = [
                  'nama' => 'Operator', 
+                 'id'    => 3,
                   ];
             UserLevel::create($data_insert);
         }
@@ -49,6 +52,7 @@ class UserTableSeeder extends Seeder {
         $data = UserLevel::find(4);
         if(count($data)<=0){
             $data_insert = [
+                'id'    => 4,
                  'nama' => 'Camaba', 
                   ];
             UserLevel::create($data_insert);
@@ -58,7 +62,19 @@ class UserTableSeeder extends Seeder {
         $data = UserLevel::find(5);
         if(count($data)<=0){
             $data_insert = [
+                'id'    => 5,
                  'nama' => 'API Akses', 
+                  ];
+            UserLevel::create($data_insert);
+        }
+
+
+        /* level BAA */
+        $data = UserLevel::find(6);
+        if(count($data)<=0){
+            $data_insert = [
+                'id'    => 6,
+                 'nama' => 'BAA', 
                   ];
             UserLevel::create($data_insert);
         }
