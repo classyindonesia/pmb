@@ -13,6 +13,13 @@
       </li>
 
 
+
+      <li @if(isset($tes_tulis_home)) class="active" @endif>
+          <a href="{!! route('baa_tes_tulis.index') !!}"> 
+            <i class='fa fa-pencil'></i> Tes Tulis  
+          </a>
+      </li>
+
   @include('layouts.komponen.backend.sidebar.global')
  </ul>
 </nav>
