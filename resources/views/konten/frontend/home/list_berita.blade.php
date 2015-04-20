@@ -1,6 +1,4 @@
-<a class="btn btn-primary pull-right" href="{!! route('daftar_berita.index') !!}">
-	<i class='fa fa-th-list'></i> daftar berita
-</a>
+ 
 
 <h3> <i class='fa fa-newspaper-o'></i> Latest News</h3>
 <hr>

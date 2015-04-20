@@ -26,7 +26,8 @@ class FotoSlideComposer {
 
         $foto = FotoSlide::take(10)->with('ref_jabatan')->orderByRaw("RAND()")->get();
         $view->with('foto', $foto); 
-
+        
+        $view->with('sv', new \App\Models\SetupVariable); 
 
     }
 

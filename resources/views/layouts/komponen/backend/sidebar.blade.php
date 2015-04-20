@@ -6,7 +6,8 @@
 	@include('layouts.komponen.backend.sidebar.operator')		
 @elseif(Auth::user()->ref_user_level_id == 4)
 	@include('layouts.komponen.backend.sidebar.camaba')			
+@elseif(Auth::user()->ref_user_level_id == 6)
+	@include('layouts.komponen.backend.sidebar.baa')			
 @endif
-
 
 <hr class='hidden-md hidden-lg'>

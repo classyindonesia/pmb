@@ -5,6 +5,7 @@ require app_path('Http/routes/password.php');
 
 /* public */
 require app_path('Http/routes/public/home.php');
+require app_path('Http/routes/public/daftar_file.php');
 require app_path('Http/routes/public/pendaftaran_online.php');
 
 
@@ -18,6 +19,7 @@ require app_path('Http/routes/profile.php');
 require app_path('Http/routes/admin/dashboard.php');
 require app_path('Http/routes/admin/users.php');
 require app_path('Http/routes/admin/pin.php');
+require app_path('Http/routes/admin/log.php');
 
 
 require app_path('Http/routes/admin/ref.php');
@@ -52,3 +54,6 @@ require app_path('Http/routes/camaba/validasi_pendaftaran.php');
 require app_path('Http/routes/camaba/kartu_pendaftaran.php');
 require app_path('Http/routes/camaba/ganti_prodi.php');
 
+
+/* level baa */
+require app_path('Http/routes/baa/pendaftar.php');

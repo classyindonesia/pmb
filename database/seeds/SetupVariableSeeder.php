@@ -64,6 +64,36 @@ class SetupVariableSeeder extends Seeder {
         $this->command->info('config pindah prodi level camaba telah ditambahkan!');
 
 
+        //int
+        $v = mSV::whereVariable('masa_aktif_pin')->first(); 
+        if(count($v)<=0) mSV::create(['variable' => 'masa_aktif_pin', 'value' => 1]);
+        $this->command->info('config masa aktif pin telah ditambahkan!');
+
+
+
+
+        //int
+        $v = mSV::whereVariable('show_pendaftaran_online_public')->first(); 
+        if(count($v)<=0) mSV::create(['variable' => 'show_pendaftaran_online_public', 'value' => 1]);
+        $this->command->info('config show_pendaftaran_online_public telah ditambahkan!');
+
+        //int
+        $v = mSV::whereVariable('show_slide_utama_public')->first(); 
+        if(count($v)<=0) mSV::create(['variable' => 'show_slide_utama_public', 'value' => 1]);
+        $this->command->info('config show_slide_utama_public telah ditambahkan!');
+
+
+        //int
+        $v = mSV::whereVariable('show_slide_public')->first(); 
+        if(count($v)<=0) mSV::create(['variable' => 'show_slide_public', 'value' => 1]);
+        $this->command->info('config show_slide_public telah ditambahkan!');
+
+
+        //int
+        $v = mSV::whereVariable('show_list_file_public')->first(); 
+        if(count($v)<=0) mSV::create(['variable' => 'show_list_file_public', 'value' => 1]);
+        $this->command->info('config show_list_file_public telah ditambahkan!');
+
     }
 
     

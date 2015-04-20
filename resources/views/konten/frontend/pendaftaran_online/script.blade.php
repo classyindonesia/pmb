@@ -24,6 +24,9 @@ pin = $('#pin').val();
 				if(hasil.status == 1){
 					$('#myModal').modal('show');
 					$('.modal-body').html('<div class="alert alert-danger"><h1>Error!</h1> <hr>  PIN sudah pernah digunakan! </div>');					
+				}else if(hasil.status == 2){
+					$('#myModal').modal('show');
+					$('.modal-body').html('<div class="alert alert-danger"><h1>Error!</h1> <hr>  PIN sudah tidak bisa digunakan / expired! </div>');					
 				}else{
 					$('#konten').load('{!! url("pendaftaran_online/get_form_biodata") !!}/'+hasil.pin);
 				}

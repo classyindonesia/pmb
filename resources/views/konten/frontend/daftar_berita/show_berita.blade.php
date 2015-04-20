@@ -29,8 +29,10 @@
   	@include($base_view.'tgl_post')
   	<hr>
        {!! $berita->artikel !!}
+ 
   
   @include($base_view.'lampiran_berita')
+ 
 
 
    <hr>

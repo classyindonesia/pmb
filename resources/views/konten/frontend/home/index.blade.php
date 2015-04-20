@@ -7,13 +7,14 @@
 @section('konten_utama')
 <div class="col-md-9">
 
+<?php $sv = new \App\Models\SetupVariable; ?>
+ @if($sv->get_val('show_slide_utama_public') == 1)
       <div class="jumbotron" style="padding : 0px;">
 			@include($base_view.'slide_utama')
-      </div>
-
-
-
+      </div> 
 	<hr>
+@endif
+
 	@include($base_view.'list_berita')	
 </div>
 @endsection
@@ -30,9 +31,6 @@ $(document).ready(function() {
 		fx: 'fade' // choose your transition type, ex: fade, scrollUp, shuffle, etc...
 	});
 });
-
-
- 
 </script>
 @endsection
 

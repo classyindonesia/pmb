@@ -6,6 +6,7 @@ use App\Helpers\SetupVariable;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Http\Requests\Frontend\SubmitPendaftaranOnline;
+use App\Models\Mst\Log;
 use App\Models\Mst\Pendaftaran;
 use App\Models\Mst\PenggunaPin;
 use App\Models\Mst\Pin;
@@ -25,26 +26,62 @@ class PendaftaranOnlineController extends Controller {
 
 
 	public function index(SetupVariable $sv){
+		if($sv->get('show_pendaftaran_online_public') != 1){
+			abort(404);
+		}
 		return view('konten.frontend.pendaftaran_online.index', compact('sv'));
 	}
 
 
-	public function check_pin(PinRepository $pinrepo, Request $request){
+	public function check_pin(PinRepository $pinrepo, Request $request, SetupVariable $sv){
 
 		$check_pin = $pinrepo->getWhereOne($request->pin);
 		if(count($check_pin)<=0){
+			//PIN tidak ditemukan
+
+	        	//create log
+ 	        	$pesan = '<span class="text-danger">pin tidak ditemukan, IP : '.\Request::ip().', pin : '.$request->pin.' </span>';
+	        	Log::create_log(0, $pesan);
+
 			return 0;
 		}else{
-			$data = ['status' => $check_pin->status, 'pin' => $check_pin->pin];
-			return json_encode($data);
+			$tgl_expired = $sv->get('masa_aktif_pin');
+			$cek_expired = \Fungsi::selisih_hari(date('Y-m-d', strtotime($check_pin->updated_at)), date('Y-m-d'));
+			if($cek_expired <= $tgl_expired){
+				//success show pin
+
+	        	//create log
+ 	        	$pesan = '<span class="text-success">check pin, IP : '.\Request::ip().', pin : '.$request->pin.' </span>';
+	        	Log::create_log(0, $pesan);
+
+				$data = ['status' => $check_pin->status, 'pin' => $check_pin->pin]; 
+				return json_encode($data);
+			}else{
+				//pin sudah expired
+				
+				//create log
+ 	        	$pesan = '<span class="text-danger">pin sudah expired, IP : '.\Request::ip().', pin : '.$request->pin.' </span>';
+	        	Log::create_log(0, $pesan);
+
+				$data = ['status' => 2]; 
+				return json_encode($data);
+			}
+
+
 		}
 	}
 
 
 
-	public function get_form_biodata(PinRepository $pinrepo, $pin){
+	public function get_form_biodata(PinRepository $pinrepo, $pin, SetupVariable $sv){
 		$check_pin = $pinrepo->getWhereOne($pin);
-		if(count($check_pin)<=0){
+
+		//cek tgl expired pin
+		$tgl_expired = $sv->get('masa_aktif_pin');
+		$cek_expired = \Fungsi::selisih_hari(date('Y-m-d', strtotime($check_pin->updated_at)), date('Y-m-d'));
+
+
+		if(count($check_pin)<=0 || $cek_expired > $tgl_expired){
 			abort(404);
 		}else{
 			return view('konten.frontend.pendaftaran_online.form_biodata');			

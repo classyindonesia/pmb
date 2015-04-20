@@ -12,16 +12,19 @@ class BeritaController extends Controller {
 
 
 	public function __construct(){
+		view()->share('daftar_berita_home', true);
 		view()->share('base_view', $this->base_view);
 	}
 
 	public function index(Request $request){
+
 		if($request->get('search')){
 			$berita = Berita::orderBy('id', 'DESC')
 			->where('artikel', 'like', '%'.$request->get('search').'%')
 			->orWhere('judul', 'like', '%'.$request->get('search').'%')
-			->with('berita_to_lampiran')
+ 			->with('berita_to_lampiran')
 			->paginate(10);
+ 
 		}else{
 			$berita = Berita::orderBy('id', 'DESC')->with('berita_to_lampiran')->paginate(10);			
 		}
@@ -29,8 +32,9 @@ class BeritaController extends Controller {
 	}
 
 	public function post($slug){
+		$hashids = new \Hashids\Hashids('qertymyr');
 		$berita = Berita::findBySlug($slug);
-		return view($this->base_view.'show_berita', compact('berita'));
+		return view($this->base_view.'show_berita', compact('berita', 'hashids'));
 	}
 
 

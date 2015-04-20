@@ -25,18 +25,36 @@
                 </a>
               </li>            
  
-
+        @if($sv->get_val('show_pendaftaran_online_public') == 1)
             <li @if(isset($pendaftaran_online_home)) class="active" @endif >
                 <a href="{!! route('pendaftaran_online.index') !!}"> 
                   <i class='fa fa-users'></i> Pendaftaran Online
                 </a>
               </li>
+        @endif
+
+
+        @if($sv->get_val('show_list_file_public') == 1)
+            <li @if(isset($daftar_file_home)) class="active" @endif >
+                <a href="{!! route('daftar_file.index') !!}"> 
+                  <i class='fa fa-list'></i> Daftar File
+                </a>
+            </li>
+        @endif
+
+
+            <li @if(isset($daftar_berita_home)) class="active" @endif >
+                <a href="{!! route('daftar_berita.index') !!}"> 
+                  <i class='fa fa-newspaper-o'></i> Daftar Berita
+                </a>
+            </li>
+
+
           </ul>
 
 
 
-  <ul class="nav navbar-nav navbar-right">
- 
+  <ul class="nav navbar-nav navbar-right"> 
       @if($sv->get_val('config_password_frontend') == 1)
       <li @if(isset($reset_password_home)) class='active' @endif><a href="/password/email">
         <i class='fa fa-envelope'></i> lupa password</a></li>  

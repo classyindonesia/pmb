@@ -1,14 +1,11 @@
 <?php namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Mst\Log;
+use App\Models\Mst\User;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
-
-/* facade */
 use Input, Auth, Hash;
-
-/* models */
-use App\Models\Mst\User;
 class LoginController extends Controller {
 
 	protected $redirectTo = 'home';
@@ -40,15 +37,27 @@ class LoginController extends Controller {
 	        if(count($check_email)>0){
 	        	//jika email ada di db, forced to login
 	        	Auth::loginUsingId($check_email->id);
+	        	
+	        	//create log
+	        	$user_id = $check_email->id;
+	        	$pesan = '<span class="text-success">berhasil login via facebook dari IP : '.\Request::ip().', email : '.$check_email->email.'</span>';
+	        	Log::create_log($user_id, $pesan);
+
+
 	        	return redirect()->intended($this->redirectPath());
 	        }else{
+
+	        	//create log
+	        	$user_id = 0;
+	        	$pesan = '<span class="text-danger">gagal login via facebook dari IP : '.\Request::ip().'</span>';
+	        	Log::create_log($user_id, $pesan);
+
+
 					return redirect($this->loginPath())
 								->withErrors([
 									'email' => 'User tidak ditemukan.',
 								]);
 	        }
-
-	        //return dd($user);
 	    } else {
 	        return $provider->redirect();
 	    }
@@ -66,8 +75,22 @@ class LoginController extends Controller {
 
 		if ($this->auth->attempt($credentials, $request->has('remember')))
 		{
+
+	        	//create log
+	        	$user_id = \Auth::user()->id;
+	        	$pesan = '<span class="text-success">berhasil login dari IP : '.\Request::ip().', email : '.\Auth::user()->email.'</span>';
+	        	Log::create_log($user_id, $pesan);
+
 			return redirect()->intended($this->redirectPath());
 		}
+
+
+
+	        	//create log
+	        	$user_id = 0;
+	        	$pesan = '<span class="text-danger">gagal login dari IP : '.\Request::ip().', email : '.$request->get('email').'</span>';
+	        	Log::create_log($user_id, $pesan);
+
 
 		return redirect($this->loginPath())
 					->withInput($request->only('email', 'remember'))
