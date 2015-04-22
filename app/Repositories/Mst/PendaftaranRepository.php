@@ -5,6 +5,14 @@ use SV;
 class PendaftaranRepository{
 
 
+ 	public function getOneByNoPendaftaran($no_pendaftaran){
+ 		$p = Pendaftaran::where('no_pendaftaran', '=', $no_pendaftaran)
+ 			->with('ref_sma', 'ref_prodi1', 'ref_prodi2')
+ 			->first();
+ 		return $p;
+ 	}
+
+
  	public function getByEmail($email){
  		$p = Pendaftaran::where('alamat_email', '=', $email)
  			->with('ref_sma', 'ref_prodi1', 'ref_prodi2')

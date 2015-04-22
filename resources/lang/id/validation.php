@@ -36,9 +36,9 @@ return [
 	"digits_between"       => "The :attribute must be between :min and :max digits.",
 	"email"                => "The :attribute must be a valid email address.",
 	"filled"               => "The :attribute field is required.",
-	"exists"               => "The selected :attribute is invalid.",
+	"exists"               => ":attribute tidak ditemukan.",
 	"image"                => "The :attribute must be an image.",
-	"in"                   => "The selected :attribute is invalid.",
+	"in"                   => ":attribute tidak ditemukan.",
 	"integer"              => "The :attribute must be an integer.",
 	"ip"                   => "The :attribute must be a valid IP address.",
 	"max"                  => [
@@ -54,9 +54,9 @@ return [
 		"string"  => ":attribute diharuskan setidaknya :min karakter.",
 		"array"   => ":attribute diharuskan setidaknya :min items.",
 	],
-	"not_in"               => "The selected :attribute is invalid.",
+	"not_in"               => "The selected :attribute tidak ditemukan.",
 	"numeric"              => "atribut :attribute harus diisi dg angka.",
-	"regex"                => "The :attribute format is invalid.",
+	"regex"                => "The :attribute format tidak ditemukan.",
 	"required"             => ":attribute belum terisi.",
 	"required_if"          => "The :attribute field is required when :other is :value.",
 	"required_with"        => "The :attribute field is required when :values is present.",
@@ -71,7 +71,7 @@ return [
 		"array"   => "The :attribute must contain :size items.",
 	],
 	"unique"               => ":attribute sudah pernah terdaftar.",
-	"url"                  => "The :attribute format is invalid.",
+	"url"                  => "The :attribute format tidak ditemukan.",
 	"timezone"             => "The :attribute must be a valid zone.",
 
 	/*
