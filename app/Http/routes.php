@@ -58,5 +58,6 @@ require app_path('Http/routes/camaba/ganti_prodi.php');
 /* level baa */
 require app_path('Http/routes/baa/pendaftar.php');
 require app_path('Http/routes/baa/tes_tulis.php');
+require app_path('Http/routes/baa/tes_skill.php');
 require app_path('Http/routes/baa/ref_ruang.php');
 

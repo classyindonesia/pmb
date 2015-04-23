@@ -16,6 +16,16 @@ class RuangRepository{
 	}
 
 
+	public function getDropDown(){
+		$kode_ruang = ['- pilih ruang -'];
+		foreach($this->getAll() as $list){
+			$kode_ruang[$list->kode_ruang] = $list->nama.' [ '.$list->kode_ruang.' ]';
+		}
+
+		return $kode_ruang;
+	}
+
+
 }
 
 
