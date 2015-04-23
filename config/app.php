@@ -95,7 +95,7 @@ return [
 	|
 	*/
 
-	'log' => 'daily',
+	'log' => 'single',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -216,6 +216,7 @@ return [
 		'Image' 	=> 'Intervention\Image\Facades\Image',
 		'QrCode' 	=> 'SimpleSoftwareIO\QrCode\Facades\QrCode',
 		'Excel' 	=> 'Maatwebsite\Excel\Facades\Excel',
+		'Reader'	=> '\PHPExcelReader\SpreadsheetReader',
  
 	],
 

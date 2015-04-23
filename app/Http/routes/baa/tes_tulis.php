@@ -35,6 +35,16 @@ Route::group(['middleware' => 'hanya_baa'], function(){
 		'as'	=> 'baa_tes_tulis.update',
 	]);	
 
+	get('backend/tes_tulis/import', [
+		'uses'	=> 'Backend\Baa\TesTulisController@import',
+		'as'	=> 'baa_tes_tulis.import',
+	]);
+
+	post('backend/tes_tulis/do_import', [
+		'uses'	=> 'Backend\Baa\TesTulisController@do_import',
+		'as'	=> 'baa_tes_tulis.do_import',
+	]);
+
 });
 
 
