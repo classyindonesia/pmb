@@ -1,0 +1,1 @@
+{!! Action::edit(false, route("baa_tes_tulis.edit", $list->id), $list->id) !!}
