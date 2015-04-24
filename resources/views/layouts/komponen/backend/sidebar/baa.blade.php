@@ -23,7 +23,7 @@
 
       <li @if(isset($tes_skill_home)) class="active" @endif>
           <a href="{!! route('baa_tes_skill.index') !!}"> 
-            <i class='fa fa-pencil'></i> Tes Skill  
+            <i class='fa fa-connectdevelop'></i> Tes Skill  
           </a>
       </li>
 

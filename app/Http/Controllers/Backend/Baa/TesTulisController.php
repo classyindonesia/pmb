@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers\Backend\Baa;
 
+use App\Commands\InsertTesTulis;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Http\Requests\createTesTulis;
@@ -26,11 +27,7 @@ class TesTulisController extends Controller {
 
 
 	public function create(RuangRepository $r){
-		$kode_ruang = ['- pilih ruang -'];
-		foreach($r->getAll() as $list){
-			$kode_ruang[$list->kode_ruang] = $list->nama.' [ '.$list->kode_ruang.' ]';
-		}
-
+		$kode_ruang = $r->getDropDown();
 		return view($this->base_view.'popup.create', compact('kode_ruang'));
 	}
 
@@ -65,10 +62,7 @@ class TesTulisController extends Controller {
 
 	public function edit($id, RuangRepository $r){
 		$tt = TesTulis::findOrFail($id);
-		$kode_ruang = ['- pilih ruang -'];
-		foreach($r->getAll() as $list){
-			$kode_ruang[$list->kode_ruang] = $list->nama.' [ '.$list->kode_ruang.' ]';
-		}		
+		$kode_ruang = $r->getDropDown();
 		return view($this->base_view.'popup.edit', compact('tt', 'kode_ruang'));
 	}
 
@@ -89,10 +83,7 @@ class TesTulisController extends Controller {
 
 
 	public function import(RuangRepository $r){
-		$kode_ruang = ['- pilih ruang -'];
-		foreach($r->getAll() as $list){
-			$kode_ruang[$list->kode_ruang] = $list->nama.' [ '.$list->kode_ruang.' ]';
-		}
+		$kode_ruang = $r->getDropDown();
 		return view($this->base_view.'popup.import', compact('kode_ruang'));
 	}
 
@@ -101,46 +92,27 @@ class TesTulisController extends Controller {
 	$files = $request->file('userfile');
 	$results = array();
  
-				try {
-					 
-	                $data = new \Reader($files); 
-	                $a = $data->rowcount($sheet_index=0); 
-			            for($i=1;$i<=$a;$i++){
-			                if($i != 1 && $i != 2){                    
-			                      $no  	= trim($data->val($i, 'B')); //no pendaftaran
-			                      $no2 	= trim($data->val($i, 'C')); // kode ruang
-			                       if($no != NULL && $no2 != NULL){
+	try {
+		 
+        $data = new \Reader($files); 
+        $a = $data->rowcount($sheet_index=0); 
+            for($i=1;$i<=$a;$i++){
+                if($i != 1 && $i != 2){                    
+                      $no  	= trim($data->val($i, 'B')); //no pendaftaran
+                      $no2 	= trim($data->val($i, 'C')); // kode ruang
+                       if($no != NULL && $no2 != NULL){
+						\Queue::push(new InsertTesTulis($no2, $no));
+                    }
+                }
+            }
+		} catch(Exception $e) {
+	 		$name = $file->getClientOriginalName().' import gagal!';
+	 		$results[] = compact('name');   
+          		\Log::warning('data tidak ditemukan');
 
-			                       	$p_getOne = $p->getOneByNoPendaftaran($no);
-			                       	$r_getOne = $r->getByKodeRuang($no2);
-			                       	if(count($p_getOne)>0 && count($r_getOne)>0){
-			                       		$data_insert = ['mst_pendaftaran_id' => $p_getOne->id, 'ref_ruang_id' => $r_getOne->id];
-			                       		TesTulis::create($data_insert);
-			                       		\Log::info("no pendaftaran :".$no.' dan kode ruang :'.$no2.' inserted!');
-			                       	}else{
-			                       		\Log::warning("no pendaftaran :".$no.' dan kode ruang :'.$no2.' tidak ditemukan');
-			                       	}
-
+ 		}
  
-				                       	$results[] = compact('name');	         
-			                    }
-			                }
-			            }
-					} catch(Exception $e) {
-				 		$name = $file->getClientOriginalName().' import gagal!';
-				 		$results[] = compact('name');   
-                      		\Log::warning('data tidak ditemukan');
-
-			 		}
- 
- /*
-	 return array(
-	        'files' => $results,
-  	    );	
-  	    */
- 
-	return redirect()->route('baa_tes_tulis.index');
-
+		return redirect()->route('baa_tes_tulis.index');
 	}
 
 

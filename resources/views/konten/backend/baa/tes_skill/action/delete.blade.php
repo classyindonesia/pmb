@@ -4,7 +4,7 @@ $('#del{{ $list->id }}').click(function(){
 	setuju = confirm('are you sure?');
 	if(setuju == true){
 		$.ajax({
-			url : '{{ URL::route("baa_tes_tulis.delete") }}',
+			url : '{{ URL::route("baa_tes_skill.delete") }}',
 			data : {id : '{{ $list->id }}'},
 			type : 'post',
 			error: function(err){

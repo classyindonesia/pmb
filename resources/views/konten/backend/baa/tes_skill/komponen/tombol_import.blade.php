@@ -4,6 +4,6 @@
 <script type="text/javascript">
 $('#import').click(function(){
 	$('#myModal').modal('show');
-	$('.modal-body').load('{{ route("baa_tes_tulis.import") }}');
+	$('.modal-body').load('{{ route("baa_tes_skill.import") }}');
 })
 </script>

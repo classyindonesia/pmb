@@ -3,6 +3,6 @@
 <script type="text/javascript">
 $('#add').click(function(){
 	$('#myModal').modal('show');
-	$('.modal-body').load('{{ URL::route("baa_tes_tulis.create") }}');
+	$('.modal-body').load('{{ URL::route("baa_tes_skill.create") }}');
 })
 </script>

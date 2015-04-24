@@ -1,10 +1,12 @@
 <?php namespace App\Http\Controllers\Backend\Baa;
 
+use App\Commands\InsertTesSkill;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Http\Requests\createTesSkill;
 use App\Http\Requests\updateTesSkill;
 use App\Models\Mst\TesSkill;
+use App\Models\Ref\TesSkill as RefTesSkill;
 use App\Repositories\Mst\PendaftaranRepository;
 use App\Repositories\Ref\RuangRepository;
 use Illuminate\Http\Request;
@@ -15,7 +17,7 @@ class TesSkillController extends Controller {
 
 	public function __construct(){
 		view()->share('base_view', $this->base_view);
-		view()->share('tes_tulis_home', true);
+		view()->share('tes_skill_home', true);
 	}
 
 	public function index(){
@@ -27,7 +29,8 @@ class TesSkillController extends Controller {
 
 	public function create(RuangRepository $r){
 		$kode_ruang = $r->getDropDown();
-		return view($this->base_view.'popup.create', compact('kode_ruang'));
+		$ref_skill = \Fungsi::get_dropdown(RefTesSkill::all(), 'skill');
+		return view($this->base_view.'popup.create', compact('kode_ruang', 'ref_skill'));
 	}
 
  
@@ -39,6 +42,7 @@ class TesSkillController extends Controller {
 		if(count($pendaftar_ruang)<=0){
 			$data = [
 				'mst_pendaftaran_id'	=> $pendaftar->id,
+				'ref_tes_skill_id'		=> $request->ref_tes_skill_id,
 				'ref_ruang_id'			=> $ruang->id
 			];
 			TesSkill::create($data);
@@ -61,10 +65,7 @@ class TesSkillController extends Controller {
 
 	public function edit($id, RuangRepository $r){
 		$ts = TesSkill::findOrFail($id);
-		$kode_ruang = ['- pilih ruang -'];
-		foreach($r->getAll() as $list){
-			$kode_ruang[$list->kode_ruang] = $list->nama.' [ '.$list->kode_ruang.' ]';
-		}		
+		$kode_ruang = $r->getDropDown();
 		return view($this->base_view.'popup.edit', compact('ts', 'kode_ruang'));
 	}
 
@@ -85,11 +86,9 @@ class TesSkillController extends Controller {
 
 
 	public function import(RuangRepository $r){
-		$kode_ruang = ['- pilih ruang -'];
-		foreach($r->getAll() as $list){
-			$kode_ruang[$list->kode_ruang] = $list->nama.' [ '.$list->kode_ruang.' ]';
-		}
-		return view($this->base_view.'popup.import', compact('kode_ruang'));
+		$kode_ruang = $r->getDropDown();
+		$ref_skill = \Fungsi::get_dropdown(RefTesSkill::all(), 'skill');
+		return view($this->base_view.'popup.import', compact('kode_ruang', 'ref_skill'));
 	}
 
 
@@ -106,30 +105,21 @@ class TesSkillController extends Controller {
 			                      $no  	= trim($data->val($i, 'B')); //no pendaftaran
 			                      $no2 	= trim($data->val($i, 'C')); // kode ruang
 			                       if($no != NULL && $no2 != NULL){
+			                       		//insert to queue job
+			                       	\Queue::push(new InsertTesSkill($no2, $no, $request->ref_tes_skill_id));
 
-			                       	$p_getOne = $p->getOneByNoPendaftaran($no);
-			                       	$r_getOne = $r->getByKodeRuang($no2);
-			                       	if(count($p_getOne)>0 && count($r_getOne)>0){
-			                       		$data_insert = ['mst_pendaftaran_id' => $p_getOne->id, 'ref_ruang_id' => $r_getOne->id];
-			                       		TesSkill::create($data_insert);
-			                       		\Log::info("no pendaftaran :".$no.' dan kode ruang :'.$no2.' inserted!');
-			                       	}else{
-			                       		\Log::warning("no pendaftaran :".$no.' dan kode ruang :'.$no2.' tidak ditemukan');
-			                       	}
-
- 
-				                       	$results[] = compact('name');	         
+				                       //	$results[] = compact('name');	         
 			                    }
 			                }
 			            }
 					} catch(Exception $e) {
-				 		$name = $file->getClientOriginalName().' import gagal!';
+				 		$name = $file->getClientOriginalName().' import gagal! ';
 				 		$results[] = compact('name');   
-                      		\Log::warning('data tidak ditemukan');
+                      		\Log::warning('data tidak ditemukan | tes skill');
 
 			 		}
  
-	return redirect()->route('baa_tes_tulis.index');
+	return redirect()->route('baa_tes_skill.index');
 
 	}
 

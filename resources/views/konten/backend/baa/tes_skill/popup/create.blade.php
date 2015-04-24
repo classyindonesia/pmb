@@ -15,6 +15,11 @@
 	{!! Form::label('kode_ruang', 'Kode ruangan : ') !!}
 	{!! Form::select('kode_ruang', $kode_ruang, '', ['id' => 'kode_ruang']) !!}
 </div>
+
+ <div class='form-group'>
+	{!! Form::label('ref_tes_skill_id', 'Skill : ') !!}
+	{!! Form::select('ref_tes_skill_id', $ref_skill, '', ['id' => 'ref_tes_skill_id']) !!}
+</div>
  
 
  <div class='form-group'>
@@ -28,16 +33,17 @@ $('#simpan').click(function(){
 	$('#pesan').removeClass('alert alert-danger animated shake').html('');
 no_pendaftaran = $('#no_pendaftaran').val();
 kode_ruang = $('#kode_ruang').val();
- 
+ref_tes_skill_id = $('#ref_tes_skill_id').val(); 
 
 form_data ={
 	no_pendaftaran : no_pendaftaran,
 	kode_ruang		: kode_ruang,
+	ref_tes_skill_id : ref_tes_skill_id,
  	_token : '{!! csrf_token() !!}'
 }
 $('#simpan').attr('disabled', 'disabled');
 	$.ajax({
-		url : '{{ URL::route("baa_tes_tulis.insert") }}',
+		url : '{{ URL::route("baa_tes_skill.insert") }}',
 		data : form_data,
 		type : 'post',
 		error:function(xhr, status, error){
