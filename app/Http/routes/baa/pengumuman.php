@@ -45,6 +45,12 @@ Route::group(['middleware' => 'hanya_baa'], function(){
 		'as'	=> 'pengumuman.do_import',
 	]);
 
+
+	get('backend/pengumuman/export_pdf', [
+		'uses'	=> 'Backend\Baa\PengumumanController@export_pdf',
+		'as'	=> 'pengumuman.export_pdf',
+	]);
+
 });
 
 

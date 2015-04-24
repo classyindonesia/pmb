@@ -45,6 +45,12 @@ Route::group(['middleware' => 'hanya_baa'], function(){
 		'as'	=> 'baa_tes_skill.do_import',
 	]);
 
+
+	get('backend/tes_skill/export_pdf', [
+		'uses'	=> 'Backend\Baa\TesSkillController@export_pdf',
+		'as'	=> 'baa_tes_skill.export_pdf',
+	]);
+
 });
 
 

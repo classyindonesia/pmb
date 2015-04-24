@@ -124,5 +124,17 @@ class TesSkillController extends Controller {
 
 	}
 
+	public function export_pdf(){
+		$tt = TesSkill::with('mst_pendaftaran', 'ref_ruang', 'ref_tes_skill')->get();
+	    $html = view($this->base_view.'cetak.index', compact('tt'));
+		$this->mpdf=new \mPDF('','A4','','','10','10','10','107','','');
+		$html = iconv("UTF-8","UTF-8//IGNORE",$html);
+	    $this->mpdf->WriteHTML($html);
+	    $this->mpdf->debug = true;
+	    $this->mpdf->Output('tes_tulis_'.str_slug(\Fungsi::date_to_tgl(date('Y-m-d'))).'_'.date('H:i:s').'.pdf', 'I');   
+ 		return  PDF::load($html, 'A4', 'landscape')->show();
+
+	}
+
 
 }
