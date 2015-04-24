@@ -20,8 +20,8 @@ class InsertTesTulis extends Command implements SelfHandling, ShouldBeQueued {
 
 	public function __construct($kode_ruang, $no_pendaftaran)
 	{
-		$no_pendaftaran = $this->no_pendaftaran;
-		$kode_ruang = $this->kode_ruang;
+		$this->no_pendaftaran = $no_pendaftaran;
+		$this->kode_ruang = $kode_ruang;
 	}
 
 

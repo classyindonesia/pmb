@@ -9,6 +9,12 @@ class Prodi{
 		return Prd::with('mst_pendaftaran1')->get();
 	}
 
+	public function getByKodeProdi($kode_prodi){
+		$prodi = Prd::whereKodeProdi($kode_prodi)->first();
+		return $prodi;
+
+	}
+
 
 }
 

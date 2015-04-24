@@ -28,6 +28,13 @@
       </li>
 
 
+      <li @if(isset($pengumuman_home)) class="active" @endif>
+          <a href="{!! route('pengumuman.index') !!}"> 
+            <i class='fa fa-newspaper-o'></i> Pengumuman  
+          </a>
+      </li>
+
+
   @include('layouts.komponen.backend.sidebar.global')
  </ul>
 </nav>

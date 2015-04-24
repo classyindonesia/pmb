@@ -61,4 +61,5 @@ require app_path('Http/routes/baa/tes_tulis.php');
 require app_path('Http/routes/baa/tes_skill.php');
 require app_path('Http/routes/baa/ref_ruang.php');
 require app_path('Http/routes/baa/ref_tes_skill.php');
+require app_path('Http/routes/baa/pengumuman.php');
 

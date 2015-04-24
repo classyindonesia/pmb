@@ -1,0 +1,1 @@
+{!! Action::edit(false, route("pengumuman.edit", $list->id), $list->id) !!}

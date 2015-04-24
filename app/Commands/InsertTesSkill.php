@@ -21,9 +21,9 @@ class InsertTesSkill extends Command implements SelfHandling, ShouldBeQueued {
 
 	public function __construct($kode_ruang, $no_pendaftaran, $ref_tes_skill_id)
 	{
-		$ref_tes_skill_id = $this->ref_tes_skill_id;
-		$no_pendaftaran = $this->no_pendaftaran;
-		$kode_ruang = $this->kode_ruang;
+		$this->ref_tes_skill_id = $ref_tes_skill_id;
+		$this->no_pendaftaran = $no_pendaftaran;
+		$this->kode_ruang = $kode_ruang;
 	}
 
 
