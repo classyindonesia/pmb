@@ -21,7 +21,7 @@ class TesTulisController extends Controller {
 
 	public function index(){
 		$tt_home = true;
-		$tt = TesTulis::with('mst_pendaftaran', 'ref_ruang')->paginate(10);
+		$tt = TesTulis::with('mst_pendaftaran', 'ref_ruang')->orderBy('id', 'desc')->paginate(10);
 		return view($this->base_view.'index', compact('tt', 'tt_home'));
 	}
 
@@ -113,6 +113,19 @@ class TesTulisController extends Controller {
  		}
  
 		return redirect()->route('baa_tes_tulis.index');
+	}
+
+
+	public function export_pdf(){
+		$tt = TesTulis::with('mst_pendaftaran', 'ref_ruang')->get();
+	    $html = view($this->base_view.'cetak.index', compact('tt'));
+		$this->mpdf=new \mPDF('','A4','','','10','10','10','75','','');
+		$html = iconv("UTF-8","UTF-8//IGNORE",$html);
+	    $this->mpdf->WriteHTML($html);
+	    $this->mpdf->debug = true;
+	    $this->mpdf->Output('tes_tulis_'.str_slug(\Fungsi::date_to_tgl(date('Y-m-d'))).'_'.date('H:i:s').'.pdf', 'I');   
+ 		return  PDF::load($html, 'A4', 'landscape')->show();
+
 	}
 
 

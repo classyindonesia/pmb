@@ -45,6 +45,12 @@ Route::group(['middleware' => 'hanya_baa'], function(){
 		'as'	=> 'baa_tes_tulis.do_import',
 	]);
 
+	get('backend/tes_tulis/export_pdf', [
+		'uses'	=> 'Backend\Baa\TesTulisController@export_pdf',
+		'as'	=> 'baa_tes_tulis.export_pdf',
+	]);
+
+
 });
 
 
