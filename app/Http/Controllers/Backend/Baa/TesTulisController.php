@@ -119,7 +119,7 @@ class TesTulisController extends Controller {
 	public function export_pdf(){
 		$tt = TesTulis::with('mst_pendaftaran', 'ref_ruang')->get();
 	    $html = view($this->base_view.'cetak.index', compact('tt'));
-		$this->mpdf=new \mPDF('','A4','','','10','10','10','75','','');
+		$this->mpdf=new \mPDF('','A4','','','10','10','10','107','','');
 		$html = iconv("UTF-8","UTF-8//IGNORE",$html);
 	    $this->mpdf->WriteHTML($html);
 	    $this->mpdf->debug = true;
