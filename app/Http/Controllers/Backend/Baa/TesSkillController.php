@@ -66,7 +66,8 @@ class TesSkillController extends Controller {
 	public function edit($id, RuangRepository $r){
 		$ts = TesSkill::findOrFail($id);
 		$kode_ruang = $r->getDropDown();
-		return view($this->base_view.'popup.edit', compact('ts', 'kode_ruang'));
+		$ref_skill = \Fungsi::get_dropdown(RefTesSkill::all(), 'skill');
+		return view($this->base_view.'popup.edit', compact('ts', 'kode_ruang', 'ref_skill'));
 	}
 
 	public function update(updateTesSkill $request, PendaftaranRepository $p, RuangRepository $r){

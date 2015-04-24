@@ -1,4 +1,4 @@
-<h1> Edit Ruang </h1>
+<h1> Tambahkan Skill </h1>
 <hr>
 
 
@@ -7,16 +7,12 @@
 
 
 <div class='form-group'>
-	{!! Form::label('nama', 'Nama Ruang : ') !!}
-	<input type='text' value='{!! $ref_ruang->nama !!}' name='nama' placeholder='Nama Ruang...' id='nama' class='form-control'>
+	{!! Form::label('nama', 'Nama Skill : ') !!}
+	<input type='text' name='nama' placeholder='Nama Skill...' id='nama' class='form-control'>
 </div>
 
 
- <div class='form-group'>
-	{!! Form::label('kode_ruang', 'Kode Ruang : ') !!}
-	<input type='text' value='{!! $ref_ruang->kode_ruang !!}' name='kode_ruang' placeholder='Kode Ruang...' id='kode_ruang' class='form-control'>
-</div>
-
+ 
 
  <div class='form-group'>
  	<button id='simpan' class='btn btn-info'><i class='fa fa-floppy-o'></i> simpan</button>
@@ -28,20 +24,17 @@
 $('#simpan').click(function(){
 	$('#pesan').removeClass('alert alert-danger animated shake').html('');
 nama = $('#nama').val();
-kode_ruang = $('#kode_ruang').val();
- 
+  
 
 form_data ={
 	nama : nama,
-	id : '{!! $ref_ruang->id !!}',
-	kode_ruang		: kode_ruang,
- 	_token : '{!! csrf_token() !!}'
+  	_token : '{!! csrf_token() !!}'
 }
 $('#simpan').attr('disabled', 'disabled');
 	$.ajax({
-		url : '{{ URL::route("baa_ref_ruang.update", $ref_ruang->id) }}',
+		url : '{{ URL::route("ref_tes_skill.store") }}',
 		data : form_data,
-		type : 'put',
+		type : 'post',
 		error:function(xhr, status, error){
 			$('#simpan').removeAttr('disabled');
 

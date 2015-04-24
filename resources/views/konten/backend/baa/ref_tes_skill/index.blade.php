@@ -2,18 +2,15 @@
 
 @section('judul_header')
 	@include($base_view.'komponen.tombol_add')
-	@include($base_view.'komponen.tombol_import')
-   <h1 class="title_header"><i class='fa fa-connectdevelop'></i>  Tes Skill </h1>
+   <h1 class="title_header"><i class='fa fa-th-list'></i>  Ref Tes Skill </h1>
 @endsection
 
 
 
 @section('konten_utama')
-	@include($base_view.'komponen.nav_atas')
-
+	@include($base_view_ts.'komponen.nav_atas')
 	@include($base_view.'list_data')
 
 
 @endsection
-
 
