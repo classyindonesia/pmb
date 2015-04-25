@@ -2,6 +2,12 @@
 
 
 
+@section('judul_web') {!! env('NAMA_APP').' | '.$berita->judul !!} @endsection
+
+@section('meta_description') {!!  str_limit(strip_tags($berita->artikel), $limit = 250, $end = ' ')   !!} @endsection
+
+
+
 
 @section('fb_share_open_tag')
 <div id="fb-root"></div>

@@ -1,6 +1,9 @@
 @extends('layouts.frontend')
 
 
+@section('meta_keywords') {!! env('JUDUL_HEADER_WEBSITE') !!} @endsection
+
+@section('meta_description') {!! env('SUBJUDUL_HEADER_WEBSITE') !!} @endsection
 
 
 
