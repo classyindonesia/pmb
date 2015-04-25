@@ -10,5 +10,5 @@
 
 
 @section('konten_utama')
-  @include($base_view.'admin.list_data')
+  @include($base_view.'baa.list_data')
 @endsection
