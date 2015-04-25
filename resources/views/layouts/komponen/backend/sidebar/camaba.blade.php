@@ -16,6 +16,13 @@
           </a>
       </li>
 
+
+      <li @if(isset($informasi_home)) class="active" @endif>
+          <a href="{!! route('informasi.index') !!}"> 
+            <i class="fa fa-newspaper-o"></i> Informasi  
+          </a>
+      </li>
+
   @include('layouts.komponen.backend.sidebar.global')
  </ul>
 </nav>
