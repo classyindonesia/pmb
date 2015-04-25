@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
+use App\Models\Mst\Pengumuman;
 use App\Models\Mst\TesSkill;
 use App\Models\Mst\TesTulis;
 use App\Repositories\Mst\PendaftaranRepository;
@@ -19,13 +20,14 @@ class InformasiController extends Controller {
 		$p_get = $p->getByEmail(\Auth::user()->email);
 		$this->pendaftaran = $p_get;
 		view()->share('pendaftaran', $this->pendaftaran);
+		view()->share('blm_tersedia', '<span class="text-danger">belum tersedia</span>');
 	}
 
 	public function index(){
 		$tes_tulis = TesTulis::whereMstPendaftaranId($this->pendaftaran->id)->first();
 		$tes_skill = TesSkill::whereMstPendaftaranId($this->pendaftaran->id)->first();
-
-		return view($this->base_view.'index', compact('tes_tulis', 'tes_skill'));
+		$pengumuman = Pengumuman::whereMstPendaftaranId($this->pendaftaran->id)->first();
+		return view($this->base_view.'index', compact('tes_tulis', 'tes_skill', 'pengumuman'));
 	}
 
 }

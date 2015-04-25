@@ -3,7 +3,7 @@
  
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <h3 class="panel-title"><i class='fa fa-pencil'></i> Tes Tulis</h3>
+    <h3 class="panel-title"><i class='fa fa-info'></i> Pengumuman</h3>
   </div>
   <div class="panel-body">
 
@@ -19,14 +19,12 @@
 			<td> {!! $pendaftaran->nama !!}</td>
 		</tr>		
 		<tr>		
-			<td>Ruang</td>
-			<td>@if(count($tes_tulis)>0) {!! $tes_tulis->ref_ruang->nama !!} @else {!! $blm_tersedia !!} @endif </td>
+			<td>Prodi diterima</td>
+			<td>@if(count($pengumuman)>0) {!! $pengumuman->ref_prodi->nama !!} @else {!! $blm_tersedia !!} @endif </td>
 		</tr>
 
-		<tr>		
-			<td>Kode Ruang</td>
-			<td>@if(count($tes_tulis)>0) {!! $tes_tulis->ref_ruang->kode_ruang !!} @else {!! $blm_tersedia !!} @endif </td>
-		</tr>		
+ 
+
 	</table>	
 
 

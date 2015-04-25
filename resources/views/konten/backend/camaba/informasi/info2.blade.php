@@ -8,7 +8,7 @@
   <div class="panel-body">
 
 
-	<table>
+	<table width="100%">
  
 		<tr>
 			<td width="50%">No Pendaftaran</td>
@@ -20,17 +20,17 @@
 		</tr>		
 		<tr>		
 			<td>Ruang</td>
-			<td>@if(count($tes_skill->ref_ruang)>0) {!! $tes_skill->ref_ruang->nama !!} @else - @endif </td>
+			<td>@if(count($tes_skill)>0) {!! $tes_skill->ref_ruang->nama !!} @else {!! $blm_tersedia !!} @endif </td>
 		</tr>
 
 		<tr>		
 			<td>Kode Ruang</td>
-			<td>@if(count($tes_skill->ref_ruang)>0) {!! $tes_skill->ref_ruang->kode_ruang !!} @else - @endif </td>
+			<td>@if(count($tes_skill)>0) {!! $tes_skill->ref_ruang->kode_ruang !!} @else {!! $blm_tersedia !!} @endif </td>
 		</tr>	
 
 		<tr>		
 			<td>Skill</td>
-			<td>@if(count($tes_skill->ref_ruang)>0) {!! $tes_skill->ref_ruang->kode_ruang !!} @else - @endif </td>
+			<td>@if(count($tes_skill)>0) {!! $tes_skill->ref_tes_skill->nama !!} @else {!! $blm_tersedia !!} @endif </td>
 		</tr>	
 
 	</table>	

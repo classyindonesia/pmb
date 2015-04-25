@@ -12,6 +12,10 @@
 @include($base_view.'info1')
 @include($base_view.'info2')
 
+
+
+@include($base_view.'info3')
+
  
 
 @endsection
