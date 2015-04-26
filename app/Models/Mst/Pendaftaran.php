@@ -54,6 +54,15 @@ class Pendaftaran extends Eloquent{
 	public function ref_prodi2(){
 		return $this->belongsTo('App\Models\Ref\Prodi', 'ref_prodi_id2');
 	}
+ 	public function mst_tes_tulis(){
+ 		return $this->hasOne('\App\Models\Mst\TesTulis', 'mst_pendaftaran_id');
+ 	}
+
+
+
+ 	public function mst_tes_skill(){
+ 		return $this->hasMany('\App\Models\Mst\TesSkill', 'mst_pendaftaran_id');
+ 	}	
 
 
 
@@ -91,9 +100,6 @@ class Pendaftaran extends Eloquent{
 	}
 
  
- 	public function mst_tes_tulis(){
- 		return $this->hasOne('\App\Models\Mst\TesTulis', 'mst_pendaftaran_id');
- 	}
 
 
 

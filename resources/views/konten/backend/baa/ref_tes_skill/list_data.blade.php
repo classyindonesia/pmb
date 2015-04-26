@@ -13,9 +13,9 @@
 			<td class="text-center">{!! $no !!}</td>
 			<td>{!! $list->nama !!}</td>
  			<td>
-				{!! Action::edit(false, route("baa_ref_ruang.edit", $list->id), $list->id) !!}
+				{!! Action::edit(false, route("ref_tes_skill.edit", $list->id), $list->id) !!}
 				||
-				{!! Action::rest_del(false, route("baa_ref_ruang.destroy", $list->id), $list->id); !!}				
+				{!! Action::rest_del(false, route("ref_tes_skill.destroy", $list->id), $list->id); !!}				
 			</td>
 		</tr>
 		<?php $no++; ?>

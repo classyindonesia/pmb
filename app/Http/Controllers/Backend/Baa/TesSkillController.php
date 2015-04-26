@@ -8,6 +8,7 @@ use App\Http\Requests\updateTesSkill;
 use App\Models\Mst\TesSkill;
 use App\Models\Ref\TesSkill as RefTesSkill;
 use App\Repositories\Mst\PendaftaranRepository;
+use App\Repositories\Mst\TesSkillRepository;
 use App\Repositories\Ref\RuangRepository;
 use Illuminate\Http\Request;
 
@@ -20,9 +21,14 @@ class TesSkillController extends Controller {
 		view()->share('tes_skill_home', true);
 	}
 
-	public function index(){
+	public function index(TesSkillRepository $tsr, Request $request){
 		$ts_home = true;
-		$ts = TesSkill::with('mst_pendaftaran', 'ref_ruang')->paginate(10);
+		$cari = $request->get('cari');
+		if($cari){
+			$ts = $tsr->getAllPencarian($cari);
+		}else{
+			$ts = $tsr->getAll();
+		}
 		return view($this->base_view.'index', compact('ts', 'ts_home'));
 	}
 

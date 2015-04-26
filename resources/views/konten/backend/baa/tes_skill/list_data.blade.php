@@ -4,10 +4,8 @@
 			<th width="5%" class="text-center">No.</th>
 			<th width="160px">No Pendaftaran</th>
 			<th>Nama</th>
-			<th>Ruangan</th>
-			<th>Kode Ruang</th>
-			<th>Skill</th>
-			<th width="100px">Action</th>
+			<th width="100px">Jumlah Skill</th>
+  			<th class="text-center" width="100px">Action</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -15,12 +13,10 @@
 @foreach($ts as $list)
 		<tr>
 			<td class="text-center">{!! $no !!}</td>
-			<td> @if(count($list->mst_pendaftaran)>0) {!! $list->mst_pendaftaran->no_pendaftaran !!} @else - @endif </td>
-			<td> @if(count($list->mst_pendaftaran)>0) {!! $list->mst_pendaftaran->nama !!} @else - @endif </td>
-			<td>@if(count($list->ref_ruang)>0) {!! $list->ref_ruang->nama !!} @else - @endif </td>
-			<td>@if(count($list->ref_ruang)>0) {!! $list->ref_ruang->kode_ruang !!} @else - @endif </td>
-			<td>@if(count($list->ref_tes_skill)>0) {!! $list->ref_tes_skill->nama !!} @else - @endif </td>
-			<td> 
+			<td> {!! $list->no_pendaftaran !!} </td>
+			<td>  {!! $list->nama!!}  </td>
+			<td class="text-center">{!! count($list->mst_tes_skill) !!}		 </td>
+  			<td class="text-center"> 
 			@include($base_view.'action.edit') || 
 			@include($base_view.'action.delete')
 
