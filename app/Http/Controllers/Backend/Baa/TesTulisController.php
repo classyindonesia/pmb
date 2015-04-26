@@ -7,6 +7,7 @@ use App\Http\Requests\createTesTulis;
 use App\Http\Requests\updateTesTulis;
 use App\Models\Mst\TesTulis;
 use App\Repositories\Mst\PendaftaranRepository;
+use App\Repositories\Mst\TesTulisRepository;
 use App\Repositories\Ref\RuangRepository;
 use Illuminate\Http\Request;
 
@@ -19,9 +20,14 @@ class TesTulisController extends Controller {
 		view()->share('tes_tulis_home', true);
 	}
 
-	public function index(){
+	public function index(TesTulisRepository $ttr, Request $request){
 		$tt_home = true;
-		$tt = TesTulis::with('mst_pendaftaran', 'ref_ruang')->orderBy('id', 'desc')->paginate(10);
+		$cari = $request->get('search');
+		if($cari){
+			$tt = $ttr->getAllPencarian($cari);
+		}else{
+			$tt = $ttr->getAll();			
+		}
 		return view($this->base_view.'index', compact('tt', 'tt_home'));
 	}
 

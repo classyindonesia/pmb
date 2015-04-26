@@ -91,6 +91,9 @@ class Pendaftaran extends Eloquent{
 	}
 
  
+ 	public function mst_tes_tulis(){
+ 		return $this->hasOne('\App\Models\Mst\TesTulis', 'mst_pendaftaran_id');
+ 	}
 
 
 
@@ -106,5 +109,9 @@ class Pendaftaran extends Eloquent{
  	public function setAlamatAttribute($alamat){
 		return $this->attributes['alamat'] = strtoupper($alamat);
 	}
+ /* end of custom attribute */
+
+
+
 
 }

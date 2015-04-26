@@ -5,7 +5,7 @@ $('#del{{ $list->id }}').click(function(){
 	if(setuju == true){
 		$.ajax({
 			url : '{{ URL::route("baa_tes_tulis.delete") }}',
-			data : {id : '{{ $list->id }}'},
+			data : {id : '{{ $list->mst_tes_tulis->id }}'},
 			type : 'post',
 			error: function(err){
 				alert('error! terjadi sesuatu pada sisi server!');

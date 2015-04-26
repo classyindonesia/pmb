@@ -1,1 +1,1 @@
-{!! Action::edit(false, route("baa_tes_tulis.edit", $list->id), $list->id) !!}
+{!! Action::edit(false, route("baa_tes_tulis.edit", $list->mst_tes_tulis->id), $list->mst_tes_tulis->id) !!}
