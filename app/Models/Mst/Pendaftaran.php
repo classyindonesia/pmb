@@ -64,6 +64,9 @@ class Pendaftaran extends Eloquent{
  		return $this->hasMany('\App\Models\Mst\TesSkill', 'mst_pendaftaran_id');
  	}	
 
+ 	public function mst_pengumuman(){
+ 		return $this->hasOne('\App\Models\Mst\Pengumuman', 'mst_pendaftaran_id');
+ 	}
 
 
 

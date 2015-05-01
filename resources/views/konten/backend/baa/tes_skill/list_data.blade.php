@@ -17,9 +17,8 @@
 			<td>  {!! $list->nama!!}  </td>
 			<td class="text-center">{!! count($list->mst_tes_skill) !!}		 </td>
   			<td class="text-center"> 
-			@include($base_view.'action.edit') || 
-			@include($base_view.'action.delete')
-
+  			@include($base_view.'action.list_skill')  
+ 
 			 </td>
 		</tr>
 		<?php $no++; ?>

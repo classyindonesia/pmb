@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Http\Requests\createTesSkill;
 use App\Http\Requests\updateTesSkill;
+use App\Models\Mst\Pendaftaran;
 use App\Models\Mst\TesSkill;
 use App\Models\Ref\TesSkill as RefTesSkill;
 use App\Repositories\Mst\PendaftaranRepository;
@@ -23,7 +24,7 @@ class TesSkillController extends Controller {
 
 	public function index(TesSkillRepository $tsr, Request $request){
 		$ts_home = true;
-		$cari = $request->get('cari');
+		$cari = $request->get('search');
 		if($cari){
 			$ts = $tsr->getAllPencarian($cari);
 		}else{
@@ -82,6 +83,7 @@ class TesSkillController extends Controller {
 		if(count($p_get)>0){
 			$r_get = $r->getByKodeRuang($request->get('kode_ruang'));
 			$ts->mst_pendaftaran_id = $p_get->id;
+			$ts->ref_tes_skill_id = $request->ref_tes_skill_id;
 			$ts->ref_ruang_id = $r_get->id;
 			$ts->save();
 			return 'ok';			
@@ -140,6 +142,12 @@ class TesSkillController extends Controller {
 	    $this->mpdf->Output('tes_tulis_'.str_slug(\Fungsi::date_to_tgl(date('Y-m-d'))).'_'.date('H:i:s').'.pdf', 'I');   
  		return  PDF::load($html, 'A4', 'landscape')->show();
 
+	}
+
+
+	public function list_skill($mst_pendaftaran_id, PendaftaranRepository $p){
+		$camaba = Pendaftaran::findOrFail($mst_pendaftaran_id);
+		return view($this->base_view.'popup.list_skill', compact('camaba'));
 	}
 
 

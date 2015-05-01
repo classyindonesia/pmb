@@ -13,6 +13,10 @@ Route::group(['middleware' => 'hanya_baa'], function(){
 		'as'	=> 'baa_tes_skill.create',
 	]);
 
+	get('backend/tes_skill/list_skill/{mst_pendaftaran_id}', [
+		'uses'	=> 'Backend\Baa\TesSkillController@list_skill',
+		'as'	=> 'baa_tes_skill.list_skill',
+	]);
 
 	post('backend/tes_skill/insert', [
 		'uses'	=> 'Backend\Baa\TesSkillController@insert',
