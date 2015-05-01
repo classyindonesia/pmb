@@ -25,7 +25,7 @@ class InformasiController extends Controller {
 
 	public function index(){
 		$tes_tulis = TesTulis::whereMstPendaftaranId($this->pendaftaran->id)->first();
-		$tes_skill = TesSkill::whereMstPendaftaranId($this->pendaftaran->id)->first();
+		$tes_skill = TesSkill::whereMstPendaftaranId($this->pendaftaran->id)->with('ref_ruang')->get();
 		$pengumuman = Pengumuman::whereMstPendaftaranId($this->pendaftaran->id)->first();
 		return view($this->base_view.'index', compact('tes_tulis', 'tes_skill', 'pengumuman'));
 	}
