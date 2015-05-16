@@ -23,6 +23,12 @@
           </a>
       </li>
 
+
+@include('layouts.komponen.backend.sidebar.camaba_validasi_biodata')
+ 
+
+
+
   @include('layouts.komponen.backend.sidebar.global')
  </ul>
 </nav>

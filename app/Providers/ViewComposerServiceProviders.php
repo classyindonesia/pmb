@@ -16,6 +16,7 @@ class ViewComposerServiceProviders extends ServiceProvider {
        View::composer('layouts.komponen.frontend.statistik_pengunjung', 'App\Http\ViewComposers\Frontend\StatistikComposer@compose');
        View::composer('konten.frontend.auth.login', 'App\Http\ViewComposers\Frontend\LoginComposer@compose');
        View::composer('layouts.komponen.frontend.nav_atas', 'App\Http\ViewComposers\Frontend\NavAtasComposer@compose');
+       View::composer('layouts.komponen.backend.sidebar.camaba_validasi_biodata', 'App\Http\ViewComposers\Backend\CamabaValidasiBiodataComposer@compose');
 	}
 
 	/**

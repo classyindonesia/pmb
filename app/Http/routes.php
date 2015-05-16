@@ -54,6 +54,7 @@ require app_path('Http/routes/camaba/validasi_pendaftaran.php');
 require app_path('Http/routes/camaba/kartu_pendaftaran.php');
 require app_path('Http/routes/camaba/ganti_prodi.php');
 require app_path('Http/routes/camaba/informasi.php');
+require app_path('Http/routes/camaba/validasi_biodata.php');
 
 
 /* level baa */

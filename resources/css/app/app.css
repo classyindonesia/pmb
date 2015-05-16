@@ -181,6 +181,7 @@ body {
   /* Set the fixed height of the footer here */
 
   background-color: #ddd;
+   background-image: url("../../img/pat01.jpg");
 }
 
 
@@ -199,6 +200,7 @@ body > .container {
   padding-right: 15px;
   padding-left: 15px;
   background-color: #ddd;
+ background-image: url("../../img/pat01.jpg");
 }
 
 
