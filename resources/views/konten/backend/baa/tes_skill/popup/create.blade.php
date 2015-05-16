@@ -1,4 +1,4 @@
-<h1> Tambahkan mahasiswa </h1>
+<h1> Tambahkan skill camaba </h1>
 <hr>
 
 

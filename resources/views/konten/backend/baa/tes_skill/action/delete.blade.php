@@ -11,7 +11,7 @@ $('#del{{ $list->id }}').click(function(){
 				alert('error! terjadi sesuatu pada sisi server!');
 			},
 			success:function(ok){
-				window.location.reload();
+				$('.modal-body').load('{!! route("baa_tes_skill.list_skill", $list->mst_pendaftaran_id) !!}')
 			}
 		})
 	}

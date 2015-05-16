@@ -8,7 +8,7 @@
 
 <div class='form-group'>
 	{!! Form::label('nama', 'Nama Skill : ') !!}
-	<input type='text' value='{!! $ref_ruang->nama !!}' name='nama' placeholder='Nama Skill...' id='nama' class='form-control'>
+	<input type='text' value='{!! $ref_tes_skill->nama !!}' name='nama' placeholder='Nama Skill...' id='nama' class='form-control'>
 </div>
 
  
@@ -27,12 +27,12 @@ nama = $('#nama').val();
 
 form_data ={
 	nama : nama,
-	id : '{!! $ref_ruang->id !!}',
+	id : '{!! $ref_tes_skill->id !!}',
   	_token : '{!! csrf_token() !!}'
 }
 $('#simpan').attr('disabled', 'disabled');
 	$.ajax({
-		url : '{{ URL::route("ref_tes_skill.update", $ref_ruang->id) }}',
+		url : '{{ URL::route("ref_tes_skill.update", $ref_tes_skill->id) }}',
 		data : form_data,
 		type : 'put',
 		error:function(xhr, status, error){

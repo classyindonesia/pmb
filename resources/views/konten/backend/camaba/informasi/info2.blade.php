@@ -9,30 +9,39 @@
 
 
 	<table width="100%">
- 
-		<tr>
-			<td width="50%">No Pendaftaran</td>
-			<td> {!! $pendaftaran->no_pendaftaran !!}</td>
+ <?php $no=1; ?>
+ @foreach($tes_skill as $list)
+
+		<tr>		
+			<td>Tes skill nomor </td>
+			<td> {!! $no !!} </td>
 		</tr>
-		<tr>
-			<td>Nama</td>
-			<td> {!! $pendaftaran->nama !!}</td>
-		</tr>		
+
+
+
 		<tr>		
 			<td>Ruang</td>
-			<td>@if(count($tes_skill)>0) {!! $tes_skill->ref_ruang->nama !!} @else {!! $blm_tersedia !!} @endif </td>
+			<td>@if(count($list->ref_ruang)>0) {!! $list->ref_ruang->nama !!} @else {!! $blm_tersedia !!} @endif </td>
 		</tr>
 
 		<tr>		
 			<td>Kode Ruang</td>
-			<td>@if(count($tes_skill)>0) {!! $tes_skill->ref_ruang->kode_ruang !!} @else {!! $blm_tersedia !!} @endif </td>
+			<td>@if(count($list->ref_ruang)>0) {!! $list->ref_ruang->kode_ruang !!} @else {!! $blm_tersedia !!} @endif </td>
 		</tr>	
 
 		<tr>		
 			<td>Skill</td>
-			<td>@if(count($tes_skill)>0) {!! $tes_skill->ref_tes_skill->nama !!} @else {!! $blm_tersedia !!} @endif </td>
-		</tr>	
+			<td>@if(count($list->ref_ruang)>0) {!! $list->ref_tes_skill->nama !!} @else {!! $blm_tersedia !!} @endif </td>
+		</tr>
 
+		<tr>		
+			<td colspan="2"><hr></td>
+
+		</tr>
+
+
+<?php $no++; ?>
+@endforeach
 	</table>	
 
 

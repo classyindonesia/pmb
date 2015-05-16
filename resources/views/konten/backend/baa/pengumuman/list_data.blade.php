@@ -13,9 +13,19 @@
 @foreach($pengumuman as $list)
 		<tr>
 			<td class="text-center">{!! $no !!}</td>
-			<td> @if(count($list->mst_pendaftaran)>0) {!! $list->mst_pendaftaran->no_pendaftaran !!} @else - @endif </td>
-			<td> @if(count($list->mst_pendaftaran)>0) {!! $list->mst_pendaftaran->nama !!} @else - @endif </td>
-			<td> @if(count($list->ref_prodi)>0) {!! $list->ref_prodi->nama !!} @else - @endif </td>
+			<td> {!! $list->no_pendaftaran !!}  </td>
+			<td> {!! $list->nama !!} </td>
+			<td> 
+				@if(count($list->mst_pengumuman)>0) 
+					@if(count($list->mst_pengumuman->ref_prodi)>0) 
+						{!! $list->mst_pengumuman->ref_prodi->nama !!} 
+					@else
+						-
+					@endif
+				@else 
+					- 
+				@endif 
+			</td>
  			<td> 
 			@include($base_view.'action.edit') || 
 			@include($base_view.'action.delete')

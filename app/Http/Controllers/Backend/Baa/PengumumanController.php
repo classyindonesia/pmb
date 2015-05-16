@@ -21,8 +21,13 @@ class PengumumanController extends Controller {
 		view()->share('pengumuman_home', true);
 	}
 
-	public function index(PengumumanRepository $png){
-		$pengumuman = $png->getAll();
+	public function index(PengumumanRepository $png, Request $request){
+		$cari = $request->get('search');
+		if($cari){
+			$pengumuman = $png->getAllPencarian($cari);
+		}else{
+			$pengumuman = $png->getAll();
+		}
 		return view($this->base_view.'index', compact('pengumuman'));
 	}
 

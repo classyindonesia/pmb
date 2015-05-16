@@ -1,4 +1,4 @@
-<h1> Edit mahasiswa </h1>
+<h1> Edit Skill camaba </h1>
 <hr>
 
 
@@ -33,10 +33,11 @@ $('#simpan').click(function(){
 	$('#pesan').removeClass('alert alert-danger animated shake').html('');
 no_pendaftaran = $('#no_pendaftaran').val();
 kode_ruang = $('#kode_ruang').val();
- 
+ ref_tes_skill_id = $('#ref_tes_skill_id').val();
 
 form_data ={
 	no_pendaftaran : no_pendaftaran,
+	ref_tes_skill_id : ref_tes_skill_id,
 	kode_ruang		: kode_ruang,
 	id : '{!! $ts->id !!}',
  	_token : '{!! csrf_token() !!}'
@@ -58,7 +59,8 @@ $('#simpan').attr('disabled', 'disabled');
 		      //    alert('error! terjadi kesalahan pada sisi server!')
 		},
 		success:function(ok){
-			window.location.reload();
+			//window.location.reload();
+			$('.modal-body').load('{!! route("baa_tes_skill.list_skill", $ts->mst_pendaftaran_id) !!}')
 		}
 	})
 })

@@ -52,8 +52,7 @@ class RefTesSkillController extends Controller {
 	{
 		$data = [
 			'nama' => $request->nama,
-			'kode_ruang'	=> $request->kode_ruang
-		];
+ 		];
 		TesSkill::create($data);
 		return 'ok';
 	}
@@ -82,8 +81,7 @@ class RefTesSkillController extends Controller {
 	{
 		$o = TesSkill::findOrFail($id);
 		$o->nama = $request->nama;
-		$o->kode_ruang = $request->kode_ruang;
-		$o->save();
+ 		$o->save();
 		return 'ok';
 	}
 
