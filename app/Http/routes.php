@@ -64,4 +64,11 @@ require app_path('Http/routes/baa/tes_skill.php');
 require app_path('Http/routes/baa/ref_ruang.php');
 require app_path('Http/routes/baa/ref_tes_skill.php');
 require app_path('Http/routes/baa/pengumuman.php');
-
+require app_path('Http/routes/baa/ref_kota.php');
+require app_path('Http/routes/baa/biodata.php');
+require app_path('Http/routes/baa/ref_agama.php');
+require app_path('Http/routes/baa/ref_identitas.php');
+require app_path('Http/routes/baa/ref_status_daftar_ulang.php');
+require app_path('Http/routes/baa/ref_ukuran_almamater.php');
+require app_path('Http/routes/baa/ref_penghasilan_ortu.php');
+require app_path('Http/routes/baa/ref_pekerjaan_ortu.php');

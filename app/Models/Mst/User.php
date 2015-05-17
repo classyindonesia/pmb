@@ -16,8 +16,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 * @var string
 	 */
 	protected $table = 'mst_users';
-
-	/**
+	protected $appends = ['tgl'];
+ 	/**
 	 * The attributes that are mass assignable.
 	 *
 	 * @var array
@@ -36,9 +36,22 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	}
 
 
+	public function mst_pendaftaran(){
+		return $this->hasOne('App\Models\Mst\Pendaftaran', 'alamat_email', 'email');
+	}
+
+ 
+ 	public function getTglAttribute(){
+ 		$created_at = $this->attributes['created_at'];
+ 		$tgl = \Fungsi::date_to_tgl(date('Y-m-d', strtotime($created_at)));
+ 		return $tgl;
+ 	}
+
+
 	public function ref_user_level(){
 		return $this->belongsTo('App\Models\Ref\UserLevel', 'ref_user_level_id');
 	}
+
 
 
 }

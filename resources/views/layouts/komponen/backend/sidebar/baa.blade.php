@@ -35,6 +35,15 @@
       </li>
 
 
+
+      <li @if(isset($biodata_home)) class="active" @endif>
+          <a href="{!! route('backend_biodata.index') !!}"> 
+            <i class='fa fa-user'></i> Biodata  
+          </a>
+      </li>
+
+
+
   @include('layouts.komponen.backend.sidebar.global')
  </ul>
 </nav>

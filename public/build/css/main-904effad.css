@@ -12703,9 +12703,11 @@ code {
   background-color: #ddd;
   padding-top: 0.2em;
   height: 150px;
+   background-image: url("../../img/pat01.jpg");
 }
 .header_website h1 a{
   color: #686363;
+   text-shadow: 2px 2px 2px #aaa;
  }
 .header_website h1 a:hover{
   color: #837d7d;
