@@ -1,1 +1,1 @@
-{!! Action::edit(false, route("pengumuman.edit", $list->id), $list->id) !!}
+{!! Action::edit(false, route("pengumuman.edit", $list->mst_pengumuman->id), $list->mst_pengumuman->id) !!}
