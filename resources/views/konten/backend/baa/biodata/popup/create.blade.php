@@ -22,20 +22,39 @@
   </div>
 </div>
 
- 
-
-  <div role="tabpanel" class="tab-pane fade" id="informasi_kontak">
+<div role="tabpanel" class="tab-pane fade" id="informasi_kontak">
 	  <div class="row">
 		  <div class="col-md-6">
 			@include($base_view.'popup.create.form_3')     	
 		  </div>
 		  <div class="col-md-6">
-			@include($base_view.'popup.create.form_2')     	
+			@include($base_view.'popup.create.form_4')     	
 		  </div>  	
 	  </div>
   </div>
- 
- </div>
+
+<div role="tabpanel" class="tab-pane fade" id="informasi_sekolah">
+	  <div class="row">
+		  <div class="col-md-6">
+			@include($base_view.'popup.create.form_5')     	
+		  </div>
+		  <div class="col-md-6">
+			@include($base_view.'popup.create.form_6')     	
+		  </div>  	
+	  </div>
+</div>
+
+<div role="tabpanel" class="tab-pane fade" id="informasi_identitas">
+	  <div class="row">
+		  <div class="col-md-6">
+			@include($base_view.'popup.create.form_7')     	
+		  </div>
+ 	
+	  </div>
+</div>
+
+
+</div>
 
 <script>
   $(function () {

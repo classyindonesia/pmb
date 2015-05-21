@@ -11,4 +11,21 @@
   	</a>
   </li>
 
+
+  <li role="presentation">
+    <a href="#informasi_sekolah" aria-controls="informasi_sekolah" role="tab" data-toggle="tab">
+      Informasi Sekolah
+    </a>
+  </li>
+
+
+  <li role="presentation">
+    <a href="#informasi_identitas" aria-controls="informasi_identitas" role="tab" data-toggle="tab">
+      Informasi Identitas
+    </a>
+  </li>
+
+
 </ul>
+
+
