@@ -53,6 +53,19 @@
 	  </div>
 </div>
 
+<div role="tabpanel" class="tab-pane fade" id="informasi_ortu">
+	  <div class="row">
+		  <div class="col-md-4">
+			@include($base_view.'popup.create.form_8')     	
+		  </div>
+		  <div class="col-md-4">
+			@include($base_view.'popup.create.form_9')     	
+		  </div> 
+		  <div class="col-md-4">
+			@include($base_view.'popup.create.form_10')     	
+		  </div> 			  	
+	  </div>
+</div>
 
 </div>
 

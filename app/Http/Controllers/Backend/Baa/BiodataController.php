@@ -5,6 +5,8 @@ use App\Http\Requests;
 use App\Models\Ref\Agama;
 use App\Models\Ref\Identitas;
 use App\Models\Ref\Kota;
+use App\Models\Ref\PekerjaanOrtu;
+use App\Models\Ref\PenghasilanOrtu;
 use App\Models\Ref\Sma;
 use App\Repositories\Mst\BiodataRepository;
 use Illuminate\Http\Request;
@@ -43,7 +45,15 @@ class BiodataController extends Controller {
 		$ref_kota = \Fungsi::get_dropdown(Kota::all(), 'kota');
 		$ref_sma = \Fungsi::get_dropdown(Sma::all(), 'asal sekolah');
 		$ref_identitas = \Fungsi::get_dropdown(Identitas::all(), 'jenis identitas');
+		$ref_penghasilan_ortu = \Fungsi::get_dropdown(PenghasilanOrtu::all(), 'penghasilan ortu');
+		$ref_pekerjaan_ortu = \Fungsi::get_dropdown(PekerjaanOrtu::all(), 'pekerjaan ortu');
+		$ket_ortu = ['hidup' => 'masih hidup', 'meninggal' => 'telah meninggal'];
 
+		$var = compact(
+				'biodata', 'ref_agama', 'ref_kota', 'ref_sma', 
+				'ref_identitas', 'ref_penghasilan_ortu',
+				'ref_pekerjaan_ortu', 'ket_ortu'
+				);
 
 		if(count($biodata)<=0){
 			//kosong (tdk ada di dlm tabel pengumuman)
@@ -51,12 +61,10 @@ class BiodataController extends Controller {
 		}else{
 			if(count($biodata->mst_biodata)>0){
 				//jika di dlm tabel mst_biodata sudah ada record
-				return view($this->base_view.'popup.edit', 
-					compact('biodata', 'ref_agama', 'ref_kota', 'ref_sma', 'ref_identitas'));				
+				return view($this->base_view.'popup.edit', $var);				
 			}else{
 				//jika di dlm tabel mst_biodata belum ada record
-				return view($this->base_view.'popup.create', 
-					compact('biodata', 'ref_agama', 'ref_kota', 'ref_sma', 'ref_identitas'));				
+				return view($this->base_view.'popup.create', $var);				
 			}
 		}
 

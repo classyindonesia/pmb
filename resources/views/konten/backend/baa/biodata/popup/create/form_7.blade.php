@@ -5,7 +5,7 @@
 
  <div class="form-group">
     {!! Form::label('no_identitas', 'Nomor Identitas : ') !!}
-    <input type="text" name='no_identitas' value="" class="form-control" />
+    <input type="text" name='no_identitas' placeholder='Nomor Identitas' value="" class="form-control" />
   </div> 
 
 

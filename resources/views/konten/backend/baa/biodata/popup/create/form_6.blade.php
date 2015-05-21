@@ -1,6 +1,6 @@
  <div class="form-group">
     {!! Form::label('alamat_sekolah', 'Alamat Sekolah : ') !!}
-    <input type="text" name='alamat_sekolah' value="" class="form-control" />
+    <input type="text" name='alamat_sekolah' value="" placeholder='ALamat sekolah...' class="form-control" />
   </div> 
 
    <div class="form-group">

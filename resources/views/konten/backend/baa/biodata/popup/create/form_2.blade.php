@@ -15,3 +15,40 @@
   	{!! Form::label('ref_agama_id', 'Agama : ') !!}
   	{!! Form::select('ref_agama_id', $ref_agama, '', ['id' => 'ref_agama_id']) !!}
   </div>
+
+
+  
+<div class="form-group">
+  {!! Form::label('jml_saudara', 'Jumlah Saudara : ') !!}
+  <input type="text" name='jml_saudara' id="jml_saudara" value="" placeholder='Jumlah saudara...' class="form-control" />
+</div>
+
+
+<div class="form-group">
+  {!! Form::label('anak_ke', 'Anak Ke : ') !!}
+  <input type="text" name='anak_ke' id="anak_ke" value="" class="form-control" placeholder='anak ke..'  />
+</div>
+ 
+ 
+ <script type="text/javascript">
+     $('#jml_saudara').keypress(function(e) {
+            var a = [];
+            var k = e.which;
+
+            for (i = 48; i < 58; i++)
+            a.push(i);
+            a.push(8);
+            if (!(a.indexOf(k)>=0))
+                e.preventDefault();
+            }); 
+     $('#anak_ke').keypress(function(e) {
+            var a = [];
+            var k = e.which;
+
+            for (i = 48; i < 58; i++)
+            a.push(i);
+            a.push(8);
+            if (!(a.indexOf(k)>=0))
+                e.preventDefault();
+            }); 
+</script>

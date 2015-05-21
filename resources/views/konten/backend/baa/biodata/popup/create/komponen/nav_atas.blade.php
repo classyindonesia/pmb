@@ -25,6 +25,13 @@
     </a>
   </li>
 
+  <li role="presentation">
+    <a href="#informasi_ortu" aria-controls="informasi_ortu" role="tab" data-toggle="tab">
+      Informasi Orang tua
+    </a>
+  </li>
+
+
 
 </ul>
 

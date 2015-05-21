@@ -2,13 +2,13 @@
 
   <div class="form-group">
   	{!! Form::label('nama', 'nama lengkap : ') !!}
-  	<input type="text" name='nama' value="{!! $biodata->nama !!}" class="form-control" />
+  	<input type="text" name='nama' value="{!! $biodata->nama !!}" placeholder='Nama lengkap...' class="form-control" />
   </div>
 
 
   <div class="form-group">
   	{!! Form::label('alamat', 'alamat : ') !!}
-  	<input type="text" name='alamat' value="{!! $biodata->alamat !!}" class="form-control" />
+  	<input type="text" name='alamat' value="{!! $biodata->alamat !!}" placeholder='alamat...' class="form-control" />
   </div>
 
 
@@ -23,4 +23,5 @@
 	{!! Form::label('jenis_kelamin', 'Jenis Kelamin : ') !!}
 	{!! Form::select('jenis_kelamin', ['L' => 'Laki-laki', 'P' => 'Perempuan'], $biodata->jenis_kelamin, ['id' => 'jenis_kelamin']) !!}
 </div>
+
 
