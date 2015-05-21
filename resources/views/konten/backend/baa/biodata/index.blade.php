@@ -10,7 +10,8 @@
 @section('konten_utama')
 
 	@include($base_view.'komponen.nav_atas')
-d asdas 
+
+	@include($base_view.'list_data')
 
 @endsection
 

@@ -29,6 +29,11 @@ class Pendaftaran extends Eloquent{
 		];
 
 
+
+protected $appends = ['alamat', 'nama', 'tempat_lahir'];
+
+
+
 	public function mst_user(){
 		return $this->belongsTo('\App\Models\Mst\User', 'mst_user_id');
 	}
@@ -68,6 +73,11 @@ class Pendaftaran extends Eloquent{
  		return $this->hasOne('\App\Models\Mst\Pengumuman', 'mst_pendaftaran_id');
  	}
 
+
+
+ 	public function mst_biodata(){
+ 		return $this->hasOne('\App\Models\Mst\Biodata', 'mst_pendaftaran_id');
+ 	}
 
 
 	//format = Tahun_Bln_Tgl_Nomor_Urut
@@ -117,6 +127,23 @@ class Pendaftaran extends Eloquent{
 	}
  	public function setAlamatAttribute($alamat){
 		return $this->attributes['alamat'] = strtoupper($alamat);
+	}
+
+
+
+	public function getTempatLahirAttribute(){
+		$tempat_lahir = $this->attributes['tempat_lahir'];
+		return $tempat_lahir = strtoupper($tempat_lahir);
+	}
+
+	public function getNamaAttribute(){
+		$nama = $this->attributes['nama'];
+		return $nama = strtoupper($nama);
+	}
+
+	public function getAlamatAttribute(){
+		$alamat = $this->attributes['alamat'];
+		return $alamat = strtoupper($alamat);
 	}
  /* end of custom attribute */
 
