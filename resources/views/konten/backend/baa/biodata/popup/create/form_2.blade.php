@@ -1,6 +1,6 @@
 <div class="form-group">
 	{!! Form::label('tempat_lahir', 'tempat lahir : ') !!}
-	<input type="text" name='tempat_lahir' value="{!! $biodata->tempat_lahir !!}" class="form-control" />
+	<input type="text" id="tempat_lahir" name='tempat_lahir' value="{!! $biodata->tempat_lahir !!}" class="form-control" />
 </div>
 
 <div class='form-group'>

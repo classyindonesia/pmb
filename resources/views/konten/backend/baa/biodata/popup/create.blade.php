@@ -74,3 +74,6 @@
     $('#myTab a:first').tab('show')
   })
 </script>
+
+@include($base_view.'popup.create.tombol_simpan')     	
+@include($base_view.'popup.create.script')     

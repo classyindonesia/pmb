@@ -8,6 +8,6 @@
 
   <div class="form-group">
     {!! Form::label('alamat_fb', 'Alamat FB : ') !!}
-    <input type="text" name='alamat_fb' value="" placeholder='Alamat FB...' class="form-control" />
+    <input type="text" id="alamat_fb" name='alamat_fb' value="" placeholder='Alamat FB...' class="form-control" />
   </div>
 

@@ -1,6 +1,6 @@
    <div class="form-group">
     {!! Form::label('alamat_twitter', 'Alamat Twitter : ') !!}
-    <input type="text" name='alamat_twitter' value="" placeholder='Alamat Twitter...' class="form-control" />
+    <input type="text" id="alamat_twitter" name='alamat_twitter' value="" placeholder='Alamat Twitter...' class="form-control" />
   </div>
 
 
