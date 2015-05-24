@@ -10,7 +10,7 @@
 
    <div class="form-group">
 	{!! Form::label('no_hp_ortu', 'No HP Ortu : ') !!}
-	<input type="text" name='no_hp_ortu' id="no_hp_ortu" value="" class="form-control" />
+	<input type="text" name='no_hp_ortu' id="no_hp_ortu" placeholder='nomor hp ortu...' value="" class="form-control" />
 </div>
 
    <div class="form-group">

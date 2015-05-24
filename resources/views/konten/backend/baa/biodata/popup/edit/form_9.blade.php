@@ -1,6 +1,6 @@
  <div class="form-group">
-	{!! Form::label('no_hp_ortu', 'No HP Ortu : ') !!}
-	<input type="text" name='no_hp_ortu' id="no_hp_ortu" placeholder='Nomor HP Ortu' value="{!! $biodata->mst_biodata->no_hp_ortu !!}" class="form-control" />
+  {!! Form::label('nama_ortu_ibu', 'Nama Ibu : ') !!}
+  <input type="text" name='nama_ortu_ibu' id="nama_ortu_ibu" value="{!! $biodata->mst_biodata->nama_ortu_ibu !!}" placeholder='Nama Ibu...' class="form-control" />
 </div>
 
 

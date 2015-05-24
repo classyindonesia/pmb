@@ -2323,4 +2323,19 @@ Array.prototype.slice.call(arguments,1));if("object"!==typeof a&&a)d.error("Meth
 
  	$(function () { $("[data-toggle='tooltip']").tooltip(); });
  
+
+
+ $.fn.textlimit = function(limit)
+{
+    return this.each(function(index,val)                       
+    {
+        var $elem = $(this);
+        var $limit = limit;
+        var $strLngth = $(val).text().length;  // Getting the text
+        if($strLngth > $limit)
+        {
+          $($elem).text($($elem).text().substr( 0, $limit )+ "...");
+        }
+    })
+};
 //# sourceMappingURL=main.js.map

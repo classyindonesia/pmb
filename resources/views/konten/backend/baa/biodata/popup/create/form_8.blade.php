@@ -7,10 +7,7 @@
 </div>
 
 
-<div class="form-group">
-	{!! Form::label('nama_ortu_ibu', 'Nama Ibu : ') !!}
-	<input type="text" name='nama_ortu_ibu' id="nama_ortu_ibu" value="" placeholder='Nama Ibu...' class="form-control" />
-</div>
+
 
 
 <div class="form-group">

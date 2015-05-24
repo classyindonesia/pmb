@@ -30,25 +30,3 @@
 </div>
  
  
- <script type="text/javascript">
-     $('#jml_saudara').keypress(function(e) {
-            var a = [];
-            var k = e.which;
-
-            for (i = 48; i < 58; i++)
-            a.push(i);
-            a.push(8);
-            if (!(a.indexOf(k)>=0))
-                e.preventDefault();
-            }); 
-     $('#anak_ke').keypress(function(e) {
-            var a = [];
-            var k = e.which;
-
-            for (i = 48; i < 58; i++)
-            a.push(i);
-            a.push(8);
-            if (!(a.indexOf(k)>=0))
-                e.preventDefault();
-            }); 
-</script>

@@ -10,7 +10,7 @@
 
    <div class="form-group">
 	{!! Form::label('no_hp_ortu', 'No HP Ortu : ') !!}
-	<input type="text" name='no_hp_ortu' id="no_hp_ortu" value="{!! $biodata->mst_biodata->no_hp_ortu !!}" class="form-control" />
+	<input type="text" name='no_hp_ortu' placeholder='nomor hp orang tua...' id="no_hp_ortu" value="{!! $biodata->mst_biodata->no_hp_ortu !!}" class="form-control" />
 </div>
 
    <div class="form-group">
