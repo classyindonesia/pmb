@@ -63,6 +63,8 @@ class Biodata extends Eloquent{
 
  
 
+
+	// manipulasi attribut
 	public function setNamaAttribute($nama){
 		return $this->attributes['nama'] = \Fungsi::filter(strtoupper($nama));
 	}
@@ -83,6 +85,48 @@ class Biodata extends Eloquent{
 
 	public function setAlamatSekolahAtribute($alamat_sekolah){
 		return $this->attributes['alamat_sekolah'] = \Fungsi::filter(strtoupper($alamat_sekolah));
+	}
+
+	public function setAlamatOrtuAtribute($alamat_ortu){
+		return $this->attributes['alamat_ortu'] = \Fungsi::filter(strtoupper($alamat_ortu));
+	}
+	// end of manipulasi attribut
+
+
+	//relasi
+	public function mst_pendaftaran(){
+		return $this->belongsTo('\App\Models\Mst\Pendaftaran', 'mst_pendaftaran_id');
+	}
+
+	public function ref_agama(){
+		return $this->belongsTo('\App\Models\Ref\Agama', 'ref_agama_id');
+	}
+
+	public function ref_kota(){
+		return $this->belongsTo('\App\Models\Ref\Kota', 'ref_kota_id');
+	}
+
+	public function ref_identitas(){
+		return $this->belongsTo('\App\Models\Ref\Identitas', 'ref_identitas_id');
+	}
+
+	public function ref_ukuran_almamater(){
+		return $this->belongsTo('\App\Models\Ref\UkuranAlmamater', 'ref_ukuran_almamater_id');
+	}
+
+	public function ref_pekerjaan_ortu_ayah(){
+		return $this->belongsTo('\App\Models\Ref\PekerjaanOrtu', 'ref_pekerjaan_ortu_id_ayah');
+	}
+	public function ref_pekerjaan_ortu_ibu(){
+		return $this->belongsTo('\App\Models\Ref\PekerjaanOrtu', 'ref_pekerjaan_ortu_id_ibu');
+	}	
+
+	public function ref_kota_ortu(){
+		return $this->belongsTo('\App\Models\Ref\Kota', 'ref_kota_id_ortu');
+	}
+
+	public function ref_sma(){
+		return $this->belongsTo('\App\Models\Ref\Sma', 'ref_sma_id');
 	}
 
 

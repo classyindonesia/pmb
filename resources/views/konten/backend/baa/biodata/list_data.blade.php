@@ -7,7 +7,7 @@
 			<th width="150px">Status</th>
 			<th>Prodi diterima</th>
 
-			<th class="text-center" width="50px">action</th>
+			<th class="text-center" width="100px">action</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -42,8 +42,10 @@
 					-
 				@endif	
 			</td>
- 			<td>
-	 			@include($base_view.'action.edit')
+ 			<td class="text-center">
+	 			@include($base_view.'action.edit') | 
+	 			@include($base_view.'action.validasi')
+	 			@include($base_view.'action.cetak_pdf')
  			</td>
 		</tr>
 		<?php $no++; ?>

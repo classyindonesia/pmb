@@ -5,7 +5,7 @@
 	nama							= $('#nama').val();
 	ref_agama_id					= $('#ref_agama_id').val();
 	tempat_lahir					= $('#tempat_lahir').val();
-	tgl_lahir						= $('#tgl_lahir').val();
+	tgl_lahir						= $('#thn_lahir').val()+'-'+$('#bln_lahir').val()+'-'+$('#tgl_lahir').val();
 	alamat							= $('#alamat').val();
 	ref_kota_id						= $('#ref_kota_id').val();
 	jenis_kelamin					= $('#jenis_kelamin').val();

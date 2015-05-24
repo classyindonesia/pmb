@@ -17,6 +17,17 @@ Route::group(['middleware' => 'hanya_baa'], function(){
 	]);	
 
  
+	post('backend/biodata/validasi', [
+		'uses'	=> 'Backend\Baa\BiodataController@validasi',
+		'as'	=> 'backend_biodata.validasi',
+	]);	
+
+
+	get('backend/biodata/cetak_pdf/{id}', [
+		'uses'	=> 'Backend\Baa\BiodataController@cetak_pdf',
+		'as'	=> 'backend_biodata.cetak_pdf',
+	]);
+
 });
 
 

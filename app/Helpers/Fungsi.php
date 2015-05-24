@@ -156,5 +156,23 @@ public static function restyle_text($input){
   }        
      
   
+    public static function umur($tgl_lahir){ // format = YYYY-mm-dd
+      //  string substr ( string $string , int $start [, int $length ] )
+      $thn1 = substr($tgl_lahir, 0, 4);
+      $bln1 = substr($tgl_lahir, 5, 2);
+      $tgl1 = substr($tgl_lahir, 8, 2);
+
+      $thn_now = date('Y').'-08'.'-01'; // per 31 agustus date('Y')
+      $thn2 = substr($thn_now, 0, 4);
+      $bln2 = substr($thn_now, 5, 2);
+      $tgl2 = substr($thn_now, 8, 2);
+
+      $ge1 = gregoriantojd($bln1,$tgl1,$thn1);
+      $ge2 = gregoriantojd($bln2,$tgl2,$thn2);
+      $selisih_hari = abs($ge1 - $ge2);
+      return substr($selisih_hari / 365, 0, 2);
+    }
+
+
 
 }

@@ -31,6 +31,9 @@ class updateBiodata extends Command implements SelfHandling {
 		$b->nama 	= $this->input_biodata['nama'];
 
 		$b->alamat 							= $this->input_biodata['alamat'];
+		$b->alamat_email 					= $this->input_biodata['alamat_email'];
+		$b->alamat_fb 						= $this->input_biodata['alamat_fb'];
+		$b->alamat_twitter					= $this->input_biodata['alamat_twitter'];
 		$b->mst_pendaftaran_id 				= $this->input_biodata['mst_pendaftaran_id'];
 		$b->ref_agama_id 					= $this->input_biodata['ref_agama_id'];
 		$b->tempat_lahir 					= $this->input_biodata['tempat_lahir'];

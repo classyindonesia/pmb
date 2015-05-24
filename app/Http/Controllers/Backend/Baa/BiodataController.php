@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers\Backend\Baa;
 
+use App\Commands\exportPdfBiodata;
 use App\Commands\insertBiodata;
 use App\Commands\updateBiodata;
 use App\Http\Controllers\Controller;
@@ -93,6 +94,24 @@ class BiodataController extends Controller {
 
 	}
 
+
+
+	public function validasi(Request $request){
+		$b = Biodata::findOrFail($request->id);
+		if($b->status == 0){
+			$b->status = 1;			
+		}else{
+			$b->status = 0; 
+		}
+		$b->save();
+
+		return 'ok';
+	}
+
+
+	public function cetak_pdf($id){
+		return $this->dispatch(new exportPdfBiodata($id)); 
+	}
 
 
 }

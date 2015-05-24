@@ -2,7 +2,7 @@
 
   <div class="form-group">
   	{!! Form::label('alamat_email', 'Alamat Email : ') !!}
-  	<input type="text" readonly="0" placeholder='Alamat Email...' name='alamat_email' value="{!! $biodata->alamat_email !!}" class="form-control" />
+  	<input type="text" readonly="0" id="alamat_email" placeholder='Alamat Email...' name='alamat_email' value="{!! $biodata->alamat_email !!}" class="form-control" />
   </div>
 
 
