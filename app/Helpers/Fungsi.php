@@ -19,6 +19,19 @@ public static   function selisih_hari($tgl_1, $tgl_2){ //format input yyyy-mm-dd
     }
 
 
+  public static function filter($val = null){
+    // $str = addslashes();
+    $str = str_replace(['\r', '\n'], '',  $val);
+    $o = explode(" ", $str);
+    $jml = count($o) -1;
+      for($i=0;$i<=$jml;$i++){
+        $o[$i] = trim($o[$i]);
+      }
+    $str = implode(" ", $o);
+    return \HTML::entities($str);
+  }    
+
+
   
 public static function restyle_text($input){
     $suffixes = array('', 'k', 'm', 'g', 't');

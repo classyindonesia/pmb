@@ -62,4 +62,28 @@ class Biodata extends Eloquent{
 		];
 
  
+
+	public function setNamaAttribute($nama){
+		return $this->attributes['nama'] = \Fungsi::filter(strtoupper($nama));
+	}
+
+
+	public function setNamaOrtuAyahAttribute($nama_ortu_ayah){
+		return $this->attributes['nama_ortu_ayah'] = \Fungsi::filter(strtoupper($nama_ortu_ayah));
+	}
+
+	public function setNamaOrtuIbuAttribute($nama_ortu_ibu){
+		return $this->attributes['nama_ortu_ibu'] = \Fungsi::filter(strtoupper($nama_ortu_ibu));
+	}
+
+	public function setAlamatAtribute($alamat){
+		return $this->attributes['alamat'] = \Fungsi::filter(strtoupper($alamat));
+	}
+
+
+	public function setAlamatSekolahAtribute($alamat_sekolah){
+		return $this->attributes['alamat_sekolah'] = \Fungsi::filter(strtoupper($alamat_sekolah));
+	}
+
+
 }

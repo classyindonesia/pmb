@@ -14,7 +14,7 @@ $('#pesan').click(function(){
 
 $('#simpan').click(function(){
 
-	@include($base_view.'popup.create.script.value')
+	@include($base_view.'popup.edit.script.value')
 
 
 $('#simpan').attr('disabled', 'disabled');
@@ -32,7 +32,7 @@ $('#simpan').attr('disabled', 'disabled');
           });
 		},
 		success:function(ok){
-			 window.location.reload();
+			  window.location.reload();
 		}
 	});
 

@@ -67,13 +67,20 @@
 	  </div>
 </div>
 
+
+
+<div role="tabpanel" class="tab-pane fade" id="informasi_kampus">
+	  <div class="row">
+		  <div class="col-md-6">
+			@include($base_view.'popup.create.form_11')     	
+		  </div>
+ 			  	
+	  </div>
 </div>
 
-<script>
-  $(function () {
-    $('#myTab a:first').tab('show')
-  })
-</script>
 
+</div>
+
+ 
 @include($base_view.'popup.create.tombol_simpan')     	
 @include($base_view.'popup.create.script')     

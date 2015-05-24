@@ -1,13 +1,19 @@
 <?php namespace App\Http\Controllers\Backend\Baa;
 
+use App\Commands\insertBiodata;
+use App\Commands\updateBiodata;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
+use App\Http\Requests\createBiodata;
+use App\Models\Mst\Biodata;
 use App\Models\Ref\Agama;
 use App\Models\Ref\Identitas;
 use App\Models\Ref\Kota;
 use App\Models\Ref\PekerjaanOrtu;
 use App\Models\Ref\PenghasilanOrtu;
 use App\Models\Ref\Sma;
+use App\Models\Ref\StatusDaftarUlang;
+use App\Models\Ref\UkuranAlmamater;
 use App\Repositories\Mst\BiodataRepository;
 use Illuminate\Http\Request;
 
@@ -48,11 +54,14 @@ class BiodataController extends Controller {
 		$ref_penghasilan_ortu = \Fungsi::get_dropdown(PenghasilanOrtu::all(), 'penghasilan ortu');
 		$ref_pekerjaan_ortu = \Fungsi::get_dropdown(PekerjaanOrtu::all(), 'pekerjaan ortu');
 		$ket_ortu = ['hidup' => 'masih hidup', 'meninggal' => 'telah meninggal'];
+		$ref_status_daftar_ulang = \Fungsi::get_dropdown(StatusDaftarUlang::all(), 'status daftar ulang');
+		$ref_ukuran_almamater = \Fungsi::get_dropdown(UkuranAlmamater::all(), 'ukuran almamater');
 
 		$var = compact(
 				'biodata', 'ref_agama', 'ref_kota', 'ref_sma', 
 				'ref_identitas', 'ref_penghasilan_ortu',
-				'ref_pekerjaan_ortu', 'ket_ortu'
+				'ref_pekerjaan_ortu', 'ket_ortu',
+				'ref_status_daftar_ulang', 'ref_ukuran_almamater'
 				);
 
 		if(count($biodata)<=0){
@@ -70,6 +79,19 @@ class BiodataController extends Controller {
 
 	}
 
+
+
+	public function update(createBiodata $request, BiodataRepository $b){
+		$biodata = $b->getPendaftarById($request->mst_pendaftaran_id);
+		if(count($biodata->mst_biodata)>0){
+			$update = $this->dispatch(new updateBiodata($request->all()));
+	 		return $update;
+		}else{
+			$insert = $this->dispatch(new insertBiodata($request->all()));
+	 		return $insert;
+		}
+
+	}
 
 
 

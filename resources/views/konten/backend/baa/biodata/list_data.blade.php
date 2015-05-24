@@ -16,7 +16,14 @@
 		<tr>
 			<td class="text-center">{!! $no !!}</td>
 			<td width="150px">{!! $list->no_pendaftaran !!}</td>
-			<td>{!! $list->nama !!}</td>
+			<td>
+				@if(count($list->mst_biodata)>0)
+					{!! $list->mst_biodata->nama !!}
+				@else
+					{!! $list->nama !!}
+				@endif
+
+			</td>
 			<td> 
 				@if(count($list->mst_biodata) >0)
 					@if($list->mst_biodata->status == 1)

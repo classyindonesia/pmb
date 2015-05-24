@@ -11,6 +11,11 @@ Route::group(['middleware' => 'hanya_baa'], function(){
 		'as'	=> 'backend_biodata.edit',
 	]);
 
+	post('backend/biodata/update', [
+		'uses'	=> 'Backend\Baa\BiodataController@update',
+		'as'	=> 'backend_biodata.update',
+	]);	
+
  
 });
 
