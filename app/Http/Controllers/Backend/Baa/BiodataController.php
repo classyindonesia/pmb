@@ -12,6 +12,7 @@ use App\Models\Ref\Identitas;
 use App\Models\Ref\Kota;
 use App\Models\Ref\PekerjaanOrtu;
 use App\Models\Ref\PenghasilanOrtu;
+use App\Models\Ref\PerguruanTinggi;
 use App\Models\Ref\Sma;
 use App\Models\Ref\StatusDaftarUlang;
 use App\Models\Ref\UkuranAlmamater;
@@ -57,12 +58,14 @@ class BiodataController extends Controller {
 		$ket_ortu = ['hidup' => 'masih hidup', 'meninggal' => 'telah meninggal'];
 		$ref_status_daftar_ulang = \Fungsi::get_dropdown(StatusDaftarUlang::all(), 'status daftar ulang');
 		$ref_ukuran_almamater = \Fungsi::get_dropdown(UkuranAlmamater::all(), 'ukuran almamater');
+		$ref_perguruan_tinggi = \Fungsi::get_dropdown(PerguruanTinggi::all(), 'perguruan tinggi');
 
 		$var = compact(
 				'biodata', 'ref_agama', 'ref_kota', 'ref_sma', 
 				'ref_identitas', 'ref_penghasilan_ortu',
 				'ref_pekerjaan_ortu', 'ket_ortu',
-				'ref_status_daftar_ulang', 'ref_ukuran_almamater'
+				'ref_status_daftar_ulang', 'ref_ukuran_almamater',
+				'ref_perguruan_tinggi'
 				);
 
 		if(count($biodata)<=0){

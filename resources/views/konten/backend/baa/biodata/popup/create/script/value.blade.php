@@ -31,7 +31,8 @@
 	no_hp_ortu						= $('#no_hp_ortu').val();
 	jml_saudara						= $('#jml_saudara').val();
 	anak_ke							= $('#anak_ke').val();
-
+	jenis_pendaftaran				= $('#jenis_pendaftaran').val();
+	ref_perguruan_tinggi_id			= $('#ref_perguruan_tinggi_id').val();
 
 form_data = {
 	alamat_email					: alamat_email,
@@ -67,5 +68,7 @@ form_data = {
 	no_hp_ortu						: no_hp_ortu,
 	jml_saudara						: jml_saudara,
 	anak_ke							: anak_ke,
+	jenis_pendaftaran				: jenis_pendaftaran,
+	ref_perguruan_tinggi_id			: ref_perguruan_tinggi_id,	
 	_token 							: '{!! csrf_token() !!}'
 }

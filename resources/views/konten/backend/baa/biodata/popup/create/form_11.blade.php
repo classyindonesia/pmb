@@ -11,3 +11,12 @@
 
 
 
+   <div class="form-group">
+    {!! Form::label('jenis_pendaftaran', 'Jenis Pendaftaran : ') !!}
+    {!! Form::select('jenis_pendaftaran', ['sma' => 'SMA', 'transfer' => 'transfer'], 'sma', ['id' => 'jenis_pendaftaran']) !!}
+  </div>
+
+   <div class="form-group" id='pilih_pt' style="display:none;">
+    {!! Form::label('ref_perguruan_tinggi_id', 'Perguruan Tinggi : ') !!}
+    {!! Form::select('ref_perguruan_tinggi_id', $ref_perguruan_tinggi, '', ['id' => 'ref_perguruan_tinggi_id']) !!}
+  </div>

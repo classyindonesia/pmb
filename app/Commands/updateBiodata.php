@@ -62,6 +62,8 @@ class updateBiodata extends Command implements SelfHandling {
 		$b->no_hp_ortu 						= $this->input_biodata['no_hp_ortu'];
 		$b->jml_saudara 					= $this->input_biodata['jml_saudara'];
 		$b->anak_ke 						= $this->input_biodata['anak_ke'];
+		$b->jenis_pendaftaran				= $this->input_biodata['jenis_pendaftaran'];
+		$b->ref_perguruan_tinggi_id			= $this->input_biodata['ref_perguruan_tinggi_id'];
  		$b->save();
 
  		return $b;

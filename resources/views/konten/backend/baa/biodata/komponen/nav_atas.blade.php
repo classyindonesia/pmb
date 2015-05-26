@@ -25,14 +25,14 @@
 
 
   <li role="presentation" @if(isset($ref_status_daftar_ulang_nav_home)) class="active" @endif  >
-    <a href="{!! route('backend_ref_status_daftar_ulang.index') !!}">
-      <i class='fa fa-th-list'></i> Status Daftar Ulang
+    <a data-toggle='tooltip' title='status daftar ulang' href="{!! route('backend_ref_status_daftar_ulang.index') !!}">
+      <i class='fa fa-th-list'></i> Status
     </a>
   </li>
 
   <li role="presentation" @if(isset($ref_ukuran_almamater_nav_home)) class="active" @endif  >
     <a href="{!! route('backend_ref_ukuran_almamater.index') !!}">
-      <i class='fa fa-th-list'></i> Ukuran Almamater
+      <i class='fa fa-th-list'></i> Almamater
     </a>
   </li>
 
@@ -48,6 +48,12 @@
   <li role="presentation" @if(isset($ref_pekerjaan_ortu_nav_home)) class="active" @endif  >
     <a href="{!! route('backend_ref_pekerjaan_ortu.index') !!}">
       <i class='fa fa-th-list'></i> Pekerjaan Ortu
+    </a>
+  </li>
+
+  <li role="presentation" @if(isset($ref_perguruan_tinggi_nav_home)) class="active" @endif  >
+    <a data-toggle='tooltip' title="ref perguruan tinggi" href="{!! route('backend_ref_perguruan_tinggi.index') !!}">
+      <i class='fa fa-th-list'></i> PT
     </a>
   </li>
 

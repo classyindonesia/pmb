@@ -1,4 +1,24 @@
 <script>
+
+
+//pilih jenis pendaftaran
+$('#jenis_pendaftaran').change(function(){
+    jp = $('#jenis_pendaftaran').val();
+
+    if(jp == 'transfer'){
+        $('#pilih_pt').fadeIn();
+    }else{
+        $('#pilih_pt').fadeOut();
+        $('#ref_perguruan_tinggi_id').val('');
+    }
+});
+
+
+
+
+
+
+
 $('#pesan').click(function(){
 	$('#pesan').fadeOut('slow', function(){
 		$('#pesan').html('').show().removeClass('alert alert-danger animated shake');

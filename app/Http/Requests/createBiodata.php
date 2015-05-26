@@ -52,6 +52,7 @@ class createBiodata extends Request {
 			'no_hp_ortu'					=> 'required',	 
 			'jml_saudara'					=> 'required|numeric',	 
 			'anak_ke'						=> 'required|numeric',
+			'jenis_pendaftaran'				=> 'required',
 		];
 	}
 
