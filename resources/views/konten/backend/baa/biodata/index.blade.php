@@ -10,7 +10,7 @@
 @section('konten_utama')
 
 	@include($base_view.'komponen.nav_atas')
-
+	@include($base_view.'komponen.form_search')
 	@include($base_view.'list_data')
 
 @endsection
