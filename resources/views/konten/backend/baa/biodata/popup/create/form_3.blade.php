@@ -11,3 +11,11 @@
     <input type="text" id="alamat_fb" name='alamat_fb' value="" placeholder='Alamat FB...' class="form-control" />
   </div>
 
+
+   <div class="form-group">
+    {!! Form::label('no_telepon', 'Nomor Telepon : ') !!}
+    <input type="number" name='no_telepon' id='no_telepon'   placeholder='Nomor Telepon...' class="form-control" />
+  </div>
+
+ 
+

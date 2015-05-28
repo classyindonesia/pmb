@@ -11,3 +11,9 @@
     <input type="text" id="alamat_fb" name='alamat_fb' value="{!! $biodata->mst_biodata->alamat_fb !!}" placeholder='Alamat FB...' class="form-control" />
   </div>
 
+
+   <div class="form-group">
+    {!! Form::label('no_telepon', 'Nomor Telepon : ') !!}
+    <input type="number" name='no_telepon' id='no_telepon' value="{!! $biodata->mst_biodata->no_telepon !!}"  placeholder='Nomor Telepon...' class="form-control" />
+  </div>
+  

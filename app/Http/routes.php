@@ -73,3 +73,5 @@ require app_path('Http/routes/baa/ref_ukuran_almamater.php');
 require app_path('Http/routes/baa/ref_penghasilan_ortu.php');
 require app_path('Http/routes/baa/ref_pekerjaan_ortu.php');
 require app_path('Http/routes/baa/ref_perguruan_tinggi.php');
+require app_path('Http/routes/baa/ref_tinggal.php');
+require app_path('Http/routes/baa/ref_pendidikan.php');

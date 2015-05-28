@@ -17,6 +17,14 @@
 </div>
  
 
+
+<div class='form-group'>
+	{!! Form::label('ref_status_daftar_ulang_id', 'Prodi : ') !!}
+	{!! Form::select('ref_status_daftar_ulang_id', $ref_status_daftar_ulang, $png->ref_status_daftar_ulang_id, ['id' => 'ref_status_daftar_ulang_id']) !!}
+</div>
+ 
+
+
  <div class='form-group'>
  	<button id='simpan' class='btn btn-info'><i class='fa fa-floppy-o'></i> simpan</button>
 </div>
@@ -28,13 +36,16 @@ $('#simpan').click(function(){
 	$('#pesan').removeClass('alert alert-danger animated shake').html('');
 no_pendaftaran = $('#no_pendaftaran').val();
 ref_prodi_id = $('#ref_prodi_id').val();
+ref_status_daftar_ulang_id = $('#ref_status_daftar_ulang_id').val();
  
 
+
 form_data ={
-	id 				: '{!! $png->id !!}',
-	no_pendaftaran 	: no_pendaftaran,
-	ref_prodi_id	: ref_prodi_id,
- 	_token 			: '{!! csrf_token() !!}'
+	id 							: '{!! $png->id !!}',
+	no_pendaftaran 				: no_pendaftaran,
+	ref_status_daftar_ulang_id 	: ref_status_daftar_ulang_id,
+	ref_prodi_id				: ref_prodi_id,
+ 	_token 						: '{!! csrf_token() !!}'
 }
 $('#simpan').attr('disabled', 'disabled');
 	$.ajax({

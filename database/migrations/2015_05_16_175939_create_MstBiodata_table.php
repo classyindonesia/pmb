@@ -36,7 +36,7 @@ class CreateMstBiodataTable extends Migration {
 			$table->integer('ref_sma_id');
 			$table->string('tahun_lulus');
 			$table->string('no_ijazah');
-			$table->integer('alamat_sekolah');
+			$table->string('alamat_sekolah');
 
 
 			//kontak pribadi

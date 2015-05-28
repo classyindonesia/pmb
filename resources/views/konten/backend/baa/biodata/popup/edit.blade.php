@@ -74,7 +74,9 @@
 		  <div class="col-md-6">
 			@include($base_view.'popup.edit.form_11')     	
 		  </div>
- 			  	
+		  <div class="col-md-6">
+			@include($base_view.'popup.komponen.info')		  	
+		  </div> 			  	
 	  </div>
 </div>
 

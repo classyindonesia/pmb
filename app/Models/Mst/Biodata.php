@@ -13,6 +13,7 @@ class Biodata extends Eloquent{
 			'alamat_twitter',
 
 			'alamat',
+			'ref_tinggal_id',
 			'rt',
 			'rw',
 			'kode_pos',
@@ -29,12 +30,14 @@ class Biodata extends Eloquent{
 			'ref_kota_id',
 			'jenis_kelamin',
 			'no_hp',
+			'no_telepon',
 
 			//sekolah
 			'ref_sma_id',
 			'tahun_lulus',
 			'no_ijazah',
 			'alamat_sekolah',
+			'keterangan_sma',
 
 
 			// identitas
@@ -63,6 +66,12 @@ class Biodata extends Eloquent{
 			'no_hp_ortu',
 			'jml_saudara',
 			'anak_ke',
+
+
+			'tgl_lahir_ayah',
+			'tgl_lahir_ibu',
+			'ref_pendidikan_id_ayah',
+			'ref_pendidikan_id_ibu',
 
 
 			//other
@@ -102,6 +111,18 @@ class Biodata extends Eloquent{
 
 
 	//relasi
+
+	public function ref_pendidikan_ayah(){
+		return $this->belongsTo('\App\Models\Ref\Pendidikan', 'ref_pendidikan_id_ayah');
+	}
+
+
+	public function ref_pendidikan_ibu(){
+		return $this->belongsTo('\App\Models\Ref\Pendidikan', 'ref_pendidikan_id_ibu');
+	}
+
+
+
 	public function mst_pendaftaran(){
 		return $this->belongsTo('\App\Models\Mst\Pendaftaran', 'mst_pendaftaran_id');
 	}

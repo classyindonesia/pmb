@@ -61,8 +61,10 @@ $('#simpan').attr('disabled', 'disabled');
 
 
 
-
 @include($base_view.'popup.komponen.input_int_only')
+
+@include($base_view.'popup.komponen.global_script')
+
 
 
 

@@ -41,6 +41,7 @@ elixir(function(mix) {
          "app/wizard.css",
          "app/sidebar.css",
          "app/app.css",
+         "app/dropdown.css",
          
     ], 'public/css/main.css');
 

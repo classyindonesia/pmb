@@ -37,7 +37,6 @@ class createBiodata extends Request {
 			'no_hp' 						=> 'required',			 
 			'ref_identitas_id'				=> 'required',		 
 			'no_identitas'					=> 'required|numeric',		 
-			'ref_status_daftar_ulang_id'	=> 'required',	 
 			'ref_ukuran_almamater_id'		=> 'required',	 
 			'nama_ortu_ayah'				=> 'required',	 
 			'nama_ortu_ibu'					=> 'required', 
@@ -57,6 +56,13 @@ class createBiodata extends Request {
 			'kode_pos'						=> 'required|numeric',
 			'jenis_pendaftaran'				=> 'required',
 			'kewarganegaraan'				=> 'required',
+			'ref_tinggal_id'				=> 'required',
+
+			'tgl_lahir_ayah'				=> 'required',
+			'tgl_lahir_ibu'					=> 'required',
+			'ref_pendidikan_id_ayah'		=> 'required',
+			'ref_pendidikan_id_ibu'			=> 'required',
+
 		];
 	}
 

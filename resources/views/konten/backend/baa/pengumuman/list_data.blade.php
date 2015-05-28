@@ -5,6 +5,7 @@
 			<th width="160px">No Pendaftaran</th>
 			<th>Nama</th>
 			<th>Prodi diterima</th>
+			<th>Status Daftar Ulang</th>
   			<th width="100px">Action</th>
 		</tr>
 	</thead>
@@ -25,6 +26,19 @@
 				@else 
 					- 
 				@endif 
+			</td>
+			<td>
+			
+				@if(count($list->mst_pengumuman)>0) 
+					@if(count($list->mst_pengumuman->ref_status_daftar_ulang)>0) 
+						{!! $list->mst_pengumuman->ref_status_daftar_ulang->nama !!} 
+					@else
+						-
+					@endif
+				@else 
+					- 
+				@endif 
+ 				 
 			</td>
  			<td> 
 			@include($base_view.'action.edit') || 

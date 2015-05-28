@@ -1,13 +1,14 @@
 <?php namespace App\Http\Controllers\Backend\Baa;
 
-use App\Commands\InsertTesSkill;
 use App\Commands\InsertPengumuman;
+use App\Commands\InsertTesSkill;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Http\Requests\createPengumuman;
 use App\Http\Requests\updatePengumuman;
 use App\Models\Mst\Pengumuman;
 use App\Models\Ref\Prodi;
+use App\Models\Ref\StatusDaftarUlang;
 use App\Repositories\Mst\PendaftaranRepository;
 use App\Repositories\Mst\PengumumanRepository;
 use Illuminate\Http\Request;
@@ -34,7 +35,8 @@ class PengumumanController extends Controller {
 
 	public function create(){
 		$ref_prodi = \Fungsi::get_dropdown(Prodi::all(), 'prodi');
-		return view($this->base_view.'popup.create', compact('ref_prodi'));
+		$ref_status_daftar_ulang = \Fungsi::get_dropdown(StatusDaftarUlang::all(), 'status daftar ulang');
+		return view($this->base_view.'popup.create', compact('ref_prodi', 'ref_status_daftar_ulang'));
 	}
 
  
@@ -46,6 +48,7 @@ class PengumumanController extends Controller {
 		if(count($pendaftar_pengumuman)<=0){
 			$data = [
 				'mst_pendaftaran_id'	=> $pendaftar->id,
+				'ref_status_daftar_ulang_id'	=> $request->ref_status_daftar_ulang_id,
  				'ref_prodi_id'			=> $request->ref_prodi_id
 			];
 			Pengumuman::create($data);
@@ -69,7 +72,8 @@ class PengumumanController extends Controller {
 	public function edit($id){
 		$png = Pengumuman::findOrFail($id);
   		$ref_prodi = \Fungsi::get_dropdown(Prodi::all(), 'prodi');
-		return view($this->base_view.'popup.edit', compact('ref_prodi', 'png'));
+  		$ref_status_daftar_ulang = \Fungsi::get_dropdown(StatusDaftarUlang::all(), 'status daftar ulang');
+		return view($this->base_view.'popup.edit', compact('ref_prodi', 'png', 'ref_status_daftar_ulang'));
 	}
 
 	public function update(updatePengumuman $request, PendaftaranRepository $p){
@@ -77,6 +81,7 @@ class PengumumanController extends Controller {
 		$p_get = $p->getOneByNoPendaftaran($request->get('no_pendaftaran'));
 
 		$png->mst_pendaftaran_id = $p_get->id;
+		$png->ref_status_daftar_ulang_id = $request->ref_status_daftar_ulang_id;
 		$png->ref_prodi_id = $request->ref_prodi_id;
 		$png->save();
 		return 'ok';			
@@ -98,10 +103,11 @@ class PengumumanController extends Controller {
                 if($i != 1 && $i != 2){                    
                       $no  	= trim($data->val($i, 'B')); //no pendaftaran
                       $no2 	= trim($data->val($i, 'C')); // kode prodi
+                      $no3 	= trim($data->val($i, 'D')); // ref_status_daftar_ulang_id
                        if($no != NULL && $no2 != NULL){
                        		//insert to queue job
                        	\Log::info('pengumuman, no pendaftaran : '.$no.', kode_prodi : '.$no2.' masuk queue job!');
-                       	\Queue::push(new InsertPengumuman($no, $no2));
+                       	\Queue::push(new InsertPengumuman($no, $no2, $no3));
                      }
                 }
             }

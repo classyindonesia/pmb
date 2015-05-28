@@ -22,8 +22,9 @@ class createPengumuman extends Request {
 	public function rules()
 	{
 		return [
-			'no_pendaftaran'	=> 'required|exists:mst_pendaftaran,no_pendaftaran',
-			'ref_prodi_id'		=> 'required|exists:ref_prodi,id',
+			'no_pendaftaran'					=> 'required|exists:mst_pendaftaran,no_pendaftaran',
+			'ref_prodi_id'						=> 'required|exists:ref_prodi,id',
+			'ref_status_daftar_ulang_id'		=> 'required',
 		];
 	}
 

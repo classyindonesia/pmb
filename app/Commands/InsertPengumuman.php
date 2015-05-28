@@ -15,10 +15,12 @@ class InsertPengumuman extends Command implements SelfHandling, ShouldBeQueued {
 
 	public $no_pendaftaran;
 	public $kode_prodi;
+	public $ref_status_daftar_ulang_id;
 
-	public function __construct($no_pendaftaran, $kode_prodi){
+	public function __construct($no_pendaftaran, $kode_prodi, $ref_status_daftar_ulang_id){
 		$this->kode_prodi = $kode_prodi;
 		$this->no_pendaftaran = $no_pendaftaran;
+		$this->$ref_status_daftar_ulang_id = $ref_status_daftar_ulang_id;
 	}
 
  
@@ -30,7 +32,8 @@ class InsertPengumuman extends Command implements SelfHandling, ShouldBeQueued {
 			$prd_get = $prd->getByKodeProdi($this->kode_prodi);
 			$data_insert = [
 				'mst_pendaftaran_id' => $p_get->id,
-				'ref_prodi_id'		=>	$prd_get->id
+				'ref_prodi_id'		=>	$prd_get->id,
+				'ref_status_daftar_ulang_id'	=> $this->ref_status_daftar_ulang_id
 			];
 			Pengumuman::create($data_insert);	
 			\Log::info("inserted! nomor pendaftaran ". $this->no_pendaftaran.", kode_prodi : ".$this->kode_prodi." | queue job success!");

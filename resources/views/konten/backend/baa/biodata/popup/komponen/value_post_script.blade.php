@@ -37,11 +37,30 @@ rt								= $('#rt').val();
 rw								= $('#rw').val();
 kode_pos						= $('#kode_pos').val();
 kewarganegaraan					= $('#kewarganegaraan').val();
+ref_tinggal_id					= $('#ref_tinggal_id').val();
+no_telepon						= $('#no_telepon').val();
+keterangan_sma					= $('#keterangan_sma').val();
+
+ 
+
+tgl_lahir_ayah					= $('#thn_lahir_ayah').val()+'-'+$('#bln_lahir_ayah').val()+'-'+$('#tgl_lahir_ayah').val();
+tgl_lahir_ibu					= $('#thn_lahir_ibu').val()+'-'+$('#bln_lahir_ibu').val()+'-'+$('#tgl_lahir_ibu').val();
+ref_pendidikan_id_ibu			= $('#ref_pendidikan_id_ibu').val();
+ref_pendidikan_id_ayah			= $('#ref_pendidikan_id_ayah').val();
+
+
 
 
 
 
 form_data = {
+	tgl_lahir_ayah					: tgl_lahir_ayah,
+	tgl_lahir_ibu					: tgl_lahir_ibu,
+	ref_pendidikan_id_ibu			: ref_pendidikan_id_ibu,
+	ref_pendidikan_id_ayah			: ref_pendidikan_id_ayah,
+	keterangan_sma					: keterangan_sma,
+	no_telepon						: no_telepon,
+	ref_tinggal_id					: ref_tinggal_id,
 	kewarganegaraan					: kewarganegaraan,
 	rt								: rt,
 	rw								: rw,
