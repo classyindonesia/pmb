@@ -1,10 +1,10 @@
    <div class="form-group">
-    {!! Form::label('ref_pekerjaan_ortu_id_ayah', 'Penghasilan Ayah : ') !!}
+    {!! Form::label('ref_pekerjaan_ortu_id_ayah', 'Pekerjaan Ayah : ') !!}
     {!! Form::select('ref_pekerjaan_ortu_id_ayah', $ref_pekerjaan_ortu, $biodata->mst_biodata->ref_pekerjaan_ortu_id_ayah, ['id' => 'ref_pekerjaan_ortu_id_ayah']) !!}
   </div>
 
    <div class="form-group">
-    {!! Form::label('ref_pekerjaan_ortu_id_ibu', 'Penghasilan Ibu : ') !!}
+    {!! Form::label('ref_pekerjaan_ortu_id_ibu', 'Pekerjaan Ibu : ') !!}
     {!! Form::select('ref_pekerjaan_ortu_id_ibu', $ref_pekerjaan_ortu, $biodata->mst_biodata->ref_pekerjaan_ortu_id_ibu, ['id' => 'ref_pekerjaan_ortu_id_ibu']) !!}
   </div>
 

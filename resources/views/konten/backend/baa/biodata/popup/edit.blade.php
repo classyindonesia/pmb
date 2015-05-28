@@ -6,7 +6,7 @@
 
 
 
-@include($base_view.'popup.edit.komponen.nav_atas')
+@include($base_view.'popup.komponen.nav_atas')
 
 <hr>
 <div class="tab-content">
@@ -77,6 +77,28 @@
  			  	
 	  </div>
 </div>
+
+
+
+
+
+
+<div role="tabpanel" class="tab-pane fade" id="informasi_alamat">
+	  <div class="row">
+		  <div class="col-md-4">
+			@include($base_view.'popup.edit.form_12')     	
+		  </div>
+		  <div class="col-md-4">
+		  	@include($base_view.'popup.edit.form_13')   
+		  </div> 
+		  <div class="col-md-4">
+		  	@include($base_view.'popup.edit.form_14')  
+		  </div> 			  	
+	  </div>
+</div>
+
+
+
 
 
 </div>

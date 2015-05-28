@@ -12,13 +12,20 @@ class Biodata extends Eloquent{
 			'alamat_fb',
 			'alamat_twitter',
 
+			'alamat',
+			'rt',
+			'rw',
+			'kode_pos',
+			'kewarganegaraan',
+
+
+
 			//data pribadi
 			'mst_pendaftaran_id',
 			'nama',
 			'ref_agama_id',
 			'tempat_lahir',
 			'tgl_lahir',
-			'alamat',
 			'ref_kota_id',
 			'jenis_kelamin',
 			'no_hp',
@@ -56,6 +63,7 @@ class Biodata extends Eloquent{
 			'no_hp_ortu',
 			'jml_saudara',
 			'anak_ke',
+
 
 			//other
 			'status',   //0=bs edit,1=tdk bs edit

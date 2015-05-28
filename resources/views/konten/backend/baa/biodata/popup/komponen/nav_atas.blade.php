@@ -5,29 +5,38 @@
   	</a>
   </li>
 
+
+
+  <li role="presentation">
+    <a href="#informasi_alamat" aria-controls="informasi_alamat" role="tab" data-toggle="tab">
+      Alamat
+    </a>
+  </li>
+
+
   <li role="presentation">
   	<a href="#informasi_kontak" aria-controls="informasi_kontak" role="tab" data-toggle="tab">
-  		Informasi Kontak
+  		Kontak
   	</a>
   </li>
 
 
   <li role="presentation">
     <a href="#informasi_sekolah" aria-controls="informasi_sekolah" role="tab" data-toggle="tab">
-      Informasi Sekolah
+      Sekolah
     </a>
   </li>
 
 
   <li role="presentation">
     <a href="#informasi_identitas" aria-controls="informasi_identitas" role="tab" data-toggle="tab">
-      Informasi Identitas
+      Identitas
     </a>
   </li>
 
   <li role="presentation">
     <a href="#informasi_ortu" aria-controls="informasi_ortu" role="tab" data-toggle="tab">
-      Informasi Orang tua
+      Orang tua
     </a>
   </li>
 

@@ -20,3 +20,16 @@
     {!! Form::label('ref_perguruan_tinggi_id', 'Perguruan Tinggi : ') !!}
     {!! Form::select('ref_perguruan_tinggi_id', $ref_perguruan_tinggi, '', ['id' => 'ref_perguruan_tinggi_id']) !!}
   </div>
+
+
+<hr>
+
+<h4>
+Prodi diterima 
+: 
+@if(count($biodata->mst_pengumuman->ref_prodi)>0)
+   {!! $biodata->mst_pengumuman->ref_prodi->nama !!}
+@else
+  -
+@endif
+ </h4>
