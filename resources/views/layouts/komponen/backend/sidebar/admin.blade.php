@@ -72,6 +72,14 @@
           </a>
       </li>
 
+
+      <li @if(isset($polling_home)) class="active" @endif>
+          <a href="{!! route('admin_polling.index') !!}"> 
+              <i class="fa fa-pie-chart"></i> polling  
+          </a>
+      </li>
+
+
   @include('layouts.komponen.backend.sidebar.global')
 
 
