@@ -66,12 +66,14 @@ class Biodata extends Eloquent{
 			'no_hp_ortu',
 			'jml_saudara',
 			'anak_ke',
-
-
 			'tgl_lahir_ayah',
 			'tgl_lahir_ibu',
 			'ref_pendidikan_id_ayah',
 			'ref_pendidikan_id_ibu',
+
+			'ref_transportasi_id',
+			'keterangan_perguruan_tinggi',
+			'ref_prodi_id_pt',
 
 
 			//other

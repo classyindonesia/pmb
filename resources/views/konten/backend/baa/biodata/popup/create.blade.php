@@ -1,3 +1,4 @@
+ 
 <h1> <i class='fa fa-check-circle-o'></i> Validasi Biodata </h1>
 <hr>
 
@@ -48,6 +49,9 @@
 	  <div class="row">
 		  <div class="col-md-6">
 			@include($base_view.'popup.create.form_7')     	
+		  </div>
+		  <div class="col-md-6">
+			@include($base_view.'popup.create.form_7_2')     	
 		  </div>
  	
 	  </div>

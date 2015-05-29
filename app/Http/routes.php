@@ -75,3 +75,4 @@ require app_path('Http/routes/baa/ref_pekerjaan_ortu.php');
 require app_path('Http/routes/baa/ref_perguruan_tinggi.php');
 require app_path('Http/routes/baa/ref_tinggal.php');
 require app_path('Http/routes/baa/ref_pendidikan.php');
+require app_path('Http/routes/baa/ref_transportasi.php');

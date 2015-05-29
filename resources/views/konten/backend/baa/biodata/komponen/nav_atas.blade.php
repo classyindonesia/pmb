@@ -24,7 +24,8 @@
           isset($ref_pekerjaan_ortu_nav_home)       ||
           isset($ref_perguruan_tinggi_nav_home)     ||
           isset($ref_tinggal_nav_home)              ||
-          isset($ref_pendidikan_nav_home)
+          isset($ref_pendidikan_nav_home)           ||
+          isset($ref_transportasi_nav_home)
           )
         active 
       @endif 
@@ -103,6 +104,14 @@
                 <i class='fa fa-th-list'></i> Ref Pendidikan
               </a>
             </li>
+
+             <li role="presentation" @if(isset($ref_transportasi_nav_home)) class="active" @endif  >
+              <a  href="{!! route('backend_ref_transportasi.index') !!}">
+                <i class='fa fa-th-list'></i> Ref Transportasi
+              </a>
+            </li>
+
+
 
 
       </ul>

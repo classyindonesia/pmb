@@ -14,9 +14,11 @@ use App\Models\Ref\PekerjaanOrtu;
 use App\Models\Ref\Pendidikan;
 use App\Models\Ref\PenghasilanOrtu;
 use App\Models\Ref\PerguruanTinggi;
+use App\Models\Ref\Prodi;
 use App\Models\Ref\Sma;
 use App\Models\Ref\StatusDaftarUlang;
 use App\Models\Ref\Tinggal;
+use App\Models\Ref\Transportasi;
 use App\Models\Ref\UkuranAlmamater;
 use App\Repositories\Mst\BiodataRepository;
 use Illuminate\Http\Request;
@@ -63,6 +65,8 @@ class BiodataController extends Controller {
 		$ref_perguruan_tinggi = \Fungsi::get_dropdown(PerguruanTinggi::all(), 'perguruan tinggi');
 		$ref_tinggal = \Fungsi::get_dropdown(Tinggal::all(), 'jenis tinggal');
 		$ref_pendidikan = \Fungsi::get_dropdown(Pendidikan::all(), 'pendidikan terakhir');
+		$ref_transportasi = \Fungsi::get_dropdown(Transportasi::all(), 'jenis transportasi');
+		$ref_prodi = \Fungsi::get_dropdown(Prodi::all(), 'prodi');
 
 		//passing variable ke view
 		$var = compact(
@@ -70,7 +74,8 @@ class BiodataController extends Controller {
 				'ref_identitas', 'ref_penghasilan_ortu',
 				'ref_pekerjaan_ortu', 'ket_ortu',
 				'ref_status_daftar_ulang', 'ref_ukuran_almamater',
-				'ref_perguruan_tinggi', 'ref_tinggal', 'ref_pendidikan'
+				'ref_perguruan_tinggi', 'ref_tinggal', 'ref_pendidikan',
+				'ref_transportasi', 'ref_prodi'
 				);
 
 		if(count($biodata)<=0){

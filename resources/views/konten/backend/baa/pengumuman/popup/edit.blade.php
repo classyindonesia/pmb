@@ -19,7 +19,7 @@
 
 
 <div class='form-group'>
-	{!! Form::label('ref_status_daftar_ulang_id', 'Prodi : ') !!}
+	{!! Form::label('ref_status_daftar_ulang_id', 'Status Daftar Ulang : ') !!}
 	{!! Form::select('ref_status_daftar_ulang_id', $ref_status_daftar_ulang, $png->ref_status_daftar_ulang_id, ['id' => 'ref_status_daftar_ulang_id']) !!}
 </div>
  

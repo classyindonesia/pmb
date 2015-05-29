@@ -40,20 +40,22 @@ kewarganegaraan					= $('#kewarganegaraan').val();
 ref_tinggal_id					= $('#ref_tinggal_id').val();
 no_telepon						= $('#no_telepon').val();
 keterangan_sma					= $('#keterangan_sma').val();
-
- 
-
 tgl_lahir_ayah					= $('#thn_lahir_ayah').val()+'-'+$('#bln_lahir_ayah').val()+'-'+$('#tgl_lahir_ayah').val();
 tgl_lahir_ibu					= $('#thn_lahir_ibu').val()+'-'+$('#bln_lahir_ibu').val()+'-'+$('#tgl_lahir_ibu').val();
 ref_pendidikan_id_ibu			= $('#ref_pendidikan_id_ibu').val();
 ref_pendidikan_id_ayah			= $('#ref_pendidikan_id_ayah').val();
 
-
+ref_transportasi_id				= $('#ref_transportasi_id').val();
+keterangan_perguruan_tinggi		= $('#keterangan_perguruan_tinggi').val();
+ref_prodi_id_pt					= $('#ref_prodi_id_pt').val();
 
 
 
 
 form_data = {
+	ref_prodi_id_pt					: ref_prodi_id_pt,
+	keterangan_perguruan_tinggi		: keterangan_perguruan_tinggi,
+	ref_transportasi_id				: ref_transportasi_id,
 	tgl_lahir_ayah					: tgl_lahir_ayah,
 	tgl_lahir_ibu					: tgl_lahir_ibu,
 	ref_pendidikan_id_ibu			: ref_pendidikan_id_ibu,

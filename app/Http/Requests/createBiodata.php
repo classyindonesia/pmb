@@ -63,6 +63,8 @@ class createBiodata extends Request {
 			'ref_pendidikan_id_ayah'		=> 'required',
 			'ref_pendidikan_id_ibu'			=> 'required',
 
+			'ref_transportasi_id'			=> 'required',
+
 		];
 	}
 
