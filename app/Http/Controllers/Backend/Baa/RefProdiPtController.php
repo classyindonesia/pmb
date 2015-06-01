@@ -3,14 +3,15 @@
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
-use App\Http\Requests\CreateOrUpdateRefPerguruanTinggi;
+use App\Http\Requests\CreateOrUpdateRefProdiPt;
 use App\Models\Ref\PerguruanTinggi;
+use App\Models\Ref\ProdiPt;
 use Illuminate\Http\Request;
 
-class RefPerguruanTinggiController extends Controller {
+class RefProdiPtController extends Controller {
 
 
-	private $base_view = 'konten.backend.baa.ref_perguruan_tinggi.';
+	private $base_view = 'konten.backend.baa.ref_prodi_pt.';
 	private $base_view_biodata = 'konten.backend.baa.biodata.';
 
 
@@ -28,11 +29,9 @@ class RefPerguruanTinggiController extends Controller {
 	 * @return Response
 	 */
 	public function index(){
-		$ref_perguruan_tinggi_nav_home = true;
-		$ref_perguruan_tinggi = PerguruanTinggi::orderBy('id', 'DESC')
-			->with('ref_prodi_pt')
-			->paginate(10);
-		return view($this->base_view.'index', compact('ref_perguruan_tinggi', 'ref_perguruan_tinggi_home', 'ref_perguruan_tinggi_nav_home'));
+		$ref_prodi_pt_nav_home = true;
+		$ref_prodi_pt = ProdiPt::orderBy('id', 'DESC')->with('ref_perguruan_tinggi')->paginate(10);
+		return view($this->base_view.'index', compact('ref_prodi_pt', 'ref_prodi_pt_home', 'ref_prodi_pt_nav_home'));
 	}
 
 	/**
@@ -42,7 +41,8 @@ class RefPerguruanTinggiController extends Controller {
 	 */
 	public function create()
 	{
-		return view($this->base_view.'popup.create');		
+		$ref_perguruan_tinggi = \Fungsi::get_dropdown(PerguruanTinggi::all(), 'perguruan tinggi');
+		return view($this->base_view.'popup.create', compact('ref_perguruan_tinggi'));		
 	}
 
 	/**
@@ -50,12 +50,13 @@ class RefPerguruanTinggiController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(CreateOrUpdateRefPerguruanTinggi $request)
+	public function store(CreateOrUpdateRefProdiPt $request)
 	{
 		$data = [
 			'nama' => $request->nama,
+			'ref_perguruan_tinggi_id'	=> $request->ref_perguruan_tinggi_id
  		];
-		PerguruanTinggi::create($data);
+		ProdiPt::create($data);
 		return 'ok';
 	}
 
@@ -69,8 +70,9 @@ class RefPerguruanTinggiController extends Controller {
 	 */
 	public function edit($id)
 	{
-		$ref_perguruan_tinggi  = PerguruanTinggi::findOrFail($id);
-		return view($this->base_view.'popup.edit', compact('ref_perguruan_tinggi'));		
+		$ref_perguruan_tinggi = \Fungsi::get_dropdown(PerguruanTinggi::all(), 'perguruan tinggi');		
+		$ref_prodi_pt  = ProdiPt::findOrFail($id);
+		return view($this->base_view.'popup.edit', compact('ref_prodi_pt', 'ref_perguruan_tinggi'));		
 	}
 
 	/**
@@ -79,10 +81,11 @@ class RefPerguruanTinggiController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id, CreateOrUpdateRefPerguruanTinggi $request)
+	public function update($id, CreateOrUpdateRefProdiPt $request)
 	{
-		$o = PerguruanTinggi::findOrFail($id);
+		$o = ProdiPt::findOrFail($id);
 		$o->nama = $request->nama;
+		$o->ref_perguruan_tinggi_id = $request->ref_perguruan_tinggi_id;
  		$o->save();
 		return 'ok';
 	}
@@ -95,7 +98,7 @@ class RefPerguruanTinggiController extends Controller {
 	 */
 	public function destroy($id, Request $request)
 	{
-		$o = PerguruanTinggi::find($request->id);
+		$o = ProdiPt::find($request->id);
 		$o->delete();
 		return 'ok';
 	}

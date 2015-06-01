@@ -3,6 +3,7 @@
 		<tr>
 			<th width="50px" class="text-center">No.</th>
 			<th>Nama</th>
+			<th width="150px" class="text-center">Jumlah prodi</th>
 			<th width="150px" class="text-center">Action</th>
 		</tr>
 	</thead>
@@ -12,6 +13,7 @@
 		<tr>
 			<td class="text-center">{!! $no !!}</td>
 			<td>{!! $list->nama !!}</td>
+			<td class="text-center">{!! count($list->ref_prodi_pt) !!}</td>
 			<td class="text-center"> 
 			{!! Action::rest_del(false, route("backend_ref_perguruan_tinggi.destroy", $list->id), $list->id); !!}
 			||
