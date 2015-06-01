@@ -15,6 +15,7 @@ use App\Models\Ref\Pendidikan;
 use App\Models\Ref\PenghasilanOrtu;
 use App\Models\Ref\PerguruanTinggi;
 use App\Models\Ref\Prodi;
+use App\Models\Ref\ProdiPt;
 use App\Models\Ref\Sma;
 use App\Models\Ref\StatusDaftarUlang;
 use App\Models\Ref\Tinggal;
@@ -124,6 +125,33 @@ class BiodataController extends Controller {
 
 	public function cetak_pdf($id){
 		return $this->dispatch(new exportPdfBiodata($id)); 
+	}
+
+
+
+	public function get_prodi_pt($ref_perguruan_tinggi_id, $mst_pendaftaran_id, BiodataRepository $b){
+		$ref_prodi_pt = ProdiPt::whereRefPerguruanTinggiId($ref_perguruan_tinggi_id)->get();
+
+		//query ke tabel biodata
+		$biodata = $b->getPendaftarById($mst_pendaftaran_id);
+
+		if(count($biodata)>0){
+			if(count($biodata->mst_biodata)>0){
+				$rpt = $biodata->mst_biodata->ref_prodi_id_pt;				
+			}else{
+				$rpt = '';
+			}
+		}else{
+			$rpt = '';
+		}
+
+
+
+
+		$ref_prodi_pt = \Fungsi::get_dropdown($ref_prodi_pt, 'prodi');
+		$ref_prodi_pt = \Form::select('ref_prodi_id_pt', $ref_prodi_pt, $rpt, ['id' => 'ref_prodi_id_pt']);
+		return $ref_prodi_pt; 
+		// view($this->base_view.'popup.komponen.dropdown_ref_pt', compact('ref_prodi_pt'));
 	}
 
 

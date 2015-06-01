@@ -28,6 +28,7 @@ $('#jenis_pendaftaran').change(function(){
     }else{
         $('#pilih_pt').fadeOut();
         $('#ref_perguruan_tinggi_id').val('');
+        $('#dropdown_ref_prodi_pt').html('');
     }
 });
 
@@ -55,3 +56,38 @@ $(function () { $("[data-toggle='tooltip']").tooltip(); });
 
 
 
+//menangani inputan status transfer->pilih prodi perguruan tinggi
+
+function get_dropdown_prodi_pt(ref_pt_id){
+	$.ajax({
+			url : '{!! route("backend_biodata.get_prodi_pt", null)  !!}/'+ref_pt_id+'/{!! $biodata->id !!}',
+			type : 'get',
+			error:function(err){
+				alert('terjadi kesalahan pada sisi server');
+			},
+			success:function(ok){
+				$('#dropdown_ref_prodi_pt').html(ok);
+			}
+		});
+}
+
+$('#ref_perguruan_tinggi_id').change(function(){
+	input_pt = $('#ref_perguruan_tinggi_id').val();
+	if(input_pt != ''){
+ 		get_dropdown_prodi_pt(input_pt);	
+	}else{
+		$('#dropdown_ref_prodi_pt').html('');
+	}
+})
+$(document).ready(function(){
+	input_pt = $('#ref_perguruan_tinggi_id').val();
+	if(input_pt != ''){
+
+		get_dropdown_prodi_pt(input_pt);
+
+		$('#pilih_pt').fadeIn();
+
+
+	}
+})
+//end

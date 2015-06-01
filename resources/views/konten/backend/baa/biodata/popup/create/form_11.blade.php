@@ -18,9 +18,12 @@
     {!! Form::select('ref_perguruan_tinggi_id', $ref_perguruan_tinggi, '', ['id' => 'ref_perguruan_tinggi_id']) !!}
   </div>
 
+
    <div class="form-group"  >
     {!! Form::label('ref_prodi_id_pt', 'Program Studi : ') !!}
-    {!! Form::select('ref_prodi_id_pt', $ref_prodi, '', ['id' => 'ref_prodi_id_pt']) !!}
+    <div id="dropdown_ref_prodi_pt">
+      {!! Form::select('ref_prodi_id_pt', [], '') !!}
+    </div>
   </div>    
 
 </div>

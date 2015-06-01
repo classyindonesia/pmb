@@ -21,7 +21,9 @@
 
    <div class="form-group"  >
     {!! Form::label('ref_prodi_id_pt', 'Program Studi : ') !!}
-    {!! Form::select('ref_prodi_id_pt', $ref_prodi, $biodata->mst_biodata->ref_prodi_id_pt, ['id' => 'ref_prodi_id_pt']) !!}
+    <div id="dropdown_ref_prodi_pt">
+      {!! Form::select('ref_prodi_id_pt', [], '') !!}
+    </div>
   </div>    
 
 </div>
