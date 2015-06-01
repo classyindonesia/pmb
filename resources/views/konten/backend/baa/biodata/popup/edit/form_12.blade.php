@@ -7,5 +7,5 @@
 
 <div class="form-group">
 	{!! Form::label('ref_kota_id', 'Kota : ') !!}
-	{!! Form::select('ref_kota_id', $ref_kota, $biodata->mst_biodata->ref_kota_id, ['id' => 'ref_kota_id']) !!}
+	{!! Form::select('ref_kota_id', $ref_kota, $biodata->mst_biodata->ref_kota_id, ['id' => 'ref_kota_id', 'class' => 'form-control']) !!}
 </div>

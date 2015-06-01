@@ -5,7 +5,7 @@
 
    <div class="form-group">
     {!! Form::label('ref_sma_id', 'Asal Sekolah : ') !!}
-    {!! Form::select('ref_sma_id', $ref_sma, $biodata->mst_biodata->ref_sma_id, ['id' => 'ref_sma_id']) !!}
+    {!! Form::select('ref_sma_id', $ref_sma, $biodata->mst_biodata->ref_sma_id, ['id' => 'ref_sma_id', 'class' => 'form-control']) !!}
 
 <i class='fa fa-info-circle' data-toggle='tooltip' title='jika data sekolah tidak ada, pilih opsi paling bawah'></i>
 

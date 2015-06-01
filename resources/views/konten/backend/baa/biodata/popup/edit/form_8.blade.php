@@ -30,7 +30,7 @@
 
    <div class="form-group">
     {!! Form::label('ref_kota_id_ortu', 'Kota Ortu : ') !!}
-    {!! Form::select('ref_kota_id_ortu', $ref_kota, $biodata->mst_biodata->ref_kota_id_ortu, ['id' => 'ref_kota_id_ortu']) !!}
+    {!! Form::select('ref_kota_id_ortu', $ref_kota, $biodata->mst_biodata->ref_kota_id_ortu, ['id' => 'ref_kota_id_ortu', 'class' => 'form-control']) !!}
   </div>
  
 
