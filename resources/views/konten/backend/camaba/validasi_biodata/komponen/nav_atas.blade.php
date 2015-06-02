@@ -17,7 +17,7 @@
   	</li>
 
   <li role="presentation">
-      <a href="#alamat" aria-controls="alamat" role="tab" data-toggle="tab">
+      <a href="#informasi_alamat" aria-controls="informasi_alamat" role="tab" data-toggle="tab">
         <span class='badge'>3</span>  
           Alamat
       </a>
@@ -48,6 +48,12 @@
     </li>
 
 
+  <li role="presentation">
+      <a href="#kampus" aria-controls="kampus" role="tab" data-toggle="tab">
+        <span class='badge'>7</span>  
+          Kampus
+      </a>
+    </li>
 
 
 

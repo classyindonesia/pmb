@@ -2,6 +2,8 @@
 
 
 @section('judul_header')
+	@include($base_view.'komponen.tombol_simpan')
+	<br>
    <h1 class="title_header"><i class="fa fa-check-circle-o"></i>  Validasi Biodata </h1>
 @endsection
 

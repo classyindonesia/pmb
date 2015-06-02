@@ -14,6 +14,11 @@ Route::group(['middleware' => 'hanya_camaba'], function(){
 	]);	
 
  
+	post('backend/validasi_biodata/update', [
+		'uses'	=> 'Backend\Camaba\ValidasiBiodataController@update',
+		'as'	=> 'backend_validasi_biodata.update',
+	]);
+
 
 });
 

@@ -1,7 +1,10 @@
 <?php namespace App\Http\Controllers\Backend\Camaba;
 
+use App\Commands\insertBiodata;
+use App\Commands\updateBiodata;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
+use App\Http\Requests\createBiodata;
 use App\Models\Ref\Agama;
 use App\Models\Ref\Identitas;
 use App\Models\Ref\Kota;
@@ -66,6 +69,18 @@ class ValidasiBiodataController extends Controller {
 		return view($this->base_view.'index', $vars);		
 	}
 
+
+	public function update(createBiodata $request, BiodataRepository $b){
+		$biodata = $b->getPendaftarById($request->mst_pendaftaran_id);
+		if(count($biodata->mst_biodata)>0){
+			$update = $this->dispatch(new updateBiodata($request->all()));
+	 		return $update;
+		}else{
+			$insert = $this->dispatch(new insertBiodata($request->all()));
+	 		return $insert;
+		}
+
+	}
  
 
 }

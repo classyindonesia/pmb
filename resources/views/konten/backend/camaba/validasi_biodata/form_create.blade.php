@@ -12,7 +12,7 @@
 		  @include($base_view.'create.kontak')   
    </div>
 
-   <div role="tabpanel" class="tab-pane fade" id="alamat">
+   <div role="tabpanel" class="tab-pane fade" id="informasi_alamat">
 		  @include($base_view.'create.alamat')   
    </div>
 
@@ -28,9 +28,13 @@
 		  @include($base_view.'create.informasi_ortu')   
    </div>
 
+   <div role="tabpanel" class="tab-pane fade" id="kampus">
+		  @include($base_view.'create.kampus')   
+   </div>
+
 </div>
 
-
+@include($base_view.'create.script')
 @include($base_view.'komponen.global_script') 
 
 

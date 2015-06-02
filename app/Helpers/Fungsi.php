@@ -42,12 +42,12 @@ public static function restyle_text($input){
         $suffixIndex++;
         $input /= 1000;
     }
-
-    return (
-        $input > 0
+    $angka =  $input > 0
             // precision of 3 decimal places
             ? floor($input * 1000) / 1000
-            : ceil($input * 1000) / 1000
+            : ceil($input * 1000) / 1000;
+    return (
+      str_limit($angka, 4, $end='')
         )
         . $suffixes[$suffixIndex];
 }
