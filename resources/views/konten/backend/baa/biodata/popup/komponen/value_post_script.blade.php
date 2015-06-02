@@ -103,4 +103,4 @@ form_data = {
 	jenis_pendaftaran				: jenis_pendaftaran,
 	ref_perguruan_tinggi_id			: ref_perguruan_tinggi_id,	
 	_token 							: '{!! csrf_token() !!}'
-}
+};

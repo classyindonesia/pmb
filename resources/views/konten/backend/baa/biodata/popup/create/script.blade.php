@@ -1,29 +1,12 @@
 <script>
-
-
-
-
-
-
-
-
-
-
-$('#pesan').click(function(){
-	$('#pesan').fadeOut('slow', function(){
-		$('#pesan').html('').show().removeClass('alert alert-danger animated shake');
-	});
-});
-
-
-  $(function () {
-    $('#myTab a:first').tab('show')
-  })
-
-
+  
 
 $('#simpan').click(function(){
     @include($base_view.'popup.komponen.value_post_script')
+
+	@include($base_view.'popup.komponen.kondisi_global_simpan')
+
+
 
  
 
