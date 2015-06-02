@@ -14,20 +14,21 @@ class InformasiController extends Controller {
 	public $base_view = 'konten.backend.camaba.informasi.';
 	public $pendaftaran;
 
-	public function __construct(PendaftaranRepository $p){
+	public function __construct(){
 		view()->share('base_view', $this->base_view);
 		view()->share('informasi_home', true);
-		$p_get = $p->getByEmail(\Auth::user()->email);
-		$this->pendaftaran = $p_get;
-		view()->share('pendaftaran', $this->pendaftaran);
 		view()->share('blm_tersedia', '<span class="text-danger">belum tersedia</span>');
 	}
 
-	public function index(){
-		$tes_tulis = TesTulis::whereMstPendaftaranId($this->pendaftaran->id)->first();
-		$tes_skill = TesSkill::whereMstPendaftaranId($this->pendaftaran->id)->with('ref_ruang')->get();
-		$pengumuman = Pengumuman::whereMstPendaftaranId($this->pendaftaran->id)->first();
-		return view($this->base_view.'index', compact('tes_tulis', 'tes_skill', 'pengumuman'));
+	public function index(PendaftaranRepository $p){
+		$p_get = $p->getByEmail(\Auth::user()->email);
+		$pendaftaran = $p_get;
+
+
+		$tes_tulis = TesTulis::whereMstPendaftaranId($p_get->id)->first();
+		$tes_skill = TesSkill::whereMstPendaftaranId($p_get->id)->with('ref_ruang')->get();
+		$pengumuman = Pengumuman::whereMstPendaftaranId($p_get->id)->first();
+		return view($this->base_view.'index', compact('tes_tulis', 'tes_skill', 'pengumuman', 'pendaftaran'));
 	}
 
 }

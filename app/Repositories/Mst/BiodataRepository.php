@@ -48,4 +48,15 @@ class BiodataRepository{
 
 
 
+	public function getPendaftarByIdRaw($id){
+ 		$pendaftaran = Pendaftaran::with('mst_pengumuman', 'mst_biodata')
+			->has('mst_pengumuman')
+			->whereId($id)
+			->whereRefThnAjaranId(\SV::get('ref_thn_ajaran_id'))
+			->first();
+		return $pendaftaran;		
+	}
+
+
+
 }

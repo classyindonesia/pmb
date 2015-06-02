@@ -12,6 +12,8 @@
 @include($base_view.'list_config.c10')
 @include($base_view.'list_config.c11')
 @include($base_view.'list_config.c12')
+@include($base_view.'list_config.c13')
+@include($base_view.'list_config.c14')
    
 
 

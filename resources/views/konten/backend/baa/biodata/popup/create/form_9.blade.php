@@ -23,21 +23,18 @@
 
 
  <div class="form-group">
-    {!! Form::label('ref_penghasilan_ortu_id_ayah', 'Penghasilan Ayah : ') !!}
+    {!! Form::label('ref_penghasilan_ortu_id_ayah', 'Penghasilan Ayah : ') !!} <br>
     {!! Form::select('ref_penghasilan_ortu_id_ayah', $ref_penghasilan_ortu, '', ['id' => 'ref_penghasilan_ortu_id_ayah']) !!}
   </div>
  
    <div class="form-group">
-    {!! Form::label('ref_penghasilan_ortu_id_ibu', 'Penghasilan Ibu : ') !!}
+    {!! Form::label('ref_penghasilan_ortu_id_ibu', 'Penghasilan Ibu : ') !!} <br>
     {!! Form::select('ref_penghasilan_ortu_id_ibu', $ref_penghasilan_ortu, '', ['id' => 'ref_penghasilan_ortu_id_ibu']) !!}
   </div>
  
 
 
-   <div class="form-group">
-    {!! Form::label('ket_ortu_ayah', 'Status Ayah : ') !!}
-    {!! Form::select('ket_ortu_ayah', $ket_ortu, '', ['id' => 'ket_ortu_ayah']) !!}
-  </div>
+
 
 
  

@@ -14,9 +14,13 @@
 </div>
 
    <div class="form-group">
-    {!! Form::label('ket_ortu_ibu', 'Status Ibu : ') !!}
+    {!! Form::label('ket_ortu_ibu', 'Status Ibu : ') !!}<br>
     {!! Form::select('ket_ortu_ibu', $ket_ortu, $biodata->mst_biodata->ket_ortu_ibu, ['id' => 'ket_ortu_ibu']) !!}
   </div>
 
 
 
+   <div class="form-group">
+    {!! Form::label('ket_ortu_ayah', 'Status Ayah : ') !!}<br>
+    {!! Form::select('ket_ortu_ayah', $ket_ortu, $biodata->mst_biodata->ket_ortu_ayah, ['id' => 'ket_ortu_ayah']) !!}
+  </div>

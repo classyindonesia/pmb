@@ -3,7 +3,9 @@
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Http\Requests\createOrUpdatePertanyaanPolling;
+use App\Http\Requests\createOrUpdatePilihanPolling;
 use App\Models\Mst\PertanyaanPolling;
+use App\Models\Mst\PilihanPolling;
 use Illuminate\Http\Request;
 
 class PollingController extends Controller {
@@ -16,6 +18,8 @@ class PollingController extends Controller {
 		view()->share('base_view', $this->base_view);
 	}
 
+
+	//Start manage pertanyaan
 
 	public function index(){
 		$polling = PertanyaanPolling::paginate(10);
@@ -50,18 +54,55 @@ class PollingController extends Controller {
 		return $p;
 	}
 
-
 	public function del_pertanyaan(Request $request){
 		$p = PertanyaanPolling::findOrFail($request->id);
 		$p->delete();
 		return 'ok';
 	}
 
+	//end of manage pertanyaan
 
 
 
+	//start manage pilihan pertanyaan
+	public function pilihan($mst_pertanyaan_polling_id){
+		$pilihan = PilihanPolling::whereMstPertanyaanPollingId($mst_pertanyaan_polling_id)->get();
+		return view($this->base_view.'popup.list_pilihan', compact('pilihan'));
+	}
 
+	public function create_pilihan($mst_pertanyaan_polling_id){
+		return view($this->base_view.'popup.add_pilihan');
+	}
 
+	public function edit_pilihan($mst_pertanyaan_polling_id, $mst_pilihan_polling_id){
+		$pilihan = PilihanPolling::findOrFail($mst_pilihan_polling_id);
+		return view($this->base_view.'popup.edit_pilihan', compact('pilihan'));
+	}
+
+	public function insert_pilihan(createOrUpdatePilihanPolling $request){
+		$data = [
+			'mst_pertanyaan_polling_id'	=> $request->mst_pertanyaan_polling_id,
+			'pilihan'					=> $request->pilihan
+		];
+		$insert = PilihanPolling::create($data);
+		return $insert;
+	}
+
+	public function update_pilihan(createOrUpdatePilihanPolling $request){
+		$p = PilihanPolling::findOrFail($request->id);
+		$p->mst_pertanyaan_polling_id	= $request->mst_pertanyaan_polling_id;
+		$p->pilihan 					= $request->pilihan;
+		$p->save();
+
+		return $p;
+	}
+
+	public function del_pilihan(Request $request){
+		$p = PilihanPolling::findOrFail($request->id);
+		$p->delete();
+		return 'ok';
+	}
+	//End of manage pilihan pertanyaan
 
 
 }

@@ -3,7 +3,7 @@
 		<tr>
 			<th class="text-center" width="50px">No.</th>
 			<th>Judul Pertanyaan</th>
-			<th class="text-center" width="50px" >Action</th>
+			<th class="text-center" width="100px" >Action</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -16,7 +16,7 @@
 				{!! Action::del(false, route("admin_polling.del_pertanyaan", $list->id), $list->id); !!}
 			||
 				{!! Action::edit(false, route("admin_polling.edit_pertanyaan", $list->id), $list->id) !!}
-
+					@include($base_view.'action.view_pilihan')
 					</td>
 				</tr>
 				<?php $no++; ?>

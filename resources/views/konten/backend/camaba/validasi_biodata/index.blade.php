@@ -8,17 +8,11 @@
 
 @section('konten_utama')
 
-
-<div class="row">
-	<div class="col-md-6">
-		@include($base_view.'komponen.form1')
-	</div>
-	<div class="col-md-6">
-		@include($base_view.'komponen.form1')
-	</div>
-</div>		
-
-
+	@if(count($biodata->mst_biodata)>0)
+		@include($base_view.'form_edit')
+	@else
+		@include($base_view.'form_create')
+	@endif
 
 
 @endsection

@@ -94,6 +94,24 @@ class SetupVariableSeeder extends Seeder {
         if(count($v)<=0) mSV::create(['variable' => 'show_list_file_public', 'value' => 1]);
         $this->command->info('config show_list_file_public telah ditambahkan!');
 
+
+        //hide/show menu polling
+        $v = mSV::whereVariable('show_menu_polling_camaba')->first(); 
+        if(count($v)<=0){
+            mSV::create(['variable' => 'show_menu_polling_camaba', 'value' => 1]);
+            $this->command->info('config show_menu_polling_camaba telah ditambahkan!');
+        }
+
+
+
+        //hide/show menu validasi biodata lvl camaba
+        $v = mSV::whereVariable('show_menu_validasi_biodata_camaba')->first(); 
+        if(count($v)<=0){
+            mSV::create(['variable' => 'show_menu_validasi_biodata_camaba', 'value' => 1]);
+            $this->command->info('config show_menu_validasi_biodata_camaba telah ditambahkan!');
+        }
+
+
     }
 
     
