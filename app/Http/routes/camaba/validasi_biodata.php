@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['middleware' => 'hanya_camaba'], function(){
+Route::group(['middleware' => ['hanya_camaba', 'validasi_biodata_camaba']], function(){
 
 	get('backend/validasi_biodata', [
 		'uses'	=> 'Backend\Camaba\ValidasiBiodataController@index',
