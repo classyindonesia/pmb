@@ -9,7 +9,6 @@ class exportPdfBiodata extends Command implements SelfHandling {
 
 
 	public $mst_biodata_id;
-	private $base_view = 'konten.backend.baa.biodata.';
 
 	/**
 	 * Create a new command instance.
@@ -29,7 +28,8 @@ class exportPdfBiodata extends Command implements SelfHandling {
 	public function handle()
 	{
 		$b = Biodata::findOrFail($this->mst_biodata_id);
-	    $html = view($this->base_view.'cetak.index', compact('b'));
+		$base_view = 'konten.backend.baa.biodata.';
+	    $html = view($base_view.'cetak.index', compact('b', 'base_view'));
  		$this->mpdf=new \mPDF(
 					'',
 					'A4',

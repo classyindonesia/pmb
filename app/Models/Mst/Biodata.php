@@ -160,5 +160,8 @@ class Biodata extends Eloquent{
 		return $this->belongsTo('\App\Models\Ref\Sma', 'ref_sma_id');
 	}
 
+	public function ref_tinggal(){
+		return $this->belongsTo('\App\Models\Ref\Tinggal', 'ref_tinggal_id');
+	}
 
 }

@@ -41,6 +41,11 @@ $('#simpan').attr('disabled', 'disabled');
 });
  
 
+$(document).ready(function(){
+	$('#validasi').attr('data-toggle', 'tooltip');
+	$('#validasi').attr('title', 'belum bisa melakukan validasi, karena data belum disimpan');
+	$('#validasi').attr('disabled', 'disabled');
+});
 
 
 

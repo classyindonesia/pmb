@@ -112,6 +112,16 @@ class SetupVariableSeeder extends Seeder {
         }
 
 
+
+        //kirim/tidak sms saat melakukan validasi biodata
+        $v = mSV::whereVariable('sms_validasi_biodata_camaba')->first(); 
+        if(count($v)<=0){
+            mSV::create(['variable' => 'sms_validasi_biodata_camaba', 'value' => 1]);
+            $this->command->info('config sms_validasi_biodata_camaba telah ditambahkan!');
+        }
+
+
+
     }
 
     

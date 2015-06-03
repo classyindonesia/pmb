@@ -1,10 +1,12 @@
 <?php namespace App\Http\Controllers\Backend\Camaba;
 
+use App\Commands\exportPdfBiodata;
 use App\Commands\insertBiodata;
 use App\Commands\updateBiodata;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Http\Requests\createBiodata;
+use App\Models\Mst\Biodata;
 use App\Models\Ref\Agama;
 use App\Models\Ref\Identitas;
 use App\Models\Ref\Kota;
@@ -79,6 +81,38 @@ class ValidasiBiodataController extends Controller {
 			$insert = $this->dispatch(new insertBiodata($request->all()));
 	 		return $insert;
 		}
+	}
+
+
+	public function validasi(BiodataRepository $b, PendaftaranRepository $p){
+		$p_get = $p->getByEmail(\Auth::user()->email);
+		$biodata =  $b->getPendaftarByIdRaw($p_get->id);
+
+		return view($this->base_view.'popup.validasi', compact('biodata'));
+	}
+
+	public function do_validasi(Request $request){
+		$b = Biodata::findOrFail($request->id);
+		$b->status = 1;
+		$b->save();
+		return 'ok';
+	}
+
+
+	public function cetak(BiodataRepository $b, PendaftaranRepository $p){
+		$p_get = $p->getByEmail(\Auth::user()->email);
+		$biodata =  $b->getPendaftarByIdRaw($p_get->id);
+
+		$b = Biodata::findOrFail($biodata->mst_biodata->id);
+		if($b->status == 1){
+			//ter-validasi
+			return $this->dispatch(new exportPdfBiodata($b->id)); 
+			//return $b;
+		}else{
+			//belum ter-validasi
+			return response('akses ditolak.', 401);
+		}
+
 	}
  
 

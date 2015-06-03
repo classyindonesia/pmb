@@ -19,6 +19,22 @@ Route::group(['middleware' => ['hanya_camaba', 'validasi_biodata_camaba']], func
 		'as'	=> 'backend_validasi_biodata.update',
 	]);
 
+	get('backend/validasi_biodata/validasi', [
+		'uses'	=> 'Backend\Camaba\ValidasiBiodataController@validasi',
+		'as'	=> 'backend_validasi_biodata.validasi',
+	]);
+
+	post('backend/validasi_biodata/do_validasi', [
+		'uses'	=> 'Backend\Camaba\ValidasiBiodataController@do_validasi',
+		'as'	=> 'backend_validasi_biodata.do_validasi',
+	]);
+
+
+	get('backend/validasi_biodata/cetak', [
+		'uses'	=> 'Backend\Camaba\ValidasiBiodataController@cetak',
+		'as'	=> 'backend_validasi_biodata.cetak',
+	]);
+
 
 });
 
