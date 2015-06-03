@@ -137,6 +137,7 @@ class Biodata extends Eloquent{
 		return $this->belongsTo('\App\Models\Ref\Kota', 'ref_kota_id');
 	}
 
+ 
 	public function ref_identitas(){
 		return $this->belongsTo('\App\Models\Ref\Identitas', 'ref_identitas_id');
 	}
@@ -151,6 +152,18 @@ class Biodata extends Eloquent{
 	public function ref_pekerjaan_ortu_ibu(){
 		return $this->belongsTo('\App\Models\Ref\PekerjaanOrtu', 'ref_pekerjaan_ortu_id_ibu');
 	}	
+
+
+
+	public function ref_penghasilan_ayah(){
+		return $this->belongsTo('\App\Models\Ref\PenghasilanOrtu', 'ref_penghasilan_ortu_id_ayah');
+	}
+	public function ref_penghasilan_ibu(){
+		return $this->belongsTo('\App\Models\Ref\PenghasilanOrtu', 'ref_penghasilan_ortu_id_ibu');
+	}	
+
+
+
 
 	public function ref_kota_ortu(){
 		return $this->belongsTo('\App\Models\Ref\Kota', 'ref_kota_id_ortu');
@@ -168,6 +181,6 @@ class Biodata extends Eloquent{
 		return $this->belongsTo('\App\Models\Ref\Transportasi', 'ref_transportasi_id');
 	}
 
-
+ 
 
 }
