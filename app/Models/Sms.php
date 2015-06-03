@@ -8,6 +8,9 @@ class Sms extends Eloquent{
 	protected $table = 'pmb_sms_aktivasi';
 	public $timestamps = false;
 
+	protected $fillable = ['kode_pendaftaran', 'no_hp', 'pesan', 'statusKirim'];
+
+
 
 
 }

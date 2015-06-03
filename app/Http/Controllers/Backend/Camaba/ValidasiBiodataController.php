@@ -2,6 +2,7 @@
 
 use App\Commands\exportPdfBiodata;
 use App\Commands\insertBiodata;
+use App\Commands\kirimNotifValidasiBiodata;
 use App\Commands\updateBiodata;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
@@ -95,6 +96,8 @@ class ValidasiBiodataController extends Controller {
 		$b = Biodata::findOrFail($request->id);
 		$b->status = 1;
 		$b->save();
+
+		$this->dispatch(new kirimNotifValidasiBiodata($b->id));
 		return 'ok';
 	}
 
