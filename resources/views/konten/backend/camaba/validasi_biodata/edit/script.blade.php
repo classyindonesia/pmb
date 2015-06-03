@@ -5,6 +5,7 @@ $('#simpan').click(function(){
     @include('konten.backend.baa.biodata.popup.komponen.value_post_script')
 	@include('konten.backend.baa.biodata.popup.komponen.kondisi_global_simpan')
 
+form_data['id'] = {!! $biodata->mst_biodata->id !!};
 
  
 

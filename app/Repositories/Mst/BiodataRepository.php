@@ -41,7 +41,6 @@ class BiodataRepository{
  		$pendaftaran = Pendaftaran::with('mst_pengumuman', 'mst_biodata')
 			->has('mst_pengumuman')
 			->whereId($id)
-			->whereRefThnAjaranId(\Session::get('ref_thn_ajaran_id'))
 			->first();
 		return $pendaftaran;		
 	}

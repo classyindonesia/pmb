@@ -71,7 +71,7 @@ class ValidasiBiodataController extends Controller {
 
 
 	public function update(createBiodata $request, BiodataRepository $b){
-		$biodata = $b->getPendaftarById($request->mst_pendaftaran_id);
+		  $biodata = $b->getPendaftarById($request->mst_pendaftaran_id);
 		if(count($biodata->mst_biodata)>0){
 			$update = $this->dispatch(new updateBiodata($request->all()));
 	 		return $update;
@@ -79,7 +79,6 @@ class ValidasiBiodataController extends Controller {
 			$insert = $this->dispatch(new insertBiodata($request->all()));
 	 		return $insert;
 		}
-
 	}
  
 
