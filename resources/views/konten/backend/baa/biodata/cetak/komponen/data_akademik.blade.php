@@ -10,10 +10,14 @@
 	Asal Sekolah		
 		</td>
 		<td>
-			@if(count($b->ref_sma)>0)
-				{!! $b->ref_sma->nama !!}
+			@if($b->ref_sma_id != 9999)
+				@if(count($b->ref_sma)>0)
+					{!! $b->ref_sma->nama !!}
+				@else
+					-
+				@endif
 			@else
-				-
+				{!! $b->keterangan_sma !!}
 			@endif
 		</td>
 	</tr>

@@ -7,6 +7,7 @@
 	width: 60px;
 	height: 60px;
 	margin-bottom: 1em;
+	margin-left: 5em;
 	}
 .kotak_materai{
 	border : 1px solid #ccc; 

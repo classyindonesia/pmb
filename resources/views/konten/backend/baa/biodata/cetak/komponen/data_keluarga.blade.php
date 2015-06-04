@@ -105,7 +105,7 @@
 			No HP			
 		</td>
 		<td>
- 		 	{!! $b->no_hp !!}
+ 		 	{!! $b->no_hp_ortu !!}
 		</td>
 	</tr>
 

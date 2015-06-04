@@ -1,3 +1,12 @@
+@if($b->jenis_pendaftaran == 'sma')
+	<img src="/img/br.jpg" style="width:100px;height:30px;float:right" >
+@else
+	<img src="/img/transfer.jpg" style="width:120px;height:30px;float:right" >
+@endif
+
+
+
+
 <div style="text-align:center">
 	<img src="/logo-unp.jpg" class="logo">
 	<h4 class="header_text_top">UNIVERSITAS NUSANTARA PGRI KEDIRI</h4>

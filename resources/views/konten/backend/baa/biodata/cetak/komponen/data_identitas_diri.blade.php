@@ -105,15 +105,10 @@
 
 	<tr>
 		<td width="30%">
-	Identitas Diri			
+	Nomor Handphone			
 		</td>
-		<td>
-			@if(count($b->ref_identitas)>0)
-				{!! $b->ref_identitas->nama !!}
-			@else
-				-
-			@endif
-			/ {!! $b->no_identitas !!}
+		<td> 
+			 {!! $b->no_hp !!}
 		</td>
 	</tr>
 

@@ -37,7 +37,7 @@ class exportPdfBiodata extends Command implements SelfHandling {
 					'',
 					'10', //margin kiri
 					'10', // margin kanan
-					'0', //margin atas
+					'2', //margin atas
 					'',
 					'',
 					''
