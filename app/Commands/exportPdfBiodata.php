@@ -42,6 +42,8 @@ class exportPdfBiodata extends Command implements SelfHandling {
 					'',
 					''
 					);
+	    $javascript = 'this.print(); window.close();';
+	    $this->mpdf->SetJS($javascript);
 		   		
 		$html = iconv("UTF-8","UTF-8//IGNORE",$html);
 	    $this->mpdf->WriteHTML($html);
