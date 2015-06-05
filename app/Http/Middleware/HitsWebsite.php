@@ -1,9 +1,13 @@
 <?php namespace App\Http\Middleware;
 
+use App\Commands\HitsWebsiteCommand;
 use Closure;
-use App\Models\Mst\Hit;
-
+use Illuminate\Foundation\Bus\DispatchesCommands;
 class HitsWebsite {
+
+
+	//jalankan trait dispatch
+	use DispatchesCommands;
 
 	/**
 	 * Handle an incoming request.
@@ -13,13 +17,8 @@ class HitsWebsite {
 	 * @return mixed
 	 */
 	public function handle($request, Closure $next){
-		$data_insert = [
-			'ip'		=> $request->getClientIp(),
-			'tgl'		=> date('Y-m-d'),
-			'timevisit'	=> time(),
-			'_token'	=> csrf_token()
-		];
-		Hit::create($data_insert);
+
+ 		$this->dispatch(new HitsWebsiteCommand($request->getClientIp(), csrf_token()));
 
 		return $next($request);
 	}
