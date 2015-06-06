@@ -11,8 +11,8 @@
 
 
 @section('konten_utama')
-
-@include('konten.backend.users.list_data')
+	@include('konten.backend.users.komponen.form_search')
+	@include('konten.backend.users.list_data')
 
 
 @endsection

@@ -1,16 +1,12 @@
 <?php namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-
-/* models */
+use App\Http\Requests\CreateUser;
+use App\Http\Requests\UpdateUser;
 use App\Models\Mst\User;
 use App\Models\Ref\UserLevel;
-
-
-/* requests */
-use App\Http\Requests\UpdateUser;
-use App\Http\Requests\CreateUser;
-
+use App\Repositories\Mst\UserRepository;
+use Illuminate\Http\Request;
 use Input;
 class UserController extends Controller{
 
@@ -18,9 +14,14 @@ class UserController extends Controller{
 		view()->share('users_home', true);
 	}
 
-	public function index(){
-		$users = User::with('ref_user_level')->paginate(10);
+	public function index(Request $request, UserRepository $u){
+		$users = $u->get_all_user($request);
+		$level = $request->get('level');
+		if(isset($level) && $level == ''){
+			return redirect()->to('backend/users/?search='.$request->get('search'));
+		}
 		return view('konten.backend.users.index', compact('users'));
+
 	}
 
 
