@@ -5,7 +5,7 @@
 	      <div class="input-group-addon ">
 	      	 <i class='fa fa-search'></i>
 	      </div>
-	       {!! Form::select('level', ['' => 'all', '1' => 'admin', '4' => 'camaba', ''], Request::get('level'), ['class' => 'form-control']) !!}
+	       {!! Form::select('level', $level_pencarian, Request::get('level'), ['class' => 'form-control']) !!}
 	    </div>
 
 	{!! Form::close() !!}	

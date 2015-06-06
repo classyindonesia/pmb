@@ -20,7 +20,16 @@ class UserController extends Controller{
 		if(isset($level) && $level == ''){
 			return redirect()->to('backend/users/?search='.$request->get('search'));
 		}
-		return view('konten.backend.users.index', compact('users'));
+		$level_pencarian = [
+			'' 		=> 'all', 
+			'1' 	=> 'admin',
+			'2' 	=> 'web', 
+			'3'		=> 'Operator',
+			'4' 	=> 'camaba',
+			'5'		=> 'Api Akses',
+			'6'		=> 'BAA'
+		];
+		return view('konten.backend.users.index', compact('users', 'level_pencarian'));
 
 	}
 
