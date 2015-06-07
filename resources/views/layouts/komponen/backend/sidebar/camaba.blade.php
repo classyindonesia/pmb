@@ -23,6 +23,11 @@
           </a>
       </li>
 
+      <li @if(isset($polling_home)) class="active" @endif>
+          <a href="{!! route('camaba_polling.index') !!}"> 
+            <i class="fa fa-pie-chart"></i> Polling  
+          </a>
+      </li>
 
 @include('layouts.komponen.backend.sidebar.camaba_validasi_biodata')
  

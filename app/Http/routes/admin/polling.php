@@ -51,7 +51,7 @@ Route::group(['middleware' => 'hanya_admin'], function(){
 		'as'	=> 'admin_polling.create_pilihan',
 	]);
 
-	post('backend/polling/insert_pertanyaan', [
+	post('backend/polling/insert_pilihan', [
 		'uses'	=> 'Backend\Admin\PollingController@insert_pilihan',
 		'as'	=> 'admin_polling.insert_pilihan',
 	]);
