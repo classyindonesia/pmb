@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Http\Requests\createBiodata;
 use App\Models\Mst\Biodata;
+use App\Models\Mst\JawabanPolling;
+use App\Models\Mst\PertanyaanPolling;
 use App\Models\Ref\Agama;
 use App\Models\Ref\Identitas;
 use App\Models\Ref\Kota;
@@ -32,6 +34,19 @@ class ValidasiBiodataController extends Controller {
 	public function __construct(){
 		view()->share('base_view', $this->base_view);
 		view()->share('validasi_biodata_home', true);
+	}
+
+
+	private function check_jawaban_polling(){
+		//get jml pertanyaan
+		$jml_pertanyaan = PertanyaanPolling::count();
+		$jml_jawaban = JawabanPolling::whereMstUserId(\Auth::user()->id)->count();		
+		if($jml_jawaban >= $jml_pertanyaan){
+			$check = 1;
+		}else{
+			$check = 0;
+		}
+		return $check;
 	}
 
 
@@ -68,8 +83,13 @@ class ValidasiBiodataController extends Controller {
 				);
 
 
-
-		return view($this->base_view.'index', $vars);		
+		if($this->check_jawaban_polling() == 1){
+			//jika sudah mengisi polling, menampilkan halaman validasi
+			return view($this->base_view.'index', $vars);		
+		}else{
+			//jika blm mengisi polling, menampilkan peringatan
+			return view($this->base_view.'peringatan_polling', $vars);		
+		}
 	}
 
 
