@@ -34,6 +34,7 @@ class Kernel extends HttpKernel {
 		'hanya_web'					=> 'App\Http\Middleware\WebAkses',
 		'hanya_baa'					=> 'App\Http\Middleware\BaaAkses',
 		'validasi_biodata_camaba'	=> 'App\Http\Middleware\aksesValidasiBiodataCamaba',
+		'admin_baa'					=> 'App\Http\Middleware\aksesAdminDanBaa',
 
 	];
 

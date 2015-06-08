@@ -1,5 +1,5 @@
 <?php
-Route::group(['middleware' => 'hanya_admin'], function(){
+Route::group(['middleware' => 'admin_baa'], function(){
 
 	get('backend/polling', [
 		'uses'	=> 'Backend\Admin\PollingController@index',
@@ -71,6 +71,14 @@ Route::group(['middleware' => 'hanya_admin'], function(){
 		'uses'	=> 'Backend\Admin\PollingController@del_pilihan',
 		'as'	=> 'admin_polling.del_pilihan',
 	]);
+
+
+
+	get('backend/polling/view_hasil/{mst_pertanyaan_polling_id}', [
+		'uses'	=> 'Backend\Admin\PollingController@view_hasil',
+		'as'	=> 'admin_polling.view_hasil',
+	]);
+
 
 
 

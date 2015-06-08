@@ -3,7 +3,8 @@
 		<tr>
 			<th class="text-center" width="50px">No.</th>
 			<th>Judul Pertanyaan</th>
-			<th class="text-center" width="100px" >Action</th>
+			<th class="text-center" width="100px">jml pilihan</th>
+			<th class="text-center" width="150px" >Action</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -12,11 +13,18 @@
 				<tr>
 					<td class="text-center">{!! $no !!}</td>
 					<td>{!! $list->judul !!}</td>
+					<td class="text-center">{!! count($list->mst_pilihan_polling) !!}</td>
 					<td class="text-center">
-				{!! Action::del(false, route("admin_polling.del_pertanyaan", $list->id), $list->id); !!}
-			||
-				{!! Action::edit(false, route("admin_polling.edit_pertanyaan", $list->id), $list->id) !!}
-					@include($base_view.'action.view_pilihan')
+					
+					@if(Auth::user()->ref_user_level_id == 1)
+
+						{!! Action::del(false, route("admin_polling.del_pertanyaan", $list->id), $list->id); !!}
+						||
+						{!! Action::edit(false, route("admin_polling.edit_pertanyaan", $list->id), $list->id) !!}
+							@include($base_view.'action.view_pilihan')
+						||
+					@endif
+						@include($base_view.'action.view_hasil')
 					</td>
 				</tr>
 				<?php $no++; ?>

@@ -6,6 +6,7 @@ use App\Http\Requests\createOrUpdatePertanyaanPolling;
 use App\Http\Requests\createOrUpdatePilihanPolling;
 use App\Models\Mst\PertanyaanPolling;
 use App\Models\Mst\PilihanPolling;
+use App\Repositories\Mst\PendaftaranRepository;
 use Illuminate\Http\Request;
 
 class PollingController extends Controller {
@@ -103,6 +104,18 @@ class PollingController extends Controller {
 		return 'ok';
 	}
 	//End of manage pilihan pertanyaan
+
+
+
+
+	public function view_hasil($mst_pertanyaan_polling_id, PendaftaranRepository $p){
+		$pertanyaan = PertanyaanPolling::findOrFail($mst_pertanyaan_polling_id);
+		$jml_peserta = count($p->getAll());
+
+		
+
+		return view($this->base_view.'popup.hasil_polling', compact('pertanyaan', 'jml_peserta'));
+	}
 
 
 }
