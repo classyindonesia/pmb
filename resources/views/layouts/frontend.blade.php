@@ -42,6 +42,10 @@
 @include('layouts.komponen.frontend.footer')
 
 
+<a id="back-to-top" href="#" class="btn btn-warning btn-lg back-to-top" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left">
+<i class='fa fa-arrow-up'></i>
+</a>
+
 
 @yield('disqus_close_tag')
   </body>

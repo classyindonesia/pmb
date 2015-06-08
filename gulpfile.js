@@ -39,6 +39,7 @@ elixir(function(mix) {
          "app/box.css",
          "app/tombol_upload_file.css",
          "app/wizard.css",
+         "app/scroll_to_top.css",
          "app/sidebar.css",
          "app/app.css",
          "app/dropdown.css",
