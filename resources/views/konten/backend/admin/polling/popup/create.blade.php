@@ -20,6 +20,13 @@
 </div>
 
 
+<div class='form-group'>
+	{!! Form::label('aktif', 'Status : ') !!}
+	{!! Form::select('aktif', [1=>'aktif', 0=>'tdk aktif'], 0, ['id' => 'aktif']) !!}
+
+</div>
+
+
 
  <div class='form-group'>
  	<button id='simpan' class='btn btn-info'><i class='fa fa-floppy-o'></i> simpan</button>
@@ -41,12 +48,14 @@ $('#pesan').click(function(){
 $('#simpan').click(function(){
 	$('#pesan').removeClass('alert alert-danger animated shake').html('');
 judul = $('#judul').val();
+aktif = $('#aktif').val();
 pertanyaan = $('#pertanyaan').val();
   
 
 form_data ={
 	pertanyaan : pertanyaan,
 	judul : judul,
+	aktif : aktif,
   	_token : '{!! csrf_token() !!}'
 }
 $('#simpan').attr('disabled', 'disabled');
