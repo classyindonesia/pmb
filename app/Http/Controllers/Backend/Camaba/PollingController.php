@@ -18,7 +18,7 @@ class PollingController extends Controller {
 	}
 
 	public function index(){
-		$polling = PertanyaanPolling::with('mst_pilihan_polling')->get();
+		$polling = PertanyaanPolling::with('mst_pilihan_polling')->whereAktif(1)->get();
 
 
 		return view($this->base_view.'index', compact('polling'));

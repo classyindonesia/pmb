@@ -32,11 +32,7 @@ class PollingController extends Controller {
 	}
 
 	public function insert_pertanyaan(createOrUpdatePertanyaanPolling $request){
-		$data = [
-			'pertanyaan'	=> $request->pertanyaan,
-			'judul'			=> $request->judul
-		];
-		$insert = PertanyaanPolling::create($data);
+		$insert = PertanyaanPolling::create($request->all());
 		return $insert;
 	}
 
@@ -47,11 +43,7 @@ class PollingController extends Controller {
 	}
 
 	public function update_pertanyaan(createOrUpdatePertanyaanPolling $request){
-		$p = PertanyaanPolling::findOrFail($request->id);
-		$p->pertanyaan = $request->pertanyaan;
-		$p->judul		= $request->judul;
-		$p->save();
-
+		$p = PertanyaanPolling::whereId($request->id)->update($request->except('_token'));
 		return $p;
 	}
 

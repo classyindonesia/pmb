@@ -19,6 +19,12 @@
 	<textarea name='pertanyaan' placeholder=' pertanyaan...' id='pertanyaan' class='form-control'>{!! $polling->pertanyaan !!}</textarea>
 </div>
 
+<div class='form-group'>
+	{!! Form::label('aktif', 'Status : ') !!}
+	{!! Form::select('aktif', [1=>'aktif', 0=>'tdk aktif'], $polling->status, ['id' => 'aktif']) !!}
+
+</div>
+
 
 
  <div class='form-group'>
@@ -41,12 +47,14 @@ $('#pesan').click(function(){
 $('#simpan').click(function(){
 	$('#pesan').removeClass('alert alert-danger animated shake').html('');
 judul = $('#judul').val();
+aktif = $('#aktif').val();
 pertanyaan = $('#pertanyaan').val();
   
 
 form_data ={
 	pertanyaan : pertanyaan,
 	judul : judul,
+	aktif : aktif,
 	id : '{!! $polling->id !!}',
   	_token : '{!! csrf_token() !!}'
 }

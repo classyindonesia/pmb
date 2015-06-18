@@ -8,6 +8,7 @@
 
 
 
+<hr>
 {{-- hasil = jml pilihan jawaban * 100 / jml peserta thn angkatan skrg  --}}
 
 <ul class="list-unstyled">
