@@ -49,4 +49,4 @@
 </table>
 
 
-{!! $pin->render() !!}
+{!! $pin->appends(Request::all())->render() !!}

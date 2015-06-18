@@ -26,4 +26,4 @@
 	</tbody>
 </table>
 
-{!! $ts->render() !!}
+{!! $ts->appends(Request::all())->render() !!}

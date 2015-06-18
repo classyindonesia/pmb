@@ -53,4 +53,4 @@
 	</tbody>
 </table>
 
-{!! $pendaftaran->render() !!}
+{!! $pendaftaran->appends(Request::all())->render() !!}

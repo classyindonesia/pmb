@@ -27,4 +27,4 @@
 	</tbody>
 </table>
 
-{!! $api_call->render() !!}
+{!! $api_call->appends(Request::all())->render() !!}

@@ -25,4 +25,4 @@
 	</tbody>
 </table>
 
-{!! $log->render() !!}
+{!! $log->appends(Request::all())->render() !!}

@@ -36,4 +36,4 @@
 </table>
 
 
-{!! $berita->render() !!}
+{!! $berita->appends(Request::all())->render() !!}

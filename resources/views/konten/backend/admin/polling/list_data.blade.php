@@ -33,4 +33,4 @@
 </table>
 
 
-{!! $polling->render() !!}
+{!! $polling->appends(Request::all())->render() !!}

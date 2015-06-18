@@ -51,4 +51,4 @@
 	</tbody>
 </table>
 
-{!! $pengumuman->render() !!}
+{!! $pengumuman->appends(Request::all())->render() !!}
