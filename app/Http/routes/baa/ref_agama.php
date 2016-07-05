@@ -2,7 +2,7 @@
 Route::group(['middleware' => 'hanya_baa'], function(){
 
  
- 	Route::resource('backend/ref_agama', 'Backend\Baa\RefAgamaController', 
+ 	Route::resource('ref_agama', 'Backend\Baa\RefAgamaController', 
 		[
 		'except' => 'show', 
 		'names' => [

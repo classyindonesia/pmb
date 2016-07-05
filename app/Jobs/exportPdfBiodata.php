@@ -1,10 +1,10 @@
-<?php namespace App\Commands;
+<?php namespace App\Jobs;
 
-use App\Commands\Command;
+use App\Jobs\Job;
 use App\Models\Mst\Biodata;
 use Illuminate\Contracts\Bus\SelfHandling;
 
-class exportPdfBiodata extends Command implements SelfHandling {
+class exportPdfBiodata extends Job implements SelfHandling {
 
 
 

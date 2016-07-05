@@ -1,11 +1,11 @@
-<?php namespace App\Commands;
+<?php namespace App\Jobs;
 
-use App\Commands\Command;
+use App\Jobs\Job;
 use App\Models\Mst\Biodata;
 use App\Models\Mst\Pendaftaran;
 use Illuminate\Contracts\Bus\SelfHandling;
 
-class insertBiodata extends Command implements SelfHandling {
+class insertBiodata extends Job implements SelfHandling {
 
 
 	public $input_biodata;

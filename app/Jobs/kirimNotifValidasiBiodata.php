@@ -1,15 +1,15 @@
-<?php namespace App\Commands;
+<?php namespace App\Jobs;
 
-use App\Commands\Command;
+use App\Jobs\Job;
 use App\Models\Mst\Biodata;
 use App\Models\Mst\Pendaftaran;
 use App\Models\Sms;
 use Illuminate\Contracts\Bus\SelfHandling;
-use Illuminate\Contracts\Queue\ShouldBeQueued;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 
-class kirimNotifValidasiBiodata extends Command implements SelfHandling, ShouldBeQueued {
+class kirimNotifValidasiBiodata extends Job implements SelfHandling, ShouldQueue {
 
 	use InteractsWithQueue, SerializesModels;
 

@@ -2,7 +2,7 @@
 Route::group(['middleware' => 'hanya_baa'], function(){
 
  
- 	Route::resource('backend/ref_pendidikan', 'Backend\Baa\RefPendidikanController', 
+ 	Route::resource('ref_pendidikan', 'Backend\Baa\RefPendidikanController', 
 		[
 		'except' => 'show', 
 		'names' => [

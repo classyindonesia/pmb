@@ -2,7 +2,7 @@
 Route::group(['middleware' => 'hanya_baa'], function(){
 
  
- 	Route::resource('backend/ref_kota', 'Backend\Baa\RefKotaController', 
+ 	Route::resource('ref_kota', 'Backend\Baa\RefKotaController', 
 		[
 		'except' => 'show', 
 		'names' => [

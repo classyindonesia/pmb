@@ -2,7 +2,7 @@
 
 Route::group(['middleware' => 'hanya_camaba'], function(){
 
-	get('backend/informasi', [
+	Route::get('informasi', [
 		'uses'	=> 'Backend\Camaba\InformasiController@index',
 		'as'	=> 'informasi.index',
 	]);

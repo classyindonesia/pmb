@@ -2,7 +2,7 @@
 Route::group(['middleware' => 'hanya_baa'], function(){
 
  
- 	Route::resource('backend/ref_identitas', 'Backend\Baa\RefIdentitasController', 
+ 	Route::resource('ref_identitas', 'Backend\Baa\RefIdentitasController', 
 		[
 		'except' => 'show', 
 		'names' => [

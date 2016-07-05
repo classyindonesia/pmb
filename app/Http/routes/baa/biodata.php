@@ -1,29 +1,29 @@
 <?php
 Route::group(['middleware' => 'hanya_baa'], function(){
 
-	get('backend/biodata', [
+	Route::get('biodata', [
 		'uses'	=> 'Backend\Baa\BiodataController@index',
 		'as'	=> 'backend_biodata.index',
 	]);
 
-	get('backend/biodata/edit/{mst_pendaftaran_id}', [
+	Route::get('biodata/edit/{mst_pendaftaran_id}', [
 		'uses'	=> 'Backend\Baa\BiodataController@edit',
 		'as'	=> 'backend_biodata.edit',
 	]);
 
-	post('backend/biodata/update', [
+	Route::post('biodata/update', [
 		'uses'	=> 'Backend\Baa\BiodataController@update',
 		'as'	=> 'backend_biodata.update',
 	]);	
 
  
-	post('backend/biodata/validasi', [
+	Route::post('biodata/validasi', [
 		'uses'	=> 'Backend\Baa\BiodataController@validasi',
 		'as'	=> 'backend_biodata.validasi',
 	]);	
 
 
-	get('backend/biodata/cetak_pdf/{id}', [
+	Route::get('biodata/cetak_pdf/{id}', [
 		'uses'	=> 'Backend\Baa\BiodataController@cetak_pdf',
 		'as'	=> 'backend_biodata.cetak_pdf',
 	]);
@@ -31,9 +31,9 @@ Route::group(['middleware' => 'hanya_baa'], function(){
 
 
  
-	get('backend/biodata/get_prodi_pt/{ref_perguruan_tinggi_id}/{mst_pendaftaran_id}', [
-		'uses'	=> 'Backend\Baa\BiodataController@get_prodi_pt',
-		'as'	=> 'backend_biodata.get_prodi_pt',
+	Route::get('biodata/Route::get_prodi_pt/{ref_perguruan_tinggi_id}/{mst_pendaftaran_id}', [
+		'uses'	=> 'Backend\Baa\BiodataController@Route::get_prodi_pt',
+		'as'	=> 'backend_biodata.Route::get_prodi_pt',
 	]);	
 
 

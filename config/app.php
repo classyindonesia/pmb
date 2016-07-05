@@ -15,6 +15,9 @@ return [
 
 	'debug' => env('APP_DEBUG'),
 
+	'env' => env('APP_ENV', 'production'),
+
+
 	/*
 	|--------------------------------------------------------------------------
 	| Application URL
@@ -113,12 +116,10 @@ return [
 		/*
 		 * Laravel Framework Service Providers...
 		 */
-		'Illuminate\Foundation\Providers\ArtisanServiceProvider',
 		'Illuminate\Auth\AuthServiceProvider',
 		'Illuminate\Bus\BusServiceProvider',
 		'Illuminate\Cache\CacheServiceProvider',
 		'Illuminate\Foundation\Providers\ConsoleSupportServiceProvider',
-		'Illuminate\Routing\ControllerServiceProvider',
 		'Illuminate\Cookie\CookieServiceProvider',
 		'Illuminate\Database\DatabaseServiceProvider',
 		'Illuminate\Encryption\EncryptionServiceProvider',
@@ -135,25 +136,25 @@ return [
 		'Illuminate\Translation\TranslationServiceProvider',
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
+		Illuminate\Broadcasting\BroadcastServiceProvider::class,
 
 		/*
 		 * Application Service Providers...
 		 */
 		'App\Providers\AppServiceProvider',
-		'App\Providers\BusServiceProvider',
 		'App\Providers\ConfigServiceProvider',
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
-		'Illuminate\Html\HtmlServiceProvider',
 
-		'Laravel\Socialite\SocialiteServiceProvider',
 		'Intervention\Image\ImageServiceProvider',
 		'SimpleSoftwareIO\QrCode\QrCodeServiceProvider',
-		'Cviebrock\EloquentSluggable\SluggableServiceProvider',
 
 		/* tambahan custom */
 		'App\Providers\ViewComposerServiceProviders',
 		'Maatwebsite\Excel\ExcelServiceProvider',
+		Collective\Html\HtmlServiceProvider::class,
+		Cviebrock\EloquentSluggable\ServiceProvider::class,
+		Laravel\Socialite\SocialiteServiceProvider::class,
  
 	],
 
@@ -209,10 +210,10 @@ return [
 		'SV' 		=> 'App\Helpers\SetupVariable',
 
 
-		'Form'		=> 'Illuminate\Html\FormFacade',
-		'HTML'		=> 'Illuminate\Html\HtmlFacade',	
+	    'Form' 		=> Collective\Html\FormFacade::class,
+	    'HTML' 		=> Collective\Html\HtmlFacade::class,
 
-		'Socialize' => 'Laravel\Socialite\Facades\Socialite',	
+		'Socialite' => Laravel\Socialite\Facades\Socialite::class,	
 		'Image' 	=> 'Intervention\Image\Facades\Image',
 		'QrCode' 	=> 'SimpleSoftwareIO\QrCode\Facades\QrCode',
 		'Excel' 	=> 'Maatwebsite\Excel\Facades\Excel',

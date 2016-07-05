@@ -2,7 +2,7 @@
 Route::group(['middleware' => 'hanya_baa'], function(){
 
  
- 	Route::resource('backend/ref_pekerjaan_ortu', 'Backend\Baa\RefPekerjaanOrtuController', 
+ 	Route::resource('ref_pekerjaan_ortu', 'Backend\Baa\RefPekerjaanOrtuController', 
 		[
 		'except' => 'show', 
 		'names' => [

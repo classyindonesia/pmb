@@ -1,15 +1,15 @@
-<?php namespace App\Commands;
+<?php namespace App\Jobs;
 
-use App\Commands\Command;
+use App\Jobs\Job;
 use App\Models\Mst\Pengumuman;
 use App\Repositories\Mst\PendaftaranRepository;
 use App\Repositories\Ref\Prodi;
 use Illuminate\Contracts\Bus\SelfHandling;
-use Illuminate\Contracts\Queue\ShouldBeQueued;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 
-class InsertPengumuman extends Command implements SelfHandling, ShouldBeQueued {
+class InsertPengumuman extends Job implements SelfHandling, ShouldQueue {
 
 	use InteractsWithQueue, SerializesModels;
 

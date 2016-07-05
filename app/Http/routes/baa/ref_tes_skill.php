@@ -2,7 +2,7 @@
 Route::group(['middleware' => 'hanya_baa'], function(){
 
  
- 	Route::resource('backend/ref_tes_skill', 'Backend\Baa\RefTesSkillController', 
+ 	Route::resource('ref_tes_skill', 'Backend\Baa\RefTesSkillController', 
 		[
 		'except' => 'show', 
 		'names' => [

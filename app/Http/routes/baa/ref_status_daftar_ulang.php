@@ -2,7 +2,7 @@
 Route::group(['middleware' => 'hanya_baa'], function(){
 
  
- 	Route::resource('backend/ref_status_daftar_ulang', 'Backend\Baa\RefStatusDaftarUlangController', 
+ 	Route::resource('ref_status_daftar_ulang', 'Backend\Baa\RefStatusDaftarUlangController', 
 		[
 		'except' => 'show', 
 		'names' => [

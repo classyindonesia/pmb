@@ -1,13 +1,13 @@
 <?php namespace App\Http\Middleware;
 
-use App\Commands\HitsWebsiteCommand;
+use App\Jobs\HitsWebsiteCommand;
 use Closure;
-use Illuminate\Foundation\Bus\DispatchesCommands;
+use Illuminate\Foundation\Bus\DispatchesJobs;
 class HitsWebsite {
 
 
 	//jalankan trait dispatch
-	use DispatchesCommands;
+	use DispatchesJobs;
 
 	/**
 	 * Handle an incoming request.

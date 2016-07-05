@@ -33,7 +33,7 @@ class BeritaController extends Controller {
 
 	public function post($slug){
 		$hashids = new \Hashids\Hashids('qertymyr');
-		$berita = Berita::findBySlug($slug);
+		$berita = Berita::where('slug', $slug)->first();
 		return view($this->base_view.'show_berita', compact('berita', 'hashids'));
 	}
 

@@ -1,13 +1,13 @@
-<?php namespace App\Commands;
+<?php namespace App\Jobs;
 
-use App\Commands\Command;
+use App\Jobs\Job;
 use App\Models\Mst\Pin;
 use Illuminate\Contracts\Bus\SelfHandling;
-use Illuminate\Contracts\Queue\ShouldBeQueued;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 
-class generatePinCommand extends Command implements SelfHandling, ShouldBeQueued {
+class generatePinCommand extends Job implements SelfHandling, ShouldQueue {
 
 	use InteractsWithQueue, SerializesModels;
 

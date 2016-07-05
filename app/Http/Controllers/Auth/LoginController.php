@@ -1,19 +1,17 @@
-<?php namespace App\Http\Controllers\Auth;
+<?php 
+
+namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\Mst\Log;
 use App\Models\Mst\User;
-use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
 use Input, Auth, Hash;
 class LoginController extends Controller {
 
-	protected $redirectTo = 'home';
+	protected $redirectTo = 'backend';
 
-	public function __construct(Guard $auth)
-	{
-		$this->auth = $auth;
-	}
+ 
 
 
 	public function login(){
@@ -24,7 +22,7 @@ class LoginController extends Controller {
 
 	public function do_fb_login($facebook = 'facebook'){
 	    // Get the provider instance
-	    $provider = \Socialize::with($facebook);
+	    $provider = \Socialite::with($facebook);
 
 	    // Check, if the user authorised previously.
 	    // If so, get the User instance with all data,
@@ -73,7 +71,7 @@ class LoginController extends Controller {
 
 		$credentials = $request->only('email', 'password');
 
-		if ($this->auth->attempt($credentials, $request->has('remember')))
+		if (Auth::attempt($credentials, $request->has('remember')))
 		{
 
 	        	//create log
@@ -122,7 +120,7 @@ class LoginController extends Controller {
 
 	public function getLogout()
 	{
-		$this->auth->logout();
+		Auth::logout();
 
 		return redirect('/');
 	}

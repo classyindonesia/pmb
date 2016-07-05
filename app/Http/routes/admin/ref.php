@@ -1,5 +1,5 @@
 <?php
-get('backend/data_ref', [
+Route::get('data_ref', [
 	'uses'	=> 'Backend\DataRefController@index',
 	'middleware'	=> 'hanya_admin',
 	'as'	=> 'admin_ref.index'
