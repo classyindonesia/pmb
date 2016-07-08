@@ -2,8 +2,8 @@
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
 
-
-class StatusDaftarUlang extends Eloquent{
-	protected $table = 'ref_status_daftar_ulang';
-	protected $fillable = ['nama'];
+class StatusDaftarUlang extends Eloquent
+{
+    protected $table = 'ref_status_daftar_ulang';
+    protected $fillable = ['nama'];
 }

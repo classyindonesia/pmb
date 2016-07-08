@@ -3,33 +3,29 @@
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
 
-class WebAkses {
+class WebAkses
+{
 
-	protected $auth;
+    protected $auth;
  
-	public function __construct(Guard $auth)
-	{
-		$this->auth = $auth;
-	}
+    public function __construct(Guard $auth)
+    {
+        $this->auth = $auth;
+    }
  
-	public function handle($request, Closure $next)
-	{
-		if ($this->auth->guest())
-		{
-			if ($request->ajax())
-			{
-				return response('Unauthorized.', 401);
-			}
-			else
-			{
-				return redirect()->guest('/');
-			}
-		}
+    public function handle($request, Closure $next)
+    {
+        if ($this->auth->guest()) {
+            if ($request->ajax()) {
+                return response('Unauthorized.', 401);
+            } else {
+                return redirect()->guest('/');
+            }
+        }
 
-		if(\Auth::user()->ref_user_level_id != 2){
-			abort(404);
-		}			
-		return $next($request);
-	}
-
+        if (\Auth::user()->ref_user_level_id != 2) {
+            abort(404);
+        }
+        return $next($request);
+    }
 }

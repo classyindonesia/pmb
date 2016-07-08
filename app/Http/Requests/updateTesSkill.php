@@ -2,29 +2,29 @@
 
 use App\Http\Requests\Request;
 
-class updateTesSkill extends Request {
+class updateTesSkill extends Request
+{
 
-	/**
-	 * Determine if the user is authorized to make this request.
-	 *
-	 * @return bool
-	 */
-	public function authorize()
-	{
-		return true;
-	}
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return true;
+    }
 
-	/**
-	 * Get the validation rules that apply to the request.
-	 *
-	 * @return array
-	 */
-	public function rules()
-	{
-		return [
-			'no_pendaftaran'	=> 'required',
-			'kode_ruang'		=> 'required'
-		];
-	}
-
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        return [
+            'no_pendaftaran'    => 'required',
+            'kode_ruang'        => 'required'
+        ];
+    }
 }

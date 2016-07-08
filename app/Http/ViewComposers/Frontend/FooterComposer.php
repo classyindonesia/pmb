@@ -3,7 +3,8 @@
 use Illuminate\Contracts\View\View;
 use App\Models\Mst\KategoriWeblink;
 
-class FooterComposer {
+class FooterComposer
+{
 
 
   
@@ -13,8 +14,9 @@ class FooterComposer {
      * @param  UserRepository  $users
      * @return void
      */
-    public function __construct() {
-     }
+    public function __construct()
+    {
+    }
 
     /**
      * Bind data to the view.
@@ -22,13 +24,10 @@ class FooterComposer {
      * @param  View  $view
      * @return void
      */
-    public function compose(View $view){
-
+    public function compose(View $view)
+    {
         $kategori_weblink = KategoriWeblink::with('mst_weblink')->get();
 
-         $view->with('kategori_weblink', $kategori_weblink); 
-
-
+        $view->with('kategori_weblink', $kategori_weblink);
     }
-
 }

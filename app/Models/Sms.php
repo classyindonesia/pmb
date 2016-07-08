@@ -2,15 +2,12 @@
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
 
-class Sms extends Eloquent{
+class Sms extends Eloquent
+{
 
-	protected $connection = 'sms';
-	protected $table = 'pmb_sms_aktivasi';
-	public $timestamps = false;
+    protected $connection = 'sms';
+    protected $table = 'pmb_sms_aktivasi';
+    public $timestamps = false;
 
-	protected $fillable = ['kode_pendaftaran', 'no_hp', 'pesan', 'statusKirim'];
-
-
-
-
+    protected $fillable = ['kode_pendaftaran', 'no_hp', 'pesan', 'statusKirim'];
 }

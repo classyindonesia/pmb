@@ -1,13 +1,13 @@
 <?php namespace App\Repositories\Mst;
 
-
 use App\Models\Mst\Pin;
 
-class PinRepository{
+class PinRepository
+{
 
-	public function getWhereOne($pin){
-		$check = Pin::where('pin', '=', $pin)->first();
-		return $check;
-	}
-
+    public function getWhereOne($pin)
+    {
+        $check = Pin::where('pin', '=', $pin)->first();
+        return $check;
+    }
 }

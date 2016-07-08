@@ -2,8 +2,8 @@
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
 
-
-class PenghasilanOrtu extends Eloquent{
-	protected $table = 'ref_penghasilan_ortu';
-	protected $fillable = ['nama'];
+class PenghasilanOrtu extends Eloquent
+{
+    protected $table = 'ref_penghasilan_ortu';
+    protected $fillable = ['nama'];
 }

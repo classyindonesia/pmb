@@ -3,56 +3,50 @@
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
 
-
-class AdminAkses {
-
-
-	/**
-	 * The Guard implementation.
-	 *
-	 * @var Guard
-	 */
-	protected $auth;
-
-	/**
-	 * Create a new filter instance.
-	 *
-	 * @param  Guard  $auth
-	 * @return void
-	 */
-	public function __construct(Guard $auth)
-	{
-		$this->auth = $auth;
-	}
+class AdminAkses
+{
 
 
-	/**
-	 * Handle an incoming request.
-	 *
-	 * @param  \Illuminate\Http\Request  $request
-	 * @param  \Closure  $next
-	 * @return mixed
-	 */
-	public function handle($request, Closure $next)
-	{
+    /**
+     * The Guard implementation.
+     *
+     * @var Guard
+     */
+    protected $auth;
 
-		if ($this->auth->guest())
-		{
-			if ($request->ajax())
-			{
-				return response('Unauthorized.', 401);
-			}
-			else
-			{
-				return redirect()->guest('/');
-			}
-		}
+    /**
+     * Create a new filter instance.
+     *
+     * @param  Guard  $auth
+     * @return void
+     */
+    public function __construct(Guard $auth)
+    {
+        $this->auth = $auth;
+    }
 
-		if(\Auth::user()->ref_user_level_id != 1){
-			abort(404);
-		}
 
-		return $next($request);
-	}
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @return mixed
+     */
+    public function handle($request, Closure $next)
+    {
+        if ($this->auth->guest()) {
+            if ($request->ajax()) {
+                return response('Unauthorized.', 401);
+            } else {
+                return redirect()->guest('/');
+            }
+        }
 
+        if (\Auth::user()->ref_user_level_id != 1) {
+            abort(404);
+        }
+
+        return $next($request);
+    }
 }

@@ -1,9 +1,10 @@
 <?php namespace App\Http\ViewComposers\Frontend;
 
 use App\Models\Mst\FotoSlide;
- use Illuminate\Contracts\View\View;
+use Illuminate\Contracts\View\View;
 
-class FotoSlideComposer {
+class FotoSlideComposer
+{
 
 
   
@@ -13,8 +14,9 @@ class FotoSlideComposer {
      * @param  UserRepository  $users
      * @return void
      */
-    public function __construct() {
-     }
+    public function __construct()
+    {
+    }
 
     /**
      * Bind data to the view.
@@ -22,13 +24,11 @@ class FotoSlideComposer {
      * @param  View  $view
      * @return void
      */
-    public function compose(View $view){
-
+    public function compose(View $view)
+    {
         $foto = FotoSlide::take(10)->with('ref_jabatan')->orderByRaw("RAND()")->get();
-        $view->with('foto', $foto); 
+        $view->with('foto', $foto);
         
-        $view->with('sv', new \App\Models\SetupVariable); 
-
+        $view->with('sv', new \App\Models\SetupVariable);
     }
-
 }

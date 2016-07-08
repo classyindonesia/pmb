@@ -3,7 +3,9 @@
 use Illuminate\Contracts\View\View;
 use Illuminate\Users\Repository as UserRepository;
 use SetupVariable;
-class LoginComposer {
+
+class LoginComposer
+{
 
 
   
@@ -13,8 +15,9 @@ class LoginComposer {
      * @param  UserRepository  $users
      * @return void
      */
-    public function __construct() {
-     }
+    public function __construct()
+    {
+    }
 
     /**
      * Bind data to the view.
@@ -22,8 +25,8 @@ class LoginComposer {
      * @param  View  $view
      * @return void
      */
-    public function compose(View $view){
-        $view->with('sv', new \App\Models\SetupVariable); 
+    public function compose(View $view)
+    {
+        $view->with('sv', new \App\Models\SetupVariable);
     }
-
 }

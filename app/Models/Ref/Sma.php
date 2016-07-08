@@ -2,8 +2,8 @@
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
 
-
-class Sma extends Eloquent{
-	protected $table = 'ref_sma';
-	protected $fillable = ['nama'];
+class Sma extends Eloquent
+{
+    protected $table = 'ref_sma';
+    protected $fillable = ['nama'];
 }

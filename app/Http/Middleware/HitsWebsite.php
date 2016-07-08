@@ -3,24 +3,25 @@
 use App\Jobs\HitsWebsiteCommand;
 use Closure;
 use Illuminate\Foundation\Bus\DispatchesJobs;
-class HitsWebsite {
+
+class HitsWebsite
+{
 
 
-	//jalankan trait dispatch
-	use DispatchesJobs;
+    //jalankan trait dispatch
+    use DispatchesJobs;
 
-	/**
-	 * Handle an incoming request.
-	 *
-	 * @param  \Illuminate\Http\Request  $request
-	 * @param  \Closure  $next
-	 * @return mixed
-	 */
-	public function handle($request, Closure $next){
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @return mixed
+     */
+    public function handle($request, Closure $next)
+    {
+        $this->dispatch(new HitsWebsiteCommand($request->getClientIp(), csrf_token()));
 
- 		$this->dispatch(new HitsWebsiteCommand($request->getClientIp(), csrf_token()));
-
-		return $next($request);
-	}
-
+        return $next($request);
+    }
 }

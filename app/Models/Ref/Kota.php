@@ -2,8 +2,8 @@
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
 
-
-class Kota extends Eloquent{
-	protected $table = 'ref_kota';
-	protected $fillable = ['nama'];
+class Kota extends Eloquent
+{
+    protected $table = 'ref_kota';
+    protected $fillable = ['nama'];
 }
