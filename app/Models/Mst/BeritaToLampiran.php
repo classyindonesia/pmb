@@ -1,5 +1,8 @@
-<?php namespace App\Models\Mst;
+<?php 
 
+namespace App\Models\Mst;
+
+use App\Models\Mst\LampiranBerita;
 use Illuminate\Database\Eloquent\Model as Eloquent;
 
 class BeritaToLampiran extends Eloquent {
@@ -11,7 +14,7 @@ class BeritaToLampiran extends Eloquent {
 
 
 	public function mst_lampiran(){
-		return $this->belongsTo('\App\Models\Mst\LampiranBerita', 'mst_lampiran_berita_id');
+		return $this->belongsTo(LampiranBerita::class, 'mst_lampiran_berita_id');
 	}
 
 

@@ -1,4 +1,10 @@
-<?php namespace App\Models\Mst;
+<?php 
+
+namespace App\Models\Mst;
+
+use App\Models\Mst\Pendaftaran;
+use App\Models\Mst\TesSkill;
+use App\Models\Ref\Ruang;
 
  use Illuminate\Database\Eloquent\Model;
 
@@ -8,15 +14,15 @@ class TesSkill extends Model {
 	protected $fillable = ['mst_pendaftaran_id', 'ref_ruang_id', 'ref_tes_skill_id'];
 
 	public function mst_pendaftaran(){
-	 	return $this->belongsTo("\App\Models\Mst\Pendaftaran", 'mst_pendaftaran_id');
+	 	return $this->belongsTo(Pendaftaran::class, 'mst_pendaftaran_id');
 	}
 
 	public function ref_ruang(){
-	 	return $this->belongsTo('\App\Models\Ref\Ruang', 'ref_ruang_id');
+	 	return $this->belongsTo(Ruang::class, 'ref_ruang_id');
 	}
 
 	public function ref_tes_skill(){
-	 	return $this->belongsTo('\App\Models\Ref\TesSkill', 'ref_tes_skill_id');
+	 	return $this->belongsTo(TesSkill::class, 'ref_tes_skill_id');
 	}	
 
 

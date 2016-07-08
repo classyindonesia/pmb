@@ -1,5 +1,8 @@
-<?php namespace App\Models\Mst;
+<?php 
 
+namespace App\Models\Mst;
+
+use App\Models\Mst\Pendaftaran;
 use Illuminate\Database\Eloquent\Model;
 
 class Photo extends Model {
@@ -9,7 +12,7 @@ class Photo extends Model {
 
 
 	public function mst_pendaftaran(){
-		return $this->belongsTo('\App\Models\Mst\Pendaftaran', 'mst_pendaftaran_id');
+		return $this->belongsTo(Pendaftaran::class, 'mst_pendaftaran_id');
 	}
 
 }

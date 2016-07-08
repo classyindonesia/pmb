@@ -1,6 +1,8 @@
-<?php namespace App\Models\Mst;
+<?php 
 
-use App\Models\Mst\Log;
+namespace App\Models\Mst;
+
+use App\Models\Mst\User;
 use Illuminate\Database\Eloquent\Model as Eloquent;
  
 class Log extends Eloquent {
@@ -11,7 +13,7 @@ class Log extends Eloquent {
 
 
 	public function mst_user(){
-		return $this->belongsTo('\App\Models\Mst\User', 'mst_user_id');
+		return $this->belongsTo(User::class, 'mst_user_id');
 	}
 
 
@@ -20,7 +22,7 @@ class Log extends Eloquent {
 			'mst_user_id'	=> $user_id, 
 			'log'			=> $pesan
 		];
-		Log::create($data);
+		$this->create($data);
 	}
 
 

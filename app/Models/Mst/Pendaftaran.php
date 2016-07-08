@@ -1,15 +1,25 @@
-<?php namespace App\Models\Mst;
+<?php 
 
-use Illuminate\Database\Eloquent\Model as Eloquent;
+namespace App\Models\Mst;
 
-
-/* models */
 use App\Helpers\SetupVariable;
+use App\Models\Mst\Berkas;
+use App\Models\Mst\Biodata;
+use App\Models\Mst\Pengumuman;
+use App\Models\Mst\Photo;
+use App\Models\Mst\TesSkill;
+use App\Models\Mst\TesTulis;
+use App\Models\Mst\User;
+use App\Models\Ref\Prodi;
+use App\Models\Ref\Sma;
+use Illuminate\Database\Eloquent\Model as Eloquent;
  
 
 
 class Pendaftaran extends Eloquent{
+
 	protected $table = 'mst_pendaftaran';
+	
 	protected $fillable = [
 		'no_pendaftaran', 
 		'nama', 
@@ -35,48 +45,48 @@ protected $appends = ['alamat', 'nama', 'tempat_lahir'];
 
 
 	public function mst_user(){
-		return $this->belongsTo('\App\Models\Mst\User', 'mst_user_id');
+		return $this->belongsTo(User::class, 'mst_user_id');
 	}
 
 	public function mst_photo(){
-		return $this->hasOne('\App\Models\Mst\Photo', 'mst_pendaftaran_id');
+		return $this->hasOne(Photo::class, 'mst_pendaftaran_id');
 	}
 
 
 	public function mst_berkas(){
-		return $this->hasMany('\App\Models\Mst\Berkas', 'mst_pendaftaran_id');
+		return $this->hasMany(Berkas::class, 'mst_pendaftaran_id');
 	}
 
 
 	public function ref_sma(){
-		return $this->belongsTo('App\Models\Ref\Sma', 'ref_sma_id');
+		return $this->belongsTo(Sma::class, 'ref_sma_id');
 	}
 
 	public function ref_prodi1(){
-		return $this->belongsTo('App\Models\Ref\Prodi', 'ref_prodi_id1');
+		return $this->belongsTo(Prodi::class, 'ref_prodi_id1');
 	}
 
 	public function ref_prodi2(){
-		return $this->belongsTo('App\Models\Ref\Prodi', 'ref_prodi_id2');
+		return $this->belongsTo(Prodi::class, 'ref_prodi_id2');
 	}
  	public function mst_tes_tulis(){
- 		return $this->hasOne('\App\Models\Mst\TesTulis', 'mst_pendaftaran_id');
+ 		return $this->hasOne(TesTulis::class, 'mst_pendaftaran_id');
  	}
 
 
 
  	public function mst_tes_skill(){
- 		return $this->hasMany('\App\Models\Mst\TesSkill', 'mst_pendaftaran_id');
+ 		return $this->hasMany(TesSkill::class, 'mst_pendaftaran_id');
  	}	
 
  	public function mst_pengumuman(){
- 		return $this->hasOne('\App\Models\Mst\Pengumuman', 'mst_pendaftaran_id');
+ 		return $this->hasOne(Pengumuman::class, 'mst_pendaftaran_id');
  	}
 
 
 
  	public function mst_biodata(){
- 		return $this->hasOne('\App\Models\Mst\Biodata', 'mst_pendaftaran_id');
+ 		return $this->hasOne(Biodata::class, 'mst_pendaftaran_id');
  	}
 
 

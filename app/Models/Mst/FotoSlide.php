@@ -1,5 +1,8 @@
-<?php namespace App\Models\Mst;
+<?php 
 
+namespace App\Models\Mst;
+
+use App\Models\Ref\Jabatan;
 use Illuminate\Database\Eloquent\Model as Eloquent;
 
 
@@ -9,7 +12,7 @@ class FotoSlide extends Eloquent{
 
 
 	public function ref_jabatan(){
-		return $this->belongsTo('\App\Models\Ref\Jabatan', 'ref_jabatan_id');
+		return $this->belongsTo(Jabatan::class, 'ref_jabatan_id');
 	}
 
 

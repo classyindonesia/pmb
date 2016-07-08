@@ -1,5 +1,8 @@
-<?php namespace App\Models\Mst;
+<?php 
 
+namespace App\Models\Mst;
+
+use App\Models\Mst\JawabanPolling;
 use Illuminate\Database\Eloquent\Model as Eloquent;
  
 class PilihanPolling extends Eloquent {
@@ -9,7 +12,7 @@ class PilihanPolling extends Eloquent {
 
 
 	public function mst_jawaban_polling(){
-		return $this->hasMany('\App\Models\Mst\JawabanPolling', 'mst_pilihan_polling_id');
+		return $this->hasMany(JawabanPolling::class, 'mst_pilihan_polling_id');
 	}
 
  

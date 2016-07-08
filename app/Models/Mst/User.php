@@ -2,11 +2,13 @@
 
 namespace App\Models\Mst;
 
+use App\Models\Mst\Pendaftaran;
+use App\Models\Ref\UserLevel;
 use Illuminate\Auth\Authenticatable;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Illuminate\Database\Eloquent\Model;
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
@@ -39,7 +41,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
 
 	public function mst_pendaftaran(){
-		return $this->hasOne('App\Models\Mst\Pendaftaran', 'alamat_email', 'email');
+		return $this->hasOne(Pendaftaran::class, 'alamat_email', 'email');
 	}
 
  
@@ -51,7 +53,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
 
 	public function ref_user_level(){
-		return $this->belongsTo('App\Models\Ref\UserLevel', 'ref_user_level_id');
+		return $this->belongsTo(UserLevel::class, 'ref_user_level_id');
 	}
 
 

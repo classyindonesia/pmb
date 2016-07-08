@@ -1,5 +1,9 @@
-<?php namespace App\Models\Mst;
+<?php 
 
+namespace App\Models\Mst;
+
+use App\Models\Mst\Pendaftaran;
+use App\Models\Ref\JenisBerkas;
 use Illuminate\Database\Eloquent\Model;
 
 class Berkas extends Model {
@@ -9,12 +13,12 @@ class Berkas extends Model {
 
 
 	public function mst_pendaftaran(){
-		return $this->belongsTo('\App\Models\Mst\Pendaftaran', 'mst_pendaftaran_id');
+		return $this->belongsTo(Pendaftaran::class, 'mst_pendaftaran_id');
 	}
 
 
 	public function ref_jenis_berkas(){
-		return $this->belongsTo('\App\Models\Ref\JenisBerkas', 'ref_jenis_berkas_id');
+		return $this->belongsTo(JenisBerkas::class, 'ref_jenis_berkas_id');
 	}
 
 

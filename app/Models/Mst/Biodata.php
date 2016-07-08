@@ -1,5 +1,19 @@
-<?php namespace App\Models\Mst;
+<?php 
 
+namespace App\Models\Mst;
+
+use App\Models\Mst\Pendaftaran;
+use App\Models\Ref\Agama;
+use App\Models\Ref\Identitas;
+use App\Models\Ref\Kota;
+use App\Models\Ref\PekerjaanOrtu;
+use App\Models\Ref\Pendidikan;
+use App\Models\Ref\PenghasilanOrtu;
+use App\Models\Ref\ProdiPt;
+use App\Models\Ref\Sma;
+use App\Models\Ref\Tinggal;
+use App\Models\Ref\Transportasi;
+use App\Models\Ref\UkuranAlmamater;
 use Illuminate\Database\Eloquent\Model as Eloquent;
 
 
@@ -115,75 +129,75 @@ class Biodata extends Eloquent{
 	//relasi
 
 	public function ref_pendidikan_ayah(){
-		return $this->belongsTo('\App\Models\Ref\Pendidikan', 'ref_pendidikan_id_ayah');
+		return $this->belongsTo(Pendidikan::class, 'ref_pendidikan_id_ayah');
 	}
 
 
 	public function ref_pendidikan_ibu(){
-		return $this->belongsTo('\App\Models\Ref\Pendidikan', 'ref_pendidikan_id_ibu');
+		return $this->belongsTo(Pendidikan::class, 'ref_pendidikan_id_ibu');
 	}
 
 
 
 	public function mst_pendaftaran(){
-		return $this->belongsTo('\App\Models\Mst\Pendaftaran', 'mst_pendaftaran_id');
+		return $this->belongsTo(Pendaftaran::class, 'mst_pendaftaran_id');
 	}
 
 	public function ref_agama(){
-		return $this->belongsTo('\App\Models\Ref\Agama', 'ref_agama_id');
+		return $this->belongsTo(Agama::class, 'ref_agama_id');
 	}
 
 	public function ref_kota(){
-		return $this->belongsTo('\App\Models\Ref\Kota', 'ref_kota_id');
+		return $this->belongsTo(Kota::class, 'ref_kota_id');
 	}
 
  
 	public function ref_identitas(){
-		return $this->belongsTo('\App\Models\Ref\Identitas', 'ref_identitas_id');
+		return $this->belongsTo(Identitas::class, 'ref_identitas_id');
 	}
 
 	public function ref_ukuran_almamater(){
-		return $this->belongsTo('\App\Models\Ref\UkuranAlmamater', 'ref_ukuran_almamater_id');
+		return $this->belongsTo(UkuranAlmamater::class, 'ref_ukuran_almamater_id');
 	}
 
 	public function ref_pekerjaan_ortu_ayah(){
-		return $this->belongsTo('\App\Models\Ref\PekerjaanOrtu', 'ref_pekerjaan_ortu_id_ayah');
+		return $this->belongsTo(PekerjaanOrtu::class, 'ref_pekerjaan_ortu_id_ayah');
 	}
 	public function ref_pekerjaan_ortu_ibu(){
-		return $this->belongsTo('\App\Models\Ref\PekerjaanOrtu', 'ref_pekerjaan_ortu_id_ibu');
+		return $this->belongsTo(PekerjaanOrtu::class, 'ref_pekerjaan_ortu_id_ibu');
 	}	
 
 
 
 	public function ref_penghasilan_ayah(){
-		return $this->belongsTo('\App\Models\Ref\PenghasilanOrtu', 'ref_penghasilan_ortu_id_ayah');
+		return $this->belongsTo(PenghasilanOrtu::class, 'ref_penghasilan_ortu_id_ayah');
 	}
 	public function ref_penghasilan_ibu(){
-		return $this->belongsTo('\App\Models\Ref\PenghasilanOrtu', 'ref_penghasilan_ortu_id_ibu');
+		return $this->belongsTo(PenghasilanOrtu::class, 'ref_penghasilan_ortu_id_ibu');
 	}	
 
 
 
 
 	public function ref_kota_ortu(){
-		return $this->belongsTo('\App\Models\Ref\Kota', 'ref_kota_id_ortu');
+		return $this->belongsTo(Kota::class, 'ref_kota_id_ortu');
 	}
 
 	public function ref_sma(){
-		return $this->belongsTo('\App\Models\Ref\Sma', 'ref_sma_id');
+		return $this->belongsTo(Sma::class, 'ref_sma_id');
 	}
 
 	public function ref_tinggal(){
-		return $this->belongsTo('\App\Models\Ref\Tinggal', 'ref_tinggal_id');
+		return $this->belongsTo(Tinggal::class, 'ref_tinggal_id');
 	}
 
 	public function ref_transportasi(){
-		return $this->belongsTo('\App\Models\Ref\Transportasi', 'ref_transportasi_id');
+		return $this->belongsTo(Transportasi::class, 'ref_transportasi_id');
 	}
 
 
 	public function ref_prodi_pt(){
-		return $this->belongsTo('\App\Models\Ref\ProdiPt', 'ref_prodi_id_pt');
+		return $this->belongsTo(ProdiPt::class, 'ref_prodi_id_pt');
 	}
 
  

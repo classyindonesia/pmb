@@ -1,5 +1,9 @@
-<?php namespace App\Models\Mst;
+<?php 
 
+namespace App\Models\Mst;
+
+use App\Models\Mst\Pendaftaran;
+use App\Models\Mst\Pin;
 use Illuminate\Database\Eloquent\Model;
 
 class PenggunaPin extends Model {
@@ -9,12 +13,12 @@ class PenggunaPin extends Model {
 
 
 	public function mst_pendaftaran(){
-		return $this->belongsTo('\App\Models\Mst\Pendaftaran', 'mst_pendaftaran_id');
+		return $this->belongsTo(Pendaftaran::class, 'mst_pendaftaran_id');
 	}
 
 
 	public function mst_pin(){
-		return $this->belongsTo('\App\Models\Pin', 'mst_pin_id');
+		return $this->belongsTo(Pin::class, 'mst_pin_id');
 	}
 
 

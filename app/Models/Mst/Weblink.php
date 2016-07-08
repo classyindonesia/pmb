@@ -1,5 +1,8 @@
-<?php namespace App\Models\Mst;
+<?php 
 
+namespace App\Models\Mst;
+
+use App\Models\Mst\KategoriWeblink;
 use Illuminate\Database\Eloquent\Model as Eloquent;
 
 class Weblink extends Eloquent {
@@ -10,7 +13,7 @@ class Weblink extends Eloquent {
 
 
 	public function mst_kategori_weblink(){
-		return $this->belongsTo('\App\Models\Mst\KategoriWeblink', 'mst_kategori_weblink_id');
+		return $this->belongsTo(KategoriWeblink::class, 'mst_kategori_weblink_id');
 	}
  
 

@@ -1,7 +1,11 @@
-<?php namespace App\Models\Mst;
+<?php 
 
-use Illuminate\Database\Eloquent\Model as Eloquent;
+namespace App\Models\Mst;
+
+use App\Models\Mst\BeritaToLampiran;
+use App\Models\Mst\User;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\Model as Eloquent;
 
 class Berita extends Eloquent{
 
@@ -11,7 +15,10 @@ class Berita extends Eloquent{
 
 
 	protected $fillable = ['judul', 'slug', 'artikel',
-					'is_published', 'komentar', 'mst_user_id'];
+							'is_published', 'komentar', 
+							'mst_user_id'
+	];
+
 	protected $table = 'mst_berita';
 
 
@@ -26,11 +33,11 @@ class Berita extends Eloquent{
 
 
 	public function mst_user(){
-		return $this->belongsTo('App\Models\Mst\User', 'mst_user_id');
+		return $this->belongsTo(User::class, 'mst_user_id');
 	}
 
 	public function berita_to_lampiran(){
-		return $this->hasMany('\App\Models\Mst\BeritaToLampiran', 'mst_berita_id');
+		return $this->hasMany(BeritaToLampiran::class, 'mst_berita_id');
 	}
 
  

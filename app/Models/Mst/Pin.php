@@ -1,5 +1,8 @@
-<?php namespace App\Models\Mst;
+<?php 
 
+namespace App\Models\Mst;
+
+use App\Models\Mst\PenggunaPin;
 use Illuminate\Database\Eloquent\Model as Eloquent;
 
 
@@ -9,7 +12,7 @@ class Pin extends Eloquent{
 
 
 	public function mst_pengguna_pin(){
-		return $this->hasOne('\App\Models\Mst\PenggunaPin', 'mst_pin_id');
+		return $this->hasOne(PenggunaPin::class, 'mst_pin_id');
 	}
 
 
