@@ -25,6 +25,6 @@ class Log extends Eloquent
             'mst_user_id'    => $user_id,
             'log'            => $pesan
         ];
-        $this->create($data);
+        Self::create($data);
     }
 }

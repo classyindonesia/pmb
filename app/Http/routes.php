@@ -77,7 +77,7 @@ Route::group(['prefix' => 'backend'], function () {
 });
 
 
-
+require app_path('Http/routes/public/feed.php');
 require app_path('Http/routes/auth.php');
 require app_path('Http/routes/password.php');
 

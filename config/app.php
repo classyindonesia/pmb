@@ -155,6 +155,8 @@ return [
 		Collective\Html\HtmlServiceProvider::class,
 		Cviebrock\EloquentSluggable\ServiceProvider::class,
 		Laravel\Socialite\SocialiteServiceProvider::class,
+		Roumen\Feed\FeedServiceProvider::class,
+		Roumen\Sitemap\SitemapServiceProvider::class,		
  
 	],
 
@@ -218,7 +220,7 @@ return [
 		'QrCode' 	=> 'SimpleSoftwareIO\QrCode\Facades\QrCode',
 		'Excel' 	=> 'Maatwebsite\Excel\Facades\Excel',
 		'Reader'	=> '\PHPExcelReader\SpreadsheetReader',
- 
+ 		'Feed' 		=> Roumen\Feed\Feed::class,
 	],
 
 ];
