@@ -15,7 +15,7 @@ return [
 	|
 	*/
 
-	'driver' => 'mandrill',
+	'driver' => env('MAIL_DRIVER', 'smtp'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -28,7 +28,7 @@ return [
 	|
 	*/
 
-	'host' => 'smtp.mandrillapp.com',
+	'host' => env('MAIL_HOST','smtp.mandrillapp.com'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -41,7 +41,7 @@ return [
 	|
 	*/
 
-	'port' => 587,
+	'port' => env('MAIL_PORT', '587'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return [
 	|
 	*/
 
-	'from' => ['address' => env('EMAIL_PENGIRIM'), 'name' => env('NAMA_PENGIRIM')],
+	'from' => ['address' => env('MAIL_USERNAME'), 'name' => env('MAIL_SENDER_NAME')],
 
 	/*
 	|--------------------------------------------------------------------------
@@ -67,7 +67,7 @@ return [
 	|
 	*/
 
-	'encryption' => 'tls',
+	'encryption' => env('MAIL_ENCRYPTION', 'tls'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return [
 	|
 	*/
 
-	'username' => env('MANDRIL_USERNAME'),
+	'username' => env('MAIL_USERNAME'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return [
 	|
 	*/
 
-	'password' => env('MANDRILL_PASSWORD'),
+	'password' => env('MAIL_PASSWORD', ''),
 
 	/*
 	|--------------------------------------------------------------------------

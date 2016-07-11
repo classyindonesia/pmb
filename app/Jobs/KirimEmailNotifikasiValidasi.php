@@ -38,7 +38,7 @@ class KirimEmailNotifikasiValidasi extends Job implements SelfHandling, ShouldQu
         ];
 
         \Mail::send('emails.pesan_pendaftaran', $data, function ($message) {
-            $message->from(env('EMAIL_PENGIRIM'), env('NAMA_PENGIRIM'));
+            $message->from(env('MAIL_USERNAME'), env('MAIL_SENDER_NAME'));
             $message->to($this->email_to, $this->nama_penerima)
                     ->subject($this->subject);
          });
