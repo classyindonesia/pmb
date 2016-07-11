@@ -29,7 +29,7 @@ class FeedController extends Controller
     {
        // creating rss feed with our most recent 20 posts
        // $posts = \DB::table('posts')->orderBy('created_at', 'desc')->take(20)->get();
-       $berita =  $this->berita->take(20)->orderBy('id', 'DESC')->all();
+       $berita =  $this->berita->take(20)->orderBy('id', 'DESC')->get();
 
        // set your feed's title, description, link, pubdate and language
        $feed->title = env('NAMA_APP', 'Your app');

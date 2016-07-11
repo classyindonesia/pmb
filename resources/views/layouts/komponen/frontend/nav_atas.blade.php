@@ -55,6 +55,11 @@
 
 
   <ul class="nav navbar-nav navbar-right"> 
+@if(Auth::check())
+  <li>
+    <a href="{!! route('admin_dashboard.index') !!}"> <i class='fa fa-server'></i> Dashboard</a>
+  </li>
+@else
       @if($sv->get_val('config_password_frontend') == 1)
       <li @if(isset($reset_password_home)) class='active' @endif><a href="/password/email">
         <i class='fa fa-envelope'></i> lupa password</a></li>  
@@ -62,20 +67,21 @@
 
 
       @if($sv->get_val('config_login_frontend') == 0)
-      <li>
-           <a id='login_page' href="#">
-            <i class='fa fa-lock'></i> LOGIN
-          </a>
-      </li>  
-<script type="text/javascript">
-$('#login_page').click(function(){
-  $('#myModal').modal('show');
-  $('.modal-body').load('{!! route("auth.login") !!}')
-  return false;
-})
-</script>
-
-        @endif  
+        <li>
+             <a id='login_page' href="#">
+              <i class='fa fa-lock'></i> LOGIN
+            </a>
+        </li>  
+        <script type="text/javascript">
+        $('#login_page').click(function(){
+          $('#myModal').modal('show');
+          $('.modal-body').load('{!! route("auth.login") !!}')
+          return false;
+        })
+        </script>
+      @endif
+ 
+@endif  
 
 
 </ul>

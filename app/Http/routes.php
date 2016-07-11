@@ -77,11 +77,12 @@ Route::group(['prefix' => 'backend'], function () {
 });
 
 
+require app_path('Http/routes/public/sitemap.php');
 require app_path('Http/routes/public/feed.php');
 require app_path('Http/routes/auth.php');
 require app_path('Http/routes/password.php');
 
 /* public */
-require app_path('Http/routes/public/home.php');
 require app_path('Http/routes/public/daftar_file.php');
 require app_path('Http/routes/public/pendaftaran_online.php');
+require app_path('Http/routes/public/home.php');
