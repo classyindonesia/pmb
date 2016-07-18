@@ -1,13 +1,13 @@
 <?php namespace App\Http\Controllers\Backend\Web;
 
 use App\Http\Controllers\Controller;
-/* models */
 use App\Models\Mst\LampiranBerita;
-use Storage;
-use Input;
-use Fungsi;
+use App\Services\lampiranBerita\downloadLampiranBeritaService;
 use Auth;
+use Fungsi;
 use Illuminate\Http\Request;
+use Input;
+use Storage;
 
 class LampiranBeritaController extends Controller
 {
@@ -84,13 +84,8 @@ class LampiranBeritaController extends Controller
         $o->delete();
     }
 
-    public function download($id)
+    public function download($id, downloadLampiranBeritaService $lampiran)
     {
-        $f = LampiranBerita::find($id);
-        if (count($f)>0) {
-            return response()->download(storage_path('lampiran/'.$f->nama_file_tersimpan), $f->nama_file_asli);
-        } else {
-            abort(404);
-        }
+        return $lampiran->handle($id);
     }
 }
