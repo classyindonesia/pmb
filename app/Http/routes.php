@@ -32,6 +32,7 @@ Route::group(['prefix' => 'backend'], function () {
     require app_path('Http/routes/web/berita.php');
     require app_path('Http/routes/web/lampiran_berita.php');
     require app_path('Http/routes/web/foto_slide_utama.php');
+    require app_path('Http/routes/web/menu.php');
 
 
 

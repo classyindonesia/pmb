@@ -3,9 +3,6 @@
 
 
 
-
-
-
         <li @if(isset($dashboard_home)) class="active" @endif >
             <a href="{{ URL::route('admin_dashboard.index') }}">
                 <i class='fa fa-home'></i> Home
@@ -41,6 +38,12 @@
         </li>
 
 
+
+        <li @if(isset($backend_menu_home)) class="active" @endif>
+            <a href="{{ URL::route('backend.menu.index') }}">
+                <i class='fa fa-th'></i> Menu
+            </a>
+        </li>
 
 
   @include('layouts.komponen.backend.sidebar.global')
