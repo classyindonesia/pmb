@@ -48,8 +48,9 @@
                   <i class='fa fa-newspaper-o'></i> Daftar Berita
                 </a>
             </li>
-
-
+            @if(SV::get('show_menu_tambahan_frontend') == 1)
+              @include('layouts.komponen.frontend.nav_atas_tambahan')
+            @endif
           </ul>
 
 

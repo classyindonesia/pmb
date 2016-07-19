@@ -43,31 +43,31 @@ class SetupVariableSeeder extends Seeder {
         
         $v = mSV::whereVariable('config_login_frontend')->first();
         if(count($v)<=0) mSV::create(['variable' => 'config_login_frontend', 'value' => 1]); //1=show,0=hide
-        $this->command->info('config login halaman depan telah ditambahkan!');
+        // $this->command->info('config login halaman depan telah ditambahkan!');
 
         $v = mSV::whereVariable('config_password_frontend')->first();
         if(count($v)<=0) mSV::create(['variable' => 'config_password_frontend', 'value' => 1]);
-        $this->command->info('config lupa password halaman depan telah ditambahkan!');
+        // $this->command->info('config lupa password halaman depan telah ditambahkan!');
 
         $v = mSV::whereVariable('config_pendaftaran_online')->first();
         if(count($v)<=0) mSV::create(['variable' => 'config_pendaftaran_online', 'value' => 1]);
-        $this->command->info('config pendaftaran online halaman depan telah ditambahkan!');
+        // $this->command->info('config pendaftaran online halaman depan telah ditambahkan!');
 
         $v = mSV::whereVariable('config_pendaftaran_offline_operator')->first();
         if(count($v)<=0) mSV::create(['variable' => 'config_pendaftaran_offline_operator', 'value' => 1]);
-        $this->command->info('config pendaftaran offline operator telah ditambahkan!');
+        // $this->command->info('config pendaftaran offline operator telah ditambahkan!');
 
 
 
         $v = mSV::whereVariable('config_pindah_prodi')->first();
         if(count($v)<=0) mSV::create(['variable' => 'config_pindah_prodi', 'value' => 1]);
-        $this->command->info('config pindah prodi level camaba telah ditambahkan!');
+        // $this->command->info('config pindah prodi level camaba telah ditambahkan!');
 
 
         //int
         $v = mSV::whereVariable('masa_aktif_pin')->first(); 
         if(count($v)<=0) mSV::create(['variable' => 'masa_aktif_pin', 'value' => 1]);
-        $this->command->info('config masa aktif pin telah ditambahkan!');
+        // $this->command->info('config masa aktif pin telah ditambahkan!');
 
 
 
@@ -75,31 +75,31 @@ class SetupVariableSeeder extends Seeder {
         //int
         $v = mSV::whereVariable('show_pendaftaran_online_public')->first(); 
         if(count($v)<=0) mSV::create(['variable' => 'show_pendaftaran_online_public', 'value' => 1]);
-        $this->command->info('config show_pendaftaran_online_public telah ditambahkan!');
+        // $this->command->info('config show_pendaftaran_online_public telah ditambahkan!');
 
         //int
         $v = mSV::whereVariable('show_slide_utama_public')->first(); 
         if(count($v)<=0) mSV::create(['variable' => 'show_slide_utama_public', 'value' => 1]);
-        $this->command->info('config show_slide_utama_public telah ditambahkan!');
+        // $this->command->info('config show_slide_utama_public telah ditambahkan!');
 
 
         //int
         $v = mSV::whereVariable('show_slide_public')->first(); 
         if(count($v)<=0) mSV::create(['variable' => 'show_slide_public', 'value' => 1]);
-        $this->command->info('config show_slide_public telah ditambahkan!');
+        // $this->command->info('config show_slide_public telah ditambahkan!');
 
 
         //int
         $v = mSV::whereVariable('show_list_file_public')->first(); 
         if(count($v)<=0) mSV::create(['variable' => 'show_list_file_public', 'value' => 1]);
-        $this->command->info('config show_list_file_public telah ditambahkan!');
+        // $this->command->info('config show_list_file_public telah ditambahkan!');
 
 
         //hide/show menu polling
         $v = mSV::whereVariable('show_menu_polling_camaba')->first(); 
         if(count($v)<=0){
             mSV::create(['variable' => 'show_menu_polling_camaba', 'value' => 1]);
-            $this->command->info('config show_menu_polling_camaba telah ditambahkan!');
+            // $this->command->info('config show_menu_polling_camaba telah ditambahkan!');
         }
 
 
@@ -108,7 +108,7 @@ class SetupVariableSeeder extends Seeder {
         $v = mSV::whereVariable('show_menu_validasi_biodata_camaba')->first(); 
         if(count($v)<=0){
             mSV::create(['variable' => 'show_menu_validasi_biodata_camaba', 'value' => 1]);
-            $this->command->info('config show_menu_validasi_biodata_camaba telah ditambahkan!');
+            // $this->command->info('config show_menu_validasi_biodata_camaba telah ditambahkan!');
         }
 
 
@@ -117,9 +117,15 @@ class SetupVariableSeeder extends Seeder {
         $v = mSV::whereVariable('sms_validasi_biodata_camaba')->first(); 
         if(count($v)<=0){
             mSV::create(['variable' => 'sms_validasi_biodata_camaba', 'value' => 1]);
-            $this->command->info('config sms_validasi_biodata_camaba telah ditambahkan!');
+            // $this->command->info('config sms_validasi_biodata_camaba telah ditambahkan!');
         }
 
+        // show/hide menu tambahan frontend
+        $v = mSV::whereVariable('show_menu_tambahan_frontend')->first(); 
+        if(count($v)<=0){
+            mSV::create(['variable' => 'show_menu_tambahan_frontend', 'value' => 1]);
+            // $this->command->info('config show_menu_tambahan_frontend telah ditambahkan!');
+        }
 
 
     }
