@@ -8,12 +8,12 @@
 	<div class="col-md-6">
 		<div class="form-group">
 			 {!! Form::label('nama', 'Nama Menu : ') !!}
-			 {!! Form::text('nama', '', ['class' => 'form-control', 'id' => 'nama', 'placeholder' => 'nama menu...']) !!}
+			 {!! Form::text('nama', $menu->nama, ['class' => 'form-control', 'id' => 'nama', 'placeholder' => 'nama menu...']) !!}
 		</div>
 
 		<div class="form-group">
 			 {!! Form::label('link', 'Link/URL/URI : ') !!}
-			 {!! Form::text('link', '', ['class' => 'form-control', 'id' => 'link', 'placeholder' => 'link menu...']) !!}
+			 {!! Form::text('link', $menu->link, ['class' => 'form-control', 'id' => 'link', 'placeholder' => 'link menu...']) !!}
 		</div>		
 	</div>
 
@@ -23,7 +23,7 @@
 			 {!! Form::label('is_internal', 'Type : ') !!}
 			 {!! Form::select('is_internal', 
 			 		['1' => 'internal', '0' => 'external'], 
-			 		1,
+			 		$menu->is_internal,
 			 		['class' => 'form-control', 'id' => 'is_internal']
 			 ) !!}
 		</div>	
@@ -31,7 +31,7 @@
 			 {!! Form::label('parent_id', 'Parent Menu : ') !!}
 			 {!! Form::select('parent_id', 
 			 		Fungsi::get_dropdown($parent_menu, 'menu'), 
-			 		'',
+			 		$menu->parent_id,
 			 		['class' => 'form-control', 'id' => 'parent_id']
 			 ) !!}
 		</div>	
@@ -53,6 +53,7 @@ $('#simpan').click(function(){
 
 
 form_data ={
+	id : {!! $menu->id !!},
 	nama : $('#nama').val(),
 	link : $('#link').val(),
 	is_internal : $('#is_internal').val(),
@@ -61,7 +62,7 @@ form_data ={
 }
 $('#simpan').attr('disabled', 'disabled');
 	$.ajax({
-		url : '{{ route("backend.menu.insert") }}',
+		url : '{{ route("backend.menu.update") }}',
 		data : form_data,
 		type : 'post',
 		error:function(xhr, status, error){
