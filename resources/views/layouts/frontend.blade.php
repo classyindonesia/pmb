@@ -13,9 +13,14 @@
     <title>@yield('judul_web', env('NAMA_APP'))</title>
 
  
-
+<link href='http://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
 <script src="{{ elixir("js/main.js") }}"></script> 
 <link rel="stylesheet" href="{{ elixir("css/main.css") }}">
+<style type="text/css">
+  body {
+    font-family: Dosis;
+  }
+</style>
 
 @yield('style_tambahan')
  

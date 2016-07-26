@@ -31,7 +31,6 @@ class MenuController extends Controller
     {
         $parent_menu = $this->menu->whereParentId(0)->get()->toArray();
         $parent_menu = array_merge(['' => '-pilih menu-'], $parent_menu);
-        // dd($parent_menu);
         $vars = compact('parent_menu');
         return view($this->base_view.'popup.add', $vars);
     }
