@@ -26,9 +26,13 @@ class BeritaController extends Controller
             ->where('artikel', 'like', '%'.$request->get('search').'%')
             ->orWhere('judul', 'like', '%'.$request->get('search').'%')
             ->with('berita_to_lampiran')
+            ->whereIsPublished(1)
             ->paginate(10);
         } else {
-            $berita = Berita::orderBy('id', 'DESC')->with('berita_to_lampiran')->paginate(10);
+            $berita = Berita::orderBy('id', 'DESC')
+                              ->with('berita_to_lampiran')
+                              ->whereIsPublished(1)
+                              ->paginate(10);
         }
         return view($this->base_view.'index', compact('berita'));
     }
@@ -36,7 +40,7 @@ class BeritaController extends Controller
     public function post($slug)
     {
         $hashids = new \Hashids\Hashids('qertymyr');
-        $berita = Berita::where('slug', $slug)->first();
+        $berita = Berita::where('slug', $slug)->whereIsPublished(1)->first();
         return view($this->base_view.'show_berita', compact('berita', 'hashids'));
     }
 

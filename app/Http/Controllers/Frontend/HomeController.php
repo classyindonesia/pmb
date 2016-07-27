@@ -20,7 +20,7 @@ class HomeController extends Controller
     public function index()
     {
         $foto_slide_utama = SlideUtama::take(10)->orderByRaw("RAND()")->get();
-        $berita = Berita::orderBy('id', 'DESC')->take(5)->get();
+        $berita = Berita::orderBy('id', 'DESC')->take(5)->whereIsPublished(1)->get();
         return view($this->base_view.'index', compact('berita', 'foto_slide_utama'));
     }
 }
