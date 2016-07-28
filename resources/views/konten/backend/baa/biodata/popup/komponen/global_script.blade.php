@@ -90,7 +90,7 @@ $(function () { $("[data-toggle='tooltip']").tooltip(); });
 
 function get_dropdown_prodi_pt(ref_pt_id){
 	$.ajax({
-			url : '{!! route("backend_biodata.get_prodi_pt", null)  !!}/'+ref_pt_id+'/{!! $biodata->id !!}',
+			url : '{!! route("backend_biodata.get_prodi_pt", [null, null])  !!}/'+ref_pt_id+'/{!! $biodata->id !!}',
 			type : 'get',
 			error:function(err){
 				alert('terjadi kesalahan pada sisi server');

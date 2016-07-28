@@ -31,9 +31,9 @@ Route::group(['middleware' => 'hanya_baa'], function () {
 
 
  
-    Route::get('biodata/Route::get_prodi_pt/{ref_perguruan_tinggi_id}/{mst_pendaftaran_id}', [
-        'uses'    => 'Backend\Baa\BiodataController@Route::get_prodi_pt',
-        'as'    => 'backend_biodata.Route::get_prodi_pt',
+    Route::get('biodata/get_prodi_pt/{ref_perguruan_tinggi_id}/{mst_pendaftaran_id}', [
+        'uses'    => 'Backend\Baa\BiodataController@get_prodi_pt',
+        'as'    => 'backend_biodata.get_prodi_pt',
     ]);
 
 
