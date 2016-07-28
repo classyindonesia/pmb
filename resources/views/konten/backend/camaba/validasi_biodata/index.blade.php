@@ -2,8 +2,8 @@
 
 
 @section('judul_header')
+	@include($base_view.'komponen.tombol_simpan')
 	@if(count($biodata->mst_biodata)>0)
-		@include($base_view.'komponen.tombol_simpan')
 		@include($base_view.'komponen.tombol_validasi')
 	@endif
 	<br>
