@@ -1,10 +1,11 @@
 <?php namespace App\Http\Controllers\Backend\Baa;
 
-use App\Commands\InsertTesTulis;
+
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Http\Requests\createTesTulis;
 use App\Http\Requests\updateTesTulis;
+use App\Jobs\InsertTesTulis;
 use App\Models\Mst\TesTulis;
 use App\Repositories\Mst\PendaftaranRepository;
 use App\Repositories\Mst\TesTulisRepository;

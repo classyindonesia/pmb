@@ -1,11 +1,10 @@
 <?php namespace App\Http\Controllers\Backend\Baa;
 
-use App\Commands\InsertPengumuman;
-use App\Commands\InsertTesSkill;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Http\Requests\createPengumuman;
 use App\Http\Requests\updatePengumuman;
+use App\Jobs\InsertPengumuman;
 use App\Models\Mst\Pengumuman;
 use App\Models\Ref\Prodi;
 use App\Models\Ref\StatusDaftarUlang;

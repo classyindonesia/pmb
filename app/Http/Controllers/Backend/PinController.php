@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers\Backend;
 
-use App\Commands\generatePinCommand;
+use App\Jobs\generatePinCommand;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreatePin;
 use App\Http\Requests\GeneratePin;

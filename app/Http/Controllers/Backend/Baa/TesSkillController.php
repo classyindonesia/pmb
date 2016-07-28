@@ -1,10 +1,11 @@
 <?php namespace App\Http\Controllers\Backend\Baa;
 
-use App\Commands\InsertTesSkill;
+
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Http\Requests\createTesSkill;
 use App\Http\Requests\updateTesSkill;
+use App\Jobs\InsertTesSkill;
 use App\Models\Mst\Pendaftaran;
 use App\Models\Mst\TesSkill;
 use App\Models\Ref\TesSkill as RefTesSkill;
