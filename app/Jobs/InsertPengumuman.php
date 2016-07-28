@@ -22,7 +22,7 @@ class InsertPengumuman extends Job implements SelfHandling, ShouldQueue
     {
         $this->kode_prodi = $kode_prodi;
         $this->no_pendaftaran = $no_pendaftaran;
-        $this->$ref_status_daftar_ulang_id = $ref_status_daftar_ulang_id;
+        $this->ref_status_daftar_ulang_id = $ref_status_daftar_ulang_id;
     }
 
  
