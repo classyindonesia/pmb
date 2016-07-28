@@ -9,4 +9,12 @@ class Hit extends Eloquent
 
     protected $fillable = ['ip', 'tgl', 'timevisit', '_token'];
     protected $table = 'mst_hits';
+
+
+    public function countHitsToday($date)
+    {
+    	$q = $this->where('tgl', '=', $date)->count();
+    	return $q;
+    }
+
 }
