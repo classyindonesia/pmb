@@ -1,9 +1,9 @@
 <?php namespace App\Http\Controllers\Backend\Camaba;
 
-use App\Commands\exportPdfBiodata;
-use App\Commands\insertBiodata;
-use App\Commands\kirimNotifValidasiBiodata;
-use App\Commands\updateBiodata;
+use App\Jobs\exportPdfBiodata;
+use App\Jobs\insertBiodata;
+use App\Jobs\kirimNotifValidasiBiodata;
+use App\Jobs\updateBiodata;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Http\Requests\createBiodata;
