@@ -46,6 +46,12 @@
         </li>
 
 
+        <li @if(isset($backend_galery_home)) class="active" @endif>
+            <a href="{{ URL::route('backend.galery.index') }}">
+                <i class='fa fa-image'></i> Galery
+            </a>
+        </li>
+
   @include('layouts.komponen.backend.sidebar.global')
 
  
