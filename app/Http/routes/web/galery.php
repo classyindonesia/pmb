@@ -33,5 +33,19 @@ Route::group(['namespace' => 'Backend', 'middleware' => 'hanya_web'], function()
     ]);   
 
 
+
+
+    Route::get('galery/upload_gambar/{id}', [
+        'uses'              => 'GaleryController@upload_gambar',
+        'as'                => 'backend.galery.upload_gambar'
+    ]);
+
+    Route::post('galery/do_upload_gambar', [
+        'uses'              => 'GaleryController@do_upload_gambar',
+        'as'                => 'backend.galery.do_upload_gambar'
+    ]);
+
+
+
 });
 

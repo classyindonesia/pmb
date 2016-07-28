@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Models\Mst\AlbumGalery;
 use App\Models\Mst\Galery;
+use App\Services\Galery\doUploadImageService;
 use Illuminate\Http\Request;
 
 class GaleryController extends Controller
@@ -36,19 +37,19 @@ class GaleryController extends Controller
     		$album = $this->album->paginate(10);
     	}
     	$vars = compact('album');
-    	return view($this->base_view.'index', $vars);
+    	return view($this->base_view.'album.index', $vars);
     }
 
     public function add_album()
     {
-    	return view($this->base_view.'popup.add_album');
+    	return view($this->base_view.'album.popup.add_album');
     }
 
     public function edit_album($id)
     {
     	$album = $this->album->find($id);
     	$vars = compact('album');
-    	return view($this->base_view.'popup.edit_album', $vars);
+    	return view($this->base_view.'album.popup.edit_album', $vars);
     }
 
     public function insert_album()
@@ -75,8 +76,12 @@ class GaleryController extends Controller
     	$a = $this->album->find($this->request->id);
     	foreach($a->mst_galery as $list){
     		$path = public_path('upload/galery/'.$list->nama_file);
+    		$path_thumbnail = public_path('upload/galery/thumbnail_'.$list->nama_file);
     		if(file_exists($path)){
     			unlink($path);
+    		}
+    		if(file_exists($path_thumbnail)){
+    			unlink($path_thumbnail);
     		}
     		$list->delete();
     	}
@@ -84,6 +89,21 @@ class GaleryController extends Controller
     	return 'ok';
     }
 
-    
+
+    public function upload_gambar($id)
+    {
+		$max = explode('M', ini_get("upload_max_filesize"));
+		$album = $this->album->find($id);
+		$max_upload = $max[0] * 1048576;
+		$vars = compact('max_upload', 'album');    	
+    	return view($this->base_view.'images.popup.upload_gambar', $vars);
+    }
+
+    public function do_upload_gambar(doUploadImageService $upload)
+    {
+    	return $upload->handle();
+    }
+
+
 
 }
