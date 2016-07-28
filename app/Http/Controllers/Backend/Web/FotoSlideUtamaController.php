@@ -86,4 +86,24 @@ class FotoSlideUtamaController extends Controller
         $o->delete();
         return 'ok';
     }
+
+    public function add_url($id)
+    {
+        $slide = SlideUtama::find($id);
+        return view($this->base_view.'popup.add_url', compact('slide'));
+    }
+
+    public function insert_url(Request $request)
+    {
+        $this->validate($request,[
+            'url' => 'url'
+        ]);
+
+        $s = SlideUtama::find($request->id);
+        if(count($s)>0){
+            $s->url = $request->url;
+            $s->save();
+        }
+        return 'ok';
+    }
 }

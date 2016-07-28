@@ -16,4 +16,9 @@ function delFoto(id_foto){
 	}
 }
 
+function addUrl(id_foto){
+	$('#myModal').modal('show');
+	$('.modal-body').load('{!! route("foto_slide_utama.add_url", null) !!}/'+id_foto);
+}
+
 </script>

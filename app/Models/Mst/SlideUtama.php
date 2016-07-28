@@ -9,7 +9,7 @@ class SlideUtama extends Eloquent
 {
 
     protected $table = 'mst_slide_utama';
-    protected $fillable = ['nama_file_asli', 'mst_user_id'];
+    protected $fillable = ['nama_file_asli', 'mst_user_id', 'url'];
 
     public function mst_user()
     {
