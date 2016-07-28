@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers\Frontend;
 
-use App\Commands\KirimEmailPendaftaran;
+use App\Jobs\KirimEmailPendaftaran;
 use App\Helpers\KirimSms;
 use App\Helpers\SetupVariable;
 use App\Http\Controllers\Controller;

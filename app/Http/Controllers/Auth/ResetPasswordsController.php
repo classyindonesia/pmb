@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers\Auth;
 
-use App\Commands\KirimSms;
+use App\Jobs\KirimSms;
 use App\Http\Controllers\Controller;
 use App\Models\Mst\User;
 use App\Repositories\Mst\PendaftaranRepository;

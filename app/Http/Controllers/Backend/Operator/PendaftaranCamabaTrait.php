@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers\Backend\Operator;
 
-use App\Commands\KirimSms;
+use App\Jobs\KirimSms;
 use App\Models\Mst\GantiProdi;
 use App\Models\Mst\Pendaftaran;
 use App\Repositories\Mst\PendaftaranRepository;

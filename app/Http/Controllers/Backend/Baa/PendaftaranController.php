@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers\Backend\Baa;
 
-use App\Commands\KirimSms;
+use App\Jobs\KirimSms;
 use App\Http\Controllers\Controller;
 use App\Models\Mst\Berkas;
 use App\Models\Mst\GantiProdi;

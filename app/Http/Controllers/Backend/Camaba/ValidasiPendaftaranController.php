@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers\Backend\Camaba;
 
-use App\Commands\KirimEmailNotifikasiValidasi;
+use App\Jobs\KirimEmailNotifikasiValidasi;
 use App\Helpers\KirimSms;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;

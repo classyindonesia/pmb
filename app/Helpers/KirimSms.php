@@ -1,6 +1,6 @@
 <?php namespace App\Helpers;
 
-use App\Commands\KirimSms as KS;
+use App\Jobs\KirimSms as KS;
 use Queue;
 
 class KirimSms

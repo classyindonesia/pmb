@@ -1,7 +1,7 @@
 <?php namespace App\Http\Controllers\Backend;
 
-use App\Commands\KirimEmailPendaftaran;
-use App\Commands\KirimSms as KS;
+use App\Jobs\KirimEmailPendaftaran;
+use App\Jobs\KirimSms as KS;
 use App\Helpers\KirimSms;
 use App\Helpers\SetupVariable;
 use App\Http\Controllers\Backend\Operator\PendaftaranCamabaTrait;
