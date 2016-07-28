@@ -57,6 +57,7 @@ class ValidasiBiodataController extends Controller
     {
         $p_get = $p->getByEmail(\Auth::user()->email);
         $biodata =  $b->getPendaftarByIdRaw($p_get->id);
+        dd($biodata);
 
 
 
