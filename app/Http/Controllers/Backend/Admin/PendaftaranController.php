@@ -1,7 +1,7 @@
 <?php namespace App\Http\Controllers\Backend\Admin;
 
-use App\Jobs\KirimSms;
 use App\Http\Controllers\Controller;
+use App\Jobs\KirimSms;
 use App\Models\Mst\Berkas;
 use App\Models\Mst\GantiProdi;
 use App\Models\Mst\Pendaftaran;
@@ -9,6 +9,8 @@ use App\Models\Mst\Photo;
 use App\Models\Mst\User;
 use App\Repositories\Mst\PendaftaranRepository;
 use App\Repositories\Ref\Prodi;
+use App\Services\Pendaftaran\delPendaftaranService;
+use App\Services\Pendaftaran\exportPendaftaranService;
 use Illuminate\Http\Request;
 
 class PendaftaranController extends Controller
@@ -112,139 +114,21 @@ class PendaftaranController extends Controller
 
 
 
-    public function export_data()
+    public function export_data(exportPendaftaranService $export)
     {
-        $now = \Fungsi::date_to_tgl(date('Y-m-d_H:i:s'));
-        $nama_file = str_slug('data_pendaftaran_'.$now);
-        \Excel::create($nama_file, function ($excel) {
-            $excel->setTitle('aplikasi pendaftaran online UNP Kediri');
-            $excel->setCreator('App PMB')
-                  ->setCompany('UNP Kediri');
-            $excel->setDescription('Generate dari aplikasi pendaftaran online UNP Kediri');
-
-
-
-            /* sheet awal */
-            $excel->sheet('PMB list pendaftar', function ($sheet) {
-                $sheet->setHeight([1 => 50, 2 => 27]);
-                $sheet->row(1, ['List Pendaftar '.env('NAMA_APP')]);
-                $sheet->row(2, [
-                    'No.', 'No Pendaftaran', 'Nama', 'Alamat',
-                    'No HP', 'Prodi 1', 'Prodi 2', 'status foto', 'status berkas'
-                    ]);
-                $sheet->cells('A1:I1', function ($cells) {
-                    $cells->setFontSize(16);
-                });
-                $sheet->setBorder('A2:I2', 'thin');
-                $sheet->cells('A2:I2', function ($cells) {
-                    $cells->setBackground('#DDEEFF');
-                });
-                $sheet->setColumnFormat(['I' => '@', 'E' => '@']);
-
-
-                /* start create data row */
-                $i = 3;
-                $pendaftaran = new PendaftaranRepository;
-                $pendaftaran = $pendaftaran->getAllPlain();
-                    foreach ($pendaftaran as $list) {
-                        $sheet->setHeight($i, 20);
-
-                        if ($list->jenis_kelamin == 'L') {
-                            $jk = 'Laki-laki';
-                        } else {
-                            $jk = 'Perempuan';
-                        }
-
-                        if (count($list->ref_prodi1)>0) {
-                            $prodi1 = $list->ref_prodi1->nama;
-                        } else {
-                            $prodi1 = '-';
-                        }
-                        if (count($list->ref_prodi2)>0) {
-                            $prodi2 = $list->ref_prodi2->nama;
-                        } else {
-                            $prodi2 = '-';
-                        }
-                        if (count($list->mst_photo)>0) {
-                            $photo = 'ada';
-                        } else {
-                            $photo = 'belum ada';
-                        }
-                        if (count($list->mst_berkas)>0) {
-                            $berkas = 'ada';
-                        } else {
-                            $berkas = 'belum ada';
-                        }
-
-                        $sheet->row($i, [
-                            $i-2, $list->no_pendaftaran,
-                            $list->nama, $list->alamat,
-                            "'".$list->no_hp, $prodi1,
-                            $prodi2, $photo,
-                            $berkas,
-                        ]);
-
-                        $i++;
-                    }
-                /* end create data row */
-                
-
-
-                $sheet->mergeCells('A1:I1');
-                $sheet->setAutoSize(true);
-                $sheet->setFreeze('A3');
-
-            });
-
-
-        })->export('xls');
+        return $export->handle();
     }
 
 
-    public function delete()
+    public function delete(delPendaftaranService $delete)
     {
-        //hapus pendaftar
-        $p = Pendaftaran::find(\Input::get('id'));
-        if (count($p)>0) {
 
-            //hapus foto
-            $foto = Photo::where('mst_pendaftaran_id', '=', $p->id)->first();
-            if (count($foto)>0) {
-                //hapus foto
-                $path_to_foto = public_path('upload/foto/'.$foto->nama_file_tersimpan);
-                if (file_exists($path_to_foto)) {
-                    unlink($path_to_foto);
-                }
-                $foto->delete();
-            }
-            //end of hapus foto
+        return $delete->handle();
+    }
 
 
-            // hapus berkas
-            $berkas = Berkas::where('mst_pendaftaran_id', '=', $p->id)->get();
-            foreach ($berkas as $list) {
-                if ($list->ref_jenis_berkas_id == 1) {
-                    $path_to_berkas = public_path('upload/berkas/ijazah/'.$list->nama_file_asli);
-                } else {
-                    $path_to_berkas = public_path('upload/berkas/surat_keterangan_lulus/'.$list->nama_file_asli);
-                }
-                if (file_exists($path_to_berkas)) {
-                    unlink($path_to_berkas);
-                }
-                $list->delete();
-            }
-            //end hapus berkas
-
-
-            //hapus user
-            $user = User::where('email', '=', $p->alamat_email)->first();
-            if (count($user)>0) {
-                $user->delete();
-            }
-            //end of hapus user
-        }
-        $p->delete();
-            //end of hapus pendaftar		
-        return 'ok';
+    public function import_data_pendaftaran()
+    {
+        return view($this->base_view.'popup.import_data_pendaftaran');
     }
 }
