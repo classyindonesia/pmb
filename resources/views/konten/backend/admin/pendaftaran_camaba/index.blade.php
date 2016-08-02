@@ -3,6 +3,7 @@
 @section('judul_header')
 	@include($base_view.'komponen.tombol_export')
 	@include($base_view.'komponen.tombol_pilih_tahun_ajaran')
+	@include($base_view.'komponen.tombol_import')
 
    <h1 class="title_header"><i class='fa fa-group'></i>  Pendaftaran Calon Mahasiswa Baru </h1>
 @endsection

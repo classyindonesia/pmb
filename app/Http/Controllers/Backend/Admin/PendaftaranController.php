@@ -10,6 +10,7 @@ use App\Models\Mst\User;
 use App\Repositories\Mst\PendaftaranRepository;
 use App\Repositories\Ref\Prodi;
 use App\Services\Pendaftaran\delPendaftaranService;
+use App\Services\Pendaftaran\doImportPendaftaranService;
 use App\Services\Pendaftaran\exportPendaftaranService;
 use Illuminate\Http\Request;
 
@@ -131,4 +132,11 @@ class PendaftaranController extends Controller
     {
         return view($this->base_view.'popup.import_data_pendaftaran');
     }
+
+    public function do_import_data_pendaftaran(doImportPendaftaranService $import)
+    {
+        return $import->handle();
+    }
+
+
 }

@@ -34,9 +34,11 @@ class Pendaftaran extends Eloquent
         'ref_prodi_id2',
         'ref_gelombang_id',
         'jenis_daftar',
-        'keterangan_sma'
+        'keterangan_sma',
+        'ref_thn_ajaran_id',
+        'alamat_email',
+        'is_valid'
         ];
-
 
 
     protected $appends = ['alamat', 'nama', 'tempat_lahir'];

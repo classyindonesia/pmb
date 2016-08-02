@@ -55,6 +55,11 @@ Route::group(['middleware' => 'hanya_admin', 'namespace' => 'Backend\Admin', 'pr
         'uses'    => 'PendaftaranController@import_data_pendaftaran',
         'as'    => 'admin_data_pendaftaran.import_data_pendaftaran',
     ]);
- 
+
+    Route::post('do_import_data_pendaftaran', [
+        'uses'    => 'PendaftaranController@do_import_data_pendaftaran',
+        'as'    => 'admin_data_pendaftaran.do_import_data_pendaftaran',
+    ]);
+  
 
 });
