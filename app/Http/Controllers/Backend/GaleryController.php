@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Models\Mst\AlbumGalery;
 use App\Models\Mst\Galery;
+use App\Services\Galery\deleteAlbumGaleryService;
 use App\Services\Galery\doUploadImageService;
 use Illuminate\Http\Request;
 
@@ -71,22 +72,9 @@ class GaleryController extends Controller
     	return $this->album->find($this->request->id);
     }
 
-    public function del_album()
+    public function del_album(deleteAlbumGaleryService $album)
     {
-    	$a = $this->album->find($this->request->id);
-    	foreach($a->mst_galery as $list){
-    		$path = public_path('upload/galery/'.$list->nama_file);
-    		$path_thumbnail = public_path('upload/galery/thumbnail_'.$list->nama_file);
-    		if(file_exists($path)){
-    			unlink($path);
-    		}
-    		if(file_exists($path_thumbnail)){
-    			unlink($path_thumbnail);
-    		}
-    		$list->delete();
-    	}
-    	$a->delete();
-    	return 'ok';
+        return $album->handle();
     }
 
 
@@ -102,6 +90,13 @@ class GaleryController extends Controller
     public function do_upload_gambar(doUploadImageService $upload)
     {
     	return $upload->handle();
+    }
+
+    public function images($mst_album_galery_id)
+    {
+        $album = $this->album->find($mst_album_galery_id);
+        $vars = compact('album');
+        return view($this->base_view.'images.index', $vars);
     }
 
 
