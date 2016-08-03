@@ -9,7 +9,7 @@
 @section('konten_utama')
 <script src="/js/plugins/holderjs/holder.js"></script>
 	
-
+	@include($base_view.'album.komponen.form_search')
 	@include($base_view.'album.list_data')
 
 @endsection
