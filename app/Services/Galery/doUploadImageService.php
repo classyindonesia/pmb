@@ -10,14 +10,27 @@ class doUploadImageService
 
 	protected $request;
 	private $uploadPath;
+	private $watermark_file;
 
 	public function __construct(Request $request)
 	{
+		$this->watermark_file = public_path('img/watermark/watermark.png');
 		$assetPath = '/upload/galery/';
 		$this->uploadPath = public_path($assetPath);
 		$this->request = $request;
 	}
 
+
+	public function applyWatermark($path_to_file)
+	{
+		// $jenis_ekstensi = $this->get_jenis_eksternsi($path_to_file);
+		if($jenis_ekstensi == 1){
+			//jika gambar, maka insert ke tabel watermark+create new gambar
+			$img = \Image::make($path_to_file)
+				->insert(public_path('upload/').env('NAMA_FILE_WATERMARK'), env('SETTING_POSISI_WATERMARK'), 10, 10)
+				->save(public_path('/upload/arsip/watermark/').$path_to_file);
+		}
+	}
 
 
 	public function handle()
