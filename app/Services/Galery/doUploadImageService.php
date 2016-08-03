@@ -10,11 +10,11 @@ class doUploadImageService
 
 	protected $request;
 	private $uploadPath;
-	private $watermark_file;
+	public $watermark_file;
 
 	public function __construct(Request $request)
 	{
-		$this->watermark_file = public_path('img/watermark/watermark.png');
+		$this->watermark_file = public_path('img/watermark/'.env('WATERMARK_GALERY'));
 		$assetPath = '/upload/galery/';
 		$this->uploadPath = public_path($assetPath);
 		$this->request = $request;
@@ -23,13 +23,13 @@ class doUploadImageService
 
 	public function applyWatermark($path_to_file)
 	{
-		// $jenis_ekstensi = $this->get_jenis_eksternsi($path_to_file);
-		if($jenis_ekstensi == 1){
-			//jika gambar, maka insert ke tabel watermark+create new gambar
+		if(file_exists($this->watermark_file)){
 			$img = \Image::make($path_to_file)
-				->insert(public_path('upload/').env('NAMA_FILE_WATERMARK'), env('SETTING_POSISI_WATERMARK'), 10, 10)
-				->save(public_path('/upload/arsip/watermark/').$path_to_file);
-		}
+				->insert($this->watermark_file, env('SETTING_POSISI_WATERMARK'), 10, 10)
+				->save($path_to_file);
+			}else{
+				\Log::info('file watermark '.$this->watermark_file.' tidak ditemukan, file '.$path_to_file.' tidak diberi watermark!');
+			}
 	}
 
 
@@ -44,6 +44,9 @@ class doUploadImageService
 					$nama_file = md5($file->getClientOriginalName().'_'.date('YmdHis')).'.jpg';
 				 	$file->move($this->uploadPath, $nama_file);
 				 	$name = $file->getClientOriginalName().' telah tersimpan! ';
+
+				 	// apply watermark
+				 	$this->applyWatermark(public_path('upload/galery/'.$nama_file));
 
 				 	//create thumbnail
 				 	$this->create_thumbnail($nama_file);
