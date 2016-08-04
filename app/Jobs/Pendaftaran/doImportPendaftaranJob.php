@@ -122,7 +122,7 @@ class doImportPendaftaranJob extends Job implements ShouldQueue
 
                 }else{
                    //jika ada kolom yg kurang
-                    \Log::alert('ada kolom yg belum terisi, lokasi file : '.$this->file);
+                    \Log::alert('ada kolom yg belum terisi, lokasi file : '.$this->lokasi_file);
                   }
               } //if setelah for (keterangan template)
 
