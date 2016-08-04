@@ -128,6 +128,12 @@ class SetupVariableSeeder extends Seeder {
         }
 
 
+        // generate npm saat validasi camaba
+        $v = mSV::whereVariable('generate_npm_validasi')->first(); 
+        if(count($v)<=0){
+            mSV::create(['variable' => 'generate_npm_validasi', 'value' => 1]);
+        }
+
     }
 
     

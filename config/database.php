@@ -79,6 +79,19 @@ return [
 		],
 
 
+		'bml' => [
+			'driver'    => 'mysql',
+			'host'      => env('DB_HOST_BML', 'localhost'),
+			'database'  => env('DB_DATABASE_BML', 'forge'),
+			'username'  => env('DB_USERNAME_BML', 'forge'),
+			'password'  => env('DB_PASSWORD_BML', ''),
+			'port'  	=> env('DB_PORT_BML', '3306'),
+			'charset'   => 'utf8',
+			'collation' => 'utf8_unicode_ci',
+			'prefix'    => '',
+			'strict'    => false,
+		],
+
 
 
 		'pgsql' => [

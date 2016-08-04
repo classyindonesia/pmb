@@ -1,33 +1,21 @@
 <?php namespace App\Http\Controllers\Backend\Camaba;
 
-use App\Jobs\KirimEmailNotifikasiValidasi;
-use App\Helpers\KirimSms;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
+use App\Jobs\KirimEmailNotifikasiValidasi;
 use App\Models\Mst\Berkas;
 use App\Models\Mst\Photo;
 use App\Repositories\Mst\PendaftaranRepository;
+use App\Services\Pendaftaran\doValidasiPendaftaranService;
 use Auth;
-use Queue;
 use Illuminate\Http\Request;
+use Queue;
 
 class ValidasiPendaftaranController extends Controller
 {
 
     private $base_view = 'konten.backend.camaba.validasi_pendaftaran.';
-
-    private function kirim_email_notifikasi($b)
-    {
-        $subject = "validasi pendaftaran mahasiswa baru";
-        $email = $b->alamat_email;
-        $no_pendaftaran = $b->no_pendaftaran;
-        $nama = $b->nama;
-        Queue::push(new KirimEmailNotifikasiValidasi($subject, $email, $nama, $no_pendaftaran));
-        return 'ok';
-    }
-
-
-
+ 
 
     public function __construct()
     {
@@ -43,21 +31,13 @@ class ValidasiPendaftaranController extends Controller
         return view($this->base_view.'index', compact('base_view', 'b', 'f', 'berkas'));
     }
 
-
-
-
-
-    public function do_validasi(PendaftaranRepository $p, Request $request, KirimSms $sms)
-    {
-        $b = $p->getByEmail(Auth::user()->email);
-        $b->is_valid = 1;
-        $b->save();
  
-        $sms->createUserNotifValidasi($b->no_pendaftaran, $b->nama, $b->no_hp);
 
-        /* kitim email notifikasi */
-        $this->kirim_email_notifikasi($b);
-
-        return 'ok';
+    public function do_validasi(doValidasiPendaftaranService $pendaftaran)
+    {
+        return $pendaftaran->handle();
     }
+
+
+    
 }
