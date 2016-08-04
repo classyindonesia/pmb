@@ -14,10 +14,15 @@ class doValidasiPendaftaranService
 	protected $request;
 	protected $pendaftaran;
 	protected $sms;
+    protected $bml;
 
 
-	public function __construct(Request $request, PendaftaranRepository $pendaftaran, KirimSms $sms)
-	{
+	public function __construct(Request $request, 
+                                PendaftaranRepository $pendaftaran, 
+                                KirimSms $sms,
+                                MstBiodata $bml
+                            ){
+        $this->bml = $bml;
 		$this->sms = $sms;
 		$this->request = $request;
 		$this->pendaftaran = $pendaftaran;
@@ -58,7 +63,7 @@ class doValidasiPendaftaranService
     		$prodi = Prodi::find($pengumuman->ref_prodi_id);
     		if(count($prodi)>0){
 
-    			$thn_angkatan = substr(date('Y'), 2, 2);
+    			$thn_angkatan = substr(date('Y'), 2, 2); //(2016 -> 16)
     			$kode_prodi = $prodi->kode_prodi;
 
     		}
