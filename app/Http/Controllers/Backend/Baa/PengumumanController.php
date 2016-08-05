@@ -116,6 +116,8 @@ class PengumumanController extends Controller
                            //insert to queue job
                            \Log::info('pengumuman, no pendaftaran : '.$no.', kode_prodi : '.$no2.' masuk queue job!');
                            \Queue::push(new InsertPengumuman($no, $no2, $no3));
+                       }else{
+                        \Log::error('ada kolom yg kurang lengkap pada baris ke '.$i);
                        }
                 }
             }
