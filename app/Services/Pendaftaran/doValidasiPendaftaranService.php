@@ -4,6 +4,7 @@ namespace App\Services\Pendaftaran;
 
 use App\Helpers\KirimSms;
 use App\Jobs\KirimEmailNotifikasiValidasi;
+use App\Models\Bml\MstBiodata;
 use App\Models\Ref\Prodi;
 use App\Repositories\Mst\PendaftaranRepository;
 use Illuminate\Http\Request;
@@ -55,6 +56,23 @@ class doValidasiPendaftaranService
     }
 
 
+    private function urutAkhir($urut_akhir)
+    {
+    	$urut_akhir = $urut_akhir+1;
+        if ($urut_akhir < 10) {
+            $urut_akhir = '0'.$urut_akhir;
+        }
+        if ($urut_akhir < 100) {
+            $urut_akhir = '0'.$urut_akhir;
+        }
+        if ($urut_akhir < 1000) {
+            $urut_akhir = '0'.$urut_akhir;
+        }    	
+
+        return $urut_akhir;
+    }
+
+
     public function createNpm($pendaftaran)
     {
     	//get record dari tabel pengumuman
@@ -66,8 +84,24 @@ class doValidasiPendaftaranService
     			$thn_angkatan = substr(date('Y'), 2, 2); //(2016 -> 16)
     			$kode_prodi = $prodi->kode_prodi;
 
+    			// check npm dgn tahun ajaran dan prodi yg sama
+    			$biodata = $this->bml
+    							->where('npm', 'like', $thn_angkatan.'.'.$kode_prodi.'.%')
+    							->orderBy('npm', 'DESC')
+    							->first();
+
+    			if(count($biodata)>0){
+    				// jika ada
+    				$arr_npm = collect(explode('.', $biodata->npm));
+    				$npm_baru = $thn_angkatan.'.'.$kode_prodi.'.'.$this->urutAkhir($arr_npm->last());
+    			}else{
+    				$npm_baru = $thn_angkatan.'.'.$kode_prodi.'.'.$this->urutAkhir(0);
+    			}
+
+    			return $npm_baru;
     		}
     	}
+    	return null;
 
     }
 
