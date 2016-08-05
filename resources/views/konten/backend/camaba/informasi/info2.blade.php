@@ -31,7 +31,7 @@
 
 		<tr>		
 			<td>Skill</td>
-			<td>@if(count($list->ref_ruang)>0) {!! $list->ref_tes_skill->nama !!} @else {!! $blm_tersedia !!} @endif </td>
+			<td>@if(count($list->ref_tes_skill)>0) {!! $list->ref_tes_skill->nama !!} @else {!! $blm_tersedia !!} @endif </td>
 		</tr>
 
 		<tr>		
