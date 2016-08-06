@@ -2,6 +2,7 @@
 
 namespace App\Models\Bml;
 
+use App\Models\Bml\RefProdi;
 use Illuminate\Database\Eloquent\Model;
 
 class MstBiodata extends Model
@@ -48,7 +49,11 @@ class MstBiodata extends Model
 		'ref_ukuran_almamater_id',
 		'status',
 		'transfer',
-
     ];
-}
 
+    public function ref_prodi()
+    {
+    	return $this->belongsTo(RefProdi::class, 'ref_prodi_id');
+    }
+}
+ 

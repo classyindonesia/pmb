@@ -79,6 +79,13 @@
           </a>
       </li>
 
+      <li @if(isset($backend_validasi_biodata_home)) class="active" @endif>
+          <a href="{!! route('backend.validasi_biodata_bml.index') !!}"> 
+              <i class="fa fa-check-circle"></i> Validasi Biodata  
+          </a>
+      </li>
+
+
 
   @include('layouts.komponen.backend.sidebar.global')
 

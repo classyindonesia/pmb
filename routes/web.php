@@ -6,6 +6,9 @@ Route::group(['prefix' => 'backend'], function () {
     /* auth global */
     require base_path('routes/komponen/profile.php');
 
+    /* utk level baa dan admin */
+    require base_path('routes/komponen/global_backend/validasi_biodata_bml.php');
+
 
 
     /* admin */
