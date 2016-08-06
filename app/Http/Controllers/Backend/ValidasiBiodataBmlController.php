@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class ValidasiBiodataBmlController extends Controller
 {
     	
-    public $base_view = 'konten.backend.validasi_biodata.';
+    public $base_view = 'konten.backend.validasi_biodata_bml.';
     protected $validasi_biodata;
     protected $request;
 

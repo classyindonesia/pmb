@@ -1,12 +1,12 @@
 <?php namespace App\Http\Controllers\Backend\Camaba;
 
+use App\Http\Controllers\Controller;
+use App\Http\Requests;
+use App\Http\Requests\createBiodata;
 use App\Jobs\exportPdfBiodata;
 use App\Jobs\insertBiodata;
 use App\Jobs\kirimNotifValidasiBiodata;
 use App\Jobs\updateBiodata;
-use App\Http\Controllers\Controller;
-use App\Http\Requests;
-use App\Http\Requests\createBiodata;
 use App\Models\Mst\Biodata;
 use App\Models\Mst\JawabanPolling;
 use App\Models\Mst\PertanyaanPolling;
@@ -25,6 +25,7 @@ use App\Models\Ref\Transportasi;
 use App\Models\Ref\UkuranAlmamater;
 use App\Repositories\Mst\BiodataRepository;
 use App\Repositories\Mst\PendaftaranRepository;
+use App\Services\Biodata\doValidasiBiodataService;
 use Illuminate\Http\Request;
 
 class ValidasiBiodataController extends Controller
@@ -116,13 +117,15 @@ class ValidasiBiodataController extends Controller
         return view($this->base_view.'popup.validasi', compact('biodata'));
     }
 
-    public function do_validasi(Request $request)
+    public function do_validasi(Request $request, doValidasiBiodataService $validasi)
     {
-        $b = Biodata::findOrFail($request->id);
-        $b->status = 1;
-        $b->save();
+        $biodata = Biodata::findOrFail($request->id);
+        $biodata->status = 1;
+        $biodata->save();
 
-        $this->dispatch(new kirimNotifValidasiBiodata($b->id));
+        $validasi->handle($biodata->id);
+
+        $this->dispatch(new kirimNotifValidasiBiodata($biodata->id));
         return 'ok';
     }
 

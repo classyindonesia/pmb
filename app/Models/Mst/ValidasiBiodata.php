@@ -29,9 +29,14 @@ class ValidasiBiodata extends Model
 
     public function getFkRefProdiBmlAttribute()
     {
-        $q = $this->mst_biodata_bml->ref_prodi()->first();
+        $q = $this->mst_biodata_bml()->first();
         if(count($q)>0){
-            return $q->nama;
+            $q_prodi = $q->ref_prodi()->first();
+            if(count($q_prodi)>0){
+                return $q_prodi->nama;
+            }else{
+                return null;
+            }
         }
         return null;
     }
