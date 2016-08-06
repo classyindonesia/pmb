@@ -35,6 +35,7 @@ class ValidasiPendaftaranController extends Controller
 
     public function do_validasi(doValidasiPendaftaranService $pendaftaran)
     {
+        \Log::info('do validasi pendaftaran!');
         return $pendaftaran->handle();
     }
 
