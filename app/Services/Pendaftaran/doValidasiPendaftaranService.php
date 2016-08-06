@@ -140,9 +140,11 @@ class doValidasiPendaftaranService
     			}else{
     				$npm_baru = $thn_angkatan.'.'.$kode_prodi.'.'.$this->urutAkhir(0);
     			}
+                \Log::info('npm telah tergenerate : '.$npm_baru);
     			return $npm_baru;
     		}
     	}
+        \Log::info('gagal generate npm');
     	return null;
     }
 
@@ -154,6 +156,7 @@ class doValidasiPendaftaranService
             'npm'   => $npm
         ];
         $insert_validasi = $this->validasi_biodata->create($data);
+        \Log::info('create data validasi : '.json_encode($insert_validasi));
         return $insert_validasi;
     }
 
@@ -204,6 +207,7 @@ class doValidasiPendaftaranService
                     'npm'          => $npm
 		    	];
 		    	$insert_bml = $this->bml->create($data);
+                \Log::info('data telah masuk ke dalam db bml : '.json_encode($insert_bml));
 		    	return $insert_bml;
 	    	}else{
 	    		\Log::error('relasi ref_prodi dari pmb ke bml tidak ditemukan');
