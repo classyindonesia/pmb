@@ -70,7 +70,9 @@ class doValidasiPendaftaranService
 	        if($npm != null){
                 $this->createDataValidasi($b->id, $npm);
 		        $this->mergeBiodataToBml($b, $npm);        	
-	        }
+	        }else{
+                \Log::error('npm tdk tergenerate, gagal insert ke db bml');
+            }
 
         }
 
