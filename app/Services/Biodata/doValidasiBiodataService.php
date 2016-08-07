@@ -104,21 +104,33 @@ class doValidasiBiodataService
     			$kode_prodi = $prodi->kode_prodi;
     			$kode_prodi = $this->getProdiBml($kode_prodi);
 
+    			// check status pendaftaran transfer/bukan
+    			$biodata_pmb = $this->mst_biodata->whereMstPendaftaranId($pendaftaran->id)->first();
+    			if(count($biodata_pmb)>0){
+    				if($biodata_pmb->status_pendaftaran == 'transfer'){
+    					$status_pendaftaran = 'P';
+    				}else{
+    					$status_pendaftaran = '';
+    				}
+    			}else{
+    				$status_pendaftaran = '';
+    			}
+
     			// check npm dgn tahun ajaran dan prodi yg sama
-    			$biodata = $this->bml
+    			$biodata_bml = $this->bml
     							->where('npm', 'like', $thn_angkatan.'.'.$kode_prodi.'.%')
     							->orderBy('npm', 'DESC')
     							->first();
 
-    			if(count($biodata)>0){
+    			if(count($biodata_bml)>0){
     				// jika ada
-    				$arr_npm = collect(explode('.', $biodata->npm));
+    				$arr_npm = collect(explode('.', $biodata_bml->npm));
     				$npm_baru = $thn_angkatan.'.'.$kode_prodi.'.'.$this->urutAkhir($arr_npm->last());
     			}else{
     				$npm_baru = $thn_angkatan.'.'.$kode_prodi.'.'.$this->urutAkhir(0);
     			}
-                \Log::info('npm telah tergenerate : '.$npm_baru);
-    			return $npm_baru;
+                \Log::info('npm telah tergenerate : '.$npm_baru.$status_pendaftaran);
+    			return $npm_baru.$status_pendaftaran;
     		}
     	}
         \Log::info('gagal generate npm');
@@ -181,7 +193,8 @@ class doValidasiBiodataService
 
 	         		// tambahan yg tdk ada di tabel mst_biodata:pmb
 	         		'ref_prodi_id' => $ref_prodi_bml_id,
-                    'npm'          => $npm
+                    'npm'          => $npm,
+                    'ref_thn_angkatan_id' => substr($npm, 0, 2),
 		    	];
 		    	$insert_bml = $this->bml->create($data);
                 \Log::info('data telah masuk ke dalam db bml : '.json_encode($insert_bml));
