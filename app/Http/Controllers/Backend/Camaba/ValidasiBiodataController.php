@@ -10,6 +10,7 @@ use App\Jobs\updateBiodata;
 use App\Models\Mst\Biodata;
 use App\Models\Mst\JawabanPolling;
 use App\Models\Mst\PertanyaanPolling;
+use App\Models\Mst\ValidasiBiodata;
 use App\Models\Ref\Agama;
 use App\Models\Ref\Identitas;
 use App\Models\Ref\Kota;
@@ -32,9 +33,11 @@ class ValidasiBiodataController extends Controller
 {
 
     private $base_view = 'konten.backend.camaba.validasi_biodata.';
+    protected $validasi_biodata;
 
-    public function __construct()
+    public function __construct(ValidasiBiodata $validasi_biodata)
     {
+        $this->validasi_biodata = $validasi_biodata;
         view()->share('base_view', $this->base_view);
         view()->share('validasi_biodata_home', true);
     }
@@ -123,10 +126,22 @@ class ValidasiBiodataController extends Controller
         $biodata->status = 1;
         $biodata->save();
 
+        // validasi dgn insert npm
         $validasi->handle($biodata->id);
 
         $this->dispatch(new kirimNotifValidasiBiodata($biodata->id));
-        return 'ok';
+
+        // pesan jika telah tervalidasi
+        $validasi_biodata = $this->validasi_biodata
+                                 ->where('mst_pendaftaran_id', '=', $biodata->mst_pendaftaran_id)
+                                 ->first();
+        if(count($validasi_biodata)>0){
+            $pesan = 'Berhasil Validasi Biodata!!! '.$biodata->nama.', NPM anda '.$validasi_biodata->npm.',
+                      silahkan melanjutkan ke pembayaran melalui Bank yg telah ditentukan.';
+            return $pesan;
+        }
+
+        return 'proses validasi telah berhasil';
     }
 
 

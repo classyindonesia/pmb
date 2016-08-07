@@ -23,7 +23,8 @@
 					alert('error! terjadi kesalahan pada sisi server!');
 				},
 				success:function(ok){
-					$('.modal-body').html('<h1 class="alert alert-success"> <i class="fa fa-check"></i> proses validasi telah berhasil</h1>');
+
+					$('.modal-body').html('<h1 class="alert alert-success"> <i class="fa fa-check"></i> '+ok+'</h1>');
 					
 					$('#myModal').on('hidden.bs.modal', function (e) {
 						window.location.reload();
