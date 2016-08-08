@@ -3,6 +3,7 @@
 use App\Jobs\Job;
 use App\Models\Mst\Biodata;
 use App\Models\Mst\Pendaftaran;
+use App\Models\Mst\ValidasiBiodata;
 use App\Models\Sms;
 use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -38,9 +39,15 @@ class kirimNotifValidasiBiodata extends Job implements SelfHandling, ShouldQueue
 
         $p = Pendaftaran::findOrFail($b->mst_pendaftaran_id);
 
+        $validasi_biodata = ValidasiBiodata::where('mst_pendaftaran_id', '=', $b->mst_pendaftaran_id)->first();
+        if(count($validasi_biodata)>0){
+            $pesan = 'Berhasil Validasi Biodata!!! '.$b->nama.', NPM anda '.$validasi_biodata->npm.',
+                      silahkan melanjutkan ke pembayaran melalui Bank yg telah ditentukan.';
+        }else{
+            $pesan = 'Validasi Biodata Mahasiswa Baru atas nama '.$b->nama.' telah berhasil, 
+                    silahkan melanjutkan ke pembayaran melalui Bank yg telah ditentukan';            
+        }
 
-        $pesan = 'Validasi Biodata Mahasiswa Baru atas nama '.$b->nama.' telah berhasil, 
-				silahkan melanjutkan ke pembayaran melalui Bank yg telah ditentukan';
 
         $data = [
             'kode_pendaftaran'    => $p->no_pendaftaran,
