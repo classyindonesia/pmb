@@ -94,6 +94,19 @@ class Biodata extends Eloquent
             'status',   //0=bs edit,1=tdk bs edit
         ];
 
+    protected $appends = [
+        'fk__validasi_biodata_npm'
+    ];
+
+    public function getFkValidasiBiodataNpmAttribute()
+    {
+        $q = $this->mst_pendaftaran->mst_validasi_biodata()->first();
+        if(count($q)>0){
+            return $q->npm;
+        }
+        return null;
+    }
+
  
 
 

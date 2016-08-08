@@ -10,6 +10,7 @@ use App\Models\Mst\Photo;
 use App\Models\Mst\TesSkill;
 use App\Models\Mst\TesTulis;
 use App\Models\Mst\User;
+use App\Models\Mst\ValidasiBiodata;
 use App\Models\Ref\Prodi;
 use App\Models\Ref\Sma;
 use Illuminate\Database\Eloquent\Model as Eloquent;
@@ -44,6 +45,10 @@ class Pendaftaran extends Eloquent
     protected $appends = ['alamat', 'nama', 'tempat_lahir'];
 
 
+    public function mst_validasi_biodata()
+    {
+        return $this->hasOne(ValidasiBiodata::class, 'mst_pendaftaran_id');
+    }
 
     public function mst_user()
     {

@@ -43,8 +43,8 @@ class exportPdfBiodata extends Job implements SelfHandling
                     '',
                     ''
                     );
-        $javascript = 'this.print(); window.close();';
-        $this->mpdf->SetJS($javascript);
+        // $javascript = 'this.print(); window.close();';
+        // $this->mpdf->SetJS($javascript);
                 
         $html = iconv("UTF-8", "UTF-8//IGNORE", $html);
         $this->mpdf->WriteHTML($html);
