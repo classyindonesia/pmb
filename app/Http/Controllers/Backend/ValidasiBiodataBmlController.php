@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Models\Mst\ValidasiBiodata;
+use App\Services\ValidasiBiodata\doExportExcelService;
 use Illuminate\Http\Request;
 
 class ValidasiBiodataBmlController extends Controller
@@ -39,9 +40,9 @@ class ValidasiBiodataBmlController extends Controller
 		return view($this->base_view.'index', $vars);
 	}
 
-	public function export_excel()
-	{
-		
+	public function export_excel(doExportExcelService $export)
+	{	
+		return $export->handle();
 	}
 
 }
