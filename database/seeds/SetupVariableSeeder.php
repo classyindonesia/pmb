@@ -134,6 +134,25 @@ class SetupVariableSeeder extends Seeder {
             mSV::create(['variable' => 'generate_npm_validasi', 'value' => 1]);
         }
 
+        //hide/show menu validasi pendaftaran lvl camaba
+        $v = mSV::whereVariable('show_menu_validasi_pendaftaran_camaba')->first(); 
+        if(count($v)<=0){
+            mSV::create(['variable' => 'show_menu_validasi_pendaftaran_camaba', 'value' => 1]);
+        }
+
+        //hide/show menu kartu pendaftaran lvl camaba
+        $v = mSV::whereVariable('show_menu_kartu_pendaftaran_camaba')->first(); 
+        if(count($v)<=0){
+            mSV::create(['variable' => 'show_menu_kartu_pendaftaran_camaba', 'value' => 1]);
+        }        
+
+        //hide/show menu validasi pendaftaran lvl camaba
+        $v = mSV::whereVariable('show_menu_informasi_camaba')->first(); 
+        if(count($v)<=0){
+            mSV::create(['variable' => 'show_menu_informasi_camaba', 'value' => 1]);
+        }
+
+
     }
 
     
