@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers\Backend\Camaba;
 
+use App\Helpers\SetupVariable;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Http\Requests\createBiodata;
@@ -53,6 +54,9 @@ class ValidasiBiodataController extends Controller
         } else {
             $check = 0;
         }
+        if(SetupVariable::get('show_menu_polling_camaba') == 0){
+            $check = 1;
+        }
         return $check;
     }
 
@@ -87,7 +91,6 @@ class ValidasiBiodataController extends Controller
                 'ref_ukuran_almamater', 'ref_perguruan_tinggi', 'ref_tinggal', 'ref_pendidikan',
                 'ref_transportasi', 'ref_prodi'
                 );
-
 
         if ($this->check_jawaban_polling() == 1) {
             //jika sudah mengisi polling, menampilkan halaman validasi
