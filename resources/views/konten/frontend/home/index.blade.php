@@ -43,9 +43,12 @@ $(document).ready(function() {
 		@include('layouts.komponen.frontend.sidebar')
 	</div>
 
-		<div class="row">
-		 	<div class="col-md-12">
-				@include($base_view.'statistik')		 		
-		 	</div> 
-	</div>
+	@if(App\Helpers\SetupVariable::get('show_statistik_frontend') == 1)
+			<div class="row">
+			 	<div class="col-md-12">
+					@include($base_view.'statistik')		 		
+			 	</div> 
+		</div>
+	@endif
+	
 @endsection
