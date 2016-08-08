@@ -39,4 +39,9 @@ class ValidasiBiodataBmlController extends Controller
 		return view($this->base_view.'index', $vars);
 	}
 
+	public function export_excel()
+	{
+		
+	}
+
 }

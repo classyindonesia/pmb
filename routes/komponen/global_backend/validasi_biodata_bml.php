@@ -11,6 +11,13 @@ Route::group(['middleware' => 'auth',
             'as'    => 'backend.validasi_biodata_bml.index'
             ]
         );
+
+
+    Route::get('export_excel', [
+            'uses' => 'ValidasiBiodataBmlController@export_excel',
+            'as'    => 'backend.validasi_biodata_bml.export_excel'
+            ]
+        );
  
  
 });
