@@ -49,13 +49,14 @@
                 </a>
             </li>
 
-            @can('showGalleryFrontend', Galery::class)
+
+            @if(SV::get('show_gallery_frontend') == 1)
               <li @if(isset($gallery_home)) class="active" @endif >
                   <a href="{!! route('frontend.gallery.index') !!}"> 
                     <i class='fa fa-image'></i> Gallery
                   </a>
               </li>
-            @endcan
+            @endif
 
 
             @if(SV::get('show_menu_tambahan_frontend') == 1)
