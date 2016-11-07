@@ -1,3 +1,4 @@
+ <script src="/js/plugins/holderjs/holder.min.js"></script>
 <div style="height: 250px;overflow: hidden;" class="thumbnail">
 	@php($foto = $list->mst_galery()->orderBy('id', 'DESC')->first())
 	@if(count($foto)>0)
