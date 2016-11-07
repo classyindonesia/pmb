@@ -141,6 +141,7 @@ return [
 		/*
 		 * Application Service Providers...
 		 */
+		App\Providers\AuthServiceProvider::class,
 		'App\Providers\AppServiceProvider',
 		'App\Providers\ConfigServiceProvider',
 		'App\Providers\EventServiceProvider',
@@ -221,6 +222,8 @@ return [
 		'Excel' 	=> 'Maatwebsite\Excel\Facades\Excel',
 		'Reader'	=> '\PHPExcelReader\SpreadsheetReader',
  		'Feed' 		=> Roumen\Feed\Feed::class,
+ 		'Gate' 		=> Illuminate\Support\Facades\Gate::class,
+
 	],
 
 ];

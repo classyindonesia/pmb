@@ -158,6 +158,12 @@ class SetupVariableSeeder extends Seeder {
             mSV::create(['variable' => 'show_statistik_frontend', 'value' => 1]);
         }
 
+        //hide/show menu gallery frontend
+        $v = mSV::whereVariable('show_gallery_frontend')->first(); 
+        if(count($v)<=0){
+            mSV::create(['variable' => 'show_gallery_frontend', 'value' => 1]);
+        }        
+
 
     }
 

@@ -88,6 +88,7 @@ require base_path('routes/komponen/auth.php');
 require base_path('routes/komponen/password.php');
 
 /* public */
+require base_path('routes/komponen/public/gallery.php');
 require base_path('routes/komponen/public/daftar_file.php');
 require base_path('routes/komponen/public/pendaftaran_online.php');
 require base_path('routes/komponen/public/home.php');

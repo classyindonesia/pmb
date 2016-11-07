@@ -48,6 +48,16 @@
                   <i class='fa fa-newspaper-o'></i> Daftar Berita
                 </a>
             </li>
+
+            @can('showGalleryFrontend', Galery::class)
+              <li @if(isset($gallery_home)) class="active" @endif >
+                  <a href="{!! route('frontend.gallery.index') !!}"> 
+                    <i class='fa fa-image'></i> Gallery
+                  </a>
+              </li>
+            @endcan
+
+
             @if(SV::get('show_menu_tambahan_frontend') == 1)
               @include('layouts.komponen.frontend.nav_atas_tambahan')
             @endif
