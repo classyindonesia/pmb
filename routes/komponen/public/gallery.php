@@ -7,6 +7,11 @@ Route::group(['namespace' => 'Frontend'], function(){
 		'uses'	=> 'GalleryController@index'
 	]);
 
+	Route::get('gallery/images/{mst_album_id}', [
+		'as'	=> 'frontend.gallery.images',
+		'uses'	=> 'GalleryController@images'
+	]);
+
 });
 
 
