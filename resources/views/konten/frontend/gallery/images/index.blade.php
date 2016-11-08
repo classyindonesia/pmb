@@ -17,6 +17,9 @@
   <li class="active">{{ $album_gallery->nama }}</li>
 </ol>
 
+<blockquote>
+{{ $album_gallery->keterangan }}
+</blockquote>
  
 		@include($base_view.'images.image_lists')
 
