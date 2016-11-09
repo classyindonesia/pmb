@@ -52,7 +52,10 @@ Route::group(['namespace' => 'Backend', 'middleware' => 'hanya_web', 'prefix' =>
         'as'                => 'backend.galery.images'
     ]);
 
-
+    Route::post('delete_image', [
+        'uses'              => 'GaleryController@delete_image',
+        'as'                => 'backend.galery.delete_image'
+    ]);
 
 });
 

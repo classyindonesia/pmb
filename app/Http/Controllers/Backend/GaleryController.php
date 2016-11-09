@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Models\Mst\AlbumGalery;
 use App\Models\Mst\Galery;
 use App\Services\Galery\deleteAlbumGaleryService;
+use App\Services\Galery\deleteImageService;
 use App\Services\Galery\doUploadImageService;
 use Illuminate\Http\Request;
 
@@ -97,6 +98,11 @@ class GaleryController extends Controller
         $album = $this->album->find($mst_album_galery_id);
         $vars = compact('album');
         return view($this->base_view.'images.index', $vars);
+    }
+
+    public function delete_image(deleteImageService $delete)
+    {
+        return $delete->handle();
     }
 
 
