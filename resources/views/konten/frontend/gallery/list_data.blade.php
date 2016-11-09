@@ -6,7 +6,7 @@
                     <i class="fa fa-tag"></i> {!! $list->nama !!}
                 </span>
             </h4>
-            <a href="{!! route('home.index') !!}">
+            <a href="{!! route('frontend.gallery.images', $list->id) !!}">
               @include($base_view.'view_gambar_album')
             </a>
             <div style="padding: 10px;margin-top: -3em;">

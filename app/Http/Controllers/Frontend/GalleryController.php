@@ -44,7 +44,7 @@ class GalleryController extends Controller
     	if(count($v)>0){
     		if($v->value == 1){		
 		    	$album_gallery = $this->album_gallery->find($mst_album_id);
-		    	return view($this->base_view.'index', compact('album_gallery'));
+		    	return view($this->base_view.'images.index', compact('album_gallery'));
     		}
     	}else{
     		abort(404);
