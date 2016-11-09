@@ -23,6 +23,7 @@
 @include($base_view.'list_config.c20')
 @include($base_view.'list_config.c21')
 @include($base_view.'list_config.c22')
+@include($base_view.'list_config.c23')
 
    
 

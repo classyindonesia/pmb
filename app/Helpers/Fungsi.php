@@ -3,6 +3,18 @@
 class Fungsi
 {
 
+    public static function hari()
+    {
+        $input=date('D');
+        if($input=='Sun'){$output='Minggu';}
+        if($input=='Mon'){$output='Senin';}
+        if($input=='Tue'){$output='Selasa';}
+        if($input=='Wed'){$output='Rabu';}
+        if($input=='Thu'){$output='Kamis';}
+        if($input=='Fri'){$output='Jumat';}
+        if($input=='Sat'){$output='Sabtu';}
+        return $output;
+    }
 
     public static function selisih_hari($tgl_1, $tgl_2)
     { //format input yyyy-mm-dd

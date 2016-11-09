@@ -55,6 +55,7 @@ Route::group(['prefix' => 'backend'], function () {
     require base_path('routes/komponen/camaba/informasi.php');
     require base_path('routes/komponen/camaba/validasi_biodata.php');
     require base_path('routes/komponen/camaba/polling.php');
+    require base_path('routes/komponen/camaba/isian_pendaftaran.php');
 
 
     /* level baa */

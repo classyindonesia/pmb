@@ -2,20 +2,17 @@
 
 @section('konten_utama')
 
-
-
-  @include('konten.backend.dashboard.camaba.wizard')
-
-  @include($base_view_index.'step_box1')
-  @include($base_view_index.'step_box2')
-  @include($base_view_index.'step_box3')
-  @include($base_view_index.'step_box4')
-
-
+<h3>
+	Selamat Datang Sdr. {!! auth()->user()->nama !!} <br>	
+</h3>
+<hr>
+<h4>
+Sekarang Hari {{ Fungsi::hari() }}, Tanggal {!! Fungsi::date_to_tgl(date('Y-m-d')) !!}, Pukul {!! date('H:i') !!} WIB
+</h4>
 @endsection
 
 
 
 @section('judul_header')
-  <h1 class="title_header"> Biodata Saya </h1>
+  <h1 class="title_header"> Dashboard </h1>
 @endsection

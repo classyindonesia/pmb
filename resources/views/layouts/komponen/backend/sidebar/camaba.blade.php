@@ -5,6 +5,15 @@
           <a href="{!! route('admin_dashboard.index') !!}"> <i class='fa fa-home'></i> Dashboard  </a>
       </li>
  
+      @can('showIsianPendaftaran', \App\Models\Mst\Biodata::class)
+        <li @if(isset($isian_pendaftaran_home)) class="active" @endif>
+            <a href="{!! route('backend.isian_pendaftaran.index') !!}"> 
+              <i class='fa fa-check-square-o'></i> Isian Pendaftaran  
+            </a>
+        </li>
+      @endcan
+      
+
       @if(App\Helpers\SetupVariable::get('show_menu_validasi_pendaftaran_camaba') == 1)
         <li @if(isset($validasi_pendaftaran_home)) class="active" @endif>
             <a href="{!! route('validasi_pendaftaran.index') !!}"> <i class='fa fa-check-square-o'></i> Validasi Pendaftaran  </a>

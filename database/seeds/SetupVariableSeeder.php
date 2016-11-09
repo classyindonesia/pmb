@@ -162,7 +162,13 @@ class SetupVariableSeeder extends Seeder {
         $v = mSV::whereVariable('show_gallery_frontend')->first(); 
         if(count($v)<=0){
             mSV::create(['variable' => 'show_gallery_frontend', 'value' => 1]);
-        }        
+        }    
+
+        //hide/show menu isian pendaftaran  - level camaba
+        $v = mSV::whereVariable('show_isian_pendaftaran_camaba')->first(); 
+        if(count($v)<=0){
+            mSV::create(['variable' => 'show_isian_pendaftaran_camaba', 'value' => 1]);
+        }                
 
 
     }

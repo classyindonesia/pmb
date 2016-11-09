@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use App\Models\Mst\Galery;
-use App\Policies\GalleryPolicy;
+use App\Models\Mst\Biodata;
+use App\Policies\IsianPendaftaranCamabaPolicy;
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -16,7 +16,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         'App\Model' => 'App\Policies\ModelPolicy',
-        // Galery::class => GalleryPolicy::class,
+        Biodata::class => IsianPendaftaranCamabaPolicy::class,
     ];
 
     /**
