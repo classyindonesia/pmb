@@ -37,6 +37,7 @@ Route::group(['prefix' => 'backend'], function () {
     require base_path('routes/komponen/web/foto_slide_utama.php');
     require base_path('routes/komponen/web/menu.php');
     require base_path('routes/komponen/web/galery.php');
+    require base_path('routes/komponen/web/menu2.php');
 
 
 

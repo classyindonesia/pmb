@@ -45,6 +45,15 @@
             </a>
         </li>
 
+        @can('showMenu2', \App\Models\Mst\Menu2::class)
+            <li @if(isset($backend_menu2_home)) class="active" @endif>
+                <a href="{{ URL::route('backend.menu2.index') }}">
+                    <i class='fa fa-th-list'></i> Menu 2
+                </a>
+            </li>
+        @endcan
+
+
 
         <li @if(isset($backend_galery_home)) class="active" @endif>
             <a href="{{ URL::route('backend.galery.index') }}">
