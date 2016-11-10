@@ -14,8 +14,9 @@
 		<tr>
 			<td class="text-center">{!! $no !!}</td>
 			<td> 
-
-			<i class="{!! $list->icon !!}"></i>  {!! $list->nama !!}
+			<span style="border-bottom: 3px solid {!! $list->kode_warna !!};"> 
+					<i class="{!! $list->icon !!}"></i>  {!! $list->nama !!}
+			</span>
 
 			</td>
 			<td>{!! $list->url !!}</td>
