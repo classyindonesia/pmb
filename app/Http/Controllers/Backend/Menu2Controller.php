@@ -38,7 +38,7 @@ class Menu2Controller extends Controller
     		'nama'			=> 'required',
     		'kode_warna'	=> 'required',
     		'keterangan'	=> 'required',
-    		'url'			=> 'required'
+    		'url'			=> 'required|url'
     	]);
     	return $this->menu2->create(request()->except('_token'));
     }
@@ -55,7 +55,7 @@ class Menu2Controller extends Controller
     		'nama'			=> 'required',
     		'kode_warna'	=> 'required',
     		'keterangan'	=> 'required',
-    		'url'			=> 'required'
+    		'url'			=> 'required|url'
     	]);
     	$this->menu2->whereId(request()->id)->update(request()->except('_token'));    	
     	return 'ok';
