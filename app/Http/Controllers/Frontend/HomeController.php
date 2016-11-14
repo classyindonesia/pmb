@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers\Frontend;
 
+use App\Helpers\SetupVariable as SV;
 use App\Http\Controllers\Controller;
 use App\Models\Mst\Berita;
 use App\Models\Mst\Hit;
@@ -23,7 +24,7 @@ class HomeController extends Controller
     {
         $hits = $this->hits;
         $foto_slide_utama = SlideUtama::take(10)->orderByRaw("RAND()")->get();
-        $berita = Berita::orderBy('id', 'DESC')->take(5)->whereIsPublished(1)->get();
+        $berita = Berita::orderBy('id', 'DESC')->take(SV::get('jml_berita_frontend'))->whereIsPublished(1)->get();
         return view($this->base_view.'index', compact('berita', 'foto_slide_utama', 'hits'));
     }
 }

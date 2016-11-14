@@ -170,6 +170,12 @@ class SetupVariableSeeder extends Seeder {
             mSV::create(['variable' => 'show_isian_pendaftaran_camaba', 'value' => 1]);
         }                
 
+        //jml berita di halaman depan
+        $v = mSV::whereVariable('jml_berita_frontend')->first(); 
+        if(count($v)<=0){
+            mSV::create(['variable' => 'jml_berita_frontend', 'value' => 8]);
+        }                
+
 
     }
 
